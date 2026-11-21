@@ -5,106 +5,155 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Backlog Triage Copilot - AI Product Management</title>
 <style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#111827;color:#f3f4f6;color-scheme:dark}
-header{background:#1f2937;color:#f9fafb;padding:20px 24px;border-bottom:1px solid #374151}
+/* ---- Theme tokens, ported verbatim from the preview artifact ----
+   Light is the default. Dark follows the system preference unless the
+   user picks a theme with the Theme toggle in the header; the choice is
+   stored in localStorage ('triage-theme'). Tokens marked DERIVED were
+   not in the preview token list supplied and were chosen to match the
+   palette; see the verification report for the full list. */
+:root{
+  --bg:#f4f5f3; --surface:#ffffff; --brand:#0f4c3a; --accent:#c47a1a;
+  --blue:#175cd3; --green:#137547;
+  --amber-bg:#fdf3e3; --amber-border:#e6c98a;
+  /* DERIVED: text/muted/border neutrals in the preview's green-grey family */
+  --text:#1d2420; --muted:#5c6b62; --border:#d9ded9; --border-strong:#b9c4bb;
+  --on-brand:#ffffff; --on-brand-muted:#d3e2d9; --on-brand-btn:#ffffff;
+  --brand-hover:#0b3d2e;
+  --header-bg:#0f4c3a; --header-border:rgba(255,255,255,.18);
+  --btn:#eef1ee; --btn-text:#1d2420; --hover-bg:rgba(15,76,58,.06);
+  --input-bg:#ffffff; --link:#175cd3;
+  --amber-text:#5b3a0e;
+  --ok-bg:#dcf5e5; --ok-text:#137547; --ok-border:#b7e5c8;
+  --warn-bg:#fdf3e3; --warn-text:#7a4d0d; --warn-border:#e6c98a;
+  --err-bg:#fde8e8; --err-text:#991b1b; --err-border:#f3c2c2;
+  --neutral-bg:#eef1ee; --neutral-text:#3f4a44;
+  --kpi-bg:#e6eefc; --kpi-text:#175cd3; --kpi-border:#b7cdf3;
+  --danger-text:#b91c1c;
+  --shadow:0 4px 12px rgba(20,40,28,.12);
+  --dialog-shadow:0 8px 32px rgba(20,40,28,.25);
+  color-scheme:light;
+}
+html[data-theme="dark"]{
+  --bg:#121614; --surface:#1a1f1c; --brand:#3ecf9e; --accent:#c47a1a;
+  --blue:#7dd8b5; --green:#3ecf9e;
+  --amber-bg:#3a2f18; --amber-border:#6b5a2e;
+  /* DERIVED: dark neutrals tinted to match --surface (#1a1f1c) */
+  --text:#e8edea; --muted:#9fb3a8; --border:#2a3530; --border-strong:#3d4a43;
+  --on-brand:#ffffff; --on-brand-muted:#cfe8dc; --on-brand-btn:#0d2b21;
+  --brand-hover:#35b889;
+  --header-bg:#0d2b21; --header-border:rgba(255,255,255,.18);
+  --btn:#223029; --btn-text:#e8edea; --hover-bg:rgba(62,207,158,.08);
+  --input-bg:#1a1f1c; --link:#7dd8b5;
+  --amber-text:#f5e6c8;
+  --ok-bg:#14532d; --ok-text:#bbf7d0; --ok-border:#166534;
+  --warn-bg:#78350f; --warn-text:#fde68a; --warn-border:#92400e;
+  --err-bg:#7f1d1d; --err-text:#fecaca; --err-border:#991b1b;
+  --neutral-bg:#223029; --neutral-text:#c8d4cc;
+  --kpi-bg:#14332a; --kpi-text:#7dd8b5; --kpi-border:#1f4d3a;
+  --danger-text:#fecaca;
+  --shadow:0 4px 12px rgba(0,0,0,.35);
+  --dialog-shadow:0 8px 32px rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:var(--bg);color:var(--text)}
+header{background:var(--header-bg);color:var(--on-brand);padding:20px 24px;border-bottom:1px solid var(--header-border)}
 .shell{max-width:1200px;margin:0 auto}
-.tagline{color:#d1d5db;margin:4px 0 0;font-size:15px}
+.tagline{color:var(--on-brand-muted);margin:4px 0 0;font-size:15px}
 header h1{margin:0 0 8px;font-size:28px}
 header p{margin:4px 0;max-width:900px;line-height:1.5}
-header .showcase{color:#fbbf24;font-size:14px}
+header .showcase{color:var(--on-brand);font-size:14px}
 .header-row{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
 .header-row details.about{flex:1 1 260px;min-width:0}
-.pack-select-label{flex:0 1 220px;color:#fbbf24;font-size:13px;font-weight:700;white-space:nowrap}
-.pack-select-label select{display:block;width:100%;max-width:220px;margin-top:4px;background:#111827;color:#f3f4f6;border:1px solid #4b5563}
+.pack-select-label{flex:0 1 220px;color:var(--on-brand);font-size:13px;font-weight:700;white-space:nowrap}
+.pack-select-label select{display:block;width:100%;max-width:220px;margin-top:4px;background:var(--surface);color:var(--text);border:1px solid var(--border-strong)}
 @media (max-width:520px){.pack-select-label{flex:0 1 170px}.pack-select-label select{max-width:170px}}
-nav{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;background:#1f2937;border-bottom:1px solid #374151}
-button{cursor:pointer;border:1px solid #4b5563;background:#374151;color:#f9fafb;padding:8px 12px;border-radius:8px;font-size:14px}
+button{cursor:pointer;border:1px solid var(--border-strong);background:var(--btn);color:var(--btn-text);padding:8px 12px;border-radius:8px;font-size:14px}
 button.primary{background:#fbbf24;color:#1f2937;border-color:#fbbf24;font-weight:700}
-button.primary:disabled{background:#374151;color:#d1d5db;border-color:#374151}
-button.active{background:#7c2d12;color:#f9fafb;border-color:#7c2d12}
-button.btn-approve{background:#15803d;color:#f9fafb;border-color:#166534;font-weight:600}
-button.btn-reject{background:#dc2626;color:#f9fafb;border-color:#b91c1c;font-weight:600}
-button.btn-edit{background:#374151;color:#f9fafb;border-color:#6b7280}
-button.btn-approved{background:#15803d;color:#f9fafb;border-color:#166534;font-weight:700}
-button.btn-rejected{background:#b91c1c;color:#f9fafb;border-color:#991b1b;font-weight:700}
+button.primary:disabled{background:var(--neutral-bg);color:var(--muted);border-color:var(--border)}
+button.btn-approve{background:#15803d;color:#ffffff;border-color:#166534;font-weight:600}
+button.btn-reject{background:#dc2626;color:#ffffff;border-color:#b91c1c;font-weight:600}
+button.btn-edit{background:var(--btn);color:var(--btn-text);border-color:var(--border-strong)}
+button.btn-approved{background:#15803d;color:#ffffff;border-color:#166534;font-weight:700}
+button.btn-rejected{background:#b91c1c;color:#ffffff;border-color:#991b1b;font-weight:700}
 button:disabled{cursor:default;opacity:0.85}
 button.btn-approve:disabled,button.btn-reject:disabled,button.btn-edit:disabled{opacity:0.45}
 .status-pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;margin-left:8px}
-.status-pill.pending{background:#374151;color:#e5e7eb}
-.status-pill.approved{background:#14532d;color:#bbf7d0}
-.status-pill.rejected{background:#7f1d1d;color:#fecaca}
+.status-pill.pending{background:var(--neutral-bg);color:var(--neutral-text)}
+.status-pill.approved{background:var(--ok-bg);color:var(--ok-text)}
+.status-pill.rejected{background:var(--err-bg);color:var(--err-text)}
 .pagination{margin:12px 0}
 .pagination .pager-row{display:inline-flex;align-items:center;gap:4px}
 .pagination button{margin:0 2px}
 .pagination button.active{background:#15803d;color:#ffffff;border-color:#15803d;font-weight:700}
-.pagination .ellipsis{color:#9ca3af;margin:0 4px}
-.pagination strong.page-label{margin-left:8px;color:#f3f4f6}
+.pagination .ellipsis{color:var(--muted);margin:0 4px}
+.pagination strong.page-label{margin-left:8px;color:var(--text)}
 .tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;margin:2px 4px 2px 0;white-space:nowrap}
 .theme-tag{border:1px solid transparent}
-.source-tag{background:#374151;border:1px solid #6b7280;color:#e5e7eb}
-.kpi-tag{background:#1e3a8a;color:#bfdbfe;border:1px solid #3b82f6}
-.conf-high{background:#14532d;color:#bbf7d0}
-.conf-medium{background:#78350f;color:#fde68a}
-.conf-low{background:#7f1d1d;color:#fecaca}
+.source-tag{background:var(--neutral-bg);border:1px solid var(--border-strong);color:var(--neutral-text)}
+.kpi-tag{background:var(--kpi-bg);color:var(--kpi-text);border:1px solid var(--kpi-border)}
+.conf-high{background:var(--ok-bg);color:var(--ok-text)}
+.conf-medium{background:var(--warn-bg);color:var(--warn-text)}
+.conf-low{background:var(--err-bg);color:var(--err-text)}
 main{padding:20px 24px;max-width:1200px;margin:0 auto}
-.card{background:#232f42;border:1px solid #6b7280;border-top:3px solid #6b7280;border-radius:12px;padding:16px;margin:0 0 20px;box-shadow:0 4px 12px rgba(0,0,0,.35);color:#f3f4f6}
-a{color:#93c5fd}
-.badge{display:inline-block;background:#7f1d1d;color:#fecaca;padding:2px 8px;border-radius:999px;font-size:12px;margin-left:8px}
-.badge.ok{background:#14532d;color:#bbf7d0}
+.card{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--border-strong);border-radius:12px;padding:16px;margin:0 0 20px;box-shadow:var(--shadow);color:var(--text)}
+a{color:var(--link)}
+.badge{display:inline-block;background:var(--err-bg);color:var(--err-text);padding:2px 8px;border-radius:999px;font-size:12px;margin-left:8px}
+.badge.ok{background:var(--ok-bg);color:var(--ok-text)}
 .tab{display:none}
 .tab.show{display:block}
-input,select{padding:8px;border:1px solid #4b5563;border-radius:8px;font-size:14px;background:#111827;color:#f3f4f6}
-.muted{color:#9ca3af;font-size:14px}
+input,select{padding:8px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;background:var(--input-bg);color:var(--text)}
+.muted{color:var(--muted);font-size:14px}
+#modeNote{color:var(--on-brand-muted)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 4px}
-.new-banner{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#451a03;border:1px solid #b45309;color:#fde68a;border-radius:12px;padding:14px 16px;margin:12px 0;font-weight:700;font-size:15px}
+.new-banner{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--amber-bg);border:1px solid var(--amber-border);color:var(--amber-text);border-radius:12px;padding:14px 16px;margin:12px 0;font-weight:700;font-size:15px}
 .new-banner[hidden]{display:none}
 .counts-block{display:block;margin:12px 0 0}
-.actionbar{position:sticky;top:0;z-index:30;display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 24px;background:#1f2937;border-bottom:1px solid #374151}
+.actionbar{position:sticky;top:0;z-index:30;display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 24px;background:var(--surface);border-bottom:1px solid var(--border)}
 .actionbar button:disabled{opacity:0.45;cursor:default}
-.csv-label{display:inline-block;cursor:pointer;background:#2563eb;color:#fff;border-color:#2563eb;font-weight:700;padding:8px 12px;border-radius:8px;font-size:14px}
-#syncBtn{background:#2563eb;color:#fff;border-color:#2563eb;font-weight:700}
-#syncBtn:hover,.csv-label:hover{background:#1d4ed8;border-color:#1d4ed8}
-#templateBtn,#reloadBtn{background:transparent;color:#9ca3af;border:1px solid #374151;font-weight:400}
-#templateBtn:hover,#reloadBtn:hover{color:#d1d5db;border-color:#6b7280;background:rgba(255,255,255,0.04)}
+.csv-label{display:inline-block;cursor:pointer;background:var(--brand);color:var(--on-brand-btn);border-color:var(--brand);font-weight:700;padding:8px 12px;border-radius:8px;font-size:14px}
+#syncBtn{background:var(--brand);color:var(--on-brand-btn);border-color:var(--brand);font-weight:700}
+#syncBtn:hover,.csv-label:hover{background:var(--brand-hover);border-color:var(--brand-hover)}
+#templateBtn,#reloadBtn{background:transparent;color:var(--muted);border:1px solid var(--border);font-weight:400}
+#templateBtn:hover,#reloadBtn:hover{color:var(--text);border-color:var(--border-strong);background:var(--hover-bg)}
 #csvFile{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 details.about{margin:4px 0}
-details.about summary{cursor:pointer;color:#fbbf24;font-weight:700}
-details.about p{color:#fff}
+details.about summary{cursor:pointer;color:var(--on-brand);font-weight:700}
+details.about p{color:var(--on-brand)}
 details.panel-about{margin:4px 0}
 details.panel-about summary{cursor:pointer;font-weight:700}
 .tab-badge{display:inline-block;background:#dc2626;color:#fff;border-radius:999px;font-size:11px;font-weight:700;padding:2px 8px;margin-left:6px;white-space:nowrap}
-.tab-badge.neutral{background:#374151;color:#e5e7eb}
+.tab-badge.neutral{background:var(--neutral-bg);color:var(--neutral-text)}
 .tab-badge[hidden]{display:none}
 .viewnav{display:flex;gap:8px;flex-wrap:wrap;width:100%;margin-top:4px}
 .viewnav button.active{background:#15803d;color:#ffffff;border-color:#15803d;font-weight:700}
-.stat-card{background:#1f2937;border:1px solid #374151;border-radius:12px;padding:16px 18px}
-.stat-label{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#d1d5db}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.stat-label{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
 .stat-value{font-size:32px;font-weight:800;line-height:1.2;margin:6px 0}
-.stat-sub{font-size:13px;color:#9ca3af;line-height:1.4}
+.stat-sub{font-size:13px;color:var(--muted);line-height:1.4}
 @media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.stats{grid-template-columns:1fr}}
 @media (max-width:480px){.tag{white-space:normal}.card{padding:14px}}
-.mode-block{flex:0 0 auto}
-.mode-label{color:#fbbf24;font-size:13px;font-weight:700;margin-bottom:4px}
-.mode-toggle{display:inline-flex;border:1px solid #4b5563;border-radius:8px;overflow:hidden}
-.mode-toggle button{border:0;border-radius:0;background:#1f2937;color:#f3f4f6;padding:8px 14px}
-.mode-toggle button[aria-pressed="true"]{background:#15803d;color:#ffffff;font-weight:700}
-.mode-toggle button:focus-visible{outline:2px solid #93c5fd;outline-offset:-2px}
+.mode-block,.theme-block{flex:0 0 auto}
+.mode-label,.theme-label{color:var(--on-brand);font-size:13px;font-weight:700;margin-bottom:4px}
+.mode-toggle,.theme-toggle{display:inline-flex;border:1px solid rgba(255,255,255,.4);border-radius:8px;overflow:hidden}
+.mode-toggle button,.theme-toggle button{border:0;border-radius:0;background:transparent;color:var(--on-brand);padding:8px 14px}
+.mode-toggle button[aria-pressed="true"],.theme-toggle button[aria-pressed="true"]{background:#ffffff;color:#0f4c3a;font-weight:700}
+.mode-toggle button:focus-visible,.theme-toggle button:focus-visible{outline:2px solid #ffffff;outline-offset:-2px}
 .card p{margin:8px 0}
-footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid #374151;color:#9ca3af;font-size:13px;line-height:1.6}
+footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:13px;line-height:1.6}
 .filters-card{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .filters-card label{display:flex;gap:6px;align-items:center}
 #backlogSearch{flex:1 1 280px;min-width:240px}
 .dialog-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;z-index:100}
 .dialog-overlay[hidden]{display:none}
-.dialog{background:#1f2937;border:1px solid #6b7280;border-radius:12px;padding:20px;width:100%;max-width:640px;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+.dialog{background:var(--surface);border:1px solid var(--border-strong);border-radius:12px;padding:20px;width:100%;max-width:640px;box-shadow:var(--dialog-shadow)}
 .dialog h3{margin:0 0 12px}
-.dialog textarea,.dialog input[type="text"]{width:100%;box-sizing:border-box;padding:10px;border:1px solid #4b5563;border-radius:8px;font-size:14px;background:#111827;color:#f3f4f6;font-family:inherit}
+.dialog textarea,.dialog input[type="text"]{width:100%;box-sizing:border-box;padding:10px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;background:var(--input-bg);color:var(--text);font-family:inherit}
 .dialog textarea{resize:vertical}
 .dialog-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
 .dialog label{display:block;margin:10px 0 4px;font-weight:600}
-.skeleton-card{background:#1f2937;border:1px dashed #4b5563;border-radius:12px;padding:16px;margin:0 0 20px;color:#9ca3af}
-.csv-label:focus-visible{outline:2px solid #93c5fd;outline-offset:2px}
+.skeleton-card{background:var(--surface);border:1px dashed var(--border-strong);border-radius:12px;padding:16px;margin:0 0 20px;color:var(--muted)}
+.csv-label:focus-visible{outline:2px solid var(--link);outline-offset:2px}
 @media (max-width:520px){#backlogSearch{flex-basis:100%;min-width:0}.filters-card label{flex-basis:100%}.dialog{padding:16px}.dialog-overlay{padding:16px 8px}
   /* Mobile pager: one non-wrapping flex row. Icon-only prev/next and
      first/last plus current ±1 numbers (rendered by paginationHtml),
@@ -116,6 +165,22 @@ footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid #374151;color:#9c
   .pagination strong.page-label{display:block;margin:8px 0 0}
   .showing-line{display:block}}
 </style>
+<script>
+// Color theme (light/dark), applied before first paint so there is no
+// flash of the wrong theme. An explicit choice in localStorage
+// ('triage-theme') wins; otherwise follow prefers-color-scheme. The
+// Theme toggle in the header (wired in the main script) changes this.
+(function(){
+  try{
+    var s = localStorage.getItem('triage-theme');
+    var t = (s === 'light' || s === 'dark') ? s :
+      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
 </head>
 <body>
 <header>
@@ -139,6 +204,13 @@ footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid #374151;color:#9c
 <button id="modeLiveBtn" type="button" aria-pressed="false">Live</button>
 </div>
 </div>
+<div class="theme-block">
+<div class="theme-label">Theme</div>
+<div class="theme-toggle" role="group" aria-label="Light or dark color theme">
+<button id="themeLightBtn" type="button" aria-pressed="true">Light</button>
+<button id="themeDarkBtn" type="button" aria-pressed="false">Dark</button>
+</div>
+</div>
 </div>
 <p id="modeNote" class="muted" style="margin:8px 0 0"></p>
 </div>
@@ -160,7 +232,7 @@ footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid #374151;color:#9c
 <p class="muted">Session only: reloading this page wipes decisions, scores, the archive, edits, uploads, and deletes. Export anything you want to keep.</p>
 <p id="counts" class="muted counts-block"></p>
 <p id="newSince" class="muted"></p>
-<p id="csvError" class="muted" style="color:#fca5a5"></p>
+<p id="csvError" class="muted" style="color:var(--danger-text)"></p>
 <div id="newBanner" class="new-banner" role="status" hidden><span id="newBannerText"></span></div>
 <div id="status" class="muted">Loading data. If you opened this file directly, serve the folder with <code>npm run dev</code> so data/*.json can load.</div>
 <section id="tab-backlog" class="tab show">
@@ -203,7 +275,7 @@ footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid #374151;color:#9c
 <div id="decisionReviewerRow"><label for="decisionReviewerField">Your name (reviewer, saved with each decision for this session)</label><input id="decisionReviewerField" type="text"></div>
 <label for="decisionReasonField">Reason <span id="decisionReasonFor"></span>(saved with the decision)</label>
 <textarea id="decisionReasonField" rows="4"></textarea>
-<p id="decisionError" class="muted" style="color:#fca5a5"></p>
+<p id="decisionError" class="muted" style="color:var(--danger-text)"></p>
 <div class="dialog-actions"><button id="decisionCancelBtn" type="button">Cancel</button><button id="decisionSaveBtn" type="button" class="primary">Save decision</button></div>
 </div>
 </div>
@@ -1617,6 +1689,45 @@ var _modeDemoBtn = document.getElementById('modeDemoBtn');
 if (_modeDemoBtn) _modeDemoBtn.onclick = function(){ setMode('demo'); };
 var _modeLiveBtn = document.getElementById('modeLiveBtn');
 if (_modeLiveBtn) _modeLiveBtn.onclick = function(){ setMode('live'); };
+// Light / dark color theme. This is a display setting only and is
+// separate from the Demo / Live scoring-mode toggle above: it changes
+// colors, never scoring. An explicit choice is stored in localStorage
+// ('triage-theme') and wins over the system preference; with no stored
+// choice the page follows prefers-color-scheme, and keeps following it
+// if the OS theme changes while the page is open.
+var THEME_STORAGE_KEY = 'triage-theme';
+function systemTheme(){
+  return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+}
+function storedTheme(){
+  try { var s = localStorage.getItem(THEME_STORAGE_KEY); return (s === 'light' || s === 'dark') ? s : null; }
+  catch (e) { return null; }
+}
+function applyTheme(theme){
+  document.documentElement.setAttribute('data-theme', theme);
+  var lightBtn = document.getElementById('themeLightBtn');
+  var darkBtn = document.getElementById('themeDarkBtn');
+  if (lightBtn) lightBtn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+  if (darkBtn) darkBtn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+}
+function setTheme(theme){
+  if (theme !== 'light' && theme !== 'dark') return;
+  try { localStorage.setItem(THEME_STORAGE_KEY, theme); } catch (e) {}
+  applyTheme(theme);
+}
+var _themeLightBtn = document.getElementById('themeLightBtn');
+if (_themeLightBtn) _themeLightBtn.onclick = function(){ setTheme('light'); };
+var _themeDarkBtn = document.getElementById('themeDarkBtn');
+if (_themeDarkBtn) _themeDarkBtn.onclick = function(){ setTheme('dark'); };
+// Sync the toggle with the theme the <head> script already applied, and
+// keep following the OS theme while no explicit choice is stored.
+applyTheme(storedTheme() || systemTheme());
+if (window.matchMedia) {
+  var _themeMq = window.matchMedia('(prefers-color-scheme: dark)');
+  var _onThemeMqChange = function(){ if (!storedTheme()) applyTheme(systemTheme()); };
+  if (_themeMq.addEventListener) _themeMq.addEventListener('change', _onThemeMqChange);
+  else if (_themeMq.addListener) _themeMq.addListener(_onThemeMqChange);
+}
 document.getElementById('kpiFilter').onchange = function(){ backlogPage = 1; renderBacklog(); };
 var _backlogSearch = document.getElementById('backlogSearch');
 if (_backlogSearch) _backlogSearch.oninput = function(){ backlogPage = 1; renderBacklog(); };
