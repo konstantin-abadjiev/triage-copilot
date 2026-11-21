@@ -1,0 +1,302 @@
+[
+  {
+    "id": "EVAL-FIN-01",
+    "title": "Chargeback alerts",
+    "ground_truth_theme": "Fraud",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-02",
+    "title": "Dispute deadline reminders",
+    "ground_truth_theme": "Disputes",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-03",
+    "title": "Follow up: Suspicious login alerts",
+    "ground_truth_theme": "Fraud",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-04",
+    "title": "Chargeback alerts",
+    "ground_truth_theme": "Fraud",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-05",
+    "title": "Revenue dashboard",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-06",
+    "title": "AML transaction monitoring",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-07",
+    "title": "Tax summary report",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-08",
+    "title": "Re-verification reminders",
+    "ground_truth_theme": "KYC",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-09",
+    "title": "Onboarding progress email",
+    "ground_truth_theme": "Onboarding",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-10",
+    "title": "Minimum payout threshold",
+    "ground_truth_theme": "Payouts",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-11",
+    "title": "Request: Dispute deadline reminders",
+    "ground_truth_theme": "Disputes",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-12",
+    "title": "Request: Business profile completion",
+    "ground_truth_theme": "Onboarding",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-13",
+    "title": "Follow up: Document upload for verification",
+    "ground_truth_theme": "KYC",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-14",
+    "title": "Customer message in disputes",
+    "ground_truth_theme": "Disputes",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-15",
+    "title": "Demo data in test mode",
+    "ground_truth_theme": "Onboarding",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-16",
+    "title": "Request: Suspicious login alerts",
+    "ground_truth_theme": "Fraud",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-17",
+    "title": "Next-day payouts",
+    "ground_truth_theme": "Payouts",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-18",
+    "title": "Automated business registry check",
+    "ground_truth_theme": "KYC",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-19",
+    "title": "Test mode for payments",
+    "ground_truth_theme": "Onboarding",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-20",
+    "title": "Beneficial owner form",
+    "ground_truth_theme": "KYC",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-21",
+    "title": "Partial refund in a dispute",
+    "ground_truth_theme": "Disputes",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-22",
+    "title": "Customer payment report",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-23",
+    "title": "Audit trail export",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-24",
+    "title": "Related: Customer payment report",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-25",
+    "title": "Related: Customer message in disputes",
+    "ground_truth_theme": "Disputes",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-26",
+    "title": "Re-verification reminders",
+    "ground_truth_theme": "KYC",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-27",
+    "title": "Failed payout retry",
+    "ground_truth_theme": "Payouts",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-28",
+    "title": "Next-day payouts",
+    "ground_truth_theme": "Payouts",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-29",
+    "title": "Related: Failed payout retry",
+    "ground_truth_theme": "Payouts",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-30",
+    "title": "Guided onboarding checklist",
+    "ground_truth_theme": "Onboarding",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-31",
+    "title": "Suspicious login alerts",
+    "ground_truth_theme": "Fraud",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-32",
+    "title": "Consent log",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-33",
+    "title": "Related: Payout schedule settings",
+    "ground_truth_theme": "Payouts",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-34",
+    "title": "Follow up: Beneficial owner form",
+    "ground_truth_theme": "KYC",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-35",
+    "title": "Related: Dispute outcome report",
+    "ground_truth_theme": "Disputes",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-36",
+    "title": "Invite team members",
+    "ground_truth_theme": "Onboarding",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-37",
+    "title": "Instant payout option (rephrased request)",
+    "ground_truth_theme": "Payouts",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-38",
+    "title": "Business profile completion (rephrased request)",
+    "ground_truth_theme": "Onboarding",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-39",
+    "title": "Request: Failed payout retry (rephrased request)",
+    "ground_truth_theme": "Payouts",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-40",
+    "title": "Chargeback alerts (rephrased request)",
+    "ground_truth_theme": "Fraud",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-41",
+    "title": "Address verification (rephrased request)",
+    "ground_truth_theme": "KYC",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-42",
+    "title": "Allowlist for trusted payers (rephrased request)",
+    "ground_truth_theme": "Fraud",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-43",
+    "title": "Related: Customer message in disputes (rephrased request)",
+    "ground_truth_theme": "Disputes",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-44",
+    "title": "Request: Suspicious login alerts (rephrased request)",
+    "ground_truth_theme": "Fraud",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-45",
+    "title": "Access controls for staff (rephrased request)",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-46",
+    "title": "Follow up: Payout to multiple accounts (rephrased request)",
+    "ground_truth_theme": "Payouts",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-47",
+    "title": "Document upload for verification (rephrased request)",
+    "ground_truth_theme": "KYC",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-48",
+    "title": "Request: Customer payment report (rephrased request)",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-49",
+    "title": "Request: Access controls for staff (rephrased request)",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-FIN-50",
+    "title": "Demo data in test mode (rephrased request)",
+    "ground_truth_theme": "Onboarding",
+    "expected_score_band": "Medium"
+  }
+]

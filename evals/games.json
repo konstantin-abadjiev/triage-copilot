@@ -1,0 +1,302 @@
+[
+  {
+    "id": "EVAL-GAM-01",
+    "title": "Follow up: Invite friends to a match",
+    "ground_truth_theme": "Social/Friends & Clans",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-02",
+    "title": "Offline mode",
+    "ground_truth_theme": "Platform/Saves & Performance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-03",
+    "title": "Achievement system",
+    "ground_truth_theme": "Progression & Achievements",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-04",
+    "title": "Accessibility options",
+    "ground_truth_theme": "Safety/Accessibility & Controls",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-05",
+    "title": "Seasonal events",
+    "ground_truth_theme": "Live Events & Seasonal Content",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-06",
+    "title": "Daily quests",
+    "ground_truth_theme": "Progression & Achievements",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-07",
+    "title": "In-game chat",
+    "ground_truth_theme": "Social/Friends & Clans",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-08",
+    "title": "Related: Battle pass",
+    "ground_truth_theme": "Monetization & Battle Pass",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-09",
+    "title": "Purchase history",
+    "ground_truth_theme": "Monetization & Battle Pass",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-10",
+    "title": "Reporting and moderation",
+    "ground_truth_theme": "Safety/Accessibility & Controls",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-11",
+    "title": "Related: Reporting and moderation",
+    "ground_truth_theme": "Safety/Accessibility & Controls",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-12",
+    "title": "Request: Rematch button",
+    "ground_truth_theme": "Matchmaking & Ranked",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-13",
+    "title": "Related: Live event calendar",
+    "ground_truth_theme": "Live Events & Seasonal Content",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-14",
+    "title": "Cross-platform save",
+    "ground_truth_theme": "Platform/Saves & Performance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-15",
+    "title": "Invite friends to a match",
+    "ground_truth_theme": "Social/Friends & Clans",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-16",
+    "title": "Event quests",
+    "ground_truth_theme": "Live Events & Seasonal Content",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-17",
+    "title": "Reporting and moderation",
+    "ground_truth_theme": "Safety/Accessibility & Controls",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-18",
+    "title": "Interactive onboarding tutorial",
+    "ground_truth_theme": "Onboarding & Tutorials",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-19",
+    "title": "Request: Clan leaderboards",
+    "ground_truth_theme": "Social/Friends & Clans",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-20",
+    "title": "Help centre in game",
+    "ground_truth_theme": "Onboarding & Tutorials",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-21",
+    "title": "Daily quests",
+    "ground_truth_theme": "Progression & Achievements",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-22",
+    "title": "Related: Holiday themed content",
+    "ground_truth_theme": "Live Events & Seasonal Content",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-23",
+    "title": "Achievement system",
+    "ground_truth_theme": "Progression & Achievements",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-24",
+    "title": "Rematch button",
+    "ground_truth_theme": "Matchmaking & Ranked",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-25",
+    "title": "Starter quest line",
+    "ground_truth_theme": "Onboarding & Tutorials",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-26",
+    "title": "Related: First time user flow",
+    "ground_truth_theme": "Onboarding & Tutorials",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-27",
+    "title": "Request: Clan leaderboards",
+    "ground_truth_theme": "Social/Friends & Clans",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-28",
+    "title": "Free trial of battle pass",
+    "ground_truth_theme": "Monetization & Battle Pass",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-29",
+    "title": "Unlockable cosmetics",
+    "ground_truth_theme": "Progression & Achievements",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-30",
+    "title": "Purchase history",
+    "ground_truth_theme": "Monetization & Battle Pass",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-31",
+    "title": "Related: Interactive onboarding tutorial",
+    "ground_truth_theme": "Onboarding & Tutorials",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-32",
+    "title": "Anti-cheat",
+    "ground_truth_theme": "Safety/Accessibility & Controls",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-33",
+    "title": "Request: Holiday themed content",
+    "ground_truth_theme": "Live Events & Seasonal Content",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-34",
+    "title": "Controller support",
+    "ground_truth_theme": "Platform/Saves & Performance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-35",
+    "title": "Follow up: Cross-platform save",
+    "ground_truth_theme": "Platform/Saves & Performance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-36",
+    "title": "First time user flow",
+    "ground_truth_theme": "Onboarding & Tutorials",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-37",
+    "title": "Request: Weekly challenges (rephrased request)",
+    "ground_truth_theme": "Progression & Achievements",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-38",
+    "title": "Battle pass (rephrased request)",
+    "ground_truth_theme": "Monetization & Battle Pass",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-39",
+    "title": "Free trial of battle pass (rephrased request)",
+    "ground_truth_theme": "Monetization & Battle Pass",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-40",
+    "title": "Level progression (rephrased request)",
+    "ground_truth_theme": "Progression & Achievements",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-41",
+    "title": "Offline mode (rephrased request)",
+    "ground_truth_theme": "Platform/Saves & Performance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-42",
+    "title": "Battle pass (rephrased request)",
+    "ground_truth_theme": "Monetization & Battle Pass",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-43",
+    "title": "Related: First time user flow (rephrased request)",
+    "ground_truth_theme": "Onboarding & Tutorials",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-44",
+    "title": "Leaderboards by region (rephrased request)",
+    "ground_truth_theme": "Matchmaking & Ranked",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-45",
+    "title": "Related: In-game chat (rephrased request)",
+    "ground_truth_theme": "Social/Friends & Clans",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-46",
+    "title": "Request: Offline mode (rephrased request)",
+    "ground_truth_theme": "Platform/Saves & Performance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-47",
+    "title": "Request: Seasonal events (rephrased request)",
+    "ground_truth_theme": "Live Events & Seasonal Content",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-48",
+    "title": "Related: Event quests (rephrased request)",
+    "ground_truth_theme": "Live Events & Seasonal Content",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-GAM-49",
+    "title": "Seasonal events (rephrased request)",
+    "ground_truth_theme": "Live Events & Seasonal Content",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-50",
+    "title": "Follow up: Help centre in game (rephrased request)",
+    "ground_truth_theme": "Onboarding & Tutorials",
+    "expected_score_band": "Medium"
+  }
+]

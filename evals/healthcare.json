@@ -1,0 +1,302 @@
+[
+  {
+    "id": "EVAL-HEA-01",
+    "title": "Insurance card photo upload",
+    "ground_truth_theme": "Intake",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-02",
+    "title": "Follow up: Consent expiry alerts",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-03",
+    "title": "Role based access for records",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-04",
+    "title": "Related: Pre-visit questionnaires",
+    "ground_truth_theme": "Intake",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-05",
+    "title": "Follow up: Access log for patient records",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-06",
+    "title": "Data retention policy",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-07",
+    "title": "Request: Task assignments",
+    "ground_truth_theme": "Staff Workflows",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-08",
+    "title": "Insurance eligibility check",
+    "ground_truth_theme": "Billing",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-09",
+    "title": "Staff workload report",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-10",
+    "title": "Double booking warning",
+    "ground_truth_theme": "Scheduling",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-11",
+    "title": "Room status board",
+    "ground_truth_theme": "Staff Workflows",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-12",
+    "title": "Request: Lab results integration",
+    "ground_truth_theme": "Integrations",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-13",
+    "title": "Online booking for follow-up visits",
+    "ground_truth_theme": "Scheduling",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-14",
+    "title": "Referral completion rate",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-15",
+    "title": "Data retention policy",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-16",
+    "title": "Staff workload report",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-17",
+    "title": "Referral completion rate",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-18",
+    "title": "Related: Insurance card photo upload",
+    "ground_truth_theme": "Intake",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-19",
+    "title": "Referral completion rate",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-20",
+    "title": "After visit summary by email",
+    "ground_truth_theme": "Communications",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-21",
+    "title": "Lab results integration",
+    "ground_truth_theme": "Integrations",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-22",
+    "title": "Insurance card photo upload",
+    "ground_truth_theme": "Intake",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-23",
+    "title": "Refund workflow",
+    "ground_truth_theme": "Billing",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-24",
+    "title": "Recurring appointments",
+    "ground_truth_theme": "Scheduling",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-25",
+    "title": "Copay collection at check-in",
+    "ground_truth_theme": "Billing",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-26",
+    "title": "Copay collection at check-in",
+    "ground_truth_theme": "Billing",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-27",
+    "title": "Staff directory search",
+    "ground_truth_theme": "Staff Workflows",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-28",
+    "title": "SMS booking confirmation",
+    "ground_truth_theme": "Scheduling",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-29",
+    "title": "Provider calendar sync",
+    "ground_truth_theme": "Scheduling",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-30",
+    "title": "Incident report form",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-31",
+    "title": "Related: HIPAA audit log export",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-32",
+    "title": "Automated payment reminders",
+    "ground_truth_theme": "Billing",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-33",
+    "title": "Patient satisfaction survey",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-34",
+    "title": "Staff workload report",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-35",
+    "title": "Request: Incident report form",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-36",
+    "title": "Voicemail to text",
+    "ground_truth_theme": "Communications",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-37",
+    "title": "Refund workflow (rephrased request)",
+    "ground_truth_theme": "Billing",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-38",
+    "title": "Consent expiry alerts (rephrased request)",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-39",
+    "title": "Pre-visit questionnaires (rephrased request)",
+    "ground_truth_theme": "Intake",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-40",
+    "title": "Follow up: Wait time report (rephrased request)",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-41",
+    "title": "Related: Voicemail to text (rephrased request)",
+    "ground_truth_theme": "Communications",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-42",
+    "title": "Follow up: Consent expiry alerts (rephrased request)",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-43",
+    "title": "HIPAA audit log export (rephrased request)",
+    "ground_truth_theme": "Compliance",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-44",
+    "title": "Request: Appointment reminders by text (rephrased request)",
+    "ground_truth_theme": "Communications",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-45",
+    "title": "Broadcast message to a clinic (rephrased request)",
+    "ground_truth_theme": "Communications",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-46",
+    "title": "Voicemail to text (rephrased request)",
+    "ground_truth_theme": "Communications",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-47",
+    "title": "Voicemail to text (rephrased request)",
+    "ground_truth_theme": "Communications",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-48",
+    "title": "Check-in kiosk mode (rephrased request)",
+    "ground_truth_theme": "Staff Workflows",
+    "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-HEA-49",
+    "title": "Related: Voicemail to text (rephrased request)",
+    "ground_truth_theme": "Communications",
+    "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-50",
+    "title": "Payment plans at checkout (rephrased request)",
+    "ground_truth_theme": "Billing",
+    "expected_score_band": "Medium"
+  }
+]
