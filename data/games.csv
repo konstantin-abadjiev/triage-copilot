@@ -1,0 +1,201 @@
+id,title,description,source,requester_type,theme,impact,effort,risk,evidence_strength
+PL-001,Interactive onboarding tutorial,Teach new players the core controls in a short interactive tutorial.,Support ticket,Game designer,Onboarding & Tutorials,9,4,Low,High
+PL-002,Skip tutorial option,Let returning players skip the tutorial.,Support ticket,Producer,Onboarding & Tutorials,6,2,Low,High
+PL-003,Contextual tips,Show contextual tips the first time a player uses a feature.,Compliance,QA tester,Onboarding & Tutorials,7,3,Low,Medium
+PL-004,Starter quest line,Give new players a short quest line that teaches the game.,Support ticket,Producer,Onboarding & Tutorials,8,4,Low,High
+PL-005,Help centre in game,Add an in-game help centre with searchable guides.,Compliance,Support agent,Onboarding & Tutorials,6,4,Low,Medium
+PL-006,Skill based matchmaking,Match players with others of a similar skill level.,Partner request,Game designer,Matchmaking & Ranked,10,7,Medium,High
+PL-007,Ranked mode with seasons,Add a ranked mode with seasons and rewards.,Sales request,QA tester,Matchmaking & Ranked,9,7,Medium,High
+PL-008,Leaderboards by region,Show leaderboards by region and by friends.,Internal request,Support agent,Matchmaking & Ranked,8,4,Low,High
+PL-009,Rematch button,Let players rematch the same opponent after a match.,Partner request,Support agent,Matchmaking & Ranked,6,3,Low,Medium
+PL-010,Queue time estimate,Show an estimated queue time before matchmaking starts.,Internal request,Producer,Matchmaking & Ranked,6,3,Low,Medium
+PL-011,Achievement system,Add achievements with rewards for completing challenges.,Support ticket,Support agent,Progression & Achievements,8,5,Low,High
+PL-012,Daily quests,Add daily quests that reset each day.,Sales request,Community manager,Progression & Achievements,8,4,Low,High
+PL-013,Level progression,Let players level up and unlock new content.,Support ticket,Support agent,Progression & Achievements,9,5,Low,High
+PL-014,Unlockable cosmetics,"Add unlockable cosmetics earned through play, not only purchase.",Compliance,Producer,Progression & Achievements,7,5,Low,Medium
+PL-015,Progress tracking page,Show players their progress toward the next unlock.,Support ticket,Live ops lead,Progression & Achievements,7,3,Low,High
+PL-016,Friends list,Let players add friends and see when they are online.,Partner request,Player,Social/Friends & Clans,8,4,Low,High
+PL-017,Clans and guilds,Let players form clans with shared goals and chat.,Compliance,Player,Social/Friends & Clans,8,6,Low,High
+PL-018,Invite friends to a match,Invite friends directly into a match from the friends list.,Customer request,QA tester,Social/Friends & Clans,7,3,Low,High
+PL-019,Clan leaderboards,Show clan leaderboards by season.,Partner request,Player,Social/Friends & Clans,6,4,Low,Medium
+PL-020,In-game chat,Add text chat in lobbies and in matches.,Customer request,Producer,Social/Friends & Clans,7,4,Medium,High
+PL-021,Seasonal events,Run seasonal events with limited time rewards.,Support ticket,QA tester,Live Events & Seasonal Content,9,6,Low,High
+PL-022,Live event calendar,Show upcoming live events in a calendar.,Partner request,Community manager,Live Events & Seasonal Content,7,3,Low,High
+PL-023,Event quests,Add quests that are only available during an event.,Customer request,Support agent,Live Events & Seasonal Content,8,4,Low,Medium
+PL-024,Double XP weekends,Run double XP weekends on a schedule.,Support ticket,Player,Live Events & Seasonal Content,6,3,Low,Medium
+PL-025,Event rewards shop,Let players spend event currency in a rewards shop.,Support ticket,Live ops lead,Live Events & Seasonal Content,7,5,Low,Medium
+PL-026,Battle pass,Add a battle pass with free and paid tracks.,Internal request,Game designer,Monetization & Battle Pass,9,6,Medium,High
+PL-027,In-app purchases,Add in-app purchases for cosmetics and currency.,Customer request,Live ops lead,Monetization & Battle Pass,9,5,Medium,High
+PL-028,Free trial of battle pass,Let players try the first tiers of the battle pass for free.,Partner request,Support agent,Monetization & Battle Pass,7,4,Low,Medium
+PL-029,Purchase history,Show players their purchase history in settings.,Compliance,Producer,Monetization & Battle Pass,6,2,Low,High
+PL-030,Gift items to friends,Let players gift items to friends.,Partner request,Producer,Monetization & Battle Pass,6,4,Low,Low
+PL-031,Cross-platform save,"Sync saves across console, PC, and mobile.",Customer request,Player,Platform/Saves & Performance,10,7,Medium,High
+PL-032,Cloud saves,Back up saves to the cloud automatically.,Compliance,Live ops lead,Platform/Saves & Performance,9,5,Low,High
+PL-033,Offline mode,Let players play offline and sync progress later.,Internal request,Player,Platform/Saves & Performance,8,6,Medium,Medium
+PL-034,Frame rate mode,Add a performance mode that prioritises frame rate.,Customer request,Live ops lead,Platform/Saves & Performance,8,5,Low,High
+PL-035,Controller support,Add full controller support on PC and mobile.,Partner request,Game designer,Platform/Saves & Performance,7,4,Low,High
+PL-036,Parental controls,Add parental controls for play time and purchases.,Compliance,Game designer,Safety/Accessibility & Controls,9,4,Medium,High
+PL-037,Accessibility options,"Add colourblind mode, text size, and remappable controls.",Customer request,Live ops lead,Safety/Accessibility & Controls,9,5,Low,High
+PL-038,Reporting and moderation,Let players report abuse and show moderation status.,Partner request,Support agent,Safety/Accessibility & Controls,8,5,Medium,High
+PL-039,Anti-cheat,Add anti-cheat detection for ranked matches.,Internal request,QA tester,Safety/Accessibility & Controls,10,7,High,High
+PL-040,Voice chat controls,Add mute and volume controls for voice chat.,Support ticket,Player,Safety/Accessibility & Controls,7,3,Medium,High
+PL-041,First time user flow,Simplify the first time user flow to under 5 minutes.,Customer request,Live ops lead,Onboarding & Tutorials,8,4,Low,High
+PL-042,Casual mode,Add a casual mode with no ranked pressure.,Support ticket,Community manager,Matchmaking & Ranked,7,4,Low,Medium
+PL-043,Weekly challenges,Add weekly challenges with bigger rewards.,Support ticket,Live ops lead,Progression & Achievements,7,4,Low,Medium
+PL-044,Voice chat,Add voice chat for parties and clans.,Compliance,Game designer,Social/Friends & Clans,8,5,Medium,High
+PL-045,Holiday themed content,Add holiday themed maps and cosmetics.,Sales request,Game designer,Live Events & Seasonal Content,6,4,Low,Low
+PL-046,Related: Battle pass,Add a battle pass with free and paid tracks. - same issue reported from another site,Support ticket,Support agent,Monetization & Battle Pass,9,7,Medium,High
+PL-047,Request: Progress tracking page,Show players their progress toward the next unlock. - needed before next quarter,Internal request,Live ops lead,Progression & Achievements,6,2,Low,Medium
+PL-048,Follow up: Cross-platform save,"Sync saves across console, PC, and mobile. - customers are asking again, please prioritise",Partner request,QA tester,Platform/Saves & Performance,9,7,Medium,Medium
+PL-049,Related: Live event calendar,Show upcoming live events in a calendar. - same issue reported from another site,Compliance,Producer,Live Events & Seasonal Content,6,3,Low,High
+PL-050,Follow up: Invite friends to a match,"Invite friends directly into a match from the friends list. - customers are asking again, please prioritise",Compliance,Support agent,Social/Friends & Clans,6,3,Low,High
+PL-051,Contextual tips,"Show contextual tips the first time a player uses a feature. - urgent, blocking daily work",Compliance,Community manager,Onboarding & Tutorials,7,2,Low,Medium
+PL-052,Related: Battle pass,Add a battle pass with free and paid tracks. - same issue reported from another site,Compliance,QA tester,Monetization & Battle Pass,9,6,Medium,High
+PL-053,Event rewards shop,Let players spend event currency in a rewards shop. - add a setting so teams can turn this on or off,Partner request,Support agent,Live Events & Seasonal Content,8,5,Low,Medium
+PL-054,Skill based matchmaking,Match players with others of a similar skill level. - add a setting so teams can turn this on or off,Customer request,Game designer,Matchmaking & Ranked,9,6,Medium,High
+PL-055,Anti-cheat,Add anti-cheat detection for ranked matches. - include it in the mobile app too,Internal request,Producer,Safety/Accessibility & Controls,10,6,High,High
+PL-056,Progress tracking page,Show players their progress toward the next unlock. - add a setting so teams can turn this on or off,Partner request,Producer,Progression & Achievements,8,4,Low,High
+PL-057,Request: Skill based matchmaking,Match players with others of a similar skill level. - needed before next quarter,Internal request,Support agent,Matchmaking & Ranked,10,6,Medium,Low
+PL-058,First time user flow,"Simplify the first time user flow to under 5 minutes. - urgent, blocking daily work",Customer request,Player,Onboarding & Tutorials,9,4,Low,High
+PL-059,In-game chat,Add text chat in lobbies and in matches. - needs an export for audit,Support ticket,Producer,Social/Friends & Clans,7,4,Medium,Low
+PL-060,Purchase history,Show players their purchase history in settings. - include it in the mobile app too,Customer request,Live ops lead,Monetization & Battle Pass,5,1,Low,High
+PL-061,Anti-cheat,Add anti-cheat detection for ranked matches. - add a setting so teams can turn this on or off,Customer request,Support agent,Safety/Accessibility & Controls,10,6,High,Medium
+PL-062,Parental controls,Add parental controls for play time and purchases. - reported by multiple users this week,Sales request,Game designer,Safety/Accessibility & Controls,9,5,Medium,Medium
+PL-063,Cloud saves,"Back up saves to the cloud automatically. - urgent, blocking daily work",Internal request,Game designer,Platform/Saves & Performance,8,5,Low,High
+PL-064,Related: Cross-platform save,"Sync saves across console, PC, and mobile. - same issue reported from another site",Partner request,Support agent,Platform/Saves & Performance,10,7,Medium,High
+PL-065,Cloud saves,Back up saves to the cloud automatically. - reported by multiple users this week,Internal request,Game designer,Platform/Saves & Performance,10,4,Low,Low
+PL-066,Voice chat controls,Add mute and volume controls for voice chat. - include it in the mobile app too,Partner request,Live ops lead,Safety/Accessibility & Controls,7,4,Medium,High
+PL-067,Request: Rematch button,Let players rematch the same opponent after a match. - needed before next quarter,Support ticket,Producer,Matchmaking & Ranked,6,3,Low,Medium
+PL-068,Request: Seasonal events,Run seasonal events with limited time rewards. - needed before next quarter,Sales request,QA tester,Live Events & Seasonal Content,10,6,Low,High
+PL-069,Battle pass,Add a battle pass with free and paid tracks. - add a setting so teams can turn this on or off,Compliance,Community manager,Monetization & Battle Pass,8,6,Medium,High
+PL-070,Follow up: Voice chat,"Add voice chat for parties and clans. - customers are asking again, please prioritise",Sales request,QA tester,Social/Friends & Clans,9,5,Medium,High
+PL-071,Related: Holiday themed content,Add holiday themed maps and cosmetics. - same issue reported from another site,Support ticket,Game designer,Live Events & Seasonal Content,7,5,Low,Medium
+PL-072,Weekly challenges,"Add weekly challenges with bigger rewards. - urgent, blocking daily work",Internal request,Live ops lead,Progression & Achievements,8,5,Low,High
+PL-073,Battle pass,Add a battle pass with free and paid tracks. - include it in the mobile app too,Compliance,Live ops lead,Monetization & Battle Pass,8,6,Medium,High
+PL-074,Related: First time user flow,Simplify the first time user flow to under 5 minutes. - same issue reported from another site,Sales request,Community manager,Onboarding & Tutorials,7,4,Low,High
+PL-075,Follow up: Casual mode,"Add a casual mode with no ranked pressure. - customers are asking again, please prioritise",Internal request,Player,Matchmaking & Ranked,8,4,Low,Medium
+PL-076,Related: Interactive onboarding tutorial,Teach new players the core controls in a short interactive tutorial. - same issue reported from another site,Compliance,Live ops lead,Onboarding & Tutorials,9,4,Low,High
+PL-077,Reporting and moderation,Let players report abuse and show moderation status. - reported by multiple users this week,Partner request,Live ops lead,Safety/Accessibility & Controls,9,5,Medium,High
+PL-078,Holiday themed content,"Add holiday themed maps and cosmetics. - urgent, blocking daily work",Sales request,Producer,Live Events & Seasonal Content,6,3,Low,Low
+PL-079,Related: Skill based matchmaking,Match players with others of a similar skill level. - same issue reported from another site,Internal request,QA tester,Matchmaking & Ranked,10,7,Medium,High
+PL-080,Unlockable cosmetics,"Add unlockable cosmetics earned through play, not only purchase. - needs an export for audit",Partner request,Producer,Progression & Achievements,7,6,Low,High
+PL-081,Related: Seasonal events,Run seasonal events with limited time rewards. - same issue reported from another site,Customer request,Player,Live Events & Seasonal Content,9,5,Low,High
+PL-082,Related: Live event calendar,Show upcoming live events in a calendar. - same issue reported from another site,Compliance,Community manager,Live Events & Seasonal Content,7,3,Low,High
+PL-083,Live event calendar,Show upcoming live events in a calendar. - include it in the mobile app too,Partner request,Community manager,Live Events & Seasonal Content,8,3,Low,High
+PL-084,Daily quests,Add daily quests that reset each day. - include it in the mobile app too,Support ticket,Producer,Progression & Achievements,9,3,Low,High
+PL-085,Reporting and moderation,Let players report abuse and show moderation status. - include it in the mobile app too,Support ticket,Game designer,Safety/Accessibility & Controls,9,4,Medium,High
+PL-086,Related: Help centre in game,Add an in-game help centre with searchable guides. - same issue reported from another site,Internal request,Player,Onboarding & Tutorials,6,4,Low,Medium
+PL-087,Clans and guilds,Let players form clans with shared goals and chat. - needs an export for audit,Compliance,Player,Social/Friends & Clans,8,7,Low,High
+PL-088,Event quests,Add quests that are only available during an event. - add a setting so teams can turn this on or off,Partner request,QA tester,Live Events & Seasonal Content,9,4,Low,Medium
+PL-089,Related: In-game chat,Add text chat in lobbies and in matches. - same issue reported from another site,Customer request,Community manager,Social/Friends & Clans,7,4,Medium,Medium
+PL-090,Double XP weekends,"Run double XP weekends on a schedule. - urgent, blocking daily work",Compliance,Producer,Live Events & Seasonal Content,7,4,Low,Medium
+PL-091,Free trial of battle pass,"Let players try the first tiers of the battle pass for free. - urgent, blocking daily work",Internal request,Game designer,Monetization & Battle Pass,8,4,Low,Medium
+PL-092,Rematch button,"Let players rematch the same opponent after a match. - urgent, blocking daily work",Sales request,Player,Matchmaking & Ranked,6,4,Low,Medium
+PL-093,Cloud saves,"Back up saves to the cloud automatically. - urgent, blocking daily work",Compliance,Support agent,Platform/Saves & Performance,9,6,Low,High
+PL-094,Cloud saves,Back up saves to the cloud automatically. - include it in the mobile app too,Internal request,Producer,Platform/Saves & Performance,10,6,Low,High
+PL-095,Related: Achievement system,Add achievements with rewards for completing challenges. - same issue reported from another site,Support ticket,Live ops lead,Progression & Achievements,7,5,Low,Medium
+PL-096,Clan leaderboards,"Show clan leaderboards by season. - urgent, blocking daily work",Customer request,Live ops lead,Social/Friends & Clans,7,5,Low,Medium
+PL-097,Request: Leaderboards by region,Show leaderboards by region and by friends. - needed before next quarter,Internal request,Live ops lead,Matchmaking & Ranked,8,3,Low,High
+PL-098,Unlockable cosmetics,"Add unlockable cosmetics earned through play, not only purchase. - include it in the mobile app too",Internal request,Game designer,Progression & Achievements,6,5,Low,Low
+PL-099,Related: Event quests,Add quests that are only available during an event. - same issue reported from another site,Support ticket,Community manager,Live Events & Seasonal Content,9,3,Low,Medium
+PL-100,Reporting and moderation,Let players report abuse and show moderation status. - add a setting so teams can turn this on or off,Support ticket,QA tester,Safety/Accessibility & Controls,9,5,Medium,High
+PL-101,Follow up: Unlockable cosmetics,"Add unlockable cosmetics earned through play, not only purchase. - customers are asking again, please prioritise",Support ticket,Game designer,Progression & Achievements,7,5,Low,Medium
+PL-102,Request: Clan leaderboards,Show clan leaderboards by season. - needed before next quarter,Customer request,Game designer,Social/Friends & Clans,6,3,Low,Medium
+PL-103,Casual mode,"Add a casual mode with no ranked pressure. - urgent, blocking daily work",Support ticket,QA tester,Matchmaking & Ranked,7,4,Low,Medium
+PL-104,Voice chat,Add voice chat for parties and clans. - include it in the mobile app too,Sales request,Support agent,Social/Friends & Clans,9,5,Medium,High
+PL-105,In-app purchases,Add in-app purchases for cosmetics and currency. - include it in the mobile app too,Customer request,Producer,Monetization & Battle Pass,10,4,Medium,High
+PL-106,Request: Offline mode,Let players play offline and sync progress later. - needed before next quarter,Sales request,Live ops lead,Platform/Saves & Performance,8,7,Medium,Medium
+PL-107,Related: Interactive onboarding tutorial,Teach new players the core controls in a short interactive tutorial. - same issue reported from another site,Compliance,Producer,Onboarding & Tutorials,10,4,Low,High
+PL-108,Unlockable cosmetics,"Add unlockable cosmetics earned through play, not only purchase. - include it in the mobile app too",Sales request,Live ops lead,Progression & Achievements,7,6,Low,Medium
+PL-109,Accessibility options,"Add colourblind mode, text size, and remappable controls. - urgent, blocking daily work",Customer request,Player,Safety/Accessibility & Controls,10,5,Low,High
+PL-110,Ranked mode with seasons,Add a ranked mode with seasons and rewards. - needs an export for audit,Support ticket,Producer,Matchmaking & Ranked,8,6,Medium,High
+PL-111,Follow up: Gift items to friends,"Let players gift items to friends. - customers are asking again, please prioritise",Support ticket,Support agent,Monetization & Battle Pass,7,4,Low,Low
+PL-112,In-game chat,"Add text chat in lobbies and in matches. - urgent, blocking daily work",Sales request,Player,Social/Friends & Clans,7,3,Medium,High
+PL-113,Double XP weekends,"Run double XP weekends on a schedule. - urgent, blocking daily work",Partner request,Support agent,Live Events & Seasonal Content,5,4,Low,Medium
+PL-114,Progress tracking page,Show players their progress toward the next unlock. - include it in the mobile app too,Customer request,Community manager,Progression & Achievements,6,2,Low,Medium
+PL-115,Reporting and moderation,Let players report abuse and show moderation status. - reported by multiple users this week,Customer request,QA tester,Safety/Accessibility & Controls,9,4,Medium,Medium
+PL-116,Free trial of battle pass,"Let players try the first tiers of the battle pass for free. - urgent, blocking daily work",Partner request,QA tester,Monetization & Battle Pass,8,3,Low,Low
+PL-117,Related: Ranked mode with seasons,Add a ranked mode with seasons and rewards. - same issue reported from another site,Support ticket,Producer,Matchmaking & Ranked,9,7,Medium,High
+PL-118,Rematch button,"Let players rematch the same opponent after a match. - urgent, blocking daily work",Support ticket,Producer,Matchmaking & Ranked,5,2,Low,Medium
+PL-119,Event quests,Add quests that are only available during an event. - reported by multiple users this week,Internal request,QA tester,Live Events & Seasonal Content,8,5,Low,Medium
+PL-120,Related: Unlockable cosmetics,"Add unlockable cosmetics earned through play, not only purchase. - same issue reported from another site",Compliance,Support agent,Progression & Achievements,6,5,Low,Medium
+PL-121,Event rewards shop,Let players spend event currency in a rewards shop. - add a setting so teams can turn this on or off,Support ticket,Game designer,Live Events & Seasonal Content,8,5,Low,Medium
+PL-122,Related: Casual mode,Add a casual mode with no ranked pressure. - same issue reported from another site,Partner request,Player,Matchmaking & Ranked,7,4,Low,Medium
+PL-123,Request: Weekly challenges,Add weekly challenges with bigger rewards. - needed before next quarter,Sales request,Support agent,Progression & Achievements,7,4,Low,Medium
+PL-124,Starter quest line,Give new players a short quest line that teaches the game. - reported by multiple users this week,Partner request,Live ops lead,Onboarding & Tutorials,9,5,Low,Medium
+PL-125,Follow up: Help centre in game,"Add an in-game help centre with searchable guides. - customers are asking again, please prioritise",Internal request,Game designer,Onboarding & Tutorials,6,4,Low,High
+PL-126,Controller support,"Add full controller support on PC and mobile. - urgent, blocking daily work",Customer request,Game designer,Platform/Saves & Performance,8,3,Low,Low
+PL-127,Follow up: Unlockable cosmetics,"Add unlockable cosmetics earned through play, not only purchase. - customers are asking again, please prioritise",Partner request,Support agent,Progression & Achievements,6,6,Low,Medium
+PL-128,Offline mode,Let players play offline and sync progress later. - include it in the mobile app too,Compliance,Live ops lead,Platform/Saves & Performance,9,7,Medium,High
+PL-129,Request: Queue time estimate,Show an estimated queue time before matchmaking starts. - needed before next quarter,Support ticket,Live ops lead,Matchmaking & Ranked,5,3,Low,Low
+PL-130,Seasonal events,Run seasonal events with limited time rewards. - include it in the mobile app too,Partner request,QA tester,Live Events & Seasonal Content,8,6,Low,High
+PL-131,Follow up: Friends list,"Let players add friends and see when they are online. - customers are asking again, please prioritise",Customer request,Producer,Social/Friends & Clans,8,3,Low,High
+PL-132,Follow up: Voice chat controls,"Add mute and volume controls for voice chat. - customers are asking again, please prioritise",Support ticket,Support agent,Safety/Accessibility & Controls,7,3,Medium,High
+PL-133,Interactive onboarding tutorial,"Teach new players the core controls in a short interactive tutorial. - urgent, blocking daily work",Partner request,Game designer,Onboarding & Tutorials,10,4,Low,High
+PL-134,Achievement system,Add achievements with rewards for completing challenges. - add a setting so teams can turn this on or off,Customer request,QA tester,Progression & Achievements,8,5,Low,High
+PL-135,Skip tutorial option,Let returning players skip the tutorial. - add a setting so teams can turn this on or off,Sales request,Support agent,Onboarding & Tutorials,7,2,Low,High
+PL-136,Related: Accessibility options,"Add colourblind mode, text size, and remappable controls. - same issue reported from another site",Customer request,Producer,Safety/Accessibility & Controls,10,6,Low,High
+PL-137,Accessibility options,"Add colourblind mode, text size, and remappable controls. - urgent, blocking daily work",Compliance,Support agent,Safety/Accessibility & Controls,9,5,Low,Low
+PL-138,Leaderboards by region,Show leaderboards by region and by friends. - reported by multiple users this week,Customer request,Community manager,Matchmaking & Ranked,7,3,Low,High
+PL-139,Contextual tips,Show contextual tips the first time a player uses a feature. - needs an export for audit,Support ticket,QA tester,Onboarding & Tutorials,7,4,Low,Medium
+PL-140,Contextual tips,Show contextual tips the first time a player uses a feature. - include it in the mobile app too,Sales request,Game designer,Onboarding & Tutorials,7,3,Low,High
+PL-141,Help centre in game,Add an in-game help centre with searchable guides. - add a setting so teams can turn this on or off,Customer request,Producer,Onboarding & Tutorials,5,3,Low,High
+PL-142,Help centre in game,Add an in-game help centre with searchable guides. - needs an export for audit,Compliance,Producer,Onboarding & Tutorials,6,4,Low,Medium
+PL-143,Interactive onboarding tutorial,Teach new players the core controls in a short interactive tutorial. - add a setting so teams can turn this on or off,Sales request,Support agent,Onboarding & Tutorials,9,4,Low,High
+PL-144,Voice chat controls,Add mute and volume controls for voice chat. - reported by multiple users this week,Internal request,QA tester,Safety/Accessibility & Controls,8,3,Medium,High
+PL-145,Level progression,Let players level up and unlock new content. - reported by multiple users this week,Customer request,Community manager,Progression & Achievements,9,4,Low,High
+PL-146,Controller support,Add full controller support on PC and mobile. - add a setting so teams can turn this on or off,Internal request,QA tester,Platform/Saves & Performance,6,4,Low,High
+PL-147,Related: In-game chat,Add text chat in lobbies and in matches. - same issue reported from another site,Customer request,Community manager,Social/Friends & Clans,7,4,Medium,High
+PL-148,Related: Invite friends to a match,Invite friends directly into a match from the friends list. - same issue reported from another site,Compliance,Producer,Social/Friends & Clans,6,3,Low,High
+PL-149,Holiday themed content,Add holiday themed maps and cosmetics. - add a setting so teams can turn this on or off,Compliance,Community manager,Live Events & Seasonal Content,7,3,Low,Low
+PL-150,First time user flow,Simplify the first time user flow to under 5 minutes. - include it in the mobile app too,Support ticket,Community manager,Onboarding & Tutorials,7,3,Low,High
+PL-151,Request: Clan leaderboards,Show clan leaderboards by season. - needed before next quarter,Partner request,Game designer,Social/Friends & Clans,6,5,Low,Medium
+PL-152,Seasonal events,Run seasonal events with limited time rewards. - needs an export for audit,Support ticket,QA tester,Live Events & Seasonal Content,9,6,Low,Low
+PL-153,Related: Reporting and moderation,Let players report abuse and show moderation status. - same issue reported from another site,Sales request,Producer,Safety/Accessibility & Controls,8,4,Medium,Medium
+PL-154,Leaderboards by region,Show leaderboards by region and by friends. - add a setting so teams can turn this on or off,Sales request,QA tester,Matchmaking & Ranked,8,5,Low,High
+PL-155,Related: Leaderboards by region,Show leaderboards by region and by friends. - same issue reported from another site,Partner request,Live ops lead,Matchmaking & Ranked,8,4,Low,High
+PL-156,Contextual tips,Show contextual tips the first time a player uses a feature. - reported by multiple users this week,Sales request,Producer,Onboarding & Tutorials,7,3,Low,Low
+PL-157,Follow up: Offline mode,"Let players play offline and sync progress later. - customers are asking again, please prioritise",Support ticket,Player,Platform/Saves & Performance,8,6,Medium,Medium
+PL-158,Battle pass,Add a battle pass with free and paid tracks. - needs an export for audit,Support ticket,Player,Monetization & Battle Pass,9,5,Medium,High
+PL-159,Follow up: Interactive onboarding tutorial,"Teach new players the core controls in a short interactive tutorial. - customers are asking again, please prioritise",Sales request,Support agent,Onboarding & Tutorials,9,4,Low,Medium
+PL-160,Related: First time user flow,Simplify the first time user flow to under 5 minutes. - same issue reported from another site,Support ticket,Support agent,Onboarding & Tutorials,8,3,Low,Low
+PL-161,Purchase history,"Show players their purchase history in settings. - urgent, blocking daily work",Customer request,Community manager,Monetization & Battle Pass,5,2,Low,Medium
+PL-162,Accessibility options,"Add colourblind mode, text size, and remappable controls. - include it in the mobile app too",Internal request,Community manager,Safety/Accessibility & Controls,10,6,Low,High
+PL-163,Event quests,Add quests that are only available during an event. - reported by multiple users this week,Customer request,Live ops lead,Live Events & Seasonal Content,8,4,Low,Low
+PL-164,Voice chat controls,Add mute and volume controls for voice chat. - reported by multiple users this week,Compliance,Producer,Safety/Accessibility & Controls,7,4,Medium,High
+PL-165,Related: Starter quest line,Give new players a short quest line that teaches the game. - same issue reported from another site,Partner request,QA tester,Onboarding & Tutorials,8,5,Low,Low
+PL-166,Frame rate mode,Add a performance mode that prioritises frame rate. - reported by multiple users this week,Sales request,Producer,Platform/Saves & Performance,7,6,Low,High
+PL-167,Controller support,Add full controller support on PC and mobile. - needs an export for audit,Support ticket,Player,Platform/Saves & Performance,7,4,Low,High
+PL-168,Seasonal events,Run seasonal events with limited time rewards. - reported by multiple users this week,Compliance,Game designer,Live Events & Seasonal Content,8,6,Low,Medium
+PL-169,Reporting and moderation,Let players report abuse and show moderation status. - reported by multiple users this week,Sales request,Live ops lead,Safety/Accessibility & Controls,8,4,Medium,Low
+PL-170,Starter quest line,Give new players a short quest line that teaches the game. - reported by multiple users this week,Support ticket,Community manager,Onboarding & Tutorials,9,4,Low,High
+PL-171,Friends list,Let players add friends and see when they are online. - add a setting so teams can turn this on or off,Sales request,Live ops lead,Social/Friends & Clans,8,3,Low,High
+PL-172,Accessibility options,"Add colourblind mode, text size, and remappable controls. - urgent, blocking daily work",Support ticket,Producer,Safety/Accessibility & Controls,9,6,Low,High
+PL-173,Related: Contextual tips,Show contextual tips the first time a player uses a feature. - same issue reported from another site,Customer request,Live ops lead,Onboarding & Tutorials,6,3,Low,Medium
+PL-174,Follow up: Cross-platform save,"Sync saves across console, PC, and mobile. - customers are asking again, please prioritise",Sales request,Support agent,Platform/Saves & Performance,10,7,Medium,High
+PL-175,Daily quests,Add daily quests that reset each day. - add a setting so teams can turn this on or off,Support ticket,QA tester,Progression & Achievements,7,3,Low,High
+PL-176,Leaderboards by region,Show leaderboards by region and by friends. - add a setting so teams can turn this on or off,Partner request,Producer,Matchmaking & Ranked,7,4,Low,High
+PL-177,Related: Reporting and moderation,Let players report abuse and show moderation status. - same issue reported from another site,Support ticket,Support agent,Safety/Accessibility & Controls,8,5,Medium,High
+PL-178,Free trial of battle pass,Let players try the first tiers of the battle pass for free. - needs an export for audit,Compliance,Support agent,Monetization & Battle Pass,7,4,Low,Medium
+PL-179,Voice chat controls,Add mute and volume controls for voice chat. - add a setting so teams can turn this on or off,Partner request,Support agent,Safety/Accessibility & Controls,7,3,Medium,High
+PL-180,Clan leaderboards,"Show clan leaderboards by season. - urgent, blocking daily work",Compliance,Producer,Social/Friends & Clans,6,3,Low,Medium
+PL-181,Follow up: Accessibility options,"Add colourblind mode, text size, and remappable controls. - customers are asking again, please prioritise",Compliance,Community manager,Safety/Accessibility & Controls,9,5,Low,High
+PL-182,Related: First time user flow,Simplify the first time user flow to under 5 minutes. - same issue reported from another site,Customer request,Community manager,Onboarding & Tutorials,9,4,Low,High
+PL-183,Event quests,Add quests that are only available during an event. - add a setting so teams can turn this on or off,Partner request,Support agent,Live Events & Seasonal Content,8,3,Low,Medium
+PL-184,Live event calendar,Show upcoming live events in a calendar. - needs an export for audit,Customer request,Game designer,Live Events & Seasonal Content,6,3,Low,High
+PL-185,Related: Clans and guilds,Let players form clans with shared goals and chat. - same issue reported from another site,Partner request,Producer,Social/Friends & Clans,7,5,Low,High
+PL-186,Achievement system,Add achievements with rewards for completing challenges. - include it in the mobile app too,Internal request,Player,Progression & Achievements,9,6,Low,High
+PL-187,Cross-platform save,"Sync saves across console, PC, and mobile. - reported by multiple users this week",Sales request,Player,Platform/Saves & Performance,10,8,Medium,Low
+PL-188,Request: Seasonal events,Run seasonal events with limited time rewards. - needed before next quarter,Internal request,Community manager,Live Events & Seasonal Content,8,5,Low,High
+PL-189,Related: Help centre in game,Add an in-game help centre with searchable guides. - same issue reported from another site,Internal request,Support agent,Onboarding & Tutorials,6,5,Low,Medium
+PL-190,Achievement system,Add achievements with rewards for completing challenges. - include it in the mobile app too,Support ticket,Producer,Progression & Achievements,8,4,Low,Low
+PL-191,Request: Holiday themed content,Add holiday themed maps and cosmetics. - needed before next quarter,Internal request,Live ops lead,Live Events & Seasonal Content,6,4,Low,Low
+PL-192,Parental controls,Add parental controls for play time and purchases. - needs an export for audit,Internal request,Player,Safety/Accessibility & Controls,9,3,Medium,High
+PL-193,Clan leaderboards,Show clan leaderboards by season. - needs an export for audit,Partner request,Game designer,Social/Friends & Clans,6,3,Low,Low
+PL-194,Skill based matchmaking,Match players with others of a similar skill level. - needs an export for audit,Internal request,Producer,Matchmaking & Ranked,9,7,Medium,High
+PL-195,Request: Weekly challenges,Add weekly challenges with bigger rewards. - needed before next quarter,Sales request,Community manager,Progression & Achievements,6,5,Low,Medium
+PL-196,Follow up: Purchase history,"Show players their purchase history in settings. - customers are asking again, please prioritise",Support ticket,QA tester,Monetization & Battle Pass,6,3,Low,High
+PL-197,Follow up: Invite friends to a match,"Invite friends directly into a match from the friends list. - customers are asking again, please prioritise",Compliance,Producer,Social/Friends & Clans,7,2,Low,Medium
+PL-198,Reporting and moderation,Let players report abuse and show moderation status. - reported by multiple users this week,Internal request,Live ops lead,Safety/Accessibility & Controls,7,6,Medium,High
+PL-199,Voice chat,Add voice chat for parties and clans. - needs an export for audit,Partner request,Player,Social/Friends & Clans,8,6,Medium,Medium
+PL-200,Offline mode,"Let players play offline and sync progress later. - urgent, blocking daily work",Support ticket,QA tester,Platform/Saves & Performance,7,7,Medium,Low

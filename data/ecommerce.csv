@@ -1,0 +1,201 @@
+id,title,description,source,requester_type,theme,impact,effort,risk,evidence_strength
+ML-001,One-page checkout,Reduce checkout to one page to cut drop-off.,Compliance,Operations lead,Checkout,9,5,Low,High
+ML-002,Guest checkout,Let customers check out without creating an account.,Internal request,Buyer,Checkout,9,4,Low,High
+ML-003,Apple Pay and Google Pay,Add Apple Pay and Google Pay at checkout.,Support ticket,Store manager,Checkout,8,4,Low,High
+ML-004,Address autocomplete,Autocomplete addresses at checkout to reduce errors.,Internal request,Seller,Checkout,7,3,Low,High
+ML-005,Order confirmation page,Show a clear order confirmation with tracking link.,Compliance,Operations lead,Checkout,7,2,Low,High
+ML-006,Low stock alerts,Alert sellers when stock is low.,Partner request,Product manager,Inventory,8,3,Low,High
+ML-007,Inventory sync across channels,"Sync inventory across web, mobile, and marketplace.",Internal request,Buyer,Inventory,9,6,Low,High
+ML-008,Bulk inventory upload,Let sellers upload inventory in bulk from a spreadsheet.,Internal request,Store manager,Inventory,7,4,Low,High
+ML-009,Out of stock badge,Show an out of stock badge and a notify me option.,Partner request,Seller,Inventory,6,2,Low,High
+ML-010,Warehouse location tracking,Track which warehouse an item ships from.,Customer request,Product manager,Inventory,7,5,Low,Medium
+ML-011,Self-serve returns,Let customers start a return online without contacting support.,Internal request,Store manager,Returns,9,5,Low,High
+ML-012,Return label in the box,Include a return label option at checkout.,Sales request,Buyer,Returns,7,3,Low,Medium
+ML-013,Refund status tracking,Show refund status in the order page.,Sales request,Finance lead,Returns,8,3,Low,High
+ML-014,Return reasons report,Report return reasons by product.,Sales request,Store manager,Returns,6,3,Low,Medium
+ML-015,Exchange instead of refund,Offer an exchange instead of a refund at return.,Sales request,Finance lead,Returns,7,4,Low,Medium
+ML-016,Seller dashboard,"Give sellers a dashboard with sales, orders, and payouts.",Internal request,Finance lead,Seller Tools,9,5,Low,High
+ML-017,Bulk listing editor,Let sellers edit many listings at once.,Partner request,Product manager,Seller Tools,8,4,Low,High
+ML-018,Seller performance score,Show sellers a performance score with tips to improve.,Customer request,Finance lead,Seller Tools,7,4,Low,Medium
+ML-019,Promotion tools,Let sellers create discounts and coupon codes.,Support ticket,Seller,Seller Tools,8,4,Low,High
+ML-020,Seller onboarding checklist,Guide new sellers through listing their first product.,Sales request,Product manager,Seller Tools,8,3,Low,High
+ML-021,Search filters,"Add filters for price, brand, rating, and delivery time.",Internal request,Finance lead,Search,8,4,Low,High
+ML-022,Search autocomplete,Suggest products as the customer types.,Sales request,Store manager,Search,7,3,Low,High
+ML-023,Sort by relevance,"Sort search results by relevance, not only price.",Partner request,Support agent,Search,7,3,Low,Medium
+ML-024,Saved searches,Let customers save a search and get alerts for new items.,Compliance,Product manager,Search,6,3,Low,Low
+ML-025,Image search,Let customers search by uploading a photo.,Customer request,Seller,Search,7,6,Low,Low
+ML-026,Split payments,Let customers split a payment across two cards.,Internal request,Seller,Payments,6,5,Low,Low
+ML-027,Buy now pay later,Offer buy now pay later at checkout.,Internal request,Product manager,Payments,8,5,Medium,High
+ML-028,Saved payment methods,Let customers save payment methods securely.,Internal request,Finance lead,Payments,8,4,Medium,High
+ML-029,Currency selector,Let customers pay in their local currency.,Compliance,Finance lead,Payments,7,4,Low,Medium
+ML-030,Payment failure retry,Retry a failed payment automatically and notify the customer.,Sales request,Finance lead,Payments,8,4,Low,High
+ML-031,Delivery date estimate,Show an estimated delivery date before checkout.,Customer request,Operations lead,Checkout,8,3,Low,High
+ML-032,Pre-order stock,Let customers pre-order out of stock items.,Support ticket,Buyer,Inventory,7,4,Low,Medium
+ML-033,Instant refund for trusted buyers,Offer instant refunds for trusted buyers.,Sales request,Product manager,Returns,7,5,Medium,Medium
+ML-034,Seller messaging,Let sellers message buyers about an order.,Compliance,Support agent,Seller Tools,7,3,Low,High
+ML-035,Recently viewed,Show recently viewed items on the home page.,Support ticket,Finance lead,Search,6,2,Low,High
+ML-036,Gift cards,Add gift cards that can be used at checkout.,Compliance,Operations lead,Payments,7,4,Low,Medium
+ML-037,Order tracking page,"Show order tracking in the account, not only by email.",Customer request,Seller,Checkout,8,3,Low,High
+ML-038,Supplier alerts,Alert sellers when a supplier is out of stock.,Support ticket,Finance lead,Inventory,6,4,Low,Low
+ML-039,Return window settings,Let sellers set their own return window.,Support ticket,Finance lead,Returns,6,3,Low,Medium
+ML-040,Sales report export,Export sales reports to a spreadsheet.,Customer request,Seller,Seller Tools,7,3,Low,High
+ML-041,Related products,Show related products on a product page.,Customer request,Support agent,Search,7,3,Low,High
+ML-042,Tax calculation at checkout,Calculate tax correctly by location at checkout.,Customer request,Store manager,Payments,9,5,Medium,High
+ML-043,Save cart for later,Let customers save a cart and return later.,Partner request,Seller,Checkout,7,3,Low,High
+ML-044,Multi-location inventory,Track inventory across multiple warehouses.,Sales request,Store manager,Inventory,8,6,Low,Medium
+ML-045,Return pickup scheduling,Let customers schedule a return pickup.,Internal request,Operations lead,Returns,7,5,Low,Low
+ML-046,Related: Split payments,Let customers split a payment across two cards. - same issue reported from another site,Compliance,Support agent,Payments,5,5,Low,Low
+ML-047,Return label in the box,Include a return label option at checkout. - needs an export for audit,Partner request,Finance lead,Returns,7,3,Low,Medium
+ML-048,Related: Return pickup scheduling,Let customers schedule a return pickup. - same issue reported from another site,Support ticket,Finance lead,Returns,7,4,Low,Low
+ML-049,Order tracking page,"Show order tracking in the account, not only by email. - reported by multiple users this week",Sales request,Product manager,Checkout,8,3,Low,High
+ML-050,Follow up: Buy now pay later,"Offer buy now pay later at checkout. - customers are asking again, please prioritise",Partner request,Seller,Payments,7,6,Medium,High
+ML-051,Follow up: Return window settings,"Let sellers set their own return window. - customers are asking again, please prioritise",Sales request,Product manager,Returns,6,3,Low,Medium
+ML-052,Request: Tax calculation at checkout,Calculate tax correctly by location at checkout. - needed before next quarter,Internal request,Store manager,Payments,10,6,Medium,High
+ML-053,Return reasons report,Report return reasons by product. - needs an export for audit,Customer request,Operations lead,Returns,6,4,Low,Medium
+ML-054,Save cart for later,Let customers save a cart and return later. - add a setting so teams can turn this on or off,Internal request,Buyer,Checkout,7,3,Low,High
+ML-055,Request: Search autocomplete,Suggest products as the customer types. - needed before next quarter,Partner request,Store manager,Search,7,3,Low,High
+ML-056,Refund status tracking,"Show refund status in the order page. - urgent, blocking daily work",Compliance,Support agent,Returns,8,2,Low,High
+ML-057,Save cart for later,Let customers save a cart and return later. - add a setting so teams can turn this on or off,Sales request,Store manager,Checkout,7,2,Low,High
+ML-058,Buy now pay later,Offer buy now pay later at checkout. - include it in the mobile app too,Compliance,Finance lead,Payments,9,4,Medium,High
+ML-059,Refund status tracking,Show refund status in the order page. - add a setting so teams can turn this on or off,Partner request,Store manager,Returns,8,4,Low,High
+ML-060,Request: Instant refund for trusted buyers,Offer instant refunds for trusted buyers. - needed before next quarter,Support ticket,Product manager,Returns,7,5,Medium,Medium
+ML-061,Bulk listing editor,"Let sellers edit many listings at once. - urgent, blocking daily work",Partner request,Finance lead,Seller Tools,8,3,Low,Low
+ML-062,Seller onboarding checklist,Guide new sellers through listing their first product. - include it in the mobile app too,Internal request,Finance lead,Seller Tools,8,3,Low,Medium
+ML-063,Bulk inventory upload,Let sellers upload inventory in bulk from a spreadsheet. - needs an export for audit,Support ticket,Operations lead,Inventory,6,3,Low,High
+ML-064,Bulk inventory upload,Let sellers upload inventory in bulk from a spreadsheet. - include it in the mobile app too,Support ticket,Seller,Inventory,7,5,Low,Low
+ML-065,Search autocomplete,Suggest products as the customer types. - include it in the mobile app too,Partner request,Seller,Search,8,3,Low,High
+ML-066,Low stock alerts,Alert sellers when stock is low. - needs an export for audit,Customer request,Buyer,Inventory,8,3,Low,High
+ML-067,Request: Currency selector,Let customers pay in their local currency. - needed before next quarter,Support ticket,Support agent,Payments,7,4,Low,Medium
+ML-068,Low stock alerts,"Alert sellers when stock is low. - urgent, blocking daily work",Internal request,Support agent,Inventory,9,4,Low,High
+ML-069,Follow up: One-page checkout,"Reduce checkout to one page to cut drop-off. - customers are asking again, please prioritise",Sales request,Finance lead,Checkout,9,5,Low,High
+ML-070,Seller messaging,Let sellers message buyers about an order. - reported by multiple users this week,Support ticket,Seller,Seller Tools,6,2,Low,High
+ML-071,Return pickup scheduling,Let customers schedule a return pickup. - add a setting so teams can turn this on or off,Compliance,Store manager,Returns,7,5,Low,High
+ML-072,Related: Self-serve returns,Let customers start a return online without contacting support. - same issue reported from another site,Internal request,Product manager,Returns,8,5,Low,High
+ML-073,Seller messaging,Let sellers message buyers about an order. - add a setting so teams can turn this on or off,Internal request,Store manager,Seller Tools,8,3,Low,High
+ML-074,Refund status tracking,"Show refund status in the order page. - urgent, blocking daily work",Support ticket,Seller,Returns,9,2,Low,High
+ML-075,Guest checkout,"Let customers check out without creating an account. - urgent, blocking daily work",Customer request,Support agent,Checkout,8,4,Low,High
+ML-076,Request: Related products,Show related products on a product page. - needed before next quarter,Partner request,Finance lead,Search,6,2,Low,High
+ML-077,Follow up: Guest checkout,"Let customers check out without creating an account. - customers are asking again, please prioritise",Customer request,Operations lead,Checkout,8,5,Low,High
+ML-078,Bulk listing editor,Let sellers edit many listings at once. - needs an export for audit,Partner request,Buyer,Seller Tools,8,4,Low,High
+ML-079,Seller onboarding checklist,Guide new sellers through listing their first product. - include it in the mobile app too,Partner request,Seller,Seller Tools,7,3,Low,High
+ML-080,Related: Buy now pay later,Offer buy now pay later at checkout. - same issue reported from another site,Internal request,Seller,Payments,7,5,Medium,Low
+ML-081,Return window settings,Let sellers set their own return window. - reported by multiple users this week,Internal request,Store manager,Returns,6,3,Low,Medium
+ML-082,Follow up: Self-serve returns,"Let customers start a return online without contacting support. - customers are asking again, please prioritise",Internal request,Store manager,Returns,10,5,Low,High
+ML-083,Follow up: Seller dashboard,"Give sellers a dashboard with sales, orders, and payouts. - customers are asking again, please prioritise",Compliance,Product manager,Seller Tools,8,4,Low,High
+ML-084,Pre-order stock,"Let customers pre-order out of stock items. - urgent, blocking daily work",Customer request,Store manager,Inventory,6,3,Low,Medium
+ML-085,Tax calculation at checkout,Calculate tax correctly by location at checkout. - reported by multiple users this week,Customer request,Finance lead,Payments,10,5,Medium,Low
+ML-086,Follow up: Return label in the box,"Include a return label option at checkout. - customers are asking again, please prioritise",Sales request,Support agent,Returns,7,3,Low,Medium
+ML-087,Related: Bulk inventory upload,Let sellers upload inventory in bulk from a spreadsheet. - same issue reported from another site,Partner request,Product manager,Inventory,6,3,Low,High
+ML-088,Self-serve returns,Let customers start a return online without contacting support. - add a setting so teams can turn this on or off,Sales request,Product manager,Returns,9,6,Low,High
+ML-089,Low stock alerts,Alert sellers when stock is low. - add a setting so teams can turn this on or off,Internal request,Store manager,Inventory,8,3,Low,Medium
+ML-090,Image search,Let customers search by uploading a photo. - needs an export for audit,Partner request,Buyer,Search,8,6,Low,High
+ML-091,Related: Self-serve returns,Let customers start a return online without contacting support. - same issue reported from another site,Partner request,Support agent,Returns,10,6,Low,High
+ML-092,Return label in the box,Include a return label option at checkout. - include it in the mobile app too,Partner request,Seller,Returns,7,2,Low,Medium
+ML-093,Delivery date estimate,Show an estimated delivery date before checkout. - needs an export for audit,Customer request,Store manager,Checkout,7,4,Low,High
+ML-094,Tax calculation at checkout,Calculate tax correctly by location at checkout. - add a setting so teams can turn this on or off,Partner request,Finance lead,Payments,8,5,Medium,High
+ML-095,Related: Search autocomplete,Suggest products as the customer types. - same issue reported from another site,Partner request,Product manager,Search,8,3,Low,High
+ML-096,Tax calculation at checkout,Calculate tax correctly by location at checkout. - include it in the mobile app too,Compliance,Finance lead,Payments,9,4,Medium,Low
+ML-097,Delivery date estimate,Show an estimated delivery date before checkout. - needs an export for audit,Sales request,Seller,Checkout,8,2,Low,High
+ML-098,Request: Search autocomplete,Suggest products as the customer types. - needed before next quarter,Internal request,Support agent,Search,6,3,Low,High
+ML-099,Related: Seller dashboard,"Give sellers a dashboard with sales, orders, and payouts. - same issue reported from another site",Internal request,Buyer,Seller Tools,10,6,Low,High
+ML-100,Pre-order stock,Let customers pre-order out of stock items. - needs an export for audit,Partner request,Product manager,Inventory,7,3,Low,Medium
+ML-101,Related: Guest checkout,Let customers check out without creating an account. - same issue reported from another site,Customer request,Finance lead,Checkout,10,5,Low,High
+ML-102,Request: Low stock alerts,Alert sellers when stock is low. - needed before next quarter,Sales request,Finance lead,Inventory,8,4,Low,High
+ML-103,Address autocomplete,Autocomplete addresses at checkout to reduce errors. - reported by multiple users this week,Compliance,Operations lead,Checkout,8,3,Low,High
+ML-104,Delivery date estimate,Show an estimated delivery date before checkout. - add a setting so teams can turn this on or off,Support ticket,Buyer,Checkout,9,2,Low,High
+ML-105,Search autocomplete,Suggest products as the customer types. - add a setting so teams can turn this on or off,Customer request,Seller,Search,7,3,Low,High
+ML-106,Pre-order stock,"Let customers pre-order out of stock items. - urgent, blocking daily work",Support ticket,Buyer,Inventory,8,3,Low,Low
+ML-107,Split payments,Let customers split a payment across two cards. - reported by multiple users this week,Customer request,Finance lead,Payments,7,5,Low,Low
+ML-108,Follow up: Buy now pay later,"Offer buy now pay later at checkout. - customers are asking again, please prioritise",Compliance,Operations lead,Payments,7,6,Medium,High
+ML-109,Out of stock badge,Show an out of stock badge and a notify me option. - needs an export for audit,Internal request,Finance lead,Inventory,5,1,Low,High
+ML-110,Supplier alerts,Alert sellers when a supplier is out of stock. - needs an export for audit,Support ticket,Buyer,Inventory,6,4,Low,Low
+ML-111,Image search,Let customers search by uploading a photo. - add a setting so teams can turn this on or off,Partner request,Finance lead,Search,8,7,Low,Low
+ML-112,Request: Seller dashboard,"Give sellers a dashboard with sales, orders, and payouts. - needed before next quarter",Internal request,Finance lead,Seller Tools,10,5,Low,High
+ML-113,Out of stock badge,"Show an out of stock badge and a notify me option. - urgent, blocking daily work",Compliance,Finance lead,Inventory,7,2,Low,High
+ML-114,Search filters,"Add filters for price, brand, rating, and delivery time. - reported by multiple users this week",Sales request,Product manager,Search,8,4,Low,High
+ML-115,Sort by relevance,"Sort search results by relevance, not only price. - urgent, blocking daily work",Sales request,Operations lead,Search,7,3,Low,Medium
+ML-116,Delivery date estimate,Show an estimated delivery date before checkout. - include it in the mobile app too,Compliance,Buyer,Checkout,8,4,Low,High
+ML-117,Guest checkout,Let customers check out without creating an account. - include it in the mobile app too,Support ticket,Store manager,Checkout,9,3,Low,High
+ML-118,Request: Self-serve returns,Let customers start a return online without contacting support. - needed before next quarter,Partner request,Finance lead,Returns,9,5,Low,High
+ML-119,Promotion tools,Let sellers create discounts and coupon codes. - reported by multiple users this week,Customer request,Operations lead,Seller Tools,7,4,Low,High
+ML-120,Multi-location inventory,Track inventory across multiple warehouses. - reported by multiple users this week,Partner request,Store manager,Inventory,9,6,Low,Medium
+ML-121,Follow up: Return pickup scheduling,"Let customers schedule a return pickup. - customers are asking again, please prioritise",Partner request,Store manager,Returns,8,6,Low,Low
+ML-122,Follow up: Gift cards,"Add gift cards that can be used at checkout. - customers are asking again, please prioritise",Support ticket,Product manager,Payments,6,4,Low,Medium
+ML-123,Tax calculation at checkout,Calculate tax correctly by location at checkout. - add a setting so teams can turn this on or off,Partner request,Buyer,Payments,9,5,Medium,Low
+ML-124,Return label in the box,"Include a return label option at checkout. - urgent, blocking daily work",Compliance,Store manager,Returns,6,4,Low,Medium
+ML-125,Out of stock badge,"Show an out of stock badge and a notify me option. - urgent, blocking daily work",Partner request,Seller,Inventory,6,1,Low,High
+ML-126,Apple Pay and Google Pay,"Add Apple Pay and Google Pay at checkout. - urgent, blocking daily work",Partner request,Operations lead,Checkout,8,3,Low,High
+ML-127,Request: Save cart for later,Let customers save a cart and return later. - needed before next quarter,Sales request,Operations lead,Checkout,8,3,Low,High
+ML-128,Exchange instead of refund,"Offer an exchange instead of a refund at return. - urgent, blocking daily work",Compliance,Support agent,Returns,6,4,Low,Medium
+ML-129,Low stock alerts,Alert sellers when stock is low. - add a setting so teams can turn this on or off,Sales request,Store manager,Inventory,8,3,Low,High
+ML-130,Promotion tools,Let sellers create discounts and coupon codes. - reported by multiple users this week,Internal request,Seller,Seller Tools,9,3,Low,Medium
+ML-131,Tax calculation at checkout,Calculate tax correctly by location at checkout. - reported by multiple users this week,Customer request,Support agent,Payments,8,5,Medium,High
+ML-132,Request: Bulk listing editor,Let sellers edit many listings at once. - needed before next quarter,Compliance,Support agent,Seller Tools,7,4,Low,High
+ML-133,Follow up: Pre-order stock,"Let customers pre-order out of stock items. - customers are asking again, please prioritise",Customer request,Buyer,Inventory,7,4,Low,Medium
+ML-134,Follow up: Self-serve returns,"Let customers start a return online without contacting support. - customers are asking again, please prioritise",Support ticket,Finance lead,Returns,8,5,Low,High
+ML-135,Multi-location inventory,Track inventory across multiple warehouses. - include it in the mobile app too,Partner request,Product manager,Inventory,7,6,Low,Medium
+ML-136,Related: Saved payment methods,Let customers save payment methods securely. - same issue reported from another site,Sales request,Buyer,Payments,8,3,Medium,High
+ML-137,Related: Low stock alerts,Alert sellers when stock is low. - same issue reported from another site,Compliance,Buyer,Inventory,7,3,Low,High
+ML-138,Order tracking page,"Show order tracking in the account, not only by email. - reported by multiple users this week",Partner request,Support agent,Checkout,8,4,Low,High
+ML-139,Saved payment methods,Let customers save payment methods securely. - add a setting so teams can turn this on or off,Compliance,Buyer,Payments,7,5,Medium,High
+ML-140,Related: Tax calculation at checkout,Calculate tax correctly by location at checkout. - same issue reported from another site,Compliance,Buyer,Payments,8,4,Medium,High
+ML-141,Request: Promotion tools,Let sellers create discounts and coupon codes. - needed before next quarter,Internal request,Support agent,Seller Tools,7,4,Low,High
+ML-142,Follow up: Split payments,"Let customers split a payment across two cards. - customers are asking again, please prioritise",Support ticket,Product manager,Payments,7,5,Low,Low
+ML-143,Request: Split payments,Let customers split a payment across two cards. - needed before next quarter,Partner request,Product manager,Payments,6,5,Low,Low
+ML-144,Follow up: Saved searches,"Let customers save a search and get alerts for new items. - customers are asking again, please prioritise",Compliance,Support agent,Search,6,2,Low,High
+ML-145,Related: Recently viewed,Show recently viewed items on the home page. - same issue reported from another site,Partner request,Store manager,Search,6,2,Low,High
+ML-146,Return reasons report,Report return reasons by product. - include it in the mobile app too,Sales request,Seller,Returns,6,3,Low,High
+ML-147,Bulk inventory upload,"Let sellers upload inventory in bulk from a spreadsheet. - urgent, blocking daily work",Customer request,Store manager,Inventory,6,5,Low,High
+ML-148,Related: Save cart for later,Let customers save a cart and return later. - same issue reported from another site,Internal request,Store manager,Checkout,7,2,Low,High
+ML-149,Sort by relevance,"Sort search results by relevance, not only price. - urgent, blocking daily work",Support ticket,Store manager,Search,7,2,Low,Low
+ML-150,Pre-order stock,Let customers pre-order out of stock items. - needs an export for audit,Support ticket,Operations lead,Inventory,7,4,Low,Medium
+ML-151,Order tracking page,"Show order tracking in the account, not only by email. - add a setting so teams can turn this on or off",Support ticket,Finance lead,Checkout,8,4,Low,Medium
+ML-152,Exchange instead of refund,Offer an exchange instead of a refund at return. - include it in the mobile app too,Sales request,Support agent,Returns,7,4,Low,High
+ML-153,Payment failure retry,Retry a failed payment automatically and notify the customer. - needs an export for audit,Customer request,Seller,Payments,8,4,Low,High
+ML-154,Related: Tax calculation at checkout,Calculate tax correctly by location at checkout. - same issue reported from another site,Support ticket,Store manager,Payments,9,5,Medium,High
+ML-155,Related: Related products,Show related products on a product page. - same issue reported from another site,Partner request,Buyer,Search,6,2,Low,High
+ML-156,Supplier alerts,Alert sellers when a supplier is out of stock. - include it in the mobile app too,Compliance,Operations lead,Inventory,6,3,Low,Low
+ML-157,Delivery date estimate,"Show an estimated delivery date before checkout. - urgent, blocking daily work",Partner request,Finance lead,Checkout,8,4,Low,High
+ML-158,Promotion tools,"Let sellers create discounts and coupon codes. - urgent, blocking daily work",Compliance,Buyer,Seller Tools,9,3,Low,High
+ML-159,Save cart for later,Let customers save a cart and return later. - reported by multiple users this week,Support ticket,Operations lead,Checkout,7,3,Low,High
+ML-160,Order tracking page,"Show order tracking in the account, not only by email. - urgent, blocking daily work",Support ticket,Buyer,Checkout,9,3,Low,Medium
+ML-161,Bulk listing editor,Let sellers edit many listings at once. - add a setting so teams can turn this on or off,Compliance,Finance lead,Seller Tools,8,3,Low,High
+ML-162,Saved searches,Let customers save a search and get alerts for new items. - include it in the mobile app too,Customer request,Product manager,Search,7,4,Low,Low
+ML-163,Related: Search filters,"Add filters for price, brand, rating, and delivery time. - same issue reported from another site",Compliance,Seller,Search,8,4,Low,High
+ML-164,Image search,Let customers search by uploading a photo. - include it in the mobile app too,Internal request,Seller,Search,7,5,Low,Low
+ML-165,Seller messaging,Let sellers message buyers about an order. - include it in the mobile app too,Internal request,Operations lead,Seller Tools,7,3,Low,High
+ML-166,One-page checkout,"Reduce checkout to one page to cut drop-off. - urgent, blocking daily work",Partner request,Store manager,Checkout,10,5,Low,High
+ML-167,Return reasons report,"Report return reasons by product. - urgent, blocking daily work",Partner request,Finance lead,Returns,6,3,Low,Medium
+ML-168,Bulk inventory upload,Let sellers upload inventory in bulk from a spreadsheet. - reported by multiple users this week,Internal request,Product manager,Inventory,8,4,Low,High
+ML-169,Delivery date estimate,Show an estimated delivery date before checkout. - needs an export for audit,Internal request,Buyer,Checkout,8,3,Low,High
+ML-170,Follow up: Seller dashboard,"Give sellers a dashboard with sales, orders, and payouts. - customers are asking again, please prioritise",Customer request,Operations lead,Seller Tools,9,5,Low,High
+ML-171,Follow up: Warehouse location tracking,"Track which warehouse an item ships from. - customers are asking again, please prioritise",Compliance,Support agent,Inventory,7,5,Low,Medium
+ML-172,Follow up: Return window settings,"Let sellers set their own return window. - customers are asking again, please prioritise",Internal request,Finance lead,Returns,6,2,Low,High
+ML-173,Delivery date estimate,"Show an estimated delivery date before checkout. - urgent, blocking daily work",Compliance,Finance lead,Checkout,8,4,Low,High
+ML-174,Request: Return label in the box,Include a return label option at checkout. - needed before next quarter,Compliance,Operations lead,Returns,7,3,Low,Medium
+ML-175,Order confirmation page,Show a clear order confirmation with tracking link. - reported by multiple users this week,Support ticket,Operations lead,Checkout,8,3,Low,Low
+ML-176,Instant refund for trusted buyers,Offer instant refunds for trusted buyers. - include it in the mobile app too,Compliance,Buyer,Returns,7,4,Medium,High
+ML-177,Related: Recently viewed,Show recently viewed items on the home page. - same issue reported from another site,Compliance,Operations lead,Search,5,3,Low,High
+ML-178,One-page checkout,Reduce checkout to one page to cut drop-off. - include it in the mobile app too,Partner request,Operations lead,Checkout,10,5,Low,High
+ML-179,Saved payment methods,Let customers save payment methods securely. - reported by multiple users this week,Partner request,Finance lead,Payments,9,5,Medium,High
+ML-180,Related: Return pickup scheduling,Let customers schedule a return pickup. - same issue reported from another site,Customer request,Store manager,Returns,8,5,Low,Low
+ML-181,Return window settings,Let sellers set their own return window. - include it in the mobile app too,Customer request,Operations lead,Returns,6,3,Low,High
+ML-182,Related: Seller messaging,Let sellers message buyers about an order. - same issue reported from another site,Partner request,Finance lead,Seller Tools,6,4,Low,High
+ML-183,Search filters,"Add filters for price, brand, rating, and delivery time. - include it in the mobile app too",Compliance,Store manager,Search,8,3,Low,High
+ML-184,Bulk listing editor,Let sellers edit many listings at once. - include it in the mobile app too,Internal request,Finance lead,Seller Tools,8,4,Low,High
+ML-185,Return reasons report,Report return reasons by product. - include it in the mobile app too,Compliance,Support agent,Returns,7,3,Low,Medium
+ML-186,Request: Bulk listing editor,Let sellers edit many listings at once. - needed before next quarter,Partner request,Buyer,Seller Tools,8,5,Low,High
+ML-187,Exchange instead of refund,Offer an exchange instead of a refund at return. - needs an export for audit,Sales request,Finance lead,Returns,7,3,Low,Medium
+ML-188,Follow up: Gift cards,"Add gift cards that can be used at checkout. - customers are asking again, please prioritise",Customer request,Finance lead,Payments,7,5,Low,Medium
+ML-189,Low stock alerts,"Alert sellers when stock is low. - urgent, blocking daily work",Support ticket,Store manager,Inventory,9,4,Low,Medium
+ML-190,Follow up: Low stock alerts,"Alert sellers when stock is low. - customers are asking again, please prioritise",Compliance,Store manager,Inventory,9,4,Low,High
+ML-191,Follow up: Return window settings,"Let sellers set their own return window. - customers are asking again, please prioritise",Support ticket,Finance lead,Returns,6,4,Low,Medium
+ML-192,Request: Save cart for later,Let customers save a cart and return later. - needed before next quarter,Compliance,Operations lead,Checkout,7,2,Low,High
+ML-193,Return pickup scheduling,Let customers schedule a return pickup. - reported by multiple users this week,Partner request,Buyer,Returns,7,4,Low,Low
+ML-194,Related: Self-serve returns,Let customers start a return online without contacting support. - same issue reported from another site,Internal request,Support agent,Returns,9,6,Low,High
+ML-195,Supplier alerts,Alert sellers when a supplier is out of stock. - reported by multiple users this week,Compliance,Store manager,Inventory,5,3,Low,Low
+ML-196,Gift cards,Add gift cards that can be used at checkout. - add a setting so teams can turn this on or off,Internal request,Support agent,Payments,7,4,Low,Low
+ML-197,Follow up: Order tracking page,"Show order tracking in the account, not only by email. - customers are asking again, please prioritise",Customer request,Operations lead,Checkout,8,3,Low,High
+ML-198,Request: Order confirmation page,Show a clear order confirmation with tracking link. - needed before next quarter,Sales request,Operations lead,Checkout,7,1,Low,High
+ML-199,Request: Order tracking page,"Show order tracking in the account, not only by email. - needed before next quarter",Support ticket,Finance lead,Checkout,9,4,Low,High
+ML-200,Search autocomplete,Suggest products as the customer types. - needs an export for audit,Sales request,Buyer,Search,8,2,Low,High

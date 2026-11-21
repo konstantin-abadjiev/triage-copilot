@@ -1,0 +1,201 @@
+id,title,description,source,requester_type,theme,impact,effort,risk,evidence_strength
+NB-001,Real-time fraud scoring on payments,Score every payment in real time and hold suspicious ones for review.,Partner request,Compliance officer,Fraud,10,6,High,High
+NB-002,Device fingerprinting,Flag payments from a new device for a known account.,Partner request,Operations lead,Fraud,8,5,Medium,High
+NB-003,Velocity checks,Block an account after too many failed payments in a short window.,Sales request,Support agent,Fraud,8,4,Medium,High
+NB-004,Chargeback alerts,Alert merchants as soon as a chargeback is filed.,Partner request,Merchant,Fraud,7,3,Low,High
+NB-005,Allowlist for trusted payers,Let merchants allowlist trusted payers to skip extra checks.,Customer request,Support agent,Fraud,6,3,Low,Medium
+NB-006,Document upload for verification,Let small businesses upload ID documents to complete verification.,Internal request,Support agent,KYC,9,4,Medium,High
+NB-007,Automated business registry check,Check a business against the registry automatically during onboarding.,Partner request,Merchant,KYC,8,5,Medium,High
+NB-008,Beneficial owner form,Collect beneficial owner information in a guided form.,Internal request,Sales rep,KYC,7,4,High,High
+NB-009,Re-verification reminders,Remind businesses to re-verify documents before they expire.,Internal request,Merchant,KYC,7,3,Low,Medium
+NB-010,Sanctions screening,Screen owners against sanctions lists at onboarding.,Customer request,Risk analyst,KYC,9,5,High,High
+NB-011,Next-day payouts,Offer next-day payouts for eligible merchants.,Compliance,Finance lead,Payouts,9,6,Medium,High
+NB-012,Instant payout option,Offer an instant payout option for a small fee.,Customer request,Finance lead,Payouts,8,6,Medium,Medium
+NB-013,Payout schedule settings,"Let merchants choose daily, weekly, or monthly payout schedules.",Sales request,Operations lead,Payouts,7,3,Low,High
+NB-014,Failed payout retry,Automatically retry a failed payout and notify the merchant.,Partner request,Operations lead,Payouts,8,4,Low,High
+NB-015,Payout to multiple accounts,Split payouts across multiple bank accounts.,Compliance,Sales rep,Payouts,6,5,Low,Low
+NB-016,Dispute centre in the dashboard,Show all open disputes in one place with status and deadlines.,Sales request,Support agent,Disputes,8,4,Low,High
+NB-017,Evidence upload for disputes,Let merchants upload evidence for a dispute in the dashboard.,Compliance,Operations lead,Disputes,8,3,Low,High
+NB-018,Dispute deadline reminders,Remind merchants before a dispute response deadline.,Sales request,Support agent,Disputes,8,2,Low,High
+NB-019,Dispute outcome report,Report dispute win rate by reason code.,Compliance,Operations lead,Disputes,6,3,Low,Medium
+NB-020,Partial refund in a dispute,Offer a partial refund to resolve a dispute faster.,Internal request,Merchant,Disputes,7,4,Medium,Medium
+NB-021,AML transaction monitoring,Monitor transactions for AML patterns and flag them for review.,Partner request,Merchant,Compliance,10,7,High,High
+NB-022,Audit trail export,Export a full audit trail for a merchant for a date range.,Partner request,Sales rep,Compliance,8,4,High,High
+NB-023,Regulatory reporting,Generate regulatory reports in the required format.,Compliance,Sales rep,Compliance,9,6,High,Medium
+NB-024,Data retention for transactions,"Retain transaction records for the required period, then archive.",Support ticket,Support agent,Compliance,7,5,High,Medium
+NB-025,Access controls for staff,Restrict staff access to sensitive merchant data by role.,Internal request,Finance lead,Compliance,9,4,High,High
+NB-026,Guided onboarding checklist,Show new merchants a checklist so they finish setup in one session.,Internal request,Risk analyst,Onboarding,8,3,Low,High
+NB-027,Test mode for payments,Let merchants test payments in test mode before going live.,Internal request,Support agent,Onboarding,7,3,Low,High
+NB-028,Onboarding progress email,Email merchants when onboarding is incomplete after 3 days.,Internal request,Sales rep,Onboarding,6,2,Low,Medium
+NB-029,Invite team members,Invite team members with roles during onboarding.,Customer request,Risk analyst,Onboarding,7,3,Low,High
+NB-030,Business profile completion,Prompt merchants to complete their business profile.,Internal request,Risk analyst,Onboarding,6,2,Low,Medium
+NB-031,Revenue dashboard,"Show daily revenue, fees, and net payouts in one dashboard.",Partner request,Risk analyst,Reporting,8,4,Low,High
+NB-032,Fee breakdown report,Break down fees by type in a monthly report.,Sales request,Finance lead,Reporting,7,3,Low,High
+NB-033,Payout reconciliation,Reconcile payouts against bank statements automatically.,Partner request,Support agent,Reporting,8,5,Low,Medium
+NB-034,Customer payment report,Report payment success rate by method and country.,Customer request,Merchant,Reporting,7,3,Low,High
+NB-035,Export to accounting,Export transactions to accounting software in one click.,Customer request,Merchant,Reporting,7,4,Low,Medium
+NB-036,Suspicious login alerts,Alert merchants about logins from a new location.,Internal request,Merchant,Fraud,7,3,Low,Medium
+NB-037,Payout notifications by email,Email merchants when a payout is sent.,Partner request,Sales rep,Payouts,6,2,Low,High
+NB-038,Address verification,Verify a business address automatically.,Sales request,Compliance officer,KYC,7,4,Medium,Medium
+NB-039,Consent log,Log merchant consent for data use with timestamps.,Support ticket,Operations lead,Compliance,8,3,High,High
+NB-040,Demo data in test mode,Provide demo data so merchants can explore test mode.,Customer request,Operations lead,Onboarding,5,3,Low,Low
+NB-041,Tax summary report,Provide an annual tax summary for merchants.,Compliance,Operations lead,Reporting,8,4,Low,Medium
+NB-042,Customer message in disputes,Let merchants message the customer inside a dispute.,Sales request,Sales rep,Disputes,7,4,Low,Medium
+NB-043,Blocklist management,Let merchants manage a blocklist of cards or accounts.,Customer request,Support agent,Fraud,7,3,Medium,Medium
+NB-044,Minimum payout threshold,Let merchants set a minimum payout threshold.,Sales request,Compliance officer,Payouts,6,2,Low,Medium
+NB-045,Policy update notices,Notify merchants when a policy changes.,Partner request,Compliance officer,Compliance,6,2,Low,Medium
+NB-046,Follow up: Onboarding progress email,"Email merchants when onboarding is incomplete after 3 days. - customers are asking again, please prioritise",Compliance,Operations lead,Onboarding,6,2,Low,Medium
+NB-047,Failed payout retry,"Automatically retry a failed payout and notify the merchant. - urgent, blocking daily work",Sales request,Compliance officer,Payouts,9,4,Low,High
+NB-048,Suspicious login alerts,Alert merchants about logins from a new location. - add a setting so teams can turn this on or off,Internal request,Compliance officer,Fraud,6,3,Low,Medium
+NB-049,Follow up: Suspicious login alerts,"Alert merchants about logins from a new location. - customers are asking again, please prioritise",Sales request,Risk analyst,Fraud,7,2,Low,High
+NB-050,Follow up: Regulatory reporting,"Generate regulatory reports in the required format. - customers are asking again, please prioritise",Internal request,Merchant,Compliance,9,6,High,Medium
+NB-051,Follow up: Sanctions screening,"Screen owners against sanctions lists at onboarding. - customers are asking again, please prioritise",Internal request,Risk analyst,KYC,8,5,High,High
+NB-052,Next-day payouts,Offer next-day payouts for eligible merchants. - add a setting so teams can turn this on or off,Compliance,Operations lead,Payouts,9,6,Medium,High
+NB-053,Follow up: Document upload for verification,"Let small businesses upload ID documents to complete verification. - customers are asking again, please prioritise",Customer request,Sales rep,KYC,9,4,Medium,High
+NB-054,Request: Document upload for verification,Let small businesses upload ID documents to complete verification. - needed before next quarter,Internal request,Support agent,KYC,10,5,Medium,High
+NB-055,Dispute deadline reminders,Remind merchants before a dispute response deadline. - reported by multiple users this week,Sales request,Sales rep,Disputes,7,2,Low,High
+NB-056,Minimum payout threshold,Let merchants set a minimum payout threshold. - needs an export for audit,Customer request,Merchant,Payouts,6,1,Low,High
+NB-057,Request: Failed payout retry,Automatically retry a failed payout and notify the merchant. - needed before next quarter,Sales request,Risk analyst,Payouts,8,4,Low,High
+NB-058,Follow up: Beneficial owner form,"Collect beneficial owner information in a guided form. - customers are asking again, please prioritise",Compliance,Sales rep,KYC,8,5,High,Medium
+NB-059,Payout to multiple accounts,Split payouts across multiple bank accounts. - add a setting so teams can turn this on or off,Customer request,Support agent,Payouts,5,6,Low,Low
+NB-060,Device fingerprinting,Flag payments from a new device for a known account. - needs an export for audit,Compliance,Support agent,Fraud,7,5,Medium,High
+NB-061,Tax summary report,Provide an annual tax summary for merchants. - include it in the mobile app too,Sales request,Finance lead,Reporting,8,3,Low,Medium
+NB-062,Demo data in test mode,Provide demo data so merchants can explore test mode. - needs an export for audit,Customer request,Finance lead,Onboarding,5,2,Low,Low
+NB-063,Onboarding progress email,Email merchants when onboarding is incomplete after 3 days. - include it in the mobile app too,Partner request,Risk analyst,Onboarding,5,3,Low,Medium
+NB-064,Payout to multiple accounts,Split payouts across multiple bank accounts. - add a setting so teams can turn this on or off,Customer request,Operations lead,Payouts,6,4,Low,Low
+NB-065,Payout reconciliation,Reconcile payouts against bank statements automatically. - reported by multiple users this week,Partner request,Compliance officer,Reporting,8,5,Low,Medium
+NB-066,Sanctions screening,Screen owners against sanctions lists at onboarding. - reported by multiple users this week,Compliance,Finance lead,KYC,8,5,High,Low
+NB-067,Related: Customer message in disputes,Let merchants message the customer inside a dispute. - same issue reported from another site,Compliance,Compliance officer,Disputes,7,5,Low,Medium
+NB-068,Address verification,Verify a business address automatically. - needs an export for audit,Internal request,Support agent,KYC,7,4,Medium,Low
+NB-069,Request: Tax summary report,Provide an annual tax summary for merchants. - needed before next quarter,Customer request,Risk analyst,Reporting,8,3,Low,Medium
+NB-070,Business profile completion,Prompt merchants to complete their business profile. - needs an export for audit,Sales request,Merchant,Onboarding,5,1,Low,Medium
+NB-071,Related: Customer message in disputes,Let merchants message the customer inside a dispute. - same issue reported from another site,Partner request,Merchant,Disputes,8,5,Low,Medium
+NB-072,Invite team members,Invite team members with roles during onboarding. - reported by multiple users this week,Customer request,Support agent,Onboarding,7,4,Low,High
+NB-073,Automated business registry check,Check a business against the registry automatically during onboarding. - add a setting so teams can turn this on or off,Internal request,Support agent,KYC,7,5,Medium,High
+NB-074,Customer payment report,"Report payment success rate by method and country. - urgent, blocking daily work",Internal request,Support agent,Reporting,7,3,Low,High
+NB-075,Follow up: Audit trail export,"Export a full audit trail for a merchant for a date range. - customers are asking again, please prioritise",Compliance,Sales rep,Compliance,8,3,High,High
+NB-076,Request: Access controls for staff,Restrict staff access to sensitive merchant data by role. - needed before next quarter,Compliance,Sales rep,Compliance,9,4,High,High
+NB-077,Sanctions screening,Screen owners against sanctions lists at onboarding. - add a setting so teams can turn this on or off,Customer request,Risk analyst,KYC,9,6,High,High
+NB-078,Suspicious login alerts,Alert merchants about logins from a new location. - include it in the mobile app too,Partner request,Sales rep,Fraud,7,3,Low,Medium
+NB-079,Related: Customer payment report,Report payment success rate by method and country. - same issue reported from another site,Support ticket,Finance lead,Reporting,8,3,Low,Medium
+NB-080,Audit trail export,Export a full audit trail for a merchant for a date range. - needs an export for audit,Support ticket,Merchant,Compliance,8,4,High,High
+NB-081,Related: Dispute outcome report,Report dispute win rate by reason code. - same issue reported from another site,Compliance,Finance lead,Disputes,5,3,Low,Medium
+NB-082,Consent log,Log merchant consent for data use with timestamps. - include it in the mobile app too,Compliance,Compliance officer,Compliance,8,3,High,High
+NB-083,Next-day payouts,Offer next-day payouts for eligible merchants. - needs an export for audit,Partner request,Finance lead,Payouts,8,7,Medium,High
+NB-084,Request: Invite team members,Invite team members with roles during onboarding. - needed before next quarter,Sales request,Compliance officer,Onboarding,8,3,Low,High
+NB-085,Revenue dashboard,"Show daily revenue, fees, and net payouts in one dashboard. - reported by multiple users this week",Sales request,Compliance officer,Reporting,8,5,Low,High
+NB-086,Access controls for staff,Restrict staff access to sensitive merchant data by role. - include it in the mobile app too,Support ticket,Compliance officer,Compliance,9,4,High,High
+NB-087,Follow up: Evidence upload for disputes,"Let merchants upload evidence for a dispute in the dashboard. - customers are asking again, please prioritise",Customer request,Sales rep,Disputes,9,3,Low,High
+NB-088,Related: Customer payment report,Report payment success rate by method and country. - same issue reported from another site,Sales request,Support agent,Reporting,7,2,Low,High
+NB-089,Payout reconciliation,"Reconcile payouts against bank statements automatically. - urgent, blocking daily work",Support ticket,Compliance officer,Reporting,9,4,Low,Medium
+NB-090,Invite team members,Invite team members with roles during onboarding. - add a setting so teams can turn this on or off,Sales request,Finance lead,Onboarding,6,4,Low,High
+NB-091,Related: Access controls for staff,Restrict staff access to sensitive merchant data by role. - same issue reported from another site,Partner request,Sales rep,Compliance,9,4,High,Low
+NB-092,Audit trail export,"Export a full audit trail for a merchant for a date range. - urgent, blocking daily work",Partner request,Compliance officer,Compliance,8,3,High,Medium
+NB-093,Re-verification reminders,Remind businesses to re-verify documents before they expire. - needs an export for audit,Customer request,Risk analyst,KYC,8,2,Low,Medium
+NB-094,Failed payout retry,"Automatically retry a failed payout and notify the merchant. - urgent, blocking daily work",Support ticket,Risk analyst,Payouts,9,3,Low,High
+NB-095,Follow up: Beneficial owner form,"Collect beneficial owner information in a guided form. - customers are asking again, please prioritise",Compliance,Support agent,KYC,7,5,High,High
+NB-096,Related: Allowlist for trusted payers,Let merchants allowlist trusted payers to skip extra checks. - same issue reported from another site,Compliance,Finance lead,Fraud,7,2,Low,Medium
+NB-097,Request: Sanctions screening,Screen owners against sanctions lists at onboarding. - needed before next quarter,Support ticket,Operations lead,KYC,10,4,High,High
+NB-098,Test mode for payments,"Let merchants test payments in test mode before going live. - urgent, blocking daily work",Compliance,Operations lead,Onboarding,6,3,Low,High
+NB-099,Follow up: Payout reconciliation,"Reconcile payouts against bank statements automatically. - customers are asking again, please prioritise",Sales request,Risk analyst,Reporting,9,6,Low,Medium
+NB-100,Device fingerprinting,Flag payments from a new device for a known account. - add a setting so teams can turn this on or off,Partner request,Merchant,Fraud,7,5,Medium,High
+NB-101,Address verification,Verify a business address automatically. - add a setting so teams can turn this on or off,Sales request,Compliance officer,KYC,7,3,Medium,Medium
+NB-102,Customer message in disputes,"Let merchants message the customer inside a dispute. - urgent, blocking daily work",Support ticket,Merchant,Disputes,8,5,Low,Medium
+NB-103,Follow up: Business profile completion,"Prompt merchants to complete their business profile. - customers are asking again, please prioritise",Customer request,Risk analyst,Onboarding,6,2,Low,Low
+NB-104,Partial refund in a dispute,Offer a partial refund to resolve a dispute faster. - include it in the mobile app too,Support ticket,Risk analyst,Disputes,8,4,Medium,High
+NB-105,Follow up: Regulatory reporting,"Generate regulatory reports in the required format. - customers are asking again, please prioritise",Internal request,Support agent,Compliance,9,6,High,Medium
+NB-106,Invite team members,Invite team members with roles during onboarding. - include it in the mobile app too,Internal request,Risk analyst,Onboarding,7,3,Low,High
+NB-107,Request: Customer payment report,Report payment success rate by method and country. - needed before next quarter,Support ticket,Operations lead,Reporting,6,4,Low,High
+NB-108,Dispute outcome report,Report dispute win rate by reason code. - add a setting so teams can turn this on or off,Sales request,Risk analyst,Disputes,5,2,Low,Medium
+NB-109,Invite team members,Invite team members with roles during onboarding. - include it in the mobile app too,Customer request,Sales rep,Onboarding,7,4,Low,High
+NB-110,Regulatory reporting,Generate regulatory reports in the required format. - include it in the mobile app too,Internal request,Risk analyst,Compliance,9,5,High,High
+NB-111,Payout reconciliation,"Reconcile payouts against bank statements automatically. - urgent, blocking daily work",Partner request,Compliance officer,Reporting,7,5,Low,Medium
+NB-112,Follow up: Invite team members,"Invite team members with roles during onboarding. - customers are asking again, please prioritise",Sales request,Risk analyst,Onboarding,7,2,Low,High
+NB-113,Follow up: Access controls for staff,"Restrict staff access to sensitive merchant data by role. - customers are asking again, please prioritise",Sales request,Support agent,Compliance,9,5,High,High
+NB-114,Allowlist for trusted payers,"Let merchants allowlist trusted payers to skip extra checks. - urgent, blocking daily work",Sales request,Finance lead,Fraud,6,4,Low,Medium
+NB-115,Follow up: Beneficial owner form,"Collect beneficial owner information in a guided form. - customers are asking again, please prioritise",Compliance,Merchant,KYC,7,5,High,High
+NB-116,Request: Evidence upload for disputes,Let merchants upload evidence for a dispute in the dashboard. - needed before next quarter,Sales request,Sales rep,Disputes,9,3,Low,High
+NB-117,Fee breakdown report,Break down fees by type in a monthly report. - reported by multiple users this week,Internal request,Finance lead,Reporting,6,3,Low,High
+NB-118,Related: Invite team members,Invite team members with roles during onboarding. - same issue reported from another site,Compliance,Operations lead,Onboarding,7,3,Low,High
+NB-119,Request: Dispute outcome report,Report dispute win rate by reason code. - needed before next quarter,Compliance,Finance lead,Disputes,6,3,Low,Medium
+NB-120,Beneficial owner form,Collect beneficial owner information in a guided form. - reported by multiple users this week,Customer request,Risk analyst,KYC,7,4,High,High
+NB-121,Suspicious login alerts,Alert merchants about logins from a new location. - add a setting so teams can turn this on or off,Customer request,Merchant,Fraud,8,3,Low,Medium
+NB-122,Partial refund in a dispute,Offer a partial refund to resolve a dispute faster. - include it in the mobile app too,Compliance,Merchant,Disputes,8,5,Medium,Medium
+NB-123,Re-verification reminders,Remind businesses to re-verify documents before they expire. - add a setting so teams can turn this on or off,Compliance,Risk analyst,KYC,6,4,Low,Medium
+NB-124,Re-verification reminders,"Remind businesses to re-verify documents before they expire. - urgent, blocking daily work",Customer request,Compliance officer,KYC,7,4,Low,Medium
+NB-125,Beneficial owner form,"Collect beneficial owner information in a guided form. - urgent, blocking daily work",Support ticket,Risk analyst,KYC,7,4,High,High
+NB-126,Request: Customer payment report,Report payment success rate by method and country. - needed before next quarter,Sales request,Finance lead,Reporting,6,3,Low,High
+NB-127,Request: Tax summary report,Provide an annual tax summary for merchants. - needed before next quarter,Compliance,Finance lead,Reporting,7,4,Low,Medium
+NB-128,Next-day payouts,Offer next-day payouts for eligible merchants. - add a setting so teams can turn this on or off,Compliance,Risk analyst,Payouts,8,5,Medium,High
+NB-129,Customer message in disputes,Let merchants message the customer inside a dispute. - reported by multiple users this week,Partner request,Operations lead,Disputes,8,3,Low,Medium
+NB-130,Request: Dispute outcome report,Report dispute win rate by reason code. - needed before next quarter,Partner request,Support agent,Disputes,7,3,Low,Medium
+NB-131,Partial refund in a dispute,Offer a partial refund to resolve a dispute faster. - needs an export for audit,Internal request,Support agent,Disputes,6,3,Medium,Medium
+NB-132,Failed payout retry,Automatically retry a failed payout and notify the merchant. - add a setting so teams can turn this on or off,Sales request,Sales rep,Payouts,8,4,Low,High
+NB-133,Regulatory reporting,Generate regulatory reports in the required format. - include it in the mobile app too,Customer request,Risk analyst,Compliance,9,6,High,Medium
+NB-134,Dispute centre in the dashboard,Show all open disputes in one place with status and deadlines. - needs an export for audit,Support ticket,Merchant,Disputes,7,4,Low,High
+NB-135,Request: Chargeback alerts,Alert merchants as soon as a chargeback is filed. - needed before next quarter,Sales request,Operations lead,Fraud,8,4,Low,Low
+NB-136,AML transaction monitoring,Monitor transactions for AML patterns and flag them for review. - reported by multiple users this week,Internal request,Support agent,Compliance,10,8,High,High
+NB-137,Partial refund in a dispute,Offer a partial refund to resolve a dispute faster. - needs an export for audit,Compliance,Support agent,Disputes,6,3,Medium,Medium
+NB-138,Dispute centre in the dashboard,Show all open disputes in one place with status and deadlines. - reported by multiple users this week,Compliance,Compliance officer,Disputes,8,3,Low,Medium
+NB-139,Customer message in disputes,Let merchants message the customer inside a dispute. - needs an export for audit,Internal request,Finance lead,Disputes,7,3,Low,Medium
+NB-140,Evidence upload for disputes,Let merchants upload evidence for a dispute in the dashboard. - add a setting so teams can turn this on or off,Compliance,Operations lead,Disputes,9,3,Low,Low
+NB-141,Payout schedule settings,"Let merchants choose daily, weekly, or monthly payout schedules. - add a setting so teams can turn this on or off",Internal request,Compliance officer,Payouts,7,2,Low,High
+NB-142,Request: Suspicious login alerts,Alert merchants about logins from a new location. - needed before next quarter,Internal request,Risk analyst,Fraud,6,3,Low,Medium
+NB-143,Audit trail export,Export a full audit trail for a merchant for a date range. - add a setting so teams can turn this on or off,Internal request,Operations lead,Compliance,8,4,High,High
+NB-144,Follow up: Velocity checks,"Block an account after too many failed payments in a short window. - customers are asking again, please prioritise",Internal request,Operations lead,Fraud,7,4,Medium,High
+NB-145,Business profile completion,"Prompt merchants to complete their business profile. - urgent, blocking daily work",Sales request,Finance lead,Onboarding,6,2,Low,Medium
+NB-146,Request: Guided onboarding checklist,Show new merchants a checklist so they finish setup in one session. - needed before next quarter,Sales request,Support agent,Onboarding,8,4,Low,High
+NB-147,Device fingerprinting,Flag payments from a new device for a known account. - add a setting so teams can turn this on or off,Compliance,Risk analyst,Fraud,8,4,Medium,High
+NB-148,Follow up: Policy update notices,"Notify merchants when a policy changes. - customers are asking again, please prioritise",Compliance,Operations lead,Compliance,7,2,Low,Medium
+NB-149,Follow up: Payout to multiple accounts,"Split payouts across multiple bank accounts. - customers are asking again, please prioritise",Partner request,Operations lead,Payouts,7,5,Low,Low
+NB-150,Access controls for staff,"Restrict staff access to sensitive merchant data by role. - urgent, blocking daily work",Partner request,Merchant,Compliance,9,3,High,High
+NB-151,Follow up: Payout schedule settings,"Let merchants choose daily, weekly, or monthly payout schedules. - customers are asking again, please prioritise",Internal request,Sales rep,Payouts,8,3,Low,High
+NB-152,Failed payout retry,Automatically retry a failed payout and notify the merchant. - include it in the mobile app too,Compliance,Finance lead,Payouts,9,3,Low,High
+NB-153,Suspicious login alerts,Alert merchants about logins from a new location. - add a setting so teams can turn this on or off,Support ticket,Support agent,Fraud,8,4,Low,Medium
+NB-154,Export to accounting,Export transactions to accounting software in one click. - add a setting so teams can turn this on or off,Support ticket,Finance lead,Reporting,7,4,Low,Medium
+NB-155,Request: Dispute deadline reminders,Remind merchants before a dispute response deadline. - needed before next quarter,Partner request,Finance lead,Disputes,8,2,Low,High
+NB-156,Policy update notices,Notify merchants when a policy changes. - needs an export for audit,Partner request,Risk analyst,Compliance,6,3,Low,Medium
+NB-157,Related: Dispute outcome report,Report dispute win rate by reason code. - same issue reported from another site,Support ticket,Risk analyst,Disputes,7,4,Low,Medium
+NB-158,Request: Velocity checks,Block an account after too many failed payments in a short window. - needed before next quarter,Partner request,Risk analyst,Fraud,7,4,Medium,High
+NB-159,Revenue dashboard,"Show daily revenue, fees, and net payouts in one dashboard. - reported by multiple users this week",Partner request,Risk analyst,Reporting,8,4,Low,High
+NB-160,Related: Re-verification reminders,Remind businesses to re-verify documents before they expire. - same issue reported from another site,Support ticket,Sales rep,KYC,7,3,Low,High
+NB-161,Follow up: Payout to multiple accounts,"Split payouts across multiple bank accounts. - customers are asking again, please prioritise",Internal request,Merchant,Payouts,5,6,Low,Low
+NB-162,Minimum payout threshold,"Let merchants set a minimum payout threshold. - urgent, blocking daily work",Internal request,Support agent,Payouts,5,2,Low,Medium
+NB-163,Customer message in disputes,Let merchants message the customer inside a dispute. - reported by multiple users this week,Customer request,Sales rep,Disputes,7,4,Low,Low
+NB-164,Payout notifications by email,Email merchants when a payout is sent. - reported by multiple users this week,Support ticket,Merchant,Payouts,5,2,Low,High
+NB-165,Guided onboarding checklist,Show new merchants a checklist so they finish setup in one session. - needs an export for audit,Customer request,Risk analyst,Onboarding,8,3,Low,High
+NB-166,Related: Payout notifications by email,Email merchants when a payout is sent. - same issue reported from another site,Partner request,Operations lead,Payouts,6,2,Low,High
+NB-167,Customer payment report,Report payment success rate by method and country. - needs an export for audit,Sales request,Finance lead,Reporting,7,4,Low,Low
+NB-168,Request: Business profile completion,Prompt merchants to complete their business profile. - needed before next quarter,Sales request,Operations lead,Onboarding,6,1,Low,Medium
+NB-169,Minimum payout threshold,Let merchants set a minimum payout threshold. - reported by multiple users this week,Compliance,Risk analyst,Payouts,6,3,Low,Medium
+NB-170,Document upload for verification,Let small businesses upload ID documents to complete verification. - include it in the mobile app too,Internal request,Risk analyst,KYC,8,4,Medium,High
+NB-171,Follow up: Dispute centre in the dashboard,"Show all open disputes in one place with status and deadlines. - customers are asking again, please prioritise",Sales request,Risk analyst,Disputes,8,5,Low,Medium
+NB-172,Follow up: Address verification,"Verify a business address automatically. - customers are asking again, please prioritise",Customer request,Sales rep,KYC,7,4,Medium,Medium
+NB-173,Beneficial owner form,Collect beneficial owner information in a guided form. - needs an export for audit,Compliance,Sales rep,KYC,7,4,High,High
+NB-174,Related: Partial refund in a dispute,Offer a partial refund to resolve a dispute faster. - same issue reported from another site,Support ticket,Finance lead,Disputes,7,4,Medium,Medium
+NB-175,Revenue dashboard,"Show daily revenue, fees, and net payouts in one dashboard. - urgent, blocking daily work",Compliance,Support agent,Reporting,9,4,Low,High
+NB-176,Export to accounting,Export transactions to accounting software in one click. - reported by multiple users this week,Compliance,Sales rep,Reporting,7,3,Low,Medium
+NB-177,Related: Data retention for transactions,"Retain transaction records for the required period, then archive. - same issue reported from another site",Compliance,Finance lead,Compliance,6,4,High,Medium
+NB-178,Payout notifications by email,"Email merchants when a payout is sent. - urgent, blocking daily work",Internal request,Merchant,Payouts,6,2,Low,High
+NB-179,Minimum payout threshold,Let merchants set a minimum payout threshold. - reported by multiple users this week,Internal request,Compliance officer,Payouts,7,1,Low,Medium
+NB-180,Chargeback alerts,Alert merchants as soon as a chargeback is filed. - needs an export for audit,Customer request,Operations lead,Fraud,7,4,Low,High
+NB-181,Request: Business profile completion,Prompt merchants to complete their business profile. - needed before next quarter,Partner request,Finance lead,Onboarding,5,3,Low,Low
+NB-182,Related: Address verification,Verify a business address automatically. - same issue reported from another site,Customer request,Operations lead,KYC,6,5,Medium,Medium
+NB-183,Related: Chargeback alerts,Alert merchants as soon as a chargeback is filed. - same issue reported from another site,Support ticket,Compliance officer,Fraud,8,2,Low,Low
+NB-184,Customer message in disputes,Let merchants message the customer inside a dispute. - include it in the mobile app too,Internal request,Support agent,Disputes,7,5,Low,Medium
+NB-185,Document upload for verification,"Let small businesses upload ID documents to complete verification. - urgent, blocking daily work",Internal request,Operations lead,KYC,9,3,Medium,High
+NB-186,Re-verification reminders,Remind businesses to re-verify documents before they expire. - reported by multiple users this week,Internal request,Sales rep,KYC,6,2,Low,Medium
+NB-187,Export to accounting,Export transactions to accounting software in one click. - include it in the mobile app too,Support ticket,Risk analyst,Reporting,8,4,Low,Medium
+NB-188,Related: Payout schedule settings,"Let merchants choose daily, weekly, or monthly payout schedules. - same issue reported from another site",Customer request,Finance lead,Payouts,6,4,Low,High
+NB-189,Related: Failed payout retry,Automatically retry a failed payout and notify the merchant. - same issue reported from another site,Partner request,Sales rep,Payouts,7,3,Low,High
+NB-190,Chargeback alerts,Alert merchants as soon as a chargeback is filed. - reported by multiple users this week,Compliance,Finance lead,Fraud,6,4,Low,High
+NB-191,Chargeback alerts,"Alert merchants as soon as a chargeback is filed. - urgent, blocking daily work",Partner request,Operations lead,Fraud,7,3,Low,High
+NB-192,AML transaction monitoring,Monitor transactions for AML patterns and flag them for review. - add a setting so teams can turn this on or off,Partner request,Operations lead,Compliance,10,7,High,High
+NB-193,Payout to multiple accounts,Split payouts across multiple bank accounts. - include it in the mobile app too,Partner request,Finance lead,Payouts,6,5,Low,High
+NB-194,Tax summary report,Provide an annual tax summary for merchants. - include it in the mobile app too,Partner request,Sales rep,Reporting,9,3,Low,Medium
+NB-195,Access controls for staff,Restrict staff access to sensitive merchant data by role. - add a setting so teams can turn this on or off,Support ticket,Compliance officer,Compliance,10,5,High,Medium
+NB-196,Export to accounting,Export transactions to accounting software in one click. - needs an export for audit,Partner request,Finance lead,Reporting,7,4,Low,Medium
+NB-197,Follow up: Business profile completion,"Prompt merchants to complete their business profile. - customers are asking again, please prioritise",Support ticket,Support agent,Onboarding,7,3,Low,Medium
+NB-198,Request: Dispute centre in the dashboard,Show all open disputes in one place with status and deadlines. - needed before next quarter,Internal request,Compliance officer,Disputes,8,4,Low,High
+NB-199,Related: Data retention for transactions,"Retain transaction records for the required period, then archive. - same issue reported from another site",Compliance,Operations lead,Compliance,7,4,High,High
+NB-200,Related: Velocity checks,Block an account after too many failed payments in a short window. - same issue reported from another site,Sales request,Risk analyst,Fraud,8,4,Medium,High
