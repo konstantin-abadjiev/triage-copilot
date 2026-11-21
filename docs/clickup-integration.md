@@ -1,21 +1,21 @@
 # ClickUp integration
 
-Auto-create on Approve. When an item is approved in the Review Queue, Triage
+Auto-create on Approve. When an item is approved in Review, Triage
 automatically creates one task in ClickUp. Edit and Reject never create a
 task. There is no separate Send to ClickUp button. The only manual ClickUp
 button is a retry that appears after a failed create.
 
 ## Flow
 
-1. User clicks Approve in the Review Queue and gives a reason.
-2. Triage saves the approval locally and in the Decision Log, and shows
+1. User clicks Approve in Review and gives a reason.
+2. Triage saves the approval locally with the decision, and shows
    "Creating ClickUp task...".
 3. The front end POSTs to `/.netlify/functions/clickup` with
    `{item, pack, decision: "approved", reviewer}`.
 4. The Netlify Function `netlify/functions/clickup.mjs` resolves the List ID
    for that pack, builds the task, and calls the ClickUp API.
 5. ClickUp returns a task id and URL. Triage stores them on the approved
-   item and in the Decision Log entry, and shows an "Open task" link.
+   item and in the decision record, and shows an "Open task" link.
 6. If the call fails, Triage keeps the approval and shows the error, with a
    "ClickUp failed, retry" button. It does not lose the decision.
 
@@ -94,17 +94,20 @@ approved tasks straight back into the inbox as new items.
 - Intake list, the source: `CLICKUP_INTAKE_LIST_ID`. Bugs are filed here,
   and new feature ideas are added here. The front end "Sync from ClickUp"
   button pulls tasks from this list only, through
-  `GET /.netlify/functions/clickup-intake`, and appends them to the
-  Uploaded CSV inbox. It never creates tasks here.
+  `GET /.netlify/functions/clickup-intake`, and appends them to the pack
+  you are currently viewing. It never creates tasks here.
   Configured Nov 20, 2026: "Needs Triage", List ID 1700370000001077,
   in folder Backlog Triage Copilot, Product space. Set
   `CLICKUP_INTAKE_LIST_ID=1700370000001077` in Netlify environment variables.
 - Approved list, the destination: `CLICKUP_LIST_ID`, or a per-pack
-  `CLICKUP_LIST_ID_<PACK>`. Approving an item in the Review Queue creates
+  `CLICKUP_LIST_ID_<PACK>`. Approving an item in Review creates
   one task here, through `POST /.netlify/functions/clickup`. Nothing is
   ever read back from this list as new input.
   Configured Nov 20, 2026: "Triage Approved", List ID 1700370000001073,
-  same folder. Set `CLICKUP_LIST_ID=1700370000001073`.
+  same folder. Set `CLICKUP_LIST_ID=1700370000001073`. The Review and
+  Archived descriptions link to this list at
+  https://app.clickup.com/9009062684/v/l/1700370000001073, so a user
+  deciding on items can open where approved items export to.
 
 Both lists now exist in ClickUp. Set both IDs above in Netlify
 environment variables and redeploy before Sync from ClickUp will work.
@@ -119,7 +122,7 @@ ClickUp task id when present, across the inbox, the scored queue, and the
 archive, so re-uploading or re-syncing the same items adds 0 new items.
 
 Each item has a lifecycle: new, triaged, approved, rejected, edited.
-Backlog, Review Queue, and Roadmap show only active inbox items, new plus
+Backlog and Review show only active inbox items, new plus
 triaged plus undecided. Run triage scores only items that have not been
 scored yet, so undecided items keep their score and place, and decided
 items are never re-scored. The status line shows "New since last triage".
@@ -131,11 +134,10 @@ items are never re-scored. The status line shows "New since last triage".
 - Reject: the item moves to Archived immediately, with its reason kept.
   No ClickUp call is made.
 
-The Archived tab lists every approved, edited, and rejected item, with
+The Archived view lists every approved, edited, and rejected item, with
 its decision, reason, timestamp, RICE, theme, and ClickUp task link when
-present. The Decisions Logged stat counts archived items. The Decision
-Log tab keeps the full audit trail, including a failed Approve attempt
-that is still in the inbox.
+present. The Decisions Logged stat counts archived items. A failed Approve
+attempt stays in the inbox with a retry button, and its decision is kept.
 
 ## Intake endpoint
 
