@@ -1,7 +1,7 @@
 // ClickUp back end, Netlify Function.
 // Auto-create on Approve only. Edit and Reject never call this function.
 // The front end calls this endpoint after a user approves an item in the
-// Review Queue. The function creates one ClickUp task and returns its id
+// Review. The function creates one ClickUp task and returns its id
 // and URL. No token or List ID is stored in this file or in the repo.
 // Set them only in environment variables, in Netlify Site settings >
 // Environment variables, or in a local .env file that is never committed.
@@ -110,6 +110,8 @@ function buildTask(item, pack) {
   lines.push('Source: ' + (item.source || ''));
   lines.push('Requester: ' + (item.requester_type || ''));
   lines.push('Confidence: ' + (item.confidence != null ? item.confidence + '%' : ''));
+  lines.push('KPI: ' + (item.kpi || ''));
+  if (item.kpi_reason) lines.push('KPI reason: ' + item.kpi_reason);
   lines.push('Evidence strength: ' + (item.evidence_strength || ''));
   lines.push('Pack: ' + (pack || ''));
   lines.push('Triage item id: ' + (item.id || ''));
