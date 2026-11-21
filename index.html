@@ -10,7 +10,12 @@ header{background:#1f2937;color:#fff;padding:20px 24px}
 header h1{margin:0 0 8px;font-size:28px}
 header p{margin:4px 0;max-width:900px;line-height:1.5}
 header .showcase{color:#fbbf24;font-size:14px}
-nav{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;background:#fff;border-bottom:1px solid #ddd;position:sticky;top:0}
+.header-row{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.header-row details.about{flex:1 1 260px;min-width:0}
+.pack-select-label{flex:0 1 220px;color:#fbbf24;font-size:13px;font-weight:700;white-space:nowrap}
+.pack-select-label select{display:block;width:100%;max-width:220px;margin-top:4px;background:#fff;color:#222}
+@media (max-width:520px){.pack-select-label{flex:0 1 170px}.pack-select-label select{max-width:170px}}
+nav{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;background:#fff;border-bottom:1px solid #ddd}
 button{cursor:pointer;border:1px solid #ccc;background:#fff;padding:8px 12px;border-radius:8px;font-size:14px}
 button.primary{background:#1f2937;color:#fff;border-color:#1f2937}
 button.active{background:#7c2d12;color:#fff;border-color:#7c2d12}
@@ -33,10 +38,10 @@ tr.row-edited{background:#fffbeb}
 .tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;margin:2px 4px 2px 0;white-space:nowrap}
 .theme-tag{border:1px solid transparent}
 .source-tag{background:#fff;border:1px solid #94a3b8;color:#334155}
+.kpi-tag{background:#dbeafe;color:#1e40af;border:1px solid #93c5fd}
 .conf-high{background:#dcfce7;color:#166534}
 .conf-medium{background:#fef3c7;color:#92400e}
 .conf-low{background:#fee2e2;color:#991b1b}
-.packbar{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;background:#fef3c7}
 main{padding:20px 24px;max-width:1100px}
 .card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0}
 .badge{display:inline-block;background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:999px;font-size:12px;margin-left:8px}
@@ -50,8 +55,21 @@ input,select{padding:8px;border:1px solid #ccc;border-radius:8px;font-size:14px}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:0 0 4px}
 .new-banner{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fef3c7;border:1px solid #f59e0b;color:#92400e;border-radius:12px;padding:14px 16px;margin:12px 0;font-weight:700;font-size:15px}
 .new-banner[hidden]{display:none}
+.counts-block{display:block;margin:12px 0 0}
+.actionbar{position:sticky;top:0;z-index:30;display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 24px;background:#fff;border-bottom:1px solid #ddd}
+.actionbar button:disabled{opacity:0.45;cursor:default}
+.csv-label{display:inline-block;cursor:pointer;border:1px solid #ccc;background:#fff;padding:8px 12px;border-radius:8px;font-size:14px}
+#csvFile{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+details.about{margin:4px 0}
+details.about summary{cursor:pointer;color:#fbbf24;font-weight:700}
+details.about p{color:#fff}
+details.panel-about{margin:4px 0}
+details.panel-about summary{cursor:pointer;font-weight:700}
 .tab-badge{display:inline-block;background:#dc2626;color:#fff;border-radius:999px;font-size:11px;font-weight:700;padding:2px 8px;margin-left:6px;white-space:nowrap}
+.tab-badge.neutral{background:#e5e7eb;color:#374151}
 .tab-badge[hidden]{display:none}
+.viewnav{display:flex;gap:8px;flex-wrap:wrap;width:100%;margin-top:4px}
+.viewnav button.active{background:#7c2d12;color:#fff;border-color:#7c2d12}
 .stat-card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px 18px}
 .stat-label{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#374151}
 .stat-value{font-size:32px;font-weight:800;line-height:1.2;margin:6px 0}
@@ -63,21 +81,38 @@ input,select{padding:8px;border:1px solid #ccc;border-radius:8px;font-size:14px}
 <body>
 <header>
 <h1>Triage</h1>
-<p>Triage is a working AI product management copilot, not a chatbot demo. It takes a messy, duplicate-filled backlog, clusters it, scores it with RICE and confidence, flags weak evidence, drafts stories for the top items, and leaves the final call to a human. Every industry pack includes evals and a decision log, so you can see not just what it shipped, but how it decided, and why.</p>
-<p class="showcase">A showcase of AI-native product work: discovery, prioritization, tradeoffs, evals, guardrails, and human-in-the-loop decisions, across Healthcare, Fintech, Games, and E-commerce.</p>
+<div class="header-row">
+<details class="about">
+<summary>About this demo</summary>
+<p>Triage is a working AI product management copilot, not a chatbot demo. It takes a messy, duplicate-filled backlog, clusters it, scores it with RICE and confidence, flags weak evidence, drafts stories for the top items, and leaves the final call to a human. Every item is scored and drafted in the open, so you can see not just what it shipped, but how it decided, and why.</p>
+<p class="showcase">A showcase of AI-native product work: discovery, prioritization, tradeoffs, guardrails, and human-in-the-loop decisions, across Healthcare, Fintech, Games, and E-commerce.</p>
 <p id="packContext" class="muted"></p>
+</details>
+<label class="pack-select-label">Industry pack
+<select id="packSelect" aria-label="Industry pack"></select>
+</label>
+</div>
 </header>
-<div class="packbar" id="packBar"></div>
-<nav id="tabs">
-<button data-tab="backlog" class="active">Backlog <span id="backlogNewBadge" class="tab-badge" hidden></span></button>
-<button data-tab="review">Review Queue</button>
-<button data-tab="roadmap">Roadmap</button>
-<button data-tab="evals">Evals</button>
-<button data-tab="decisions">Decision Log</button>
-<button data-tab="archived">Archived</button>
-<button data-tab="case">Case Study</button>
-</nav>
 <main>
+<div class="actionbar" id="actionBar">
+<button id="runBtn" class="primary">Run triage</button>
+<button id="syncBtn">ClickUp Import</button>
+<label for="csvFile" class="csv-label">CSV Import</label>
+<input type="file" id="csvFile" accept=".csv">
+<button id="templateBtn">CSV Template</button>
+<button id="reloadBtn">Reload Demo</button>
+<div class="viewnav" id="viewNav">
+<button data-tab="backlog" class="active">Backlog <span id="backlogNewBadge" class="tab-badge" hidden></span></button>
+<button data-tab="review">Review <span id="reviewCountBadge" class="tab-badge neutral" hidden></span></button>
+<button data-tab="archived">Archived <span id="archivedCountBadge" class="tab-badge neutral" hidden></span></button>
+</div>
+</div>
+<p id="counts" class="muted counts-block"></p>
+<p id="newSince" class="muted"></p>
+<p id="csvError" class="muted" style="color:#991b1b"></p>
+<div id="newBanner" class="new-banner" role="status" hidden><span id="newBannerText"></span></div>
+<div id="status" class="muted">Loading data. If you opened this file directly, serve the folder with <code>npm run dev</code> so data/*.json can load.</div>
+<section id="tab-backlog" class="tab show">
 <section id="statsBar" class="stats" aria-label="Overview">
 <div class="stat-card"><div class="stat-label">Backlog Items</div><div class="stat-value" id="statBacklogValue">-</div><div class="stat-sub" id="statBacklogSub">Demo dataset</div></div>
 <div class="stat-card"><div class="stat-label">Duplicate Clusters</div><div class="stat-value" id="statClustersValue">-</div><div class="stat-sub" id="statClustersSub">Found by triage run</div></div>
@@ -85,52 +120,19 @@ input,select{padding:8px;border:1px solid #ccc;border-radius:8px;font-size:14px}
 <div class="stat-card"><div class="stat-label">Decisions Logged</div><div class="stat-value" id="statDecisionsValue">0</div><div class="stat-sub" id="statDecisionsSub">Approved · edited · rejected</div></div>
 <div class="stat-card"><div class="stat-label">Est. Cost / Run</div><div class="stat-value" id="statCostValue">$3.84</div><div class="stat-sub" id="statCostSub">$0.0192 per item</div></div>
 </section>
-<div id="newBanner" class="new-banner" role="status" hidden><span id="newBannerText"></span><button id="newBannerBtn" class="primary" type="button">Run triage</button></div>
-<div id="status" class="muted">Loading data. If you opened this file directly, serve the folder with <code>npm run dev</code> so data/*.json can load.</div>
-<section id="tab-backlog" class="tab show">
-<div class="card">
-<h2>Backlog</h2>
-<p class="muted">Pick a pack, then run triage. Or upload your own CSV with columns: id, title, description, source, requester_type, theme, impact, effort, risk, evidence_strength.</p>
-<button id="runBtn" class="primary">Run triage</button>
-<input type="file" id="csvFile" accept=".csv">
-<button id="templateBtn">Download CSV template</button>
-<button id="syncBtn">Sync from ClickUp</button>
-<span id="counts"></span>
-<p id="newSince" class="muted"></p>
-<p id="csvError" class="muted" style="color:#991b1b"></p>
-</div>
+<div class="card"><label>KPI <select id="kpiFilter"><option value="">All KPIs</option></select></label><p class="muted">KPIs are assigned when an item is triaged. New unscored items always show, whatever KPI is selected.</p></div>
+<div class="card"><button id="exportBtn">Export Backlog CSV</button><p class="muted">Exports scored items in RICE order.</p></div>
 <div id="backlogList"></div>
 </section>
 <section id="tab-review" class="tab">
-<div class="card"><h2>Review Queue</h2><p class="muted">Approve, edit, or reject each drafted story. Approving an item automatically creates a ClickUp task. Editing or rejecting never creates one. Every decision is recorded in the Decision Log.</p></div>
+<div class="card"><h2>Review</h2><details class="panel-about"><summary>About Review</summary><p class="muted">Approve, edit, or reject each drafted story. Approving an item automatically creates a ClickUp task. Editing or rejecting never creates one. Every decision is recorded with its reason, and the item moves to Archived. Approved items export to ClickUp in the <a href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
+<div class="card"><label>Search <input id="reviewSearch" type="search" placeholder="Title, keyword..."></label> <label>Theme <select id="reviewThemeFilter"><option value="">All themes</option></select></label> <label>Target KPI <select id="reviewKpiFilter"><option value="">All KPIs</option></select></label> <label>Source <select id="reviewSourceFilter"><option value="">All sources</option></select></label><p class="muted">Search and filters apply to drafted items in Review. Clear them to show all 25.</p></div>
 <div id="reviewList"></div>
 </section>
-<section id="tab-roadmap" class="tab">
-<div class="card"><h2>Roadmap</h2>
-<label>Theme <select id="themeFilter"><option value="">All themes</option></select></label>
-<button id="exportBtn">Export CSV</button>
-<span id="roadmapCounts" class="muted"></span>
-</div>
-<div id="roadmapList"></div>
-</section>
-<section id="tab-evals" class="tab">
-<div class="card"><h2>Evals</h2><p id="evalSummary" class="muted"></p></div>
-<div id="evalList"></div>
-</section>
-<section id="tab-decisions" class="tab">
-<div class="card"><h2>Decision Log</h2><p class="muted">Audit trail for every approve, edit, and reject, with reviewer, time, and reason.</p></div>
-<div id="decisionList"><p class="muted">No decisions yet. Run triage, then approve, edit, or reject an item.</p></div>
-</section>
 <section id="tab-archived" class="tab">
-<div class="card"><h2>Archived</h2><p class="muted">Approved, edited, and rejected items leave the active inbox once decided. Approved items keep their ClickUp task link. Rejected items keep their reason. Nothing here is re-triaged, and re-importing an archived item does not bring it back.</p></div>
-<div id="archivedList"><p class="muted">Nothing archived yet. Approve, edit, or reject an item in the Review Queue.</p></div>
-</section>
-<section id="tab-case" class="tab">
-<div class="card"><h2>Case Study</h2>
-<p>Triage is a working AI product management copilot, not a chatbot demo. It takes a messy, duplicate-filled backlog, clusters it, scores it with RICE and confidence, flags weak evidence, drafts stories for the top items, and leaves the final call to a human. Every industry pack includes evals and a decision log, so you can see not just what it shipped, but how it decided, and why.</p>
-<p><strong>Problem:</strong> product teams get hundreds of requests in different words, with weak evidence and no clear order. <strong>Method:</strong> cluster duplicates, score with RICE and confidence, flag low evidence, draft only the top 25, and let a human decide. <strong>Result in the demo:</strong> 200 items triaged in about 1 hour 40 minutes, down from 11.5 hours by hand, with a cost of $3.84 per run, or $0.0192 per item, at Claude-like pricing.</p>
-<p><strong>Built Together:</strong> built by two collaborators to showcase how we use AI. One owns product logic, prompts, evals, and datasets. The other owns accounts and deployment, with keys only in back end environment variables.</p>
-</div>
+<div class="card"><h2>Archived</h2><details class="panel-about"><summary>About Archived</summary><p class="muted">Approved, edited, and rejected items leave the active inbox once decided. Approved items keep their ClickUp task link. Rejected items keep their reason. Nothing here is re-triaged, and re-importing an archived item does not bring it back. Approved items export to ClickUp in the <a href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
+<div class="card"><button id="exportArchivedBtn">Export Archived CSV</button><p class="muted">Exports decided items with decision, reason, and ClickUp link.</p></div>
+<div id="archivedList"><p class="muted">Nothing archived yet. Approve, edit, or reject an item in Review.</p></div>
 </section>
 </main>
 <script>
@@ -143,6 +145,7 @@ var PACKS = {
 };
 var currentPack = 'games';
 var items = [], scored = [], decisions = [], clusters = [], archived = [];
+var reviewItems = [];
 var packStates = {};
 var newSinceTriage = 0;
 var uploadedItems = [], uploadedScored = [], uploadedDecisions = [], uploadedClusters = [];
@@ -228,6 +231,124 @@ var THEME_MAP = {
   'Live Events & Seasonal Content':4, 'Matchmaking & Ranked':6, 'Monetization & Battle Pass':3, 'Onboarding & Tutorials':1, 'Platform/Saves & Performance':8, 'Progression & Achievements':2, 'Safety/Accessibility & Controls':11, 'Social/Friends & Clans':9,
   'Checkout':0, 'Inventory':1, 'Payments':2, 'Returns':5, 'Search':8, 'Seller Tools':7
 };
+// Fixed KPI taxonomy per pack. The triage assigns exactly one primary
+// KPI per scored item, always from the current pack's list, never an
+// invented name. The live model uses the same lists, see prompts/scoring.md.
+var KPIS = {
+  games: ['Day 7 retention','Day 30 retention','Daily active users','Session length','Conversion to paying','ARPU','Churn','Matchmaking wait time'],
+  healthcare: ['No-show rate','Appointment utilization','Time to schedule','Patient satisfaction','Billing error rate','Staff time per task'],
+  fintech: ['Onboarding completion','Fraud loss rate','Payout time','Dispute rate','KYC approval time','Activation'],
+  ecommerce: ['Conversion rate','Cart abandonment','Return rate','Search success','Seller onboarding time','Average order value'],
+  uploaded: ['Day 7 retention','Day 30 retention','Daily active users','Session length','Conversion to paying','ARPU','Churn','Matchmaking wait time']
+};
+// Theme to KPI mapping, per pack. A theme can mean a different KPI in
+// different packs, for example Compliance maps to Billing error rate in
+// Healthcare and to Fraud loss rate in Fintech, so this is per pack.
+var THEME_KPI = {
+  games: {'Onboarding & Tutorials':'Day 7 retention','Live Events & Seasonal Content':'Session length','Safety/Accessibility & Controls':'Churn','Progression & Achievements':'Day 30 retention','Social/Friends & Clans':'Daily active users','Matchmaking & Ranked':'Matchmaking wait time','Platform/Saves & Performance':'Churn','Monetization & Battle Pass':'Conversion to paying'},
+  healthcare: {'Billing':'Billing error rate','Communications':'Patient satisfaction','Compliance':'Billing error rate','Intake':'Time to schedule','Integrations':'Staff time per task','Reporting':'Staff time per task','Scheduling':'Appointment utilization','Staff Workflows':'Staff time per task'},
+  fintech: {'Disputes':'Dispute rate','Fraud':'Fraud loss rate','KYC':'KYC approval time','Onboarding':'Onboarding completion','Payouts':'Payout time','Compliance':'Fraud loss rate','Reporting':'Activation'},
+  ecommerce: {'Checkout':'Conversion rate','Inventory':'Conversion rate','Payments':'Conversion rate','Returns':'Return rate','Search':'Search success','Seller Tools':'Seller onboarding time'}
+};
+// Keyword overrides, per pack, checked before the theme map. A direct
+// keyword match is High confidence, a theme-only match is Medium.
+var KPI_KEYWORDS = {
+  games: [
+    {words:['matchmaking','match make','queue time','wait time'], kpi:'Matchmaking wait time'},
+    {words:['tutorial','onboarding'], kpi:'Day 7 retention'},
+    {words:['battle pass'], kpi:'ARPU'},
+    {words:['purchase','in-app purchase','shop','store'], kpi:'Conversion to paying'},
+    {words:['daily quest','daily reward','login reward'], kpi:'Daily active users'},
+    {words:['crash','frame rate','performance','lag'], kpi:'Churn'},
+    {words:['ranked','leaderboard'], kpi:'Day 30 retention'},
+    {words:['session'], kpi:'Session length'}
+  ],
+  healthcare: [
+    {words:['no-show','no show','missed appointment'], kpi:'No-show rate'},
+    {words:['waitlist','open slot','slot opens'], kpi:'Appointment utilization'},
+    {words:['booking','book online','schedule a visit'], kpi:'Time to schedule'},
+    {words:['billing','invoice','claim','payment'], kpi:'Billing error rate'},
+    {words:['satisfaction','survey','reminder'], kpi:'Patient satisfaction'}
+  ],
+  fintech: [
+    {words:['fraud','suspicious'], kpi:'Fraud loss rate'},
+    {words:['kyc','identity check','verification'], kpi:'KYC approval time'},
+    {words:['payout','settlement'], kpi:'Payout time'},
+    {words:['dispute','chargeback'], kpi:'Dispute rate'},
+    {words:['onboard','sign-up','signup'], kpi:'Onboarding completion'},
+    {words:['first payment','activate'], kpi:'Activation'}
+  ],
+  ecommerce: [
+    {words:['cart','abandon'], kpi:'Cart abandonment'},
+    {words:['return','refund'], kpi:'Return rate'},
+    {words:['search'], kpi:'Search success'},
+    {words:['seller','onboard'], kpi:'Seller onboarding time'},
+    {words:['checkout','payment'], kpi:'Conversion rate'},
+    {words:['bundle','upsell'], kpi:'Average order value'}
+  ]
+};
+var KPI_REASONS = {
+  'Day 7 retention':'new players decide in the first week whether to come back',
+  'Day 30 retention':'long term play depends on progression and goals that last a month',
+  'Daily active users':'social play and live events bring players back every day',
+  'Session length':'longer sessions come from content that keeps players playing',
+  'Conversion to paying':'purchases and the battle pass turn free players into paying players',
+  'ARPU':'battle pass and store purchases raise revenue per player',
+  'Churn':'frustration with performance, safety, or saves pushes players away',
+  'Matchmaking wait time':'faster, fairer matches depend on matchmaking and ranked play',
+  'No-show rate':'missed appointments waste slots that other patients could use',
+  'Appointment utilization':'filling open slots keeps clinics running at capacity',
+  'Time to schedule':'patients book faster when scheduling and intake are simple',
+  'Patient satisfaction':'clear communication and easy booking make patients happier',
+  'Billing error rate':'billing and compliance mistakes cost the clinic money and time',
+  'Staff time per task':'manual work and reporting take staff time away from patients',
+  'Onboarding completion':'merchants who finish onboarding start taking payments sooner',
+  'Fraud loss rate':'fraud and compliance checks stop money lost to bad payments',
+  'Payout time':'faster payouts keep merchants paid and happy',
+  'Dispute rate':'disputes and chargebacks cost merchants time and money',
+  'KYC approval time':'faster identity checks let good merchants start sooner',
+  'Activation':'merchants who see value in reporting and setup activate sooner',
+  'Conversion rate':'checkout and payment friction decides whether shoppers buy',
+  'Cart abandonment':'abandoned carts are shoppers who almost bought',
+  'Return rate':'returns cost the marketplace money and trust',
+  'Search success':'shoppers who find what they want buy more',
+  'Seller onboarding time':'sellers who onboard faster start listing sooner',
+  'Average order value':'bundles and upsells raise what each order is worth'
+};
+// Demo assignment is rule based, not live AI: keyword match first, then
+// theme map, then the first KPI of the pack list as fallback. The live
+// model replaces this with real inference, using the same fixed lists.
+function assignKpi(it){
+  var text = ((it.title || '') + ' ' + (it.description || '')).toLowerCase();
+  var list = KPIS[currentPack] || KPIS.games;
+  var kw = KPI_KEYWORDS[currentPack] || KPI_KEYWORDS.games;
+  for (var i = 0; i < kw.length; i++){
+    for (var j = 0; j < kw[i].words.length; j++){
+      if (text.indexOf(kw[i].words[j]) !== -1){
+        return {kpi: kw[i].kpi, kpi_confidence: 'High', kpi_reason: 'Targets ' + kw[i].kpi + ' because ' + KPI_REASONS[kw[i].kpi] + '.'};
+      }
+    }
+  }
+  var byTheme = (THEME_KPI[currentPack] || {})[it.theme];
+  if (byTheme && list.indexOf(byTheme) !== -1){
+    return {kpi: byTheme, kpi_confidence: 'Medium', kpi_reason: 'Targets ' + byTheme + ' because ' + KPI_REASONS[byTheme] + '.'};
+  }
+  if (currentPack === 'uploaded'){
+    var packs = ['games','healthcare','fintech','ecommerce'];
+    for (var p = 0; p < packs.length; p++){
+      var mapped = (THEME_KPI[packs[p]] || {})[it.theme];
+      if (mapped && list.indexOf(mapped) !== -1){
+        return {kpi: mapped, kpi_confidence: 'Medium', kpi_reason: 'Targets ' + mapped + ' because ' + KPI_REASONS[mapped] + '.'};
+      }
+    }
+  }
+  var fallback = list[0];
+  return {kpi: fallback, kpi_confidence: 'Medium', kpi_reason: 'Targets ' + fallback + ' because ' + KPI_REASONS[fallback] + '.'};
+}
+function kpiTag(kpi){
+  if (!kpi) return '';
+  return '<span class="tag kpi-tag">KPI: ' + escapeHtml(kpi) + '</span>';
+}
 function themeColorIndex(theme){
   if (Object.prototype.hasOwnProperty.call(THEME_MAP, theme)) return THEME_MAP[theme];
   var h = 0; for (var i = 0; i < theme.length; i++) h = (h * 31 + theme.charCodeAt(i)) % 100000;
@@ -255,7 +376,8 @@ function scoreBandPill(band){
 function scoreItem(it){
   var conf = confFor(it.evidence_strength);
   var rice = Math.round((it.impact * it.impact * conf / 100 / Math.max(1, it.effort)) * 10);
-  return {id:it.id, title:it.title, description:it.description, source:it.source, requester_type:it.requester_type, theme:it.theme, impact:it.impact, effort:it.effort, risk:it.risk, evidence_strength:it.evidence_strength, confidence:conf, rice:rice, low_evidence:it.evidence_strength==='Low', story:'As a ' + it.requester_type.toLowerCase() + ', I want ' + it.description.charAt(0).toLowerCase() + it.description.slice(1) + ' so that the team can measure the result.', acceptance:['Given a user in this workflow, when they use this feature, then the expected outcome happens.','Given a low-evidence item, when it reaches review, then discovery is complete before build starts.'], status:'pending'};
+  var k = assignKpi(it);
+  return {id:it.id, title:it.title, description:it.description, source:it.source, requester_type:it.requester_type, theme:it.theme, impact:it.impact, effort:it.effort, risk:it.risk, evidence_strength:it.evidence_strength, confidence:conf, rice:rice, kpi:k.kpi, kpi_reason:k.kpi_reason, kpi_confidence:k.kpi_confidence, low_evidence:it.evidence_strength==='Low', story:'As a ' + it.requester_type.toLowerCase() + ', I want ' + it.description.charAt(0).toLowerCase() + it.description.slice(1) + ' so that the team can measure the result.', acceptance:['Given a user in this workflow, when they use this feature, then the expected outcome happens.','Given a low-evidence item, when it reaches review, then discovery is complete before build starts.'], status:'pending'};
 }
 function clusterItems(list){
   var seen = {}, out = [];
@@ -307,7 +429,7 @@ function appendItems(newItems){
 function archiveScored(scoredObj, entry){
   if (!scoredObj) return;
   var rec = {};
-  ['id','title','description','source','requester_type','theme','impact','effort','risk','evidence_strength','confidence','rice','story','acceptance'].forEach(function(k){ rec[k] = scoredObj[k]; });
+  ['id','title','description','source','requester_type','theme','impact','effort','risk','evidence_strength','confidence','rice','kpi','kpi_reason','kpi_confidence','story','acceptance'].forEach(function(k){ rec[k] = scoredObj[k]; });
   rec.decision = entry ? entry.decision : scoredObj.status;
   rec.reason = entry ? entry.reason : '';
   rec.reviewer = entry ? entry.reviewer : '';
@@ -330,16 +452,21 @@ function restoreState(st){
   clusters = st.clusters.slice(); archived = st.archived.slice(); newSinceTriage = st.newSinceTriage || 0;
 }
 function renderPacks(){
-  var bar = document.getElementById('packBar');
-  bar.innerHTML = '';
-  Object.keys(PACKS).forEach(function(k){
-    var b = document.createElement('button');
-    b.textContent = PACKS[k].name + ' - ' + PACKS[k].company;
-    if(k===currentPack) b.className='active';
-    b.onclick = function(){ saveCurrentState(); currentPack=k; loadPack(); };
-    bar.appendChild(b);
-  });
-  document.getElementById('packContext').textContent = PACKS[currentPack].company + ': ' + PACKS[currentPack].desc + (PACKS[currentPack].target ? ' Eval target: ' + PACKS[currentPack].target + '%.' : ' No eval set for uploaded data.');
+  // Industry pack selector is a dropdown in the header, to the right of
+  // About this demo. Order is Games first, then Healthcare, Fintech,
+  // E-commerce, and Uploaded CSV. Selecting a pack switches packs exactly
+  // as the old pill buttons did: per-pack state is preserved.
+  var sel = document.getElementById('packSelect');
+  if (sel){
+    var order = ['games', 'healthcare', 'fintech', 'ecommerce', 'uploaded'];
+    sel.innerHTML = order.map(function(k){
+      return '<option value="' + k + '"' + (k === currentPack ? ' selected' : '') + '>' + escapeHtml(PACKS[k].name) + '</option>';
+    }).join('');
+    sel.value = currentPack;
+    sel.title = PACKS[currentPack].company + ': ' + PACKS[currentPack].desc;
+    sel.onchange = function(){ saveCurrentState(); currentPack = sel.value; loadPack(); };
+  }
+  document.getElementById('packContext').textContent = PACKS[currentPack].company + ': ' + PACKS[currentPack].desc;
 }
 function saveUploadedState(){ saveCurrentState(); }
 function syncUploadedVars(){
@@ -353,22 +480,24 @@ async function loadPack(){
   if (packStates[currentPack]){
     restoreState(packStates[currentPack]);
     document.getElementById('status').textContent = PACKS[currentPack].name + ': ' + items.length + ' active items, ' + archived.length + ' archived. ' + (newSinceTriage ? newSinceTriage + ' new since last triage.' : 'Nothing new since last triage.');
-    renderStats(); renderBacklog(); renderReview(); renderRoadmap(); renderDecisions(); renderArchived(); loadEvals();
+    renderStats(); renderBacklog(); renderReview(); renderArchived();
     return;
   }
   if (currentPack === 'uploaded'){
     items = []; scored = []; decisions = []; clusters = []; archived = []; newSinceTriage = 0;
-    document.getElementById('status').textContent = 'No CSV uploaded yet. Use the file picker in Backlog, or download the CSV template first. Or use Sync from ClickUp to pull new items from the intake list.';
-    renderStats(); renderBacklog(); renderReview(); renderRoadmap(); renderDecisions(); renderArchived(); loadEvals();
+    document.getElementById('status').textContent = 'No CSV uploaded yet. Use the sticky action bar above, or the template first. Or use ClickUp Import to pull new items from the intake list.';
+    renderStats(); renderBacklog(); renderReview(); renderArchived();
     return;
   }
   document.getElementById('status').textContent = 'Loading ' + PACKS[currentPack].name + '...';
   try {
     var res = await fetch('data/' + currentPack + '.json');
     if(!res.ok) throw new Error('fetch failed');
-    items = await res.json();
+    // Copy the fetched array: appending items must never mutate the
+    // fetched data itself, or a later reload would keep the additions.
+    items = (await res.json()).slice();
   } catch(e) {
-    items = FALLBACK;
+    items = FALLBACK.slice();
     document.getElementById('status').textContent = 'Could not load data/' + currentPack + '.json. Serve the folder with npm run dev. Showing one sample item.';
   }
   scored = []; decisions = []; clusters = []; archived = [];
@@ -378,8 +507,23 @@ async function loadPack(){
   document.getElementById('status').textContent = PACKS[currentPack].name + ': ' + items.length + ' items loaded. Click Run triage.';
   renderStats();
   renderBacklog();
-  renderReview(); renderRoadmap(); renderDecisions(); renderArchived();
-  loadEvals();
+  renderReview(); renderArchived();
+}
+function setTabBadge(id, n){
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.hidden = !(n > 0);
+  el.textContent = String(n);
+}
+function renderTabCounts(){
+  // Counts logic, one place so every render agrees:
+  // Backlog new: newSinceTriage, red, hidden at 0 (handled in
+  // renderNewIndicator, kept as is).
+  // Review: items in review, the top 25 of scored,
+  // which is scored.length capped at 25.
+  // Archived: archived.length. All neutral badges hide at 0.
+  setTabBadge('reviewCountBadge', Math.min(25, scored.length));
+  setTabBadge('archivedCountBadge', archived.length);
 }
 function renderNewIndicator(){
   // Unmissable new-items indicator: banner above the tabs content and a
@@ -398,10 +542,32 @@ function renderNewIndicator(){
     badge.textContent = n + ' new';
   }
 }
+function updateActionBar(){
+  var runBtn = document.getElementById('runBtn');
+  if (runBtn) runBtn.disabled = !(newSinceTriage > 0);
+  var exportBtn = document.getElementById('exportBtn');
+  if (exportBtn) exportBtn.disabled = !(scored.length > 0);
+  var exportArchivedBtn = document.getElementById('exportArchivedBtn');
+  if (exportArchivedBtn) exportArchivedBtn.disabled = !(archived.length > 0);
+}
+var lastKpiPack = '';
+function renderKpiFilter(){
+  var sel = document.getElementById('kpiFilter');
+  if (!sel) return;
+  var list = KPIS[currentPack] || KPIS.games;
+  if (lastKpiPack === currentPack && sel.options.length === list.length + 1) return;
+  lastKpiPack = currentPack;
+  var cur = sel.value;
+  if (cur && list.indexOf(cur) === -1) cur = '';
+  sel.innerHTML = '<option value="">All KPIs</option>' + list.map(function(k){ return '<option value="' + escapeHtml(k) + '"' + (k === cur ? ' selected' : '') + '>' + escapeHtml(k) + '</option>'; }).join('');
+}
 function renderStats(){
   var backlogEl = document.getElementById('statBacklogValue');
   if(!backlogEl) return;
   renderNewIndicator();
+  renderTabCounts();
+  renderKpiFilter();
+  updateActionBar();
   // Cluster and low-evidence counts are computed by this site's own triage
   // run, so they may differ from the artifact preview's 44 / 73, which
   // came from its own demo run.
@@ -420,11 +586,25 @@ function renderStats(){
 }
 function renderBacklog(){
   var el = document.getElementById('backlogList');
-  var scoredIds = {};
-  scored.forEach(function(s){ scoredIds[s.id] = true; });
-  el.innerHTML = items.slice(0,50).map(function(it){ var isNew = !scoredIds[it.id]; return '<div class="card"><strong>'+escapeHtml(it.title)+'</strong>' + (isNew ? '<span class="badge">New</span>' : '<span class="badge ok">Triaged</span>') + '<br>' + themeTag(it.theme) + sourceTag(it.source) + '<p>'+escapeHtml(it.description)+'</p><p class="muted">Impact '+it.impact+' - Effort '+it.effort+' - Risk '+it.risk+'</p><p>' + evidencePill(it.evidence_strength) + '</p></div>'; }).join('') + '<p class="muted">Showing 50 of '+items.length+' active items. ' + archived.length + ' archived.</p>';
+  var scoredById = {};
+  scored.forEach(function(s){ scoredById[s.id] = s; });
+  // New unscored items first, in the order they arrived, then triaged
+  // items sorted by RICE descending. Before any triage run every item
+  // is unscored, so the Backlog shows the original order with New badges.
+  var fresh = items.filter(function(it){ return !scoredById[it.id]; });
+  var triaged = items.filter(function(it){ return scoredById[it.id]; }).sort(function(a, b){ return scoredById[b.id].rice - scoredById[a.id].rice; });
+  var ordered = fresh.concat(triaged);
+  // KPI filter: new unscored items always show, since they have no KPI
+  // yet. Scored items show only when their KPI matches the selection.
+  var kf = document.getElementById('kpiFilter');
+  var kpiFilterVal = kf ? kf.value : '';
+  if (kpiFilterVal){
+    ordered = ordered.filter(function(it){ var s = scoredById[it.id]; return !s || s.kpi === kpiFilterVal; });
+  }
+  el.innerHTML = ordered.slice(0,50).map(function(it){ var s = scoredById[it.id]; var isNew = !s; return '<div class="card"><strong>'+escapeHtml(it.title)+'</strong>' + (isNew ? '<span class="badge">New</span>' : '<span class="badge ok">Triaged</span>') + '<br>' + themeTag(it.theme) + sourceTag(it.source) + (isNew ? '' : kpiTag(s.kpi)) + '<p>'+escapeHtml(it.description)+'</p><p class="muted">Impact '+it.impact+' - Effort '+it.effort+' - Risk '+it.risk + (isNew ? '' : ' - RICE '+s.rice) + '</p><p>' + evidencePill(it.evidence_strength) + '</p></div>'; }).join('') + '<p class="muted">Showing ' + Math.min(50, ordered.length) + ' of '+ordered.length+' active items. ' + archived.length + ' archived.</p>';
   var ns = document.getElementById('newSince');
   if (ns) ns.textContent = newSinceTriage ? 'New since last triage: ' + newSinceTriage + ' items.' : 'Nothing new since last triage.';
+  renderTabCounts();
 }
 function runTriage(){
   // Incremental triage: score only items that have not been scored yet.
@@ -441,15 +621,78 @@ function runTriage(){
   newSinceTriage = 0;
   saveCurrentState(); syncUploadedVars();
   document.getElementById('counts').textContent = ' ' + clusters.length + ' clusters, ' + scored.filter(function(s){return s.low_evidence;}).length + ' low-evidence flags, top 25 drafted. ' + newCount + ' new since last triage.';
-  document.getElementById('status').textContent = 'Triage complete for ' + PACKS[currentPack].name + ': ' + clusters.length + ' clusters, ' + scored.length + ' scored, ' + newCount + ' new since last triage.';
+  // No triage-complete banner here: the stat cards and the #counts line
+  // are the only summary. Clear the load-time status so it does not sit
+  // stale ("Click Run triage") after a run.
+  document.getElementById('status').textContent = '';
   renderStats();
-  renderBacklog(); renderReview(); renderRoadmap();
+  renderBacklog(); renderReview();
+}
+function renderReviewFilters(){
+  // Review filter options update when the pack changes, same as the
+  // Backlog KPI filter. Theme and Source options come from the scored
+  // items in the current pack, KPI options from the pack's fixed list.
+  // A selected value is kept when it still exists, otherwise it resets.
+  var th = document.getElementById('reviewThemeFilter');
+  if (th){
+    var themes = [];
+    scored.forEach(function(s){ if (themes.indexOf(s.theme) === -1) themes.push(s.theme); });
+    themes.sort();
+    var curTh = th.value;
+    th.innerHTML = '<option value="">All themes</option>' + themes.map(function(t){ return '<option value="' + escapeHtml(t) + '"' + (t === curTh ? ' selected' : '') + '>' + escapeHtml(t) + '</option>'; }).join('');
+    th.value = themes.indexOf(curTh) !== -1 ? curTh : '';
+  }
+  var kp = document.getElementById('reviewKpiFilter');
+  if (kp){
+    var list = KPIS[currentPack] || KPIS.games;
+    var curKp = kp.value;
+    kp.innerHTML = '<option value="">All KPIs</option>' + list.map(function(k){ return '<option value="' + escapeHtml(k) + '"' + (k === curKp ? ' selected' : '') + '>' + escapeHtml(k) + '</option>'; }).join('');
+    kp.value = list.indexOf(curKp) !== -1 ? curKp : '';
+  }
+  var so = document.getElementById('reviewSourceFilter');
+  if (so){
+    var sources = [];
+    scored.forEach(function(s){ if (sources.indexOf(s.source) === -1) sources.push(s.source); });
+    sources.sort();
+    var curSo = so.value;
+    so.innerHTML = '<option value="">All sources</option>' + sources.map(function(t){ return '<option value="' + escapeHtml(t) + '"' + (t === curSo ? ' selected' : '') + '>' + escapeHtml(t) + '</option>'; }).join('');
+    so.value = sources.indexOf(curSo) !== -1 ? curSo : '';
+  }
 }
 function renderReview(){
+  renderTabCounts();
+  renderReviewFilters();
   var el = document.getElementById('reviewList');
   var top = scored.slice(0,25);
-  if(!top.length){ el.innerHTML = '<p class="muted">Run triage first.</p>'; return; }
-  el.innerHTML = top.map(function(s, i){
+  // Search and filters apply to the drafted items, on top of the
+  // pending-only rule. A drafted item must match every selected filter
+  // to show. Empty search shows all. There is no separate Show select
+  // in this front end: decisions archive immediately, so every drafted
+  // item here is still pending.
+  var qEl = document.getElementById('reviewSearch');
+  var q = qEl ? qEl.value.trim().toLowerCase() : '';
+  var thEl = document.getElementById('reviewThemeFilter');
+  var themeVal = thEl ? thEl.value : '';
+  var kpEl = document.getElementById('reviewKpiFilter');
+  var kpiVal = kpEl ? kpEl.value : '';
+  var soEl = document.getElementById('reviewSourceFilter');
+  var sourceVal = soEl ? soEl.value : '';
+  var filtered = top.filter(function(s){
+    if (q && ((s.title || '') + ' ' + (s.description || '')).toLowerCase().indexOf(q) === -1) return false;
+    if (themeVal && s.theme !== themeVal) return false;
+    if (kpiVal && s.kpi !== kpiVal) return false;
+    if (sourceVal && s.source !== sourceVal) return false;
+    return true;
+  });
+  // Keep the filtered list so Approve, Edit, and Retry act on the item
+  // shown in the card, not on a different item at the same position in
+  // the unfiltered top 25.
+  reviewItems = filtered;
+  if(!filtered.length){
+    el.innerHTML = top.length ? '<p class="muted">No drafted items match the current search and filters. Clear them to show all 25.</p>' : '<p class="muted">Run triage first.</p>';
+    return;
+  }
+  el.innerHTML = filtered.map(function(s, i){
     var clickup = '';
     if (s.clickup_status === 'creating') { clickup = '<p>Creating ClickUp task...</p>'; }
     else if (s.clickup_status === 'created' && s.clickup_task_url) { clickup = '<p>ClickUp task: <a href="' + escapeHtml(s.clickup_task_url) + '" target="_blank" rel="noopener">Open task</a></p>'; }
@@ -467,15 +710,15 @@ function renderReview(){
     var editBtn = s.status === 'edited'
       ? '<button class="btn-edited" disabled>Edited</button>'
       : '<button class="btn-edit" onclick="editItem(' + i + ')"' + (decided ? ' disabled' : '') + '>Edit</button>';
-    return '<div class="card"><strong>'+escapeHtml(s.title)+'</strong>' + statusPill + '<br>' + themeTag(s.theme) + sourceTag(s.source) + confidencePill(s.confidence) + ' <span class="muted">RICE '+s.rice+'</span>' + (s.low_evidence?'<span class="badge">Low evidence</span>':'<span class="badge ok">Evidence ok</span>') + '<p>'+escapeHtml(s.story)+'</p><p class="muted">'+s.acceptance.map(escapeHtml).join('<br>')+'</p>' + clickup + approveBtn + ' ' + editBtn + ' ' + rejectBtn + '</div>';
+    return '<div class="card"><strong>'+escapeHtml(s.title)+'</strong>' + statusPill + '<br>' + themeTag(s.theme) + sourceTag(s.source) + kpiTag(s.kpi) + confidencePill(s.confidence) + ' <span class="muted">RICE '+s.rice+'</span>' + (s.low_evidence?'<span class="badge">Low evidence</span>':'<span class="badge ok">Evidence ok</span>') + '<p>'+escapeHtml(s.story)+'</p>' + (s.kpi ? '<p class="muted">KPI: ' + escapeHtml(s.kpi) + ' (' + escapeHtml(s.kpi_confidence || '') + '): ' + escapeHtml(s.kpi_reason || '') + '</p>' : '') + '<p class="muted">'+s.acceptance.map(escapeHtml).join('<br>')+'</p>' + clickup + approveBtn + ' ' + editBtn + ' ' + rejectBtn + '</div>';
   }).join('');
 }
 window.decide = async function(i, d){
-  var s = scored.slice(0,25)[i]; if(!s) return;
-  var reason = prompt('Reason for ' + d + ' (saved in the Decision Log):', d==='approved'?'Meets the bar, evidence is clear.':'Needs more evidence.');
+  var s = (reviewItems.length ? reviewItems : scored.slice(0,25))[i]; if(!s) return;
+  var reason = prompt('Reason for ' + d + ' (saved with the decision):', d==='approved'?'Meets the bar, evidence is clear.':'Needs more evidence.');
   if(reason===null) return;
   s.status = d;
-  var entry = {item:s.title, item_id:s.id, decision:d, reason:reason, reviewer:'konstantin-abadjiev', time:new Date().toISOString(), pack:currentPack, clickup_status: d==='approved' ? 'creating' : 'none'};
+  var entry = {item:s.title, item_id:s.id, decision:d, reason:reason, reviewer:'konstantin-abadjiev', time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, clickup_status: d==='approved' ? 'creating' : 'none'};
   decisions.push(entry);
   // Reject archives immediately, no ClickUp call. Approve archives only
   // after the ClickUp task is created, so a failed create stays in the
@@ -483,28 +726,28 @@ window.decide = async function(i, d){
   if (d === 'rejected'){
     archiveScored(s, entry);
     saveCurrentState(); syncUploadedVars();
-    renderStats(); renderBacklog(); renderReview(); renderRoadmap(); renderDecisions(); renderArchived();
+    renderStats(); renderBacklog(); renderReview(); renderArchived();
     return;
   }
   renderStats();
-  renderReview(); renderRoadmap(); renderDecisions();
+  renderReview();
   // Auto-create on Approve only. Edit and Reject never reach the API.
   if (d !== 'approved') return;
   await createClickUpTask(s, entry);
   renderStats();
-  renderBacklog(); renderReview(); renderRoadmap(); renderDecisions(); renderArchived();
+  renderBacklog(); renderReview(); renderArchived();
 };
 window.editItem = function(i){
-  var s = scored.slice(0,25)[i]; if(!s) return;
+  var s = (reviewItems.length ? reviewItems : scored.slice(0,25))[i]; if(!s) return;
   var next = prompt('Edit the story:', s.story);
   if(next===null) return;
   s.story = next; s.status = 'edited';
-  var entry = {item:s.title, item_id:s.id, decision:'edited', reason:'Story edited in review.', reviewer:'konstantin-abadjiev', time:new Date().toISOString(), pack:currentPack, clickup_status:'none'};
+  var entry = {item:s.title, item_id:s.id, decision:'edited', reason:'Story edited in review.', reviewer:'konstantin-abadjiev', time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, clickup_status:'none'};
   decisions.push(entry);
   archiveScored(s, entry);
   saveCurrentState(); syncUploadedVars();
   renderStats();
-  renderBacklog(); renderReview(); renderRoadmap(); renderDecisions(); renderArchived();
+  renderBacklog(); renderReview(); renderArchived();
 };
 async function createClickUpTask(s, entry){
   s.clickup_status = 'creating';
@@ -538,7 +781,7 @@ async function createClickUpTask(s, entry){
   }
 }
 window.retryClickUp = async function(i){
-  var s = scored.slice(0,25)[i]; if(!s) return;
+  var s = (reviewItems.length ? reviewItems : scored.slice(0,25))[i]; if(!s) return;
   // Retry is only for a failed create after an approval. It never runs
   // after a success, and never runs for edited or rejected items.
   if (s.status !== 'approved' || s.clickup_status !== 'failed') return;
@@ -552,70 +795,54 @@ window.retryClickUp = async function(i){
   }
   await createClickUpTask(s, entry);
   renderStats();
-  renderBacklog(); renderReview(); renderRoadmap(); renderDecisions(); renderArchived();
+  renderBacklog(); renderReview(); renderArchived();
 };
-function renderRoadmap(){
-  var el = document.getElementById('roadmapList');
-  var themes = Array.from(new Set(scored.map(function(s){return s.theme;})));
-  var sel = document.getElementById('themeFilter');
-  var cur = sel.value;
-  // The theme filter can go stale when switching packs or when the last
-  // item of a theme is archived. If the selected theme no longer exists,
-  // reset to All themes, otherwise the roadmap would show 0 items while
-  // the filter appears to say All themes.
-  if (cur && themes.indexOf(cur) === -1) cur = '';
-  sel.innerHTML = '<option value="">All themes</option>' + themes.map(function(t){ return '<option'+(t===cur?' selected':'')+'>'+escapeHtml(t)+'</option>'; }).join('');
-  var list = scored.filter(function(s){ return !cur || s.theme===cur; });
-  document.getElementById('roadmapCounts').textContent = ' ' + list.length + ' items, ranked by RICE.';
-  el.innerHTML = '<table><tr><th>RICE</th><th>Title</th><th>Theme</th><th>Confidence</th><th>Status</th></tr>' + list.slice(0,100).map(function(s){ var statusLabel = s.status === 'approved' ? 'Approved' : s.status === 'rejected' ? 'Rejected' : s.status === 'edited' ? 'Edited' : 'Pending'; var rowClass = s.status === 'approved' ? 'row-approved' : s.status === 'rejected' ? 'row-rejected' : s.status === 'edited' ? 'row-edited' : ''; return '<tr class="' + rowClass + '"><td>'+s.rice+'</td><td>'+escapeHtml(s.title)+'</td><td>'+themeTag(s.theme)+'</td><td>'+confidencePill(s.confidence)+'</td><td><span class="status-pill ' + s.status + '">' + statusLabel + '</span>' + (s.low_evidence ? ' <span class="badge">Low evidence</span>' : '') + '</td></tr>'; }).join('') + '</table>';
-}
 function renderArchived(){
+  renderTabCounts();
+  var exportArchivedBtn = document.getElementById('exportArchivedBtn');
+  if (exportArchivedBtn) exportArchivedBtn.disabled = !(archived.length > 0);
   var el = document.getElementById('archivedList');
   if (!el) return;
-  if (!archived.length){ el.innerHTML = '<p class="muted">Nothing archived yet. Approve, edit, or reject an item in the Review Queue.</p>'; return; }
+  if (!archived.length){ el.innerHTML = '<p class="muted">Nothing archived yet. Approve, edit, or reject an item in Review.</p>'; return; }
   el.innerHTML = archived.map(function(a){
     var label = a.decision === 'approved' ? 'Approved' : a.decision === 'rejected' ? 'Rejected' : a.decision === 'edited' ? 'Edited' : a.decision;
     var pillClass = a.decision === 'approved' ? 'approved' : a.decision === 'rejected' ? 'rejected' : 'edited';
     var link = a.clickup_task_url ? '<p>ClickUp task: <a href="' + escapeHtml(a.clickup_task_url) + '" target="_blank" rel="noopener">Open task</a></p>' : '';
-    return '<div class="card"><strong>' + escapeHtml(a.title) + '</strong><span class="status-pill ' + pillClass + '">' + label + '</span><br>' + themeTag(a.theme || 'Intake') + sourceTag(a.source || '') + ' <span class="muted">RICE ' + (a.rice != null ? a.rice : '-') + '</span>' + (a.story ? '<p>' + escapeHtml(a.story) + '</p>' : '') + '<p class="muted">' + escapeHtml(a.reason || '') + ' - ' + escapeHtml(a.reviewer || '') + ' - ' + escapeHtml(a.time || '') + '</p>' + link + '</div>';
+    return '<div class="card"><strong>' + escapeHtml(a.title) + '</strong><span class="status-pill ' + pillClass + '">' + label + '</span><br>' + themeTag(a.theme || 'Intake') + sourceTag(a.source || '') + kpiTag(a.kpi || '') + ' <span class="muted">RICE ' + (a.rice != null ? a.rice : '-') + '</span>' + (a.story ? '<p>' + escapeHtml(a.story) + '</p>' : '') + (a.kpi ? '<p class="muted">KPI: ' + escapeHtml(a.kpi) + ' (' + escapeHtml(a.kpi_confidence || '') + '): ' + escapeHtml(a.kpi_reason || '') + '</p>' : '') + '<p class="muted">' + escapeHtml(a.reason || '') + ' - ' + escapeHtml(a.reviewer || '') + ' - ' + escapeHtml(a.time || '') + '</p>' + link + '</div>';
   }).join('');
 }
-function renderDecisions(){
-  var el = document.getElementById('decisionList');
-  if(!decisions.length) return;
-  el.innerHTML = decisions.map(function(d){ var clickup = ''; if (d.clickup_task_url) { clickup = ' - ClickUp task: <a href="' + escapeHtml(d.clickup_task_url) + '" target="_blank" rel="noopener">Open task</a>'; } else if (d.clickup_status === 'failed') { clickup = ' - ClickUp failed: ' + escapeHtml(d.clickup_error || 'Unknown error'); } else if (d.clickup_status === 'creating') { clickup = ' - Creating ClickUp task...'; } return '<div class="card"><strong>'+escapeHtml(d.item)+'</strong> - '+d.decision+'<p class="muted">'+escapeHtml(d.reason)+' - '+escapeHtml(d.reviewer)+' - '+escapeHtml(d.time)+clickup+'</p></div>'; }).join('');
-}
-async function loadEvals(){
-  if (currentPack === 'uploaded'){
-    document.getElementById('evalSummary').textContent = 'No eval set for uploaded data.';
-    document.getElementById('evalList').innerHTML = '<p class="muted">Upload a pack with its own eval set to see evals, or use a demo pack.</p>';
-    return;
-  }
-  try {
-    var res = await fetch('evals/' + currentPack + '.json');
-    var evals = await res.json();
-    document.getElementById('evalSummary').textContent = PACKS[currentPack].name + ' eval set: ' + evals.length + ' items. Target accuracy: ' + PACKS[currentPack].target + '%.';
-    document.getElementById('evalList').innerHTML = '<table><tr><th>ID</th><th>Title</th><th>Ground truth theme</th><th>Score band</th></tr>' + evals.map(function(e){ return '<tr><td>'+e.id+'</td><td>'+escapeHtml(e.title)+'</td><td>'+themeTag(e.ground_truth_theme)+'</td><td>'+scoreBandPill(e.expected_score_band)+'</td></tr>'; }).join('') + '</table>';
-  } catch(e) {
-    document.getElementById('evalSummary').textContent = 'Eval file could not load. Serve the folder with npm run dev.';
-  }
-}
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
-document.querySelectorAll('#tabs button').forEach(function(b){
+document.querySelectorAll('#viewNav button').forEach(function(b){
   b.onclick = function(){
-    document.querySelectorAll('#tabs button').forEach(function(x){ x.classList.remove('active'); });
+    document.querySelectorAll('#viewNav button').forEach(function(x){ x.classList.remove('active'); });
     b.classList.add('active');
     document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('show'); });
     document.getElementById('tab-' + b.dataset.tab).classList.add('show');
   };
 });
 document.getElementById('runBtn').onclick = runTriage;
-document.getElementById('newBannerBtn').onclick = runTriage;
-document.getElementById('themeFilter').onchange = renderRoadmap;
+document.getElementById('kpiFilter').onchange = renderBacklog;
+var _reviewSearch = document.getElementById('reviewSearch');
+if (_reviewSearch) _reviewSearch.oninput = renderReview;
+['reviewThemeFilter','reviewKpiFilter','reviewSourceFilter'].forEach(function(id){
+  var e = document.getElementById(id);
+  if (e) e.onchange = renderReview;
+});
+document.getElementById('reloadBtn').onclick = async function(){
+  delete packStates[currentPack];
+  await loadPack();
+};
 document.getElementById('exportBtn').onclick = function(){
   if(!scored.length){ alert('Run triage first.'); return; }
-  var csv = 'id,title,theme,rice,confidence,status\n' + scored.map(function(s){ return [s.id, '"'+s.title.replace(/"/g,'""')+'"', s.theme, s.rice, s.confidence, s.status].join(','); }).join('\n');
-  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'})); a.download = currentPack + '-roadmap.csv'; a.click();
+  var csv = 'id,title,theme,kpi,rice,confidence,status\n' + scored.map(function(s){ return [s.id, '"'+s.title.replace(/"/g,'""')+'"', s.theme, s.kpi || '', s.rice, s.confidence, s.status].join(','); }).join('\n');
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'})); a.download = currentPack + '-backlog.csv'; a.click();
+};
+document.getElementById('exportArchivedBtn').onclick = function(){
+  if(!archived.length){ alert('Nothing archived yet.'); return; }
+  var header = 'id,title,theme,kpi,rice,confidence,decision,reason,reviewer,clickup_task_id,clickup_task_url';
+  var rows = archived.map(function(a){ return [a.id, a.title, a.theme, a.kpi || '', a.rice != null ? a.rice : '', a.confidence != null ? a.confidence : '', a.decision, a.reason || '', a.reviewer || '', a.clickup_task_id || '', a.clickup_task_url || ''].map(csvEscape).join(','); });
+  var csv = header + '\n' + rows.join('\n') + '\n';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'})); a.download = currentPack + '-archived.csv'; a.click();
 };
 document.getElementById('templateBtn').onclick = function(){
   var header = CSV_COLUMNS.join(',');
@@ -642,21 +869,16 @@ document.getElementById('csvFile').addEventListener('change', function(ev){
       return;
     }
     if (errEl) errEl.textContent = '';
-    // Append to the Uploaded CSV inbox, never replace it. Dedup by id
-    // across the inbox, the scored queue, and the archive, so re-uploading
-    // the same file adds 0 new items and never resurrects a decided one.
-    if (currentPack !== 'uploaded'){
-      saveCurrentState();
-      currentPack = 'uploaded';
-      if (packStates.uploaded) restoreState(packStates.uploaded);
-      else { items = []; scored = []; decisions = []; clusters = []; archived = []; newSinceTriage = 0; }
-    }
+    // Append to the pack currently being viewed, never replace it and
+    // never switch packs. Dedup by id across the inbox, the scored queue,
+    // and the archive, so re-uploading the same file adds 0 new items and
+    // never resurrects a decided one.
     var added = appendItems(result.items);
     saveCurrentState(); syncUploadedVars();
     var msg = 'Uploaded ' + added.added + ' new items, ' + added.skipped + ' already seen' + (result.skipped.length ? ', ' + result.skipped.length + ' rows skipped: ' + result.skipped.join('; ') : ', 0 rows skipped') + '. Click Run triage.';
     if (result.warnings.length) msg += ' Warnings: ' + result.warnings.join('; ');
     document.getElementById('status').textContent = msg;
-    renderPacks(); renderStats(); renderBacklog(); renderReview(); renderRoadmap(); renderDecisions(); renderArchived(); loadEvals();
+    renderPacks(); renderStats(); renderBacklog(); renderReview(); renderArchived();
     ev.target.value = '';
   };
   r.readAsText(f);
@@ -673,12 +895,9 @@ document.getElementById('syncBtn').onclick = async function(){
       if (document.getElementById('csvError')) document.getElementById('csvError').textContent = data.error || '';
       return;
     }
-    if (currentPack !== 'uploaded'){
-      saveCurrentState();
-      currentPack = 'uploaded';
-      if (packStates.uploaded) restoreState(packStates.uploaded);
-      else { items = []; scored = []; decisions = []; clusters = []; archived = []; newSinceTriage = 0; }
-    }
+    // Append to the pack currently being viewed, never replace it and
+    // never switch packs. A sync with 0 new items changes nothing in
+    // the current pack.
     var added = appendItems(data.items || []);
     saveCurrentState(); syncUploadedVars();
     // Close-on-intake: once Triage has taken an item, close its ClickUp
@@ -720,7 +939,7 @@ document.getElementById('syncBtn').onclick = async function(){
       }
     }
     statusEl.textContent = 'Synced ' + added.added + ' new items, ' + added.skipped + ' already seen from ClickUp intake.' + closeNote + ' Click Run triage.';
-    renderPacks(); renderStats(); renderBacklog(); renderReview(); renderRoadmap(); renderDecisions(); renderArchived(); loadEvals();
+    renderPacks(); renderStats(); renderBacklog(); renderReview(); renderArchived();
   } catch(e){
     statusEl.textContent = 'ClickUp sync failed: could not reach the intake function. ' + (e && e.message ? e.message : '');
   }
