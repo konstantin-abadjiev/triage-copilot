@@ -16,9 +16,9 @@ The static demo in this repo runs the same triage logic in the browser with rule
 
 ## Front end
 
-- `index.html`: single page app, no build step. Industry switcher for Healthcare, Fintech, Games, and E-commerce. Tabs: Backlog, Review Queue, Roadmap, Evals, Decision Log, Case Study.
+- `index.html`: single page app, no build step. Industry pack dropdown in the header, to the right of About this demo, for Games, Healthcare, Fintech, and E-commerce, plus Uploaded CSV. Views: Backlog, Review, Archived, navigated from a secondary section in the sticky action bar. The sticky action buttons, in order, are Run triage, ClickUp Import, CSV Import, CSV Template, Reload Demo. The stat cards show only on Backlog. Export Backlog CSV lives in the Backlog section, next to the KPI filter. Export Archived CSV lives in the Archived section. Review has Search, Theme, Target KPI, and Source filters over the top 25 drafted items, with Theme and Source options drawn from the scored items in the current pack and KPI options from the pack's fixed list. The Backlog reorders by RICE after triage, with new unscored items at the top.
 - Loads `data/*.json` directly. Upload your own CSV with the same columns.
-- Client-side triage in the demo: cluster by theme and keywords, score RICE from impact, effort, and confidence, flag low evidence, draft stories for the top 25.
+- Client-side triage in the demo: cluster by theme and keywords, score RICE from impact, effort, and confidence, assign one primary KPI per item from the pack's fixed KPI list (keyword match first, then theme map, then the first KPI of the list), flag low evidence, draft stories for the top 25.
 - Decisions are kept in browser state in the demo. In the real version they are saved to Supabase via the back end.
 
 ## Back end
@@ -34,7 +34,7 @@ The static demo in this repo runs the same triage logic in the browser with rule
 - Backup model: Gemini via Google AI Pro, $10 a month in Gemini API credits, with a $5 prepay to claim them.
 - Model routing: a cheaper model for bulk triage of all 200 items per pack, a stronger model only for the top 25 drafts and low-confidence second looks.
 - Embeddings: a separate embeddings model for duplicate finding and for RAG retrieval of past decisions.
-- Prompts: see `prompts/scoring.md`, `prompts/drafting.md`, and `prompts/clustering.md`. Prompts are stored in the repo and versioned, so a prompt change is a code change with an eval run.
+- Prompts: see `prompts/scoring.md`, `prompts/drafting.md`, and `prompts/clustering.md`. Prompts are stored in the repo and versioned, so a prompt change is a code change with an eval run. The scoring prompt also assigns one primary KPI per item from the pack's fixed KPI list, with a reason and a KPI confidence, and must never invent a KPI name outside the list.
 - Structured output: the model must return strict JSON. The back end validates it, retries once on a bad response, and falls back to human review if it still fails.
 
 ## RAG
