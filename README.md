@@ -11,10 +11,10 @@ Repo: https://github.com/konstantin-abadjiev/triage-copilot
 
 1. Load a backlog: pick an industry pack, or upload your own CSV.
 2. Run triage: cluster duplicates and near duplicates, group into themes, score each item with RICE plus a confidence score, flag low-evidence items, and draft a user story plus acceptance criteria for the top 25.
-3. Review: approve, edit, or reject each triaged item. Every decision is recorded in a visible audit trail, with a reason.
-4. Roadmap: see the prioritized list in RICE order, filter by theme, source, and confidence, and export it as CSV.
-5. Evals: run the 50-item ground truth test set for the active pack and see clustering accuracy, wrong-theme rate, cost, and latency, plus the release threshold that must be met before shipping.
-6. Decision log: read the real tradeoffs, for example RAG over past decisions vs pure prompting, build vs buy, and the confidence cutoff for auto-accept vs human review.
+3. Review: approve, edit, or reject each triaged item. Every decision is recorded in a visible audit trail, with a reason. Approved and rejected items move to the Archived tab and leave the active inbox, so the next triage run covers only what is still undecided plus anything new. New items arrive by CSV upload or by Sync from ClickUp, from a separate intake list, and are appended, never replacing the inbox. Re-importing the same items adds nothing. Once Triage takes an item from the intake list, its ClickUp task is closed in ClickUp (status "complete"), never deleted.
+4. Roadmap: see the prioritized list in RICE order, filter by theme, and export it as CSV.
+5. Evals: see the 50-item ground truth test set for the active pack, with ground truth theme and expected score band per item, plus the release accuracy target for that pack.
+6. Decision log: read the audit trail for every approve, edit, and reject, with reviewer, time, reason, and ClickUp task link when there is one.
 
 ## Industry packs
 
@@ -81,7 +81,7 @@ index.html                  Static front end, industry switcher, triage, review,
 data/                       200-item backlogs per pack, CSV and JSON
 evals/                      50-item ground truth sets per pack
 prompts/                    Scoring, drafting, and clustering prompts
-netlify/functions/          triage.mjs and clickup.mjs back end stubs
+netlify/functions/          triage.mjs, clickup.mjs, clickup-intake.mjs, and clickup-intake-close.mjs back end functions
 netlify.toml                Netlify config, static site plus functions
 supabase/                   schema.sql and setup notes
 docs/                       architecture, setup checklist, ClickUp integration
