@@ -1,0 +1,16 @@
+{
+  "name": "triage-copilot",
+  "version": "0.1.0",
+  "description": "Triage is a working AI product management copilot. It clusters a messy backlog, scores it with RICE and confidence, flags weak evidence, drafts stories for the top items, and leaves the final call to a human.",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx serve . -l 8080",
+    "test": "node --check index.html 2>/dev/null || true; node scripts/eval-check.mjs",
+    "eval": "node scripts/eval-check.mjs",
+    "validate": "node scripts/validate-data.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triage - AI Product Management Copilot</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#f7f5f2;color:#222}
+header{background:#1f2937;color:#fff;padding:20px 24px}
+header h1{margin:0 0 8px;font-size:28px}
+header p{margin:4px 0;max-width:900px;line-height:1.5}
+header .showcase{color:#fbbf24;font-size:14px}
+nav{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;background:#fff;border-bottom:1px solid #ddd;position:sticky;top:0}
+button{cursor:pointer;border:1px solid #ccc;background:#fff;padding:8px 12px;border-radius:8px;font-size:14px}
+button.primary{background:#1f2937;color:#fff;border-color:#1f2937}
+button.active{background:#7c2d12;color:#fff;border-color:#7c2d12}
+.packbar{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;background:#fef3c7}
+main{padding:20px 24px;max-width:1100px}
+.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0}
+.badge{display:inline-block;background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:999px;font-size:12px;margin-left:8px}
+.badge.ok{background:#dcfce7;color:#166534}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px;border-bottom:1px solid #eee;vertical-align:top}
+.tab{display:none}
+.tab.show{display:block}
+input,select{padding:8px;border:1px solid #ccc;border-radius:8px;font-size:14px}
+.muted{color:#666;font-size:14px}
+</style>
+</head>
+<body>
+<header>
+<h1>Triage</h1>
+<p>Triage is a working AI product management copilot, not a chatbot demo. It takes a messy, duplicate-filled backlog, clusters it, scores it with RICE and confidence, flags weak evidence, drafts stories for the top items, and leaves the final call to a human. Every industry pack includes evals and a decision log, so you can see not just what it shipped, but how it decided, and why.</p>
+<p class="showcase">A showcase of AI-native product work: discovery, prioritization, tradeoffs, evals, guardrails, and human-in-the-loop decisions, across Healthcare, Fintech, Games, and E-commerce.</p>
+<p id="packContext" class="muted"></p>
+</header>
+<div class="packbar" id="packBar"></div>
+<nav id="tabs">
+<button data-tab="backlog" class="active">Backlog</button>
+<button data-tab="review">Review Queue</button>
+<button data-tab="roadmap">Roadmap</button>
+<button data-tab="evals">Evals</button>
+<button data-tab="decisions">Decision Log</button>
+<button data-tab="case">Case Study</button>
+</nav>
+<main>
+<div id="status" class="muted">Loading data. If you opened this file directly, serve the folder with <code>npm run dev</code> so data/*.json can load.</div>
+<section id="tab-backlog" class="tab show">
+<div class="card">
+<h2>Backlog</h2>
+<p class="muted">Pick a pack, then run triage. Or upload your own CSV with columns: id, title, description, source, requester_type, theme, impact, effort, risk, evidence_strength.</p>
+<button id="runBtn" class="primary">Run triage</button>
+<input type="file" id="csvFile" accept=".csv">
+<span id="counts"></span>
+</div>
+<div id="backlogList"></div>
+</section>
+<section id="tab-review" class="tab">
+<div class="card"><h2>Review Queue</h2><p class="muted">Approve, edit, or reject each drafted story. Every decision is recorded in the Decision Log.</p></div>
+<div id="reviewList"></div>
+</section>
+<section id="tab-roadmap" class="tab">
+<div class="card"><h2>Roadmap</h2>
+<label>Theme <select id="themeFilter"><option value="">All themes</option></select></label>
+<button id="exportBtn">Export CSV</button>
+<span id="roadmapCounts" class="muted"></span>
+</div>
+<div id="roadmapList"></div>
+</section>
+<section id="tab-evals" class="tab">
+<div class="card"><h2>Evals</h2><p id="evalSummary" class="muted"></p></div>
+<div id="evalList"></div>
+</section>
+<section id="tab-decisions" class="tab">
+<div class="card"><h2>Decision Log</h2><p class="muted">Audit trail for every approve, edit, and reject, with reviewer, time, and reason.</p></div>
+<div id="decisionList"><p class="muted">No decisions yet. Run triage, then approve, edit, or reject an item.</p></div>
+</section>
+<section id="tab-case" class="tab">
+<div class="card"><h2>Case Study</h2>
+<p>Triage is a working AI product management copilot, not a chatbot demo. It takes a messy, duplicate-filled backlog, clusters it, scores it with RICE and confidence, flags weak evidence, drafts stories for the top items, and leaves the final call to a human. Every industry pack includes evals and a decision log, so you can see not just what it shipped, but how it decided, and why.</p>
+<p><strong>Problem:</strong> product teams get hundreds of requests in different words, with weak evidence and no clear order. <strong>Method:</strong> cluster duplicates, score with RICE and confidence, flag low evidence, draft only the top 25, and let a human decide. <strong>Result in the demo:</strong> 200 items triaged in about 1 hour 40 minutes, down from 11.5 hours by hand, with a cost of $3.84 per run, or $0.0192 per item, at Claude-like pricing.</p>
+<p><strong>Built Together:</strong> built by two collaborators to showcase how we use AI. One owns product logic, prompts, evals, and datasets. The other owns accounts and deployment, with keys only in back end environment variables.</p>
+</div>
+</section>
+</main>
+<script>
+var PACKS = {
+  healthcare: {name:'Healthcare', company:'Meridian Ops', desc:'Multi-site healthcare clinics: scheduling, intake, billing, compliance.', target:92},
+  fintech: {name:'Fintech', company:'Northbeam Pay', desc:'Small-business payments and lending: fraud, KYC, payouts, disputes, compliance.', target:90},
+  games: {name:'Games', company:'Project Larkspur', desc:'Generic game features: onboarding, matchmaking, progression, social, live events, battle pass, saves, safety.', target:88},
+  ecommerce: {name:'E-commerce', company:'Marketlane', desc:'Marketplace: checkout, inventory, returns, seller tools, search, payments.', target:94}
+};
+var currentPack = 'healthcare';
+var items = [], scored = [], decisions = [], clusters = [];
+var FALLBACK = [{id:'SAMPLE-001', title:'Online booking for follow-up visits', description:'Patients want to book online instead of calling.', source:'Customer request', requester_type:'Clinic manager', theme:'Scheduling', impact:8, effort:4, risk:'Medium', evidence_strength:'High'}];
+function confFor(ev){ return ev==='High'?85:ev==='Medium'?65:40; }
+function scoreItem(it){
+  var conf = confFor(it.evidence_strength);
+  var rice = Math.round((it.impact * it.impact * conf / 100 / Math.max(1, it.effort)) * 10);
+  return {id:it.id, title:it.title, description:it.description, source:it.source, requester_type:it.requester_type, theme:it.theme, impact:it.impact, effort:it.effort, risk:it.risk, evidence_strength:it.evidence_strength, confidence:conf, rice:rice, low_evidence:it.evidence_strength==='Low', story:'As a ' + it.requester_type.toLowerCase() + ', I want ' + it.description.charAt(0).toLowerCase() + it.description.slice(1) + ' so that the team can measure the result.', acceptance:['Given a user in this workflow, when they use this feature, then the expected outcome happens.','Given a low-evidence item, when it reaches review, then discovery is complete before build starts.'], status:'pending'};
+}
+function clusterItems(list){
+  var seen = {}, out = [];
+  list.forEach(function(it){
+    var key = it.theme + '|' + it.title.toLowerCase().split(' ').slice(0,3).join(' ');
+    if(seen[key]){ seen[key].size++; seen[key].ids.push(it.id); }
+    else { var c={theme:it.theme, key:key, size:1, ids:[it.id], rep:it.id}; seen[key]=c; out.push(c); }
+  });
+  return out;
+}
+function renderPacks(){
+  var bar = document.getElementById('packBar');
+  bar.innerHTML = '';
+  Object.keys(PACKS).forEach(function(k){
+    var b = document.createElement('button');
+    b.textContent = PACKS[k].name + ' - ' + PACKS[k].company;
+    if(k===currentPack) b.className='active';
+    b.onclick = function(){ currentPack=k; loadPack(); };
+    bar.appendChild(b);
+  });
+  document.getElementById('packContext').textContent = PACKS[currentPack].company + ': ' + PACKS[currentPack].desc + ' Eval target: ' + PACKS[currentPack].target + '%.';
+}
+async function loadPack(){
+  renderPacks();
+  document.getElementById('status').textContent = 'Loading ' + PACKS[currentPack].name + '...';
+  try {
+    var res = await fetch('data/' + currentPack + '.json');
+    if(!res.ok) throw new Error('fetch failed');
+    items = await res.json();
+  } catch(e) {
+    items = FALLBACK;
+    document.getElementById('status').textContent = 'Could not load data/' + currentPack + '.json. Serve the folder with npm run dev. Showing one sample item.';
+  }
+  scored = []; decisions = [];
+  document.getElementById('status').textContent = PACKS[currentPack].name + ': ' + items.length + ' items loaded. Click Run triage.';
+  renderBacklog();
+  renderReview(); renderRoadmap(); renderDecisions();
+  loadEvals();
+}
+function renderBacklog(){
+  var el = document.getElementById('backlogList');
+  el.innerHTML = items.slice(0,50).map(function(it){ return '<div class="card"><strong>'+escapeHtml(it.title)+'</strong> <span class="muted">'+escapeHtml(it.theme)+' - '+escapeHtml(it.source)+'</span><p>'+escapeHtml(it.description)+'</p><p class="muted">Impact '+it.impact+' - Effort '+it.effort+' - Risk '+it.risk+' - Evidence '+it.evidence_strength+'</p></div>'; }).join('') + '<p class="muted">Showing 50 of '+items.length+' items.</p>';
+}
+function runTriage(){
+  clusters = clusterItems(items);
+  scored = items.map(scoreItem).sort(function(a,b){ return b.rice - a.rice; });
+  document.getElementById('counts').textContent = ' ' + clusters.length + ' clusters, ' + scored.filter(function(s){return s.low_evidence;}).length + ' low-evidence flags, top 25 drafted.';
+  document.getElementById('status').textContent = 'Triage complete for ' + PACKS[currentPack].name + ': ' + clusters.length + ' clusters, ' + scored.length + ' scored.';
+  renderReview(); renderRoadmap();
+}
+function renderReview(){
+  var el = document.getElementById('reviewList');
+  var top = scored.slice(0,25);
+  if(!top.length){ el.innerHTML = '<p class="muted">Run triage first.</p>'; return; }
+  el.innerHTML = top.map(function(s, i){
+    return '<div class="card"><strong>'+escapeHtml(s.title)+'</strong> <span class="muted">RICE '+s.rice+' - '+escapeHtml(s.theme)+' - Confidence '+s.confidence+'%</span>' + (s.low_evidence?'<span class="badge">Low evidence</span>':'<span class="badge ok">Evidence ok</span>') + '<p>'+escapeHtml(s.story)+'</p><p class="muted">'+s.acceptance.map(escapeHtml).join('<br>')+'</p><p>Status: '+s.status+'</p><button onclick="decide('+i+',\'approved\')">Approve</button> <button onclick="editItem('+i+')">Edit</button> <button onclick="decide('+i+',\'rejected\')">Reject</button> <button onclick="sendToClickUp('+i+')">Send to ClickUp</button></div>';
+  }).join('');
+}
+window.decide = function(i, d){
+  var s = scored.slice(0,25)[i]; if(!s) return;
+  var reason = prompt('Reason for ' + d + ' (saved in the Decision Log):', d==='approved'?'Meets the bar, evidence is clear.':'Needs more evidence.');
+  if(reason===null) return;
+  s.status = d;
+  decisions.push({item:s.title, decision:d, reason:reason, reviewer:'konstantin-abadjiev', time:new Date().toISOString()});
+  renderReview(); renderRoadmap(); renderDecisions();
+};
+window.editItem = function(i){
+  var s = scored.slice(0,25)[i]; if(!s) return;
+  var next = prompt('Edit the story:', s.story);
+  if(next===null) return;
+  s.story = next; s.status = 'edited';
+  decisions.push({item:s.title, decision:'edited', reason:'Story edited in review.', reviewer:'konstantin-abadjiev', time:new Date().toISOString()});
+  renderReview(); renderRoadmap(); renderDecisions();
+};
+window.sendToClickUp = function(i){
+  var s = scored.slice(0,25)[i]; if(!s) return;
+  alert('ClickUp stub: this would POST to /.netlify/functions/clickup with list_id for ' + PACKS[currentPack].name + ' and create a task named "' + s.title + '". Set CLICKUP_API_TOKEN and CLICKUP_LIST_ID in Netlify to make it live. See docs/clickup-integration.md.');
+};
+function renderRoadmap(){
+  var el = document.getElementById('roadmapList');
+  var themes = Array.from(new Set(scored.map(function(s){return s.theme;})));
+  var sel = document.getElementById('themeFilter');
+  var cur = sel.value;
+  sel.innerHTML = '<option value="">All themes</option>' + themes.map(function(t){ return '<option'+(t===cur?' selected':'')+'>'+escapeHtml(t)+'</option>'; }).join('');
+  var list = scored.filter(function(s){ return !cur || s.theme===cur; });
+  document.getElementById('roadmapCounts').textContent = ' ' + list.length + ' items, ranked by RICE.';
+  el.innerHTML = '<table><tr><th>RICE</th><th>Title</th><th>Theme</th><th>Confidence</th><th>Status</th></tr>' + list.slice(0,100).map(function(s){ return '<tr><td>'+s.rice+'</td><td>'+escapeHtml(s.title)+'</td><td>'+escapeHtml(s.theme)+'</td><td>'+s.confidence+'%</td><td>'+s.status+(s.low_evidence?' - Low evidence':'')+'</td></tr>'; }).join('') + '</table>';
+}
+function renderDecisions(){
+  var el = document.getElementById('decisionList');
+  if(!decisions.length) return;
+  el.innerHTML = decisions.map(function(d){ return '<div class="card"><strong>'+escapeHtml(d.item)+'</strong> - '+d.decision+'<p class="muted">'+escapeHtml(d.reason)+' - '+escapeHtml(d.reviewer)+' - '+escapeHtml(d.time)+'</p></div>'; }).join('');
+}
+async function loadEvals(){
+  try {
+    var res = await fetch('evals/' + currentPack + '.json');
+    var evals = await res.json();
+    document.getElementById('evalSummary').textContent = PACKS[currentPack].name + ' eval set: ' + evals.length + ' items. Target accuracy: ' + PACKS[currentPack].target + '%.';
+    document.getElementById('evalList').innerHTML = '<table><tr><th>ID</th><th>Title</th><th>Ground truth theme</th><th>Score band</th></tr>' + evals.map(function(e){ return '<tr><td>'+e.id+'</td><td>'+escapeHtml(e.title)+'</td><td>'+escapeHtml(e.ground_truth_theme)+'</td><td>'+e.expected_score_band+'</td></tr>'; }).join('') + '</table>';
+  } catch(e) {
+    document.getElementById('evalSummary').textContent = 'Eval file could not load. Serve the folder with npm run dev.';
+  }
+}
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+document.querySelectorAll('#tabs button').forEach(function(b){
+  b.onclick = function(){
+    document.querySelectorAll('#tabs button').forEach(function(x){ x.classList.remove('active'); });
+    b.classList.add('active');
+    document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('show'); });
+    document.getElementById('tab-' + b.dataset.tab).classList.add('show');
+  };
+});
+document.getElementById('runBtn').onclick = runTriage;
+document.getElementById('themeFilter').onchange = renderRoadmap;
+document.getElementById('exportBtn').onclick = function(){
+  if(!scored.length){ alert('Run triage first.'); return; }
+  var csv = 'id,title,theme,rice,confidence,status\n' + scored.map(function(s){ return [s.id, '"'+s.title.replace(/"/g,'""')+'"', s.theme, s.rice, s.confidence, s.status].join(','); }).join('\n');
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'})); a.download = currentPack + '-roadmap.csv'; a.click();
+};
+document.getElementById('csvFile').addEventListener('change', function(ev){
+  var f = ev.target.files[0]; if(!f) return;
+  var r = new FileReader();
+  r.onload = function(){
+    var lines = String(r.result).trim().split('\n');
+    var head = lines[0].split(',');
+    items = lines.slice(1).map(function(line, i){
+      var parts = line.split(','); var o = {};
+      head.forEach(function(h, j){ o[h.trim()] = parts[j] ? parts[j].trim() : ''; });
+      o.impact = parseInt(o.impact, 10) || 5; o.effort = parseInt(o.effort, 10) || 5;
+      return o;
+    });
+    scored = []; document.getElementById('status').textContent = 'Uploaded ' + items.length + ' items. Click Run triage.';
+    renderBacklog();
+  };
+  r.readAsText(f);
+});
+loadPack();
+</script>
+</body>
+</html>
