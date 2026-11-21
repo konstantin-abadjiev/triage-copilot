@@ -125,7 +125,7 @@ No API key is needed for the demo. Triage logic in the browser is rule based and
 ## How to run triage
 
 1. Pick a pack in the Industry pack dropdown in the header, to the right of About this demo.
-2. Pick Demo or Live in the Mode dropdown in the header. Demo is the default and costs nothing.
+2. Pick Demo or Live with the Mode toggle in the header (two side-by-side buttons, active one filled). Demo is the default and costs nothing.
 3. Click Run triage. The sticky action bar buttons, in order, are Run triage, ClickUp Import, CSV Import, CSV Template, Reload Demo. A Live run asks for confirmation first, because it costs real money.
 4. In Backlog, approve (with a reason), edit, or reject any scored item, in RICE order. Each scored card shows its Reach, Impact, Effort, and Confidence; Demo Reach is labeled estimated.
 5. Use the Backlog filters to work through items, and export the Backlog with Export Backlog CSV in the Backlog section.

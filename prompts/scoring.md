@@ -154,7 +154,7 @@ Every scored item also gets exactly one primary KPI, the metric the feature is m
 - E-commerce (Grekon Market): Conversion rate, Cart abandonment, Return rate, Search success, Seller onboarding time, Average order value.
 - CSV-imported items use the current pack's fixed KPI list, like any other item in that pack.
 
-Choose the KPI from the item title, description, and theme. A tutorial or onboarding item targets Day 7 retention in Games and Onboarding completion in Fintech. A matchmaking item targets Matchmaking wait time. A fraud item targets Fraud loss rate. A checkout or payment item targets Conversion rate. Give a one-sentence reason for the choice, and a confidence of High when the title or description names the outcome directly, otherwise Medium. Low-confidence KPI assignments are flagged the same way low-evidence items are, for human review.
+Choose the KPI from the item title, description, and theme. A tutorial or onboarding item targets Day 7 retention in Games and Onboarding completion in Fintech. A matchmaking item targets Matchmaking wait time. A fraud item targets Fraud loss rate. A checkout or payment item targets Conversion rate. Give a one-sentence reason for the choice. One confidence everywhere: kpi_confidence is derived from the confidence number (75 or above High, 55 to 74 Medium, below 55 Low), never a separate judgement that could contradict it. Low-confidence KPI assignments are flagged the same way low-evidence items are, for human review.
 
 ## Confidence rules
 
@@ -162,6 +162,7 @@ Choose the KPI from the item title, description, and theme. A tutorial or onboar
 - evidence_strength Medium: confidence 50 to 75.
 - evidence_strength Low: confidence 30 to 55, and flag the item as low evidence.
 - Duplicate of another item: score the cluster once, do not score each duplicate separately.
+- One confidence everywhere: kpi_confidence always agrees with the confidence number (75 or above High, 55 to 74 Medium, below 55 Low).
 - Compliance or safety items: never score impact below 7 when risk is High, even if reach is low.
 
 ## Few-shot examples
@@ -178,7 +179,7 @@ Check: 9 x 10 x 90 / 6 / 10 = 135.
 
 Example 3, Games, low evidence:
 Input: "Add a feature players might like." Impact 5, Effort 5, Evidence Low.
-Output: {"id": "...", "theme": "Progression & Achievements", "reach": 4, "impact": 5, "confidence": 35, "effort": 5, "rice": 14, "kpi": "Day 30 retention", "kpi_reason": "Targets Day 30 retention because long term play depends on progression and goals that last a month.", "kpi_confidence": "Medium", "low_evidence": true, "reach_confidence": "Low", "story": "As a player, I want a feature worth coming back for so that I keep playing.", "acceptance": ["Given a player opening the game, when they see the feature, then it is clear what it does.", "Given a low-evidence item, when it reaches review, then discovery is complete before build starts."], "reason": "Vague request, no evidence of demand, needs discovery before scoring higher."}
+Output: {"id": "...", "theme": "Progression & Achievements", "reach": 4, "impact": 5, "confidence": 35, "effort": 5, "rice": 14, "kpi": "Day 30 retention", "kpi_reason": "Targets Day 30 retention because long term play depends on progression and goals that last a month.", "kpi_confidence": "Low", "low_evidence": true, "reach_confidence": "Low", "story": "As a player, I want a feature worth coming back for so that I keep playing.", "acceptance": ["Given a player opening the game, when they see the feature, then it is clear what it does.", "Given a low-evidence item, when it reaches review, then discovery is complete before build starts."], "reason": "Vague request, no evidence of demand, needs discovery before scoring higher."}
 Check: 4 x 5 x 35 / 5 / 10 = 14.
 
 ## Output format

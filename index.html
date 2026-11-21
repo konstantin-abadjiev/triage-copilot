@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Triage - AI Product Management Copilot</title>
+<title>Backlog Triage Copilot - AI Product Management</title>
 <style>
 body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#111827;color:#f3f4f6;color-scheme:dark}
 header{background:#1f2937;color:#f9fafb;padding:20px 24px;border-bottom:1px solid #374151}
+.shell{max-width:1200px;margin:0 auto}
+.tagline{color:#d1d5db;margin:4px 0 0;font-size:15px}
 header h1{margin:0 0 8px;font-size:28px}
 header p{margin:4px 0;max-width:900px;line-height:1.5}
 header .showcase{color:#fbbf24;font-size:14px}
@@ -32,6 +34,7 @@ button.btn-approve:disabled,button.btn-reject:disabled,button.btn-edit:disabled{
 .status-pill.approved{background:#14532d;color:#bbf7d0}
 .status-pill.rejected{background:#7f1d1d;color:#fecaca}
 .pagination{margin:12px 0}
+.pagination .pager-row{display:inline-flex;align-items:center;gap:4px}
 .pagination button{margin:0 2px}
 .pagination button.active{background:#15803d;color:#ffffff;border-color:#15803d;font-weight:700}
 .pagination .ellipsis{color:#9ca3af;margin:0 4px}
@@ -43,7 +46,7 @@ button.btn-approve:disabled,button.btn-reject:disabled,button.btn-edit:disabled{
 .conf-high{background:#14532d;color:#bbf7d0}
 .conf-medium{background:#78350f;color:#fde68a}
 .conf-low{background:#7f1d1d;color:#fecaca}
-main{padding:20px 24px;max-width:1100px}
+main{padding:20px 24px;max-width:1200px;margin:0 auto}
 .card{background:#232f42;border:1px solid #6b7280;border-top:3px solid #6b7280;border-radius:12px;padding:16px;margin:0 0 20px;box-shadow:0 4px 12px rgba(0,0,0,.35);color:#f3f4f6}
 a{color:#93c5fd}
 .badge{display:inline-block;background:#7f1d1d;color:#fecaca;padding:2px 8px;border-radius:999px;font-size:12px;margin-left:8px}
@@ -52,7 +55,7 @@ a{color:#93c5fd}
 .tab.show{display:block}
 input,select{padding:8px;border:1px solid #4b5563;border-radius:8px;font-size:14px;background:#111827;color:#f3f4f6}
 .muted{color:#9ca3af;font-size:14px}
-.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:0 0 4px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 4px}
 .new-banner{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#451a03;border:1px solid #b45309;color:#fde68a;border-radius:12px;padding:14px 16px;margin:12px 0;font-weight:700;font-size:15px}
 .new-banner[hidden]{display:none}
 .counts-block{display:block;margin:12px 0 0}
@@ -81,36 +84,71 @@ details.panel-about summary{cursor:pointer;font-weight:700}
 @media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.stats{grid-template-columns:1fr}}
 @media (max-width:480px){.tag{white-space:normal}.card{padding:14px}}
+.mode-block{flex:0 0 auto}
+.mode-label{color:#fbbf24;font-size:13px;font-weight:700;margin-bottom:4px}
+.mode-toggle{display:inline-flex;border:1px solid #4b5563;border-radius:8px;overflow:hidden}
+.mode-toggle button{border:0;border-radius:0;background:#1f2937;color:#f3f4f6;padding:8px 14px}
+.mode-toggle button[aria-pressed="true"]{background:#15803d;color:#ffffff;font-weight:700}
+.mode-toggle button:focus-visible{outline:2px solid #93c5fd;outline-offset:-2px}
+.card p{margin:8px 0}
+footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid #374151;color:#9ca3af;font-size:13px;line-height:1.6}
+.filters-card{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters-card label{display:flex;gap:6px;align-items:center}
+#backlogSearch{flex:1 1 280px;min-width:240px}
+.dialog-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;z-index:100}
+.dialog-overlay[hidden]{display:none}
+.dialog{background:#1f2937;border:1px solid #6b7280;border-radius:12px;padding:20px;width:100%;max-width:640px;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+.dialog h3{margin:0 0 12px}
+.dialog textarea,.dialog input[type="text"]{width:100%;box-sizing:border-box;padding:10px;border:1px solid #4b5563;border-radius:8px;font-size:14px;background:#111827;color:#f3f4f6;font-family:inherit}
+.dialog textarea{resize:vertical}
+.dialog-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+.dialog label{display:block;margin:10px 0 4px;font-weight:600}
+.skeleton-card{background:#1f2937;border:1px dashed #4b5563;border-radius:12px;padding:16px;margin:0 0 20px;color:#9ca3af}
+.csv-label:focus-visible{outline:2px solid #93c5fd;outline-offset:2px}
+@media (max-width:520px){#backlogSearch{flex-basis:100%;min-width:0}.filters-card label{flex-basis:100%}.dialog{padding:16px}.dialog-overlay{padding:16px 8px}
+  /* Mobile pager: one non-wrapping flex row. Icon-only prev/next and
+     first/last plus current ±1 numbers (rendered by paginationHtml),
+     so the row fits 390px with no wrap and no horizontal scroll. The
+     "Page X of Y" label drops to its own line below the row. */
+  .pagination .pager-row{display:flex;flex-wrap:nowrap;gap:4px;max-width:100%}
+  .pagination button{margin:0;padding:6px 9px;font-size:13px;min-width:0;flex:0 0 auto}
+  .pagination .ellipsis{margin:0 2px;flex:0 0 auto}
+  .pagination strong.page-label{display:block;margin:8px 0 0}
+  .showing-line{display:block}}
 </style>
 </head>
 <body>
 <header>
-<h1>Triage</h1>
+<div class="shell">
+<h1>Backlog Triage Copilot</h1>
+<p class="tagline">AI-native backlog triage: a messy, duplicate-filled backlog, scored with RICE and confidence, decided by a human.</p>
 <div class="header-row">
 <details class="about">
 <summary>About this demo</summary>
-<p>Triage is a working AI product management copilot, not a chatbot demo. It takes a messy, duplicate-filled backlog, clusters it, scores it with RICE and confidence, flags weak evidence, drafts a story for every scored item, and leaves the final call to a human. Every item is scored in the open, with its story written out, so you can see not just what it shipped, but how it decided, and why.</p>
+<p>Triage is a working AI product management copilot, not a chatbot demo. It takes a messy, duplicate-filled backlog, clusters it, scores it with RICE and confidence, flags weak evidence, drafts a story for every scored item, and leaves the final call to a human. Every item is scored in the open, with its story written out, so you can see not just the decision, but how it was reached, and why.</p>
 <p class="showcase">A showcase of AI-native product work: discovery, prioritization, tradeoffs, guardrails, and human-in-the-loop decisions, across Healthcare, Fintech, Games, and E-commerce.</p>
 <p id="packContext" class="muted"></p>
 </details>
 <label class="pack-select-label">Industry pack
 <select id="packSelect" aria-label="Industry pack"></select>
 </label>
-<label class="pack-select-label">Mode
-<select id="modeSelect" aria-label="Demo or Live mode">
-<option value="demo" selected>Demo</option>
-<option value="live">Live</option>
-</select>
-</label>
+<div class="mode-block">
+<div class="mode-label">Mode</div>
+<div class="mode-toggle" role="group" aria-label="Demo or Live mode">
+<button id="modeDemoBtn" type="button" aria-pressed="true">Demo</button>
+<button id="modeLiveBtn" type="button" aria-pressed="false">Live</button>
+</div>
+</div>
 </div>
 <p id="modeNote" class="muted" style="margin:8px 0 0"></p>
+</div>
 </header>
 <main>
 <div class="actionbar" id="actionBar">
-<button id="runBtn" class="primary">Run triage</button>
+<button id="runBtn" class="primary">Run triage · Demo</button>
 <span id="runHint" class="muted"></span>
 <button id="syncBtn">ClickUp Import</button>
-<label for="csvFile" class="csv-label">CSV Import</label>
+<label for="csvFile" class="csv-label" tabindex="0">CSV Import</label>
 <input type="file" id="csvFile" accept=".csv">
 <button id="templateBtn">CSV Template</button>
 <button id="reloadBtn">Reload Demo</button>
@@ -126,24 +164,56 @@ details.panel-about summary{cursor:pointer;font-weight:700}
 <div id="newBanner" class="new-banner" role="status" hidden><span id="newBannerText"></span></div>
 <div id="status" class="muted">Loading data. If you opened this file directly, serve the folder with <code>npm run dev</code> so data/*.json can load.</div>
 <section id="tab-backlog" class="tab show">
-<div class="card"><h2>Backlog</h2><details class="panel-about"><summary>About Backlog</summary><p class="muted">Run triage stack-ranks the backlog by RICE (Reach × Impact × Confidence ÷ Effort), highest first. Approve or reject any item, in order. You can edit a story first, it stays in the backlog until you approve or reject it. Approving creates a ClickUp task automatically. Decided items move to Archived. Approved items export to ClickUp in the <a id="approvedListLinkBacklog" href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
+<div class="card"><h2>Backlog <span id="backlogCount" class="muted"></span></h2><details class="panel-about"><summary>About Backlog</summary><p class="muted">Run triage stack-ranks the backlog by RICE (Reach × Impact × Confidence ÷ Effort ÷ 10, with Confidence as a percentage), highest first. Approve or reject any item, in order. You can edit a story first, it stays in the backlog until you approve or reject it. Approving creates a ClickUp task automatically. Decided items move to Archived. Approved items export to ClickUp in the <a id="approvedListLinkBacklog" href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
 <section id="statsBar" class="stats" aria-label="Overview">
 <div class="stat-card"><div class="stat-label">Backlog Items</div><div class="stat-value" id="statBacklogValue">-</div><div class="stat-sub" id="statBacklogSub">Demo dataset</div></div>
 <div class="stat-card"><div class="stat-label">Duplicate Clusters</div><div class="stat-value" id="statClustersValue">-</div><div class="stat-sub" id="statClustersSub">Found by triage run</div></div>
 <div class="stat-card"><div class="stat-label">Low-Evidence Flags</div><div class="stat-value" id="statFlagsValue">-</div><div class="stat-sub" id="statFlagsSub">Need proof before build</div></div>
 <div class="stat-card"><div class="stat-label">Decisions Logged</div><div class="stat-value" id="statDecisionsValue">0</div><div class="stat-sub" id="statDecisionsSub">Approved · rejected</div></div>
 <div class="stat-card"><div class="stat-label" id="statCostLabel">Est. Cost / Run</div><div class="stat-value" id="statCostValue">-</div><div class="stat-sub" id="statCostSub">Run triage to estimate cost</div></div>
+<div class="stat-card"><div class="stat-label" id="statNextLabel">Next Run Cost</div><div class="stat-value" id="statNextValue">$0.00</div><div class="stat-sub" id="statNextSub">Nothing new to triage</div></div>
 </section>
-<div class="card"><label>Search <input id="backlogSearch" type="search" placeholder="Title, keyword..."></label> <label>Theme <select id="backlogThemeFilter"><option value="">All themes</option></select></label> <label>KPI <select id="kpiFilter"><option value="">All KPIs</option></select></label> <label>Source <select id="backlogSourceFilter"><option value="">All sources</option></select></label><p class="muted">KPIs are assigned when an item is triaged. New unscored items always show, whatever KPI is selected.</p></div>
+<div class="card filters-card"><label>Search <input id="backlogSearch" type="search" placeholder="Title, keyword..."></label> <label>Theme <select id="backlogThemeFilter"><option value="">All themes</option></select></label> <label>KPI <select id="kpiFilter"><option value="">All KPIs</option></select></label> <label>Source <select id="backlogSourceFilter"><option value="">All sources</option></select></label><p class="muted">KPIs are assigned when an item is triaged. New unscored items always show, whatever KPI is selected.</p></div>
 <div class="card"><button id="exportBtn">Export Backlog CSV</button> <span id="exportHint" class="muted">Run triage to enable export.</span><p class="muted">Exports the scored items in the current filtered Backlog, in RICE order, with their ClickUp status.</p><p id="exportStatus" class="muted" role="status"></p></div>
 <div id="backlogList"></div>
 </section>
 <section id="tab-archived" class="tab">
-<div class="card"><h2>Archived</h2><details class="panel-about"><summary>About Archived</summary><p class="muted">Approved and rejected items leave the active inbox once decided. Approved items keep their ClickUp task link. Rejected items keep their reason. Nothing here is re-triaged, and re-importing an archived item does not bring it back. Approved items export to ClickUp in the <a id="approvedListLinkArchived" href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
+<div class="card"><h2>Archived <span id="archivedCount" class="muted"></span></h2><details class="panel-about"><summary>About Archived</summary><p class="muted">Approved and rejected items both move to Archived once decided. Approved items keep their ClickUp task link. Rejected items keep their reason. Nothing here is re-triaged, and re-importing an archived item does not bring it back. Approved items export to ClickUp in the <a id="approvedListLinkArchived" href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
 <div class="card"><label>Decision <select id="archivedDecisionFilter"><option value="">All decisions</option><option value="approved">Approved</option><option value="rejected">Rejected</option></select></label> <button id="exportArchivedBtn">Export Archived CSV</button> <span id="archivedExportHint" class="muted">Nothing archived yet.</span><p class="muted">Exports the decided items in the current filtered Archived list, with decision, reason, and ClickUp link.</p><p id="archivedExportStatus" class="muted" role="status"></p></div>
 <div id="archivedList"><p class="muted">Nothing archived yet. Approve or reject an item in the backlog to archive it.</p></div>
 </section>
+<footer>
+<p>Backlog Triage Copilot — a showcase of AI-native product work: discovery, prioritization, tradeoffs, guardrails, and human-in-the-loop decisions, across Games, Healthcare, Fintech, and E-commerce.</p>
+<p><a href="#" data-tab-link="backlog">Backlog</a> · <a href="#" data-tab-link="archived">Archived</a> · <a href="https://github.com/konstantin-abadjiev/triage-copilot" target="_blank" rel="noopener">GitHub</a> · <a href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a></p>
+<p>Demo mode scores locally in your browser and costs nothing real. Live mode calls the model and costs real money. State is session-only: reloading wipes decisions, scores, the archive, edits, uploads, and deletes.</p>
+</footer>
 </main>
+<div id="editDialog" class="dialog-overlay" hidden>
+<div class="dialog" role="dialog" aria-modal="true" aria-labelledby="editDialogTitle">
+<h3 id="editDialogTitle">Edit story</h3>
+<label for="editStoryField">Story</label>
+<textarea id="editStoryField" rows="10"></textarea>
+<p class="muted">Editing keeps the item in the backlog until you approve or reject it.</p>
+<div class="dialog-actions"><button id="editCancelBtn" type="button">Cancel</button><button id="editSaveBtn" type="button" class="primary">Save edit</button></div>
+</div>
+</div>
+<div id="decisionDialog" class="dialog-overlay" hidden>
+<div class="dialog" role="dialog" aria-modal="true" aria-labelledby="decisionDialogTitle">
+<h3 id="decisionDialogTitle">Decision</h3>
+<div id="decisionReviewerRow"><label for="decisionReviewerField">Your name (reviewer, saved with each decision for this session)</label><input id="decisionReviewerField" type="text"></div>
+<label for="decisionReasonField">Reason <span id="decisionReasonFor"></span>(saved with the decision)</label>
+<textarea id="decisionReasonField" rows="4"></textarea>
+<p id="decisionError" class="muted" style="color:#fca5a5"></p>
+<div class="dialog-actions"><button id="decisionCancelBtn" type="button">Cancel</button><button id="decisionSaveBtn" type="button" class="primary">Save decision</button></div>
+</div>
+</div>
+<div id="confirmDialog" class="dialog-overlay" hidden>
+<div class="dialog" role="dialog" aria-modal="true" aria-labelledby="confirmDialogTitle">
+<h3 id="confirmDialogTitle">Confirm</h3>
+<p id="confirmDialogMsg"></p>
+<div class="dialog-actions"><button id="confirmCancelBtn" type="button">Cancel</button><button id="confirmOkBtn" type="button" class="primary">Confirm</button></div>
+</div>
+</div>
 <script>
 var PACKS = {
   games: {name:'Games', company:'Grekon Games', desc:'Generic game features: onboarding, matchmaking, progression, social, live events, battle pass, saves, safety.'},
@@ -557,25 +627,62 @@ var KPI_OUTCOMES = {
   'Seller onboarding time':'median seller onboarding time falls versus the pre-release baseline',
   'Average order value':'the average value per completed order rises versus the 4-week baseline'
 };
+// Role per theme, so a story's actor fits the item: a new player
+// wants a tutorial skip, not a support agent. Falls back to the
+// item's requester_type when the theme has no mapped role.
+var THEME_ROLE = {
+  games: {'Onboarding & Tutorials':'new player','Live Events & Seasonal Content':'player','Matchmaking & Ranked':'competitive player','Monetization & Battle Pass':'player','Platform/Saves & Performance':'player','Progression & Achievements':'player','Safety/Accessibility & Controls':'parent','Social/Friends & Clans':'player'},
+  healthcare: {'Scheduling':'patient','Intake':'patient','Billing':'clinic manager','Communications':'patient','Compliance':'clinic manager','Integrations':'clinic staff','Reporting':'clinic manager','Staff Workflows':'clinic staff'},
+  fintech: {'Onboarding':'merchant','Payouts':'merchant','Fraud':'risk analyst','KYC':'merchant','Disputes':'merchant','Compliance':'compliance officer','Reporting':'merchant'},
+  ecommerce: {'Checkout':'shopper','Search':'shopper','Payments':'shopper','Inventory':'seller','Returns':'shopper','Seller Tools':'seller'}
+};
+function themeRole(it){
+  var map = THEME_ROLE[currentPack] || {};
+  return map[it.theme] || String(it.requester_type || 'user').toLowerCase();
+}
+// Clean verb phrase from a description: drop the trailing " - ..."
+// fragment (urgency notes, "include it in the mobile app too"),
+// strip a leading "<Subject> want(s) to", lowercase the first
+// letter, drop the trailing period. The result is a bare infinitive
+// phrase, so the story reads "I want to <phrase>".
+function cleanDesc(it){
+  var d = String(it.description || it.title || '').trim();
+  var dash = d.indexOf(' - ');
+  if (dash !== -1) d = d.slice(0, dash).trim();
+  d = d.replace(/\.+$/, '').trim();
+  var m = d.match(/^([A-Z][A-Za-z]+) wants? to (.*)$/);
+  if (m) d = m[2];
+  if (d) d = d.charAt(0).toLowerCase() + d.slice(1);
+  return d;
+}
+function storyFor(it){
+  return 'As a ' + themeRole(it) + ', I want to ' + cleanDesc(it) + '.';
+}
+function article(word){
+  var w = String(word || '').trim().toLowerCase();
+  return /^[aeiou]/.test(w) ? 'an' : 'a';
+}
 // Demo acceptance criteria, derived from the item's own data, 3 to 5
-// per item (prompts/drafting.md). The set varies per item because each
-// criterion embeds something from the item itself: the requester and
-// description in the core criterion, the KPI and its measurable outcome
-// in the measurement criterion, and the source, Impact, Effort,
-// evidence, and risk in the release criterion. No two items that differ in any field
-// share the identical full set. The discovery criterion appears only
-// when evidence is Low, and the audit/rollback criterion only when
-// risk is High, so a High-evidence item never carries a low-evidence
-// claim. Live mode does not use this: the model writes the criteria.
+// per item (prompts/drafting.md). Each criterion covers a DIFFERENT
+// aspect, so no two share the same outcome sentence:
+// 1. Outcome: what the actor can do, ending in the KPI's measurable outcome.
+// 2. Measurement: HOW the KPI is measured (same definition and cohort
+//    as the baseline, weekly for 4 weeks), never the outcome again.
+// 3. Release: the release note and rollback plan, with the item's own
+//    source, Impact, Effort, and evidence. No risk rating here: Risk
+//    is not shown on the card after triage.
+// The discovery criterion appears only when evidence is Low, and the
+// audit/rollback criterion only when risk is High, so a High-evidence
+// item never carries a low-evidence claim. Live mode does not use this:
+// the model writes the criteria.
 function acceptanceFor(it, k){
-  var desc = String(it.description || it.title || '').trim();
-  desc = desc.charAt(0).toLowerCase() + desc.slice(1).replace(/\.+$/, '');
-  var actor = String(it.requester_type || 'user').toLowerCase();
+  var desc = cleanDesc(it);
+  var actor = themeRole(it);
   var outcome = KPI_OUTCOMES[k.kpi] || 'the target KPI moves in the expected direction';
   var out = [];
   out.push('Given a ' + actor + ' in the ' + it.theme + ' workflow, when ' + desc + ', then ' + outcome + '.');
-  out.push('Given the feature is live, when ' + k.kpi + ' is measured over 4 weeks, then ' + outcome + '.');
-  out.push('Given a ' + it.source + ' report for this ' + it.theme + ' item (Impact ' + it.impact + ', Effort ' + it.effort + ', ' + it.evidence_strength + ' evidence), when the feature ships, then the release note states the expected outcome and the rollback plan matches the ' + it.risk + ' risk rating.');
+  out.push('Given the feature is live, when the team measures ' + k.kpi + ' weekly for 4 weeks, then the measurement uses the same definition and cohort as the pre-release baseline.');
+  out.push('Given ' + article(it.source) + ' ' + it.source + ' report for this ' + it.theme + ' item (Impact ' + it.impact + ', Effort ' + it.effort + ', ' + it.evidence_strength + ' evidence), when the feature ships, then the release note states the expected outcome and a rollback plan is documented.');
   if (it.evidence_strength === 'Low') out.push('Given this item has Low evidence, when it reaches review, then discovery is complete and the success metric is agreed before build starts.');
   if (it.risk === 'High') out.push('Given the feature is live, when an audit or rollback is triggered, then the change can be reviewed and reverted without data loss.');
   return out;
@@ -591,7 +698,13 @@ function scoreItem(it){
   var reach = themeReach(it.theme);
   var rice = Math.round(reach * it.impact * conf / Math.max(1, it.effort) / 10);
   var k = assignKpi(it);
-  return {id:it.id, title:it.title, description:it.description, source:it.source, requester_type:it.requester_type, theme:it.theme, impact:it.impact, effort:it.effort, risk:it.risk, evidence_strength:it.evidence_strength, reach:reach, reach_estimated:true, reach_confidence:'', confidence:conf, rice:rice, kpi:k.kpi, kpi_reason:k.kpi_reason, kpi_confidence:k.kpi_confidence, low_evidence:it.evidence_strength==='Low', story:'As a ' + it.requester_type.toLowerCase() + ', I want ' + it.description.charAt(0).toLowerCase() + it.description.slice(1) + ' so that the team can measure the result.', acceptance:acceptanceFor(it, k), status:'pending'};
+  // One confidence everywhere: the KPI confidence label IS the
+  // evidence confidence (85% High, 65% Medium, 40% Low), so the
+  // card's "Confidence 85%" and the KPI reason's "High confidence"
+  // can never disagree. assignKpi's keyword/theme distinction is
+  // not shown; the label is evidence only.
+  k.kpi_confidence = conf === 85 ? 'High' : conf === 65 ? 'Medium' : 'Low';
+  return {id:it.id, title:it.title, description:it.description, source:it.source, requester_type:it.requester_type, theme:it.theme, impact:it.impact, effort:it.effort, risk:it.risk, evidence_strength:it.evidence_strength, reach:reach, reach_estimated:true, reach_confidence:'', confidence:conf, rice:rice, kpi:k.kpi, kpi_reason:k.kpi_reason, kpi_confidence:k.kpi_confidence, low_evidence:it.evidence_strength==='Low', story:storyFor(it), acceptance:acceptanceFor(it, k), status:'pending'};
 }
 function clusterKey(it){
   // Base key for clustering: theme plus the first three words of the
@@ -713,29 +826,90 @@ function setBusy(b){
   busy = b;
   var sel = document.getElementById('packSelect');
   if (sel) sel.disabled = b;
-  var modeSel = document.getElementById('modeSelect');
-  if (modeSel) modeSel.disabled = b;
+  ['modeDemoBtn','modeLiveBtn'].forEach(function(id){ var el = document.getElementById(id); if (el) el.disabled = b; });
   var csv = document.getElementById('csvFile');
   if (csv) csv.disabled = b;
   var label = document.querySelector('.csv-label');
   if (label) label.style.opacity = b ? '0.45' : '';
   ['runBtn','syncBtn','templateBtn','reloadBtn'].forEach(function(id){ var el = document.getElementById(id); if (el) el.disabled = b; });
-  if (!b) updateActionBar();
+  // Unlocking re-renders both lists: the pagers are rendered from the
+  // busy flag, and a run renders them while busy is still set, so
+  // without this re-render the pagers stay disabled after the run
+  // finishes until the next filter change.
+  if (!b) { updateActionBar(); renderBacklog(); renderArchived(); }
 }
-// Reviewer for a decision, asked once per session. There is no sign-in,
-// so the name is typed, never a hardcoded author.
-function getReviewer(){
-  if (sessionReviewer) return sessionReviewer;
-  var name = prompt('Your name (reviewer, saved with each decision for this session):', '');
-  if (name === null || !String(name).trim()) return '';
-  sessionReviewer = String(name).trim();
-  return sessionReviewer;
+// In-page dialogs replace native prompt()/confirm() everywhere.
+// Native dialogs are single-line on mobile, are suppressed by some
+// browsers and sandboxed previews (which is why Edit looked dead),
+// and cannot be styled. Each dialog returns a Promise: the value on
+// Save/Confirm, null on Cancel/Escape/overlay click.
+var editResolve = null;
+function openEditDialog(story){
+  return new Promise(function(resolve){
+    editResolve = resolve;
+    var field = document.getElementById('editStoryField');
+    if (field) field.value = story || '';
+    var ov = document.getElementById('editDialog');
+    if (ov) ov.hidden = false;
+    if (field) field.focus();
+  });
+}
+function closeEditDialog(value){
+  var ov = document.getElementById('editDialog');
+  if (ov) ov.hidden = true;
+  if (editResolve){ var r = editResolve; editResolve = null; r(value); }
+}
+var decisionResolve = null;
+function openDecisionDialog(decision){
+  return new Promise(function(resolve){
+    decisionResolve = resolve;
+    var title = document.getElementById('decisionDialogTitle');
+    if (title) title.textContent = decision === 'approved' ? 'Approve item' : 'Reject item';
+    var forEl = document.getElementById('decisionReasonFor');
+    if (forEl) forEl.textContent = decision === 'approved' ? 'for approving ' : 'for rejecting ';
+    var row = document.getElementById('decisionReviewerRow');
+    var revField = document.getElementById('decisionReviewerField');
+    if (row) row.style.display = sessionReviewer ? 'none' : '';
+    if (revField) revField.value = sessionReviewer || '';
+    var reasonField = document.getElementById('decisionReasonField');
+    if (reasonField) reasonField.value = '';
+    var errEl = document.getElementById('decisionError');
+    if (errEl) errEl.textContent = '';
+    var ov = document.getElementById('decisionDialog');
+    if (ov) ov.hidden = false;
+    if (reasonField) reasonField.focus();
+  });
+}
+function closeDecisionDialog(value){
+  var ov = document.getElementById('decisionDialog');
+  if (ov) ov.hidden = true;
+  if (decisionResolve){ var r = decisionResolve; decisionResolve = null; r(value); }
+}
+var confirmResolve = null;
+function openConfirmDialog(message, confirmLabel){
+  return new Promise(function(resolve){
+    confirmResolve = resolve;
+    var msg = document.getElementById('confirmDialogMsg');
+    if (msg) msg.textContent = message;
+    var btn = document.getElementById('confirmOkBtn');
+    if (btn) btn.textContent = confirmLabel || 'Confirm';
+    var ov = document.getElementById('confirmDialog');
+    if (ov) ov.hidden = false;
+    if (btn) btn.focus();
+  });
+}
+function closeConfirmDialog(value){
+  var ov = document.getElementById('confirmDialog');
+  if (ov) ov.hidden = true;
+  if (confirmResolve){ var r = confirmResolve; confirmResolve = null; r(value); }
 }
 // Mode toggle text, so the header always says what the current mode
 // does and what it costs. Demo is free and local; Live costs real money.
 function renderMode(){
-  var sel = document.getElementById('modeSelect');
-  if (sel) sel.value = currentMode;
+  var demoBtn = document.getElementById('modeDemoBtn');
+  var liveBtn = document.getElementById('modeLiveBtn');
+  if (demoBtn) demoBtn.setAttribute('aria-pressed', currentMode === 'demo' ? 'true' : 'false');
+  if (liveBtn) liveBtn.setAttribute('aria-pressed', currentMode === 'live' ? 'true' : 'false');
   var note = document.getElementById('modeNote');
   if (note) note.textContent = currentMode === 'live'
     ? 'Live mode: Run triage calls the model through /.netlify/functions/triage and costs real money. Requires OPENROUTER_API_KEY set in Netlify environment variables.'
@@ -775,6 +949,13 @@ async function loadPack(){
   backlogPage = 1; archivedPage = 1;
   renderPacks();
   updateApprovedLinks();
+  // Clear the old pack's content immediately, so a switch never shows
+  // the previous pack's scored cards and stats for seconds. A skeleton
+  // stands in until the new pack renders.
+  var bl = document.getElementById('backlogList');
+  if (bl) bl.innerHTML = '<div class="skeleton-card">Loading ' + PACKS[currentPack].name + ' backlog…</div><div class="skeleton-card">Loading…</div>';
+  var al = document.getElementById('archivedList');
+  if (al) al.innerHTML = '<p class="muted">Loading archived items…</p>';
   var errEl = document.getElementById('csvError'); if (errEl) errEl.textContent = '';
   document.getElementById('counts').textContent = '';
   if (packStates[currentPack]){
@@ -853,10 +1034,16 @@ function updateActionBar(){
   // stays disabled even when new items exist, so updateActionBar calls
   // from renderStats cannot re-enable it mid-flight.
   if (runBtn) runBtn.disabled = busy || !(newSinceTriage > 0);
+  // The button always names the current mode, so the action about to be
+  // taken is unambiguous: Demo scores locally for free, Live calls the
+  // model and costs real money. updateActionBar runs on every render,
+  // so the label stays right after toggles, runs, pack switches,
+  // imports, and syncs.
+  if (runBtn) runBtn.textContent = 'Run triage · ' + (currentMode === 'live' ? 'Live' : 'Demo');
   // A disabled Run triage always says why: nothing new since the last
   // run, so there is nothing to score.
   var runHint = document.getElementById('runHint');
-  if (runHint) runHint.textContent = newSinceTriage > 0 ? '' : 'Run triage is disabled: nothing new since the last triage. Import a CSV or sync from ClickUp to add items.';
+  if (runHint) runHint.textContent = newSinceTriage > 0 ? '' : 'Nothing new to triage.';
   var exportBtn = document.getElementById('exportBtn');
   if (exportBtn) exportBtn.disabled = !(scored.length > 0);
   var exportHint = document.getElementById('exportHint');
@@ -864,7 +1051,9 @@ function updateActionBar(){
   var exportArchivedBtn = document.getElementById('exportArchivedBtn');
   if (exportArchivedBtn) exportArchivedBtn.disabled = !(archived.length > 0);
   var archivedExportHint = document.getElementById('archivedExportHint');
-  if (archivedExportHint) archivedExportHint.textContent = archived.length ? '' : 'Nothing archived yet.';
+  // The empty state is shown once, in the Archived list itself, not
+  // twice (once here and once below the panel).
+  if (archivedExportHint) archivedExportHint.textContent = '';
 }
 var lastKpiPack = '';
 function renderKpiFilter(){
@@ -892,12 +1081,12 @@ function renderStats(){
   // Duplicate Clusters counts only real multi-item groups. Singletons
   // are not duplicates, so they never inflate the number.
   var multiCount = hasRun ? clusters.filter(function(c){ return c.size > 1; }).length : 0;
-  backlogEl.textContent = items.length ? items.length : '-';
-  document.getElementById('statBacklogSub').textContent = 'Demo dataset · ' + PACKS[currentPack].company + ' · ' + (newSinceTriage ? newSinceTriage + ' new since last triage' : 'Nothing new since last triage');
-  document.getElementById('statClustersValue').textContent = hasRun ? multiCount : '-';
-  document.getElementById('statClustersSub').textContent = 'Found by triage run';
-  document.getElementById('statFlagsValue').textContent = hasRun ? lowCount : '-';
-  document.getElementById('statFlagsSub').textContent = 'Need proof before build';
+  backlogEl.textContent = items.length;
+  document.getElementById('statBacklogSub').textContent = 'Demo dataset · ' + PACKS[currentPack].company;
+  document.getElementById('statClustersValue').textContent = hasRun ? multiCount : 0;
+  document.getElementById('statClustersSub').textContent = hasRun ? 'Found by triage run' : 'Run triage to find clusters';
+  document.getElementById('statFlagsValue').textContent = hasRun ? lowCount : 0;
+  document.getElementById('statFlagsSub').textContent = hasRun ? 'Need proof before build' : 'Run triage to flag weak evidence';
   document.getElementById('statDecisionsValue').textContent = archived.length;
   document.getElementById('statDecisionsSub').textContent = 'Archived · approved, rejected';
   // Est. Cost / Run: the last run's cost only, never a hardcoded
@@ -908,14 +1097,34 @@ function renderStats(){
   var costSub = document.getElementById('statCostSub');
   var costLabel = document.getElementById('statCostLabel');
   if (totalRuns === 0){
-    costVal.textContent = '-';
-    costSub.textContent = 'Run triage to estimate cost';
+    costVal.textContent = '$0.00';
+    costSub.textContent = 'No runs yet · Run triage to estimate cost';
     if (costLabel) costLabel.textContent = 'Est. Cost / Run';
   } else {
     costVal.textContent = '$' + lastRunCost.toFixed(2);
     if (costLabel) costLabel.textContent = lastRunLive ? 'Cost / Run' : 'Est. Cost / Run';
-    costSub.textContent = (lastRunLive ? 'Real cost from the model' : 'Estimated $0.0192 per item') + ' · ' + lastRunItems + (lastRunItems === 1 ? ' item' : ' items') + ' triaged last run · Total $' + totalCost.toFixed(2) + ' · ' + totalRuns + (totalRuns === 1 ? ' run' : ' runs') + ' · ' + totalItemsTriaged + ' items triaged';
+    costSub.textContent = (lastRunLive ? 'Real cost from the model' : 'Estimated $0.0192 per item') + ' · ' + lastRunItems + (lastRunItems === 1 ? ' item' : ' items') + ' last run · Total $' + totalCost.toFixed(2) + ' · ' + totalRuns + (totalRuns === 1 ? ' run' : ' runs');
   }
+  // Next-run cost tracker: what the next run will cost, from what is
+  // actually waiting to be triaged. Recomputed on every render, so an
+  // import or a sync updates it immediately. Demo: new items x
+  // $0.0192, an estimate, $0 real cost. Live: the same modeled
+  // estimate, labeled as an estimate, because the model cost varies.
+  var nextVal = document.getElementById('statNextValue');
+  var nextSub = document.getElementById('statNextSub');
+  var nextLabel = document.getElementById('statNextLabel');
+  if (nextVal){
+    var nextCost = Math.round(newSinceTriage * COST_PER_ITEM * 10000) / 10000;
+    nextVal.textContent = '$' + nextCost.toFixed(2);
+    if (nextLabel) nextLabel.textContent = currentMode === 'live' ? 'Next Run Cost (est.)' : 'Next Run Cost';
+    if (nextSub) nextSub.textContent = newSinceTriage ? newSinceTriage + (newSinceTriage === 1 ? ' new item' : ' new items') + ' waiting × $0.0192' + (currentMode === 'live' ? ' · model cost varies' : ' · estimate, $0 real cost') : 'Nothing new to triage';
+  }
+  // Section headings carry the item counts, so the Backlog and
+  // Archived sections always say how many items they hold.
+  var bc = document.getElementById('backlogCount');
+  if (bc) bc.textContent = '(' + items.length + ' items)';
+  var ac = document.getElementById('archivedCount');
+  if (ac) ac.textContent = '(' + archived.length + ' items)';
 }
 function renderBacklogFilters(){
   // Backlog Theme and Source options come from the items in the current
@@ -947,10 +1156,20 @@ function renderBacklogFilters(){
 // both pagers on one list are rendered from the same page state in a
 // single render pass, so they always agree. All buttons disable while
 // a triage run or ClickUp call is in flight, like the pack switcher.
+// Mobile (<=520px) renders a tighter pager so it fits on one line
+// at 390px with no wrap: icon-only prev/next arrows (aria-labelled).
+// The page numbers are the same condensed set as desktop — first,
+// last, and current ±1 (e.g. page 5 of 20 shows "1 … 4 5 6 … 20").
+// The "Page X of Y" label is a block under the row on mobile (see
+// the 520px CSS) and inline next to the controls on desktop.
+function isMobilePager(){
+  return typeof window !== 'undefined' && typeof window.innerWidth === 'number' && window.innerWidth <= 520;
+}
 function paginationHtml(page, totalPages, gotoFn, pos){
   if (totalPages <= 1) return '';
-  var h = '<p class="pagination pagination-' + pos + '">';
-  h += '<button onclick="' + gotoFn + '(' + (page - 1) + ')"' + ((page <= 1 || busy) ? ' disabled' : '') + '>Previous</button> ';
+  var mobile = isMobilePager();
+  var h = '<p class="pagination pagination-' + pos + '"><span class="pager-row">';
+  h += '<button onclick="' + gotoFn + '(' + (page - 1) + ')"' + ((page <= 1 || busy) ? ' disabled' : '') + (mobile ? ' aria-label="Previous page" title="Previous page"' : '') + '>' + (mobile ? '←' : 'Previous') + '</button>';
   var pages = [];
   var i;
   for (i = 1; i <= totalPages; i++){
@@ -958,16 +1177,20 @@ function paginationHtml(page, totalPages, gotoFn, pos){
   }
   var last = 0;
   pages.forEach(function(n){
-    if (n - last > 1) h += '<span class="ellipsis" aria-hidden="true">…</span> ';
-    h += '<button onclick="' + gotoFn + '(' + n + ')"' + (busy ? ' disabled' : '') + (n === page ? ' class="active" aria-current="page"' : '') + '>' + n + '</button> ';
+    if (n - last > 1) h += '<span class="ellipsis" aria-hidden="true">…</span>';
+    h += '<button onclick="' + gotoFn + '(' + n + ')"' + (busy ? ' disabled' : '') + (n === page ? ' class="active" aria-current="page"' : '') + '>' + n + '</button>';
     last = n;
   });
-  h += '<button onclick="' + gotoFn + '(' + (page + 1) + ')"' + ((page >= totalPages || busy) ? ' disabled' : '') + '>Next</button>';
-  h += ' <strong class="page-label">Page ' + page + ' of ' + totalPages + '</strong></p>';
+  h += '<button onclick="' + gotoFn + '(' + (page + 1) + ')"' + ((page >= totalPages || busy) ? ' disabled' : '') + (mobile ? ' aria-label="Next page" title="Next page"' : '') + '>' + (mobile ? '→' : 'Next') + '</button>';
+  h += '</span> <strong class="page-label">Page ' + page + ' of ' + totalPages + '</strong></p>';
   return h;
 }
-window.gotoBacklogPage = function(p){ if (busy) return; backlogPage = p; renderBacklog(); };
-window.gotoArchivedPage = function(p){ if (busy) return; archivedPage = p; renderArchived(); };
+// Page changes never scroll the page: the scroll position is saved
+// before the re-render and restored after it, so paging from the
+// bottom pager keeps the user where they are instead of jumping to
+// the top of the list.
+window.gotoBacklogPage = function(p){ if (busy) return; var y = window.scrollY || 0; backlogPage = p; renderBacklog(); window.scrollTo(0, y); };
+window.gotoArchivedPage = function(p){ if (busy) return; var y = window.scrollY || 0; archivedPage = p; renderArchived(); window.scrollTo(0, y); };
 function renderBacklog(){
   renderBacklogFilters();
   var el = document.getElementById('backlogList');
@@ -1042,9 +1265,10 @@ function renderBacklog(){
       var reachLabel = s.reach != null ? 'Reach ' + s.reach + (s.reach_estimated ? ' (estimated)' : (s.reach_confidence === 'Low' ? ' (low-confidence estimate)' : '')) : '';
       return '<div class="card"><strong>'+escapeHtml(it.title)+'</strong>' + statusPill + '<br>' + themeTag(it.theme) + kpiTag(s.kpi) + sourceTag(it.source) + evidencePill(s.evidence_strength) + '<p class="muted">RICE '+s.rice+' · '+reachLabel+' · Impact '+s.impact+' · Effort '+s.effort+' · Confidence '+s.confidence+'%</p>' + '<p>'+escapeHtml(s.story)+'</p>' + (s.kpi ? '<p class="muted">Target KPI · ' + escapeHtml(s.kpi_confidence || '') + ' confidence: ' + escapeHtml(s.kpi_reason || '') + '</p>' : '') + '<p class="muted">'+s.acceptance.map(escapeHtml).join('<br>')+'</p>' + clickup + '<p>' + approveBtn + ' ' + editBtn + ' ' + rejectBtn + ' <button class="btn-reject" onclick="deleteBacklogItem(' + i + ')">Delete</button></p></div>';
     }
-    // Unscored new items keep the plain Backlog card: they have no
-    // story yet, so they get no decision buttons, only Delete.
-    return '<div class="card"><strong>'+escapeHtml(it.title)+'</strong><span class="badge">New</span><br>' + themeTag(it.theme) + sourceTag(it.source) + evidencePill(it.evidence_strength) + '<p>'+escapeHtml(it.description)+'</p><p class="muted">Impact '+it.impact+' - Effort '+it.effort+' - Risk '+it.risk + '</p><p><button class="btn-reject" onclick="deleteBacklogItem(' + i + ')">Delete</button></p></div>'; }).join('') + '<p class="muted">Showing ' + (start + 1) + '-' + (start + backlogItems.length) + ' of ' + ordered.length + ' active items. ' + archived.length + ' archived.</p>' + paginationHtml(backlogPage, totalPages, 'gotoBacklogPage', 'bottom');
+    // Unscored new items keep a compact Backlog card: they have no
+    // story yet, so they get no decision buttons, only Delete, plus a
+    // short note saying what Run triage will add. No large blank area.
+    return '<div class="card"><strong>'+escapeHtml(it.title)+'</strong><span class="badge">New</span><br>' + themeTag(it.theme) + sourceTag(it.source) + evidencePill(it.evidence_strength) + '<p>'+escapeHtml(it.description)+'</p><p class="muted">Impact '+it.impact+' - Effort '+it.effort+' - Risk '+it.risk + '</p><p class="muted">Run triage to score this item — RICE, KPI, story, and acceptance criteria appear after the run.</p><p><button class="btn-reject" onclick="deleteBacklogItem(' + i + ')">Delete</button></p></div>'; }).join('') + '<p class="muted showing-line">Showing ' + (start + 1) + '-' + (start + backlogItems.length) + ' of ' + ordered.length + ' active items. ' + archived.length + ' archived.</p>' + paginationHtml(backlogPage, totalPages, 'gotoBacklogPage', 'bottom');
   var ns = document.getElementById('newSince');
   if (ns) ns.textContent = newSinceTriage ? 'New since last triage: ' + newSinceTriage + ' items.' : 'Nothing new since last triage.';
   renderTabCounts();
@@ -1052,7 +1276,7 @@ function renderBacklog(){
 // Delete a Backlog item completely. It is not archived, not counted as
 // a decision, and its id is recorded in deletedIds so a re-import or
 // re-sync never brings it back.
-window.deleteBacklogItem = function(i){
+window.deleteBacklogItem = async function(i){
   var it = backlogItems[i]; if (!it) return;
   var sc = null;
   scored.forEach(function(s){ if (s.id === it.id) sc = s; });
@@ -1060,7 +1284,8 @@ window.deleteBacklogItem = function(i){
     document.getElementById('status').textContent = 'A ClickUp task is being created for this item. Wait for it to finish before deleting.';
     return;
   }
-  if (!confirm('Delete this item from the backlog? This removes it completely, it is not archived or counted as a decision.')) return;
+  var delOk = await openConfirmDialog('Delete this item from the backlog? This removes it completely, it is not archived or counted as a decision.', 'Delete');
+  if (!delOk) return;
   var wasScored = scored.some(function(s){ return s.id === it.id; });
   items = items.filter(function(x){ return x.id !== it.id; });
   scored = scored.filter(function(x){ return x.id !== it.id; });
@@ -1141,12 +1366,18 @@ function validLiveScore(s){
   return true;
 }
 function liveScoreItem(it, s){
-  return {id:it.id, title:it.title, description:it.description, source:it.source, requester_type:it.requester_type, theme:(typeof s.theme === 'string' && s.theme) ? s.theme : it.theme, impact:s.impact, effort:s.effort, risk:it.risk, evidence_strength:it.evidence_strength, reach:s.reach, reach_estimated:false, reach_confidence:(typeof s.reach_confidence === 'string' ? s.reach_confidence : ''), confidence:s.confidence, rice:s.rice, kpi:s.kpi, kpi_reason:(typeof s.kpi_reason === 'string' ? s.kpi_reason : ''), kpi_confidence:(typeof s.kpi_confidence === 'string' ? s.kpi_confidence : 'Medium'), low_evidence:!!s.low_evidence, story:s.story, acceptance:Array.isArray(s.acceptance) && s.acceptance.length ? s.acceptance : ['Given a user in this workflow, when they use this feature, then the expected outcome happens.'], status:'pending'};
+  // One confidence everywhere, same rule as Demo: the KPI
+  // confidence label is derived from the confidence number (75+
+  // High, 55-74 Medium, below 55 Low), never taken from the model
+  // as a separate value that could contradict the number.
+  var kpiConf = (typeof s.confidence === 'number') ? (s.confidence >= 75 ? 'High' : s.confidence >= 55 ? 'Medium' : 'Low') : 'Medium';
+  return {id:it.id, title:it.title, description:it.description, source:it.source, requester_type:it.requester_type, theme:(typeof s.theme === 'string' && s.theme) ? s.theme : it.theme, impact:s.impact, effort:s.effort, risk:it.risk, evidence_strength:it.evidence_strength, reach:s.reach, reach_estimated:false, reach_confidence:(typeof s.reach_confidence === 'string' ? s.reach_confidence : ''), confidence:s.confidence, rice:s.rice, kpi:s.kpi, kpi_reason:(typeof s.kpi_reason === 'string' ? s.kpi_reason : ''), kpi_confidence:kpiConf, low_evidence:!!s.low_evidence, story:s.story, acceptance:Array.isArray(s.acceptance) && s.acceptance.length ? s.acceptance : ['Given a user in this workflow, when they use this feature, then the expected outcome happens.'], status:'pending'};
 }
 async function runLiveTriage(){
   // Live runs cost real money, so they always ask first. A cancelled
   // run scores nothing and changes nothing.
-  if (!confirm('This run will call the model and cost real money. Continue?')) return;
+  var liveOk = await openConfirmDialog('This run will call the model and cost real money. Continue?', 'Run live triage');
+  if (!liveOk) return;
   var already = {};
   scored.forEach(function(s){ already[s.id] = true; });
   var fresh = items.filter(function(it){ return !already[it.id]; });
@@ -1208,20 +1439,25 @@ async function runLiveTriage(){
 window.decide = async function(i, d){
   var s = backlogScoredItems[i]; if(!s) return;
   if (s.approving || s.clickup_status === 'creating') return;
-  // The reviewer is typed once per session, never a hardcoded author.
-  var reviewer = getReviewer();
+  // The reviewer (once per session) and the reason are typed in the
+  // in-page decision dialog, never a hardcoded author and never a
+  // prefilled default. An empty reason decides nothing: the item
+  // stays pending.
+  var dlg = await openDecisionDialog(d);
+  if (!dlg){
+    document.getElementById('status').textContent = 'No decision made; the item stays pending.';
+    return;
+  }
+  var reviewer = dlg.reviewer;
+  var reason = dlg.reason;
   if (!reviewer){
     document.getElementById('status').textContent = 'A reviewer name is needed to record the decision; nothing was decided.';
     return;
   }
-  // The reason is typed, never a prefilled default, and an empty reason
-  // decides nothing: the item stays pending.
-  var reason = prompt('Reason for ' + d + ' (saved with the decision):', '');
-  if (reason === null || !String(reason).trim()){
+  if (!reason){
     document.getElementById('status').textContent = 'A reason is required; nothing was decided.';
     return;
   }
-  reason = String(reason).trim();
   if (d === 'rejected'){
     var entry = {item:s.title, item_id:s.id, decision:d, reason:reason, reviewer:reviewer, time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, clickup_status:'none'};
     decisions.push(entry);
@@ -1251,9 +1487,12 @@ window.decide = async function(i, d){
 // Backlog, still pending, with Approve / Edit / Reject available, and
 // the edited story is the one used if it is later approved or rejected.
 // An empty edit is rejected and the previous story is kept.
-window.editItem = function(i){
+window.editItem = async function(i){
   var s = backlogScoredItems[i]; if(!s) return;
-  var next = prompt('Edit the story:', s.story);
+  // Edit opens the large in-page dialog (full-width multiline
+  // textarea), never a native prompt: the story is long text, and a
+  // single-line prompt makes editing it nearly impossible on mobile.
+  var next = await openEditDialog(s.story);
   if (next === null) return;
   if (!String(next).trim()){
     document.getElementById('status').textContent = 'Empty story not saved; kept the previous story.';
@@ -1332,7 +1571,7 @@ function renderArchived(){
   if (exportArchivedBtn) exportArchivedBtn.disabled = !(archived.length > 0);
   var el = document.getElementById('archivedList');
   if (!el) return;
-  if (!archived.length){ archivedShown = []; el.innerHTML = '<p class="muted">Nothing archived yet. Approve or reject an item in the backlog to archive it.</p>'; return; }
+  if (!archived.length){ archivedShown = []; el.innerHTML = '<p class="muted">Nothing archived yet. Approve or reject an item in the backlog to archive it.</p><p class="muted">Showing 0 of 0 archived items.</p>'; return; }
   var decEl = document.getElementById('archivedDecisionFilter');
   var decVal = decEl ? decEl.value : '';
   var shown = decVal ? archived.filter(function(a){ return a.decision === decVal; }) : archived.slice();
@@ -1352,25 +1591,32 @@ function renderArchived(){
     var pillClass = a.decision === 'approved' ? 'approved' : a.decision === 'rejected' ? 'rejected' : '';
     var link = a.clickup_task_url ? '<p>ClickUp task: <a href="' + escapeHtml(a.clickup_task_url) + '" target="_blank" rel="noopener">Open task</a></p>' : '';
     return '<div class="card"><strong>' + escapeHtml(a.title) + '</strong><span class="status-pill ' + pillClass + '">' + label + '</span><br>' + themeTag(a.theme || 'Intake') + kpiTag(a.kpi || '') + sourceTag(a.source || '') + (a.evidence_strength ? evidencePill(a.evidence_strength) : '') + '<p class="muted">RICE ' + (a.rice != null ? a.rice : '-') + (a.confidence != null ? ' · Confidence ' + a.confidence + '%' : '') + '</p>' + (a.story ? '<p>' + escapeHtml(a.story) + '</p>' : '') + (a.kpi ? '<p class="muted">Target KPI · ' + escapeHtml(a.kpi_confidence || '') + ' confidence: ' + escapeHtml(a.kpi_reason || '') + '</p>' : '') + '<p class="muted">' + escapeHtml(a.reason || '') + ' - ' + escapeHtml(a.reviewer || '') + ' - ' + escapeHtml(a.time || '') + '</p>' + link + '</div>';
-  }).join('') + '<p class="muted">Showing ' + (start + 1) + '-' + (start + pageItems.length) + ' of ' + shown.length + ' archived items.</p>' + paginationHtml(archivedPage, totalPages, 'gotoArchivedPage', 'bottom');
+  }).join('') + '<p class="muted showing-line">Showing ' + (start + 1) + '-' + (start + pageItems.length) + ' of ' + shown.length + ' archived items.</p>' + paginationHtml(archivedPage, totalPages, 'gotoArchivedPage', 'bottom');
 }
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+window.showTab = function(tab){
+  document.querySelectorAll('#viewNav button').forEach(function(x){ x.classList.remove('active'); if (x.dataset.tab === tab) x.classList.add('active'); });
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('show'); });
+  document.getElementById('tab-' + tab).classList.add('show');
+};
 document.querySelectorAll('#viewNav button').forEach(function(b){
-  b.onclick = function(){
-    document.querySelectorAll('#viewNav button').forEach(function(x){ x.classList.remove('active'); });
-    b.classList.add('active');
-    document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('show'); });
-    document.getElementById('tab-' + b.dataset.tab).classList.add('show');
-  };
+  b.onclick = function(){ showTab(b.dataset.tab); };
+});
+document.querySelectorAll('footer a[data-tab-link]').forEach(function(a){
+  a.onclick = function(ev){ ev.preventDefault(); showTab(a.getAttribute('data-tab-link')); };
 });
 document.getElementById('runBtn').onclick = runTriage;
-var _modeSelect = document.getElementById('modeSelect');
-if (_modeSelect) _modeSelect.onchange = function(){
-  if (busy){ _modeSelect.value = currentMode; return; }
-  currentMode = _modeSelect.value;
+function setMode(m){
+  if (busy) return;
+  if (m !== 'demo' && m !== 'live') return;
+  currentMode = m;
   renderMode();
   renderStats();
-};
+}
+var _modeDemoBtn = document.getElementById('modeDemoBtn');
+if (_modeDemoBtn) _modeDemoBtn.onclick = function(){ setMode('demo'); };
+var _modeLiveBtn = document.getElementById('modeLiveBtn');
+if (_modeLiveBtn) _modeLiveBtn.onclick = function(){ setMode('live'); };
 document.getElementById('kpiFilter').onchange = function(){ backlogPage = 1; renderBacklog(); };
 var _backlogSearch = document.getElementById('backlogSearch');
 if (_backlogSearch) _backlogSearch.oninput = function(){ backlogPage = 1; renderBacklog(); };
@@ -1382,7 +1628,8 @@ var _archivedDecisionFilter = document.getElementById('archivedDecisionFilter');
 if (_archivedDecisionFilter) _archivedDecisionFilter.onchange = function(){ archivedPage = 1; renderArchived(); };
 document.getElementById('reloadBtn').onclick = async function(){
   if (busy) return;
-  if (!confirm('Reload the demo for ' + PACKS[currentPack].name + '? This wipes this pack\'s triage run, edits, decisions, archive, deleted items, and cost totals.')) return;
+  var reloadOk = await openConfirmDialog('Reload the demo for ' + PACKS[currentPack].name + '? This wipes this pack\'s triage run, edits, decisions, archive, deleted items, and cost totals.', 'Reload demo');
+  if (!reloadOk) return;
   delete packStates[currentPack];
   await loadPack();
 };
@@ -1441,6 +1688,14 @@ document.getElementById('templateBtn').onclick = function(){
   var filename = 'triage-template-' + currentPack + '.csv';
   download(filename, csv); downloadNote(visibleExportStatusId(), filename);
 };
+// The CSV Import label is a keyboard-operable control: Enter or
+// Space on the focused label opens the file dialog, same as a click.
+var _csvLabel = document.querySelector('.csv-label');
+if (_csvLabel){
+  _csvLabel.addEventListener('keydown', function(ev){
+    if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); document.getElementById('csvFile').click(); }
+  });
+}
 document.getElementById('csvFile').addEventListener('change', function(ev){
   var f = ev.target.files[0]; if(!f) return;
   if (busy){
@@ -1535,7 +1790,17 @@ document.getElementById('syncBtn').onclick = async function(){
         closeNote = ' Could not close ' + failedTotal + ' in ClickUp, they will be skipped as duplicates next time.';
       }
     }
-    statusEl.textContent = 'Synced ' + added.added + ' new items, ' + added.skipped + ' already seen' + (added.malformed ? ', ' + added.malformed + ' malformed (missing id) and ignored' : '') + ' from ClickUp intake.' + closeNote + ' Click Run triage.';
+    // A 0-item sync must explain why: the intake list has no open
+    // items (every intake task is already complete), or everything
+    // in it was already seen. A bare "0 new, 0 already seen" says
+    // nothing about which it is.
+    var syncNote = '';
+    if (added.added === 0){
+      var intakeCount = (data.items || []).length;
+      if (!intakeCount) syncNote = ' The ClickUp intake list has no open items (every intake task is already complete), so there was nothing to sync.';
+      else syncNote = ' All ' + intakeCount + ' intake item' + (intakeCount === 1 ? ' was' : 's were') + ' already seen.';
+    }
+    statusEl.textContent = 'Synced ' + added.added + ' new items, ' + added.skipped + ' already seen' + (added.malformed ? ', ' + added.malformed + ' malformed (missing id) and ignored' : '') + ' from ClickUp intake.' + syncNote + closeNote + ' Click Run triage.';
     renderPacks(); renderStats(); renderBacklog(); renderArchived();
   } catch(e){
     statusEl.textContent = 'ClickUp sync failed: ' + ((e && e.name === 'AbortError') ? 'the request timed out after ' + (CLICKUP_TIMEOUT_MS / 1000) + 's.' : 'could not reach the intake function. ' + (e && e.message ? e.message : ''));
@@ -1543,6 +1808,48 @@ document.getElementById('syncBtn').onclick = async function(){
     setBusy(false);
   }
 };
+// Dialog wiring: Save/Cancel buttons, overlay click to cancel,
+// Escape to cancel the topmost open dialog.
+document.getElementById('editSaveBtn').onclick = function(){
+  var field = document.getElementById('editStoryField');
+  closeEditDialog(field ? field.value : '');
+};
+document.getElementById('editCancelBtn').onclick = function(){ closeEditDialog(null); };
+document.getElementById('editDialog').addEventListener('click', function(ev){ if (ev.target === this) closeEditDialog(null); });
+document.getElementById('decisionSaveBtn').onclick = function(){
+  var reasonField = document.getElementById('decisionReasonField');
+  var revField = document.getElementById('decisionReviewerField');
+  var reason = reasonField ? String(reasonField.value).trim() : '';
+  var reviewer = sessionReviewer;
+  if (!reviewer && revField) reviewer = String(revField.value).trim();
+  var errEl = document.getElementById('decisionError');
+  if (!reviewer){ if (errEl) errEl.textContent = 'A reviewer name is needed.'; return; }
+  if (!reason){ if (errEl) errEl.textContent = 'A reason is required.'; return; }
+  sessionReviewer = reviewer;
+  closeDecisionDialog({reviewer: reviewer, reason: reason});
+};
+document.getElementById('decisionCancelBtn').onclick = function(){ closeDecisionDialog(null); };
+document.getElementById('decisionDialog').addEventListener('click', function(ev){ if (ev.target === this) closeDecisionDialog(null); });
+document.getElementById('confirmOkBtn').onclick = function(){ closeConfirmDialog(true); };
+document.getElementById('confirmCancelBtn').onclick = function(){ closeConfirmDialog(false); };
+document.getElementById('confirmDialog').addEventListener('click', function(ev){ if (ev.target === this) closeConfirmDialog(false); });
+document.addEventListener('keydown', function(ev){
+  if (ev.key !== 'Escape') return;
+  if (!document.getElementById('editDialog').hidden) closeEditDialog(null);
+  else if (!document.getElementById('decisionDialog').hidden) closeDecisionDialog(null);
+  else if (!document.getElementById('confirmDialog').hidden) closeConfirmDialog(false);
+});
+// Re-render the pagers when the viewport crosses the 520px breakpoint
+// (e.g. phone rotation), so the mobile-condensed pager and the desktop
+// pager swap instead of the wrong one sticking around. Guarded: the
+// Node verification harness has no window.addEventListener.
+var _wasMobilePager = isMobilePager();
+if (typeof window !== 'undefined' && typeof window.addEventListener === 'function'){
+  window.addEventListener('resize', function(){
+    var m = isMobilePager();
+    if (m !== _wasMobilePager && !busy){ _wasMobilePager = m; renderBacklog(); renderArchived(); }
+  });
+}
 renderMode();
 loadPack();
 </script>

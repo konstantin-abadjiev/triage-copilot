@@ -151,7 +151,11 @@ function normalizeScore(s) {
     rice: s.rice,
     kpi: s.kpi,
     kpi_reason: typeof s.kpi_reason === 'string' ? s.kpi_reason : '',
-    kpi_confidence: typeof s.kpi_confidence === 'string' ? s.kpi_confidence : 'Medium',
+    // One confidence everywhere, same rule as Demo: the KPI
+    // confidence label is derived from the confidence number (75+
+    // High, 55-74 Medium, below 55 Low), never taken from the model
+    // as a separate value that could contradict the number.
+    kpi_confidence: (typeof s.confidence === 'number') ? (s.confidence >= 75 ? 'High' : s.confidence >= 55 ? 'Medium' : 'Low') : 'Medium',
     low_evidence: !!s.low_evidence,
     reach_confidence: typeof s.reach_confidence === 'string' ? s.reach_confidence : '',
     story: s.story,
@@ -185,7 +189,7 @@ function systemPrompt(pack) {
     '- Confidence: how sure you are, as a percentage 0 to 100. evidence_strength High and a clear description: 70 to 95. Medium: 50 to 75. Low: 30 to 55, and set low_evidence to true. Lower it when the request is vague or conflicts with another item.',
     '- Effort: person-months to ship, 1 to 10, from the item effort field and the description. Do not invent a lower effort to make a favourite item win.',
     '- RICE = Reach x Impact x Confidence / Effort / 10, rounded to the nearest whole number, with Confidence as a percentage. Example: Reach 9, Impact 8, Confidence 85, Effort 4 gives 9 x 8 x 85 / 4 / 10 = 153.',
-    '- KPI: exactly one primary KPI, only from this pack list: ' + KPIS[pack].join(', ') + '. Never invent a KPI name outside the list. Give a one-sentence kpi_reason and a kpi_confidence of High when the title or description names the outcome directly, otherwise Medium.',
+    '- KPI: exactly one primary KPI, only from this pack list: ' + KPIS[pack].join(', ') + '. Never invent a KPI name outside the list. Give a one-sentence kpi_reason and a kpi_confidence that agrees with confidence: 75 or above High, 55 to 74 Medium, below 55 Low.',
     '- Theme: keep the item theme unless it is clearly wrong, then pick the closest from: ' + THEMES[pack].join(', ') + '.',
     '- Story: one user story, "As a ..., I want ..., so that ...", written from the item description and requester type.',
     '- Acceptance: two acceptance criteria, "Given ..., when ..., then ..." form.',
