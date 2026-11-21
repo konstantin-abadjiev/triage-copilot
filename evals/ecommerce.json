@@ -90,12 +90,6 @@
     "expected_score_band": "Medium"
   },
   {
-    "id": "EVAL-ECO-16",
-    "title": "Refund status tracking",
-    "ground_truth_theme": "Returns",
-    "expected_score_band": "High"
-  },
-  {
     "id": "EVAL-ECO-17",
     "title": "Saved searches",
     "ground_truth_theme": "Search",
@@ -144,27 +138,9 @@
     "expected_score_band": "Medium"
   },
   {
-    "id": "EVAL-ECO-25",
-    "title": "Related: Self-serve returns",
-    "ground_truth_theme": "Returns",
-    "expected_score_band": "Medium"
-  },
-  {
     "id": "EVAL-ECO-26",
     "title": "Request: Save cart for later",
     "ground_truth_theme": "Checkout",
-    "expected_score_band": "Medium"
-  },
-  {
-    "id": "EVAL-ECO-27",
-    "title": "Refund status tracking",
-    "ground_truth_theme": "Returns",
-    "expected_score_band": "High"
-  },
-  {
-    "id": "EVAL-ECO-28",
-    "title": "Bulk inventory upload",
-    "ground_truth_theme": "Inventory",
     "expected_score_band": "Medium"
   },
   {
@@ -178,12 +154,6 @@
     "title": "Return label in the box",
     "ground_truth_theme": "Returns",
     "expected_score_band": "Medium"
-  },
-  {
-    "id": "EVAL-ECO-31",
-    "title": "Order tracking page",
-    "ground_truth_theme": "Checkout",
-    "expected_score_band": "High"
   },
   {
     "id": "EVAL-ECO-32",
@@ -202,18 +172,6 @@
     "title": "Bulk listing editor",
     "ground_truth_theme": "Seller Tools",
     "expected_score_band": "High"
-  },
-  {
-    "id": "EVAL-ECO-35",
-    "title": "Seller onboarding checklist",
-    "ground_truth_theme": "Seller Tools",
-    "expected_score_band": "High"
-  },
-  {
-    "id": "EVAL-ECO-36",
-    "title": "Exchange instead of refund",
-    "ground_truth_theme": "Returns",
-    "expected_score_band": "Medium"
   },
   {
     "id": "EVAL-ECO-37",
@@ -298,5 +256,47 @@
     "title": "Request: Save cart for later (rephrased request)",
     "ground_truth_theme": "Checkout",
     "expected_score_band": "High"
+  },
+  {
+    "id": "EVAL-ECO-51",
+    "title": "Image search",
+    "ground_truth_theme": "Search",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-ECO-52",
+    "title": "Split payments",
+    "ground_truth_theme": "Payments",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-ECO-53",
+    "title": "Follow up: Return pickup scheduling",
+    "ground_truth_theme": "Returns",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-ECO-54",
+    "title": "Related: Buy now pay later",
+    "ground_truth_theme": "Payments",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-ECO-55",
+    "title": "Supplier alerts",
+    "ground_truth_theme": "Inventory",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-ECO-56",
+    "title": "Tax calculation at checkout",
+    "ground_truth_theme": "Payments",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-ECO-57",
+    "title": "Multi-location inventory",
+    "ground_truth_theme": "Inventory",
+    "expected_score_band": "Low"
   }
 ]

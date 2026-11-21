@@ -1,6 +1,6 @@
 [
   {
-    "id": "ML-001",
+    "id": "GM-001",
     "title": "One-page checkout",
     "description": "Reduce checkout to one page to cut drop-off.",
     "source": "Compliance",
@@ -12,7 +12,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-002",
+    "id": "GM-002",
     "title": "Guest checkout",
     "description": "Let customers check out without creating an account.",
     "source": "Internal request",
@@ -24,7 +24,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-003",
+    "id": "GM-003",
     "title": "Apple Pay and Google Pay",
     "description": "Add Apple Pay and Google Pay at checkout.",
     "source": "Support ticket",
@@ -36,7 +36,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-004",
+    "id": "GM-004",
     "title": "Address autocomplete",
     "description": "Autocomplete addresses at checkout to reduce errors.",
     "source": "Internal request",
@@ -48,7 +48,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-005",
+    "id": "GM-005",
     "title": "Order confirmation page",
     "description": "Show a clear order confirmation with tracking link.",
     "source": "Compliance",
@@ -60,7 +60,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-006",
+    "id": "GM-006",
     "title": "Low stock alerts",
     "description": "Alert sellers when stock is low.",
     "source": "Partner request",
@@ -72,7 +72,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-007",
+    "id": "GM-007",
     "title": "Inventory sync across channels",
     "description": "Sync inventory across web, mobile, and marketplace.",
     "source": "Internal request",
@@ -84,7 +84,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-008",
+    "id": "GM-008",
     "title": "Bulk inventory upload",
     "description": "Let sellers upload inventory in bulk from a spreadsheet.",
     "source": "Internal request",
@@ -96,7 +96,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-009",
+    "id": "GM-009",
     "title": "Out of stock badge",
     "description": "Show an out of stock badge and a notify me option.",
     "source": "Partner request",
@@ -108,7 +108,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-010",
+    "id": "GM-010",
     "title": "Warehouse location tracking",
     "description": "Track which warehouse an item ships from.",
     "source": "Customer request",
@@ -120,7 +120,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-011",
+    "id": "GM-011",
     "title": "Self-serve returns",
     "description": "Let customers start a return online without contacting support.",
     "source": "Internal request",
@@ -132,7 +132,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-012",
+    "id": "GM-012",
     "title": "Return label in the box",
     "description": "Include a return label option at checkout.",
     "source": "Sales request",
@@ -144,7 +144,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-013",
+    "id": "GM-013",
     "title": "Refund status tracking",
     "description": "Show refund status in the order page.",
     "source": "Sales request",
@@ -156,7 +156,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-014",
+    "id": "GM-014",
     "title": "Return reasons report",
     "description": "Report return reasons by product.",
     "source": "Sales request",
@@ -168,7 +168,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-015",
+    "id": "GM-015",
     "title": "Exchange instead of refund",
     "description": "Offer an exchange instead of a refund at return.",
     "source": "Sales request",
@@ -180,7 +180,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-016",
+    "id": "GM-016",
     "title": "Seller dashboard",
     "description": "Give sellers a dashboard with sales, orders, and payouts.",
     "source": "Internal request",
@@ -192,7 +192,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-017",
+    "id": "GM-017",
     "title": "Bulk listing editor",
     "description": "Let sellers edit many listings at once.",
     "source": "Partner request",
@@ -204,7 +204,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-018",
+    "id": "GM-018",
     "title": "Seller performance score",
     "description": "Show sellers a performance score with tips to improve.",
     "source": "Customer request",
@@ -216,7 +216,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-019",
+    "id": "GM-019",
     "title": "Promotion tools",
     "description": "Let sellers create discounts and coupon codes.",
     "source": "Support ticket",
@@ -228,7 +228,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-020",
+    "id": "GM-020",
     "title": "Seller onboarding checklist",
     "description": "Guide new sellers through listing their first product.",
     "source": "Sales request",
@@ -240,7 +240,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-021",
+    "id": "GM-021",
     "title": "Search filters",
     "description": "Add filters for price, brand, rating, and delivery time.",
     "source": "Internal request",
@@ -252,7 +252,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-022",
+    "id": "GM-022",
     "title": "Search autocomplete",
     "description": "Suggest products as the customer types.",
     "source": "Sales request",
@@ -264,7 +264,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-023",
+    "id": "GM-023",
     "title": "Sort by relevance",
     "description": "Sort search results by relevance, not only price.",
     "source": "Partner request",
@@ -276,7 +276,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-024",
+    "id": "GM-024",
     "title": "Saved searches",
     "description": "Let customers save a search and get alerts for new items.",
     "source": "Compliance",
@@ -288,7 +288,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-025",
+    "id": "GM-025",
     "title": "Image search",
     "description": "Let customers search by uploading a photo.",
     "source": "Customer request",
@@ -300,7 +300,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-026",
+    "id": "GM-026",
     "title": "Split payments",
     "description": "Let customers split a payment across two cards.",
     "source": "Internal request",
@@ -312,7 +312,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-027",
+    "id": "GM-027",
     "title": "Buy now pay later",
     "description": "Offer buy now pay later at checkout.",
     "source": "Internal request",
@@ -324,7 +324,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-028",
+    "id": "GM-028",
     "title": "Saved payment methods",
     "description": "Let customers save payment methods securely.",
     "source": "Internal request",
@@ -336,7 +336,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-029",
+    "id": "GM-029",
     "title": "Currency selector",
     "description": "Let customers pay in their local currency.",
     "source": "Compliance",
@@ -348,7 +348,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-030",
+    "id": "GM-030",
     "title": "Payment failure retry",
     "description": "Retry a failed payment automatically and notify the customer.",
     "source": "Sales request",
@@ -360,7 +360,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-031",
+    "id": "GM-031",
     "title": "Delivery date estimate",
     "description": "Show an estimated delivery date before checkout.",
     "source": "Customer request",
@@ -372,7 +372,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-032",
+    "id": "GM-032",
     "title": "Pre-order stock",
     "description": "Let customers pre-order out of stock items.",
     "source": "Support ticket",
@@ -384,7 +384,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-033",
+    "id": "GM-033",
     "title": "Instant refund for trusted buyers",
     "description": "Offer instant refunds for trusted buyers.",
     "source": "Sales request",
@@ -396,7 +396,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-034",
+    "id": "GM-034",
     "title": "Seller messaging",
     "description": "Let sellers message buyers about an order.",
     "source": "Compliance",
@@ -408,7 +408,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-035",
+    "id": "GM-035",
     "title": "Recently viewed",
     "description": "Show recently viewed items on the home page.",
     "source": "Support ticket",
@@ -420,7 +420,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-036",
+    "id": "GM-036",
     "title": "Gift cards",
     "description": "Add gift cards that can be used at checkout.",
     "source": "Compliance",
@@ -432,7 +432,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-037",
+    "id": "GM-037",
     "title": "Order tracking page",
     "description": "Show order tracking in the account, not only by email.",
     "source": "Customer request",
@@ -444,7 +444,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-038",
+    "id": "GM-038",
     "title": "Supplier alerts",
     "description": "Alert sellers when a supplier is out of stock.",
     "source": "Support ticket",
@@ -456,7 +456,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-039",
+    "id": "GM-039",
     "title": "Return window settings",
     "description": "Let sellers set their own return window.",
     "source": "Support ticket",
@@ -468,7 +468,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-040",
+    "id": "GM-040",
     "title": "Sales report export",
     "description": "Export sales reports to a spreadsheet.",
     "source": "Customer request",
@@ -480,7 +480,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-041",
+    "id": "GM-041",
     "title": "Related products",
     "description": "Show related products on a product page.",
     "source": "Customer request",
@@ -492,7 +492,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-042",
+    "id": "GM-042",
     "title": "Tax calculation at checkout",
     "description": "Calculate tax correctly by location at checkout.",
     "source": "Customer request",
@@ -504,7 +504,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-043",
+    "id": "GM-043",
     "title": "Save cart for later",
     "description": "Let customers save a cart and return later.",
     "source": "Partner request",
@@ -516,7 +516,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-044",
+    "id": "GM-044",
     "title": "Multi-location inventory",
     "description": "Track inventory across multiple warehouses.",
     "source": "Sales request",
@@ -528,7 +528,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-045",
+    "id": "GM-045",
     "title": "Return pickup scheduling",
     "description": "Let customers schedule a return pickup.",
     "source": "Internal request",
@@ -540,7 +540,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-046",
+    "id": "GM-046",
     "title": "Related: Split payments",
     "description": "Let customers split a payment across two cards. - same issue reported from another site",
     "source": "Compliance",
@@ -552,7 +552,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-047",
+    "id": "GM-047",
     "title": "Return label in the box",
     "description": "Include a return label option at checkout. - needs an export for audit",
     "source": "Partner request",
@@ -564,7 +564,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-048",
+    "id": "GM-048",
     "title": "Related: Return pickup scheduling",
     "description": "Let customers schedule a return pickup. - same issue reported from another site",
     "source": "Support ticket",
@@ -576,7 +576,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-049",
+    "id": "GM-049",
     "title": "Order tracking page",
     "description": "Show order tracking in the account, not only by email. - reported by multiple users this week",
     "source": "Sales request",
@@ -588,7 +588,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-050",
+    "id": "GM-050",
     "title": "Follow up: Buy now pay later",
     "description": "Offer buy now pay later at checkout. - customers are asking again, please prioritise",
     "source": "Partner request",
@@ -600,7 +600,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-051",
+    "id": "GM-051",
     "title": "Follow up: Return window settings",
     "description": "Let sellers set their own return window. - customers are asking again, please prioritise",
     "source": "Sales request",
@@ -612,7 +612,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-052",
+    "id": "GM-052",
     "title": "Request: Tax calculation at checkout",
     "description": "Calculate tax correctly by location at checkout. - needed before next quarter",
     "source": "Internal request",
@@ -624,7 +624,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-053",
+    "id": "GM-053",
     "title": "Return reasons report",
     "description": "Report return reasons by product. - needs an export for audit",
     "source": "Customer request",
@@ -636,7 +636,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-054",
+    "id": "GM-054",
     "title": "Save cart for later",
     "description": "Let customers save a cart and return later. - add a setting so teams can turn this on or off",
     "source": "Internal request",
@@ -648,7 +648,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-055",
+    "id": "GM-055",
     "title": "Request: Search autocomplete",
     "description": "Suggest products as the customer types. - needed before next quarter",
     "source": "Partner request",
@@ -660,7 +660,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-056",
+    "id": "GM-056",
     "title": "Refund status tracking",
     "description": "Show refund status in the order page. - urgent, blocking daily work",
     "source": "Compliance",
@@ -672,7 +672,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-057",
+    "id": "GM-057",
     "title": "Save cart for later",
     "description": "Let customers save a cart and return later. - add a setting so teams can turn this on or off",
     "source": "Sales request",
@@ -684,7 +684,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-058",
+    "id": "GM-058",
     "title": "Buy now pay later",
     "description": "Offer buy now pay later at checkout. - include it in the mobile app too",
     "source": "Compliance",
@@ -696,7 +696,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-059",
+    "id": "GM-059",
     "title": "Refund status tracking",
     "description": "Show refund status in the order page. - add a setting so teams can turn this on or off",
     "source": "Partner request",
@@ -708,7 +708,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-060",
+    "id": "GM-060",
     "title": "Request: Instant refund for trusted buyers",
     "description": "Offer instant refunds for trusted buyers. - needed before next quarter",
     "source": "Support ticket",
@@ -720,7 +720,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-061",
+    "id": "GM-061",
     "title": "Bulk listing editor",
     "description": "Let sellers edit many listings at once. - urgent, blocking daily work",
     "source": "Partner request",
@@ -732,7 +732,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-062",
+    "id": "GM-062",
     "title": "Seller onboarding checklist",
     "description": "Guide new sellers through listing their first product. - include it in the mobile app too",
     "source": "Internal request",
@@ -744,7 +744,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-063",
+    "id": "GM-063",
     "title": "Bulk inventory upload",
     "description": "Let sellers upload inventory in bulk from a spreadsheet. - needs an export for audit",
     "source": "Support ticket",
@@ -756,7 +756,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-064",
+    "id": "GM-064",
     "title": "Bulk inventory upload",
     "description": "Let sellers upload inventory in bulk from a spreadsheet. - include it in the mobile app too",
     "source": "Support ticket",
@@ -768,7 +768,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-065",
+    "id": "GM-065",
     "title": "Search autocomplete",
     "description": "Suggest products as the customer types. - include it in the mobile app too",
     "source": "Partner request",
@@ -780,7 +780,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-066",
+    "id": "GM-066",
     "title": "Low stock alerts",
     "description": "Alert sellers when stock is low. - needs an export for audit",
     "source": "Customer request",
@@ -792,7 +792,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-067",
+    "id": "GM-067",
     "title": "Request: Currency selector",
     "description": "Let customers pay in their local currency. - needed before next quarter",
     "source": "Support ticket",
@@ -804,7 +804,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-068",
+    "id": "GM-068",
     "title": "Low stock alerts",
     "description": "Alert sellers when stock is low. - urgent, blocking daily work",
     "source": "Internal request",
@@ -816,7 +816,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-069",
+    "id": "GM-069",
     "title": "Follow up: One-page checkout",
     "description": "Reduce checkout to one page to cut drop-off. - customers are asking again, please prioritise",
     "source": "Sales request",
@@ -828,7 +828,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-070",
+    "id": "GM-070",
     "title": "Seller messaging",
     "description": "Let sellers message buyers about an order. - reported by multiple users this week",
     "source": "Support ticket",
@@ -840,7 +840,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-071",
+    "id": "GM-071",
     "title": "Return pickup scheduling",
     "description": "Let customers schedule a return pickup. - add a setting so teams can turn this on or off",
     "source": "Compliance",
@@ -852,7 +852,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-072",
+    "id": "GM-072",
     "title": "Related: Self-serve returns",
     "description": "Let customers start a return online without contacting support. - same issue reported from another site",
     "source": "Internal request",
@@ -864,7 +864,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-073",
+    "id": "GM-073",
     "title": "Seller messaging",
     "description": "Let sellers message buyers about an order. - add a setting so teams can turn this on or off",
     "source": "Internal request",
@@ -876,7 +876,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-074",
+    "id": "GM-074",
     "title": "Refund status tracking",
     "description": "Show refund status in the order page. - urgent, blocking daily work",
     "source": "Support ticket",
@@ -888,7 +888,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-075",
+    "id": "GM-075",
     "title": "Guest checkout",
     "description": "Let customers check out without creating an account. - urgent, blocking daily work",
     "source": "Customer request",
@@ -900,7 +900,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-076",
+    "id": "GM-076",
     "title": "Request: Related products",
     "description": "Show related products on a product page. - needed before next quarter",
     "source": "Partner request",
@@ -912,7 +912,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-077",
+    "id": "GM-077",
     "title": "Follow up: Guest checkout",
     "description": "Let customers check out without creating an account. - customers are asking again, please prioritise",
     "source": "Customer request",
@@ -924,7 +924,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-078",
+    "id": "GM-078",
     "title": "Bulk listing editor",
     "description": "Let sellers edit many listings at once. - needs an export for audit",
     "source": "Partner request",
@@ -936,7 +936,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-079",
+    "id": "GM-079",
     "title": "Seller onboarding checklist",
     "description": "Guide new sellers through listing their first product. - include it in the mobile app too",
     "source": "Partner request",
@@ -948,7 +948,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-080",
+    "id": "GM-080",
     "title": "Related: Buy now pay later",
     "description": "Offer buy now pay later at checkout. - same issue reported from another site",
     "source": "Internal request",
@@ -960,7 +960,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-081",
+    "id": "GM-081",
     "title": "Return window settings",
     "description": "Let sellers set their own return window. - reported by multiple users this week",
     "source": "Internal request",
@@ -972,7 +972,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-082",
+    "id": "GM-082",
     "title": "Follow up: Self-serve returns",
     "description": "Let customers start a return online without contacting support. - customers are asking again, please prioritise",
     "source": "Internal request",
@@ -984,7 +984,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-083",
+    "id": "GM-083",
     "title": "Follow up: Seller dashboard",
     "description": "Give sellers a dashboard with sales, orders, and payouts. - customers are asking again, please prioritise",
     "source": "Compliance",
@@ -996,7 +996,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-084",
+    "id": "GM-084",
     "title": "Pre-order stock",
     "description": "Let customers pre-order out of stock items. - urgent, blocking daily work",
     "source": "Customer request",
@@ -1008,7 +1008,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-085",
+    "id": "GM-085",
     "title": "Tax calculation at checkout",
     "description": "Calculate tax correctly by location at checkout. - reported by multiple users this week",
     "source": "Customer request",
@@ -1020,7 +1020,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-086",
+    "id": "GM-086",
     "title": "Follow up: Return label in the box",
     "description": "Include a return label option at checkout. - customers are asking again, please prioritise",
     "source": "Sales request",
@@ -1032,7 +1032,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-087",
+    "id": "GM-087",
     "title": "Related: Bulk inventory upload",
     "description": "Let sellers upload inventory in bulk from a spreadsheet. - same issue reported from another site",
     "source": "Partner request",
@@ -1044,7 +1044,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-088",
+    "id": "GM-088",
     "title": "Self-serve returns",
     "description": "Let customers start a return online without contacting support. - add a setting so teams can turn this on or off",
     "source": "Sales request",
@@ -1056,7 +1056,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-089",
+    "id": "GM-089",
     "title": "Low stock alerts",
     "description": "Alert sellers when stock is low. - add a setting so teams can turn this on or off",
     "source": "Internal request",
@@ -1068,7 +1068,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-090",
+    "id": "GM-090",
     "title": "Image search",
     "description": "Let customers search by uploading a photo. - needs an export for audit",
     "source": "Partner request",
@@ -1080,7 +1080,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-091",
+    "id": "GM-091",
     "title": "Related: Self-serve returns",
     "description": "Let customers start a return online without contacting support. - same issue reported from another site",
     "source": "Partner request",
@@ -1092,7 +1092,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-092",
+    "id": "GM-092",
     "title": "Return label in the box",
     "description": "Include a return label option at checkout. - include it in the mobile app too",
     "source": "Partner request",
@@ -1104,7 +1104,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-093",
+    "id": "GM-093",
     "title": "Delivery date estimate",
     "description": "Show an estimated delivery date before checkout. - needs an export for audit",
     "source": "Customer request",
@@ -1116,7 +1116,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-094",
+    "id": "GM-094",
     "title": "Tax calculation at checkout",
     "description": "Calculate tax correctly by location at checkout. - add a setting so teams can turn this on or off",
     "source": "Partner request",
@@ -1128,7 +1128,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-095",
+    "id": "GM-095",
     "title": "Related: Search autocomplete",
     "description": "Suggest products as the customer types. - same issue reported from another site",
     "source": "Partner request",
@@ -1140,7 +1140,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-096",
+    "id": "GM-096",
     "title": "Tax calculation at checkout",
     "description": "Calculate tax correctly by location at checkout. - include it in the mobile app too",
     "source": "Compliance",
@@ -1152,7 +1152,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-097",
+    "id": "GM-097",
     "title": "Delivery date estimate",
     "description": "Show an estimated delivery date before checkout. - needs an export for audit",
     "source": "Sales request",
@@ -1164,7 +1164,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-098",
+    "id": "GM-098",
     "title": "Request: Search autocomplete",
     "description": "Suggest products as the customer types. - needed before next quarter",
     "source": "Internal request",
@@ -1176,7 +1176,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-099",
+    "id": "GM-099",
     "title": "Related: Seller dashboard",
     "description": "Give sellers a dashboard with sales, orders, and payouts. - same issue reported from another site",
     "source": "Internal request",
@@ -1188,7 +1188,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-100",
+    "id": "GM-100",
     "title": "Pre-order stock",
     "description": "Let customers pre-order out of stock items. - needs an export for audit",
     "source": "Partner request",
@@ -1200,7 +1200,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-101",
+    "id": "GM-101",
     "title": "Related: Guest checkout",
     "description": "Let customers check out without creating an account. - same issue reported from another site",
     "source": "Customer request",
@@ -1212,7 +1212,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-102",
+    "id": "GM-102",
     "title": "Request: Low stock alerts",
     "description": "Alert sellers when stock is low. - needed before next quarter",
     "source": "Sales request",
@@ -1224,7 +1224,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-103",
+    "id": "GM-103",
     "title": "Address autocomplete",
     "description": "Autocomplete addresses at checkout to reduce errors. - reported by multiple users this week",
     "source": "Compliance",
@@ -1236,7 +1236,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-104",
+    "id": "GM-104",
     "title": "Delivery date estimate",
     "description": "Show an estimated delivery date before checkout. - add a setting so teams can turn this on or off",
     "source": "Support ticket",
@@ -1248,7 +1248,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-105",
+    "id": "GM-105",
     "title": "Search autocomplete",
     "description": "Suggest products as the customer types. - add a setting so teams can turn this on or off",
     "source": "Customer request",
@@ -1260,7 +1260,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-106",
+    "id": "GM-106",
     "title": "Pre-order stock",
     "description": "Let customers pre-order out of stock items. - urgent, blocking daily work",
     "source": "Support ticket",
@@ -1272,7 +1272,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-107",
+    "id": "GM-107",
     "title": "Split payments",
     "description": "Let customers split a payment across two cards. - reported by multiple users this week",
     "source": "Customer request",
@@ -1284,7 +1284,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-108",
+    "id": "GM-108",
     "title": "Follow up: Buy now pay later",
     "description": "Offer buy now pay later at checkout. - customers are asking again, please prioritise",
     "source": "Compliance",
@@ -1296,7 +1296,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-109",
+    "id": "GM-109",
     "title": "Out of stock badge",
     "description": "Show an out of stock badge and a notify me option. - needs an export for audit",
     "source": "Internal request",
@@ -1308,7 +1308,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-110",
+    "id": "GM-110",
     "title": "Supplier alerts",
     "description": "Alert sellers when a supplier is out of stock. - needs an export for audit",
     "source": "Support ticket",
@@ -1320,7 +1320,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-111",
+    "id": "GM-111",
     "title": "Image search",
     "description": "Let customers search by uploading a photo. - add a setting so teams can turn this on or off",
     "source": "Partner request",
@@ -1332,7 +1332,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-112",
+    "id": "GM-112",
     "title": "Request: Seller dashboard",
     "description": "Give sellers a dashboard with sales, orders, and payouts. - needed before next quarter",
     "source": "Internal request",
@@ -1344,7 +1344,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-113",
+    "id": "GM-113",
     "title": "Out of stock badge",
     "description": "Show an out of stock badge and a notify me option. - urgent, blocking daily work",
     "source": "Compliance",
@@ -1356,7 +1356,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-114",
+    "id": "GM-114",
     "title": "Search filters",
     "description": "Add filters for price, brand, rating, and delivery time. - reported by multiple users this week",
     "source": "Sales request",
@@ -1368,7 +1368,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-115",
+    "id": "GM-115",
     "title": "Sort by relevance",
     "description": "Sort search results by relevance, not only price. - urgent, blocking daily work",
     "source": "Sales request",
@@ -1380,7 +1380,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-116",
+    "id": "GM-116",
     "title": "Delivery date estimate",
     "description": "Show an estimated delivery date before checkout. - include it in the mobile app too",
     "source": "Compliance",
@@ -1392,7 +1392,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-117",
+    "id": "GM-117",
     "title": "Guest checkout",
     "description": "Let customers check out without creating an account. - include it in the mobile app too",
     "source": "Support ticket",
@@ -1404,7 +1404,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-118",
+    "id": "GM-118",
     "title": "Request: Self-serve returns",
     "description": "Let customers start a return online without contacting support. - needed before next quarter",
     "source": "Partner request",
@@ -1416,7 +1416,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-119",
+    "id": "GM-119",
     "title": "Promotion tools",
     "description": "Let sellers create discounts and coupon codes. - reported by multiple users this week",
     "source": "Customer request",
@@ -1428,7 +1428,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-120",
+    "id": "GM-120",
     "title": "Multi-location inventory",
     "description": "Track inventory across multiple warehouses. - reported by multiple users this week",
     "source": "Partner request",
@@ -1440,7 +1440,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-121",
+    "id": "GM-121",
     "title": "Follow up: Return pickup scheduling",
     "description": "Let customers schedule a return pickup. - customers are asking again, please prioritise",
     "source": "Partner request",
@@ -1452,7 +1452,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-122",
+    "id": "GM-122",
     "title": "Follow up: Gift cards",
     "description": "Add gift cards that can be used at checkout. - customers are asking again, please prioritise",
     "source": "Support ticket",
@@ -1464,7 +1464,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-123",
+    "id": "GM-123",
     "title": "Tax calculation at checkout",
     "description": "Calculate tax correctly by location at checkout. - add a setting so teams can turn this on or off",
     "source": "Partner request",
@@ -1476,7 +1476,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-124",
+    "id": "GM-124",
     "title": "Return label in the box",
     "description": "Include a return label option at checkout. - urgent, blocking daily work",
     "source": "Compliance",
@@ -1488,7 +1488,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-125",
+    "id": "GM-125",
     "title": "Out of stock badge",
     "description": "Show an out of stock badge and a notify me option. - urgent, blocking daily work",
     "source": "Partner request",
@@ -1500,7 +1500,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-126",
+    "id": "GM-126",
     "title": "Apple Pay and Google Pay",
     "description": "Add Apple Pay and Google Pay at checkout. - urgent, blocking daily work",
     "source": "Partner request",
@@ -1512,7 +1512,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-127",
+    "id": "GM-127",
     "title": "Request: Save cart for later",
     "description": "Let customers save a cart and return later. - needed before next quarter",
     "source": "Sales request",
@@ -1524,7 +1524,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-128",
+    "id": "GM-128",
     "title": "Exchange instead of refund",
     "description": "Offer an exchange instead of a refund at return. - urgent, blocking daily work",
     "source": "Compliance",
@@ -1536,7 +1536,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-129",
+    "id": "GM-129",
     "title": "Low stock alerts",
     "description": "Alert sellers when stock is low. - add a setting so teams can turn this on or off",
     "source": "Sales request",
@@ -1548,7 +1548,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-130",
+    "id": "GM-130",
     "title": "Promotion tools",
     "description": "Let sellers create discounts and coupon codes. - reported by multiple users this week",
     "source": "Internal request",
@@ -1560,7 +1560,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-131",
+    "id": "GM-131",
     "title": "Tax calculation at checkout",
     "description": "Calculate tax correctly by location at checkout. - reported by multiple users this week",
     "source": "Customer request",
@@ -1572,7 +1572,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-132",
+    "id": "GM-132",
     "title": "Request: Bulk listing editor",
     "description": "Let sellers edit many listings at once. - needed before next quarter",
     "source": "Compliance",
@@ -1584,7 +1584,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-133",
+    "id": "GM-133",
     "title": "Follow up: Pre-order stock",
     "description": "Let customers pre-order out of stock items. - customers are asking again, please prioritise",
     "source": "Customer request",
@@ -1596,7 +1596,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-134",
+    "id": "GM-134",
     "title": "Follow up: Self-serve returns",
     "description": "Let customers start a return online without contacting support. - customers are asking again, please prioritise",
     "source": "Support ticket",
@@ -1608,7 +1608,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-135",
+    "id": "GM-135",
     "title": "Multi-location inventory",
     "description": "Track inventory across multiple warehouses. - include it in the mobile app too",
     "source": "Partner request",
@@ -1620,7 +1620,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-136",
+    "id": "GM-136",
     "title": "Related: Saved payment methods",
     "description": "Let customers save payment methods securely. - same issue reported from another site",
     "source": "Sales request",
@@ -1632,7 +1632,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-137",
+    "id": "GM-137",
     "title": "Related: Low stock alerts",
     "description": "Alert sellers when stock is low. - same issue reported from another site",
     "source": "Compliance",
@@ -1644,7 +1644,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-138",
+    "id": "GM-138",
     "title": "Order tracking page",
     "description": "Show order tracking in the account, not only by email. - reported by multiple users this week",
     "source": "Partner request",
@@ -1656,7 +1656,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-139",
+    "id": "GM-139",
     "title": "Saved payment methods",
     "description": "Let customers save payment methods securely. - add a setting so teams can turn this on or off",
     "source": "Compliance",
@@ -1668,7 +1668,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-140",
+    "id": "GM-140",
     "title": "Related: Tax calculation at checkout",
     "description": "Calculate tax correctly by location at checkout. - same issue reported from another site",
     "source": "Compliance",
@@ -1680,7 +1680,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-141",
+    "id": "GM-141",
     "title": "Request: Promotion tools",
     "description": "Let sellers create discounts and coupon codes. - needed before next quarter",
     "source": "Internal request",
@@ -1692,7 +1692,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-142",
+    "id": "GM-142",
     "title": "Follow up: Split payments",
     "description": "Let customers split a payment across two cards. - customers are asking again, please prioritise",
     "source": "Support ticket",
@@ -1704,7 +1704,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-143",
+    "id": "GM-143",
     "title": "Request: Split payments",
     "description": "Let customers split a payment across two cards. - needed before next quarter",
     "source": "Partner request",
@@ -1716,7 +1716,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-144",
+    "id": "GM-144",
     "title": "Follow up: Saved searches",
     "description": "Let customers save a search and get alerts for new items. - customers are asking again, please prioritise",
     "source": "Compliance",
@@ -1728,7 +1728,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-145",
+    "id": "GM-145",
     "title": "Related: Recently viewed",
     "description": "Show recently viewed items on the home page. - same issue reported from another site",
     "source": "Partner request",
@@ -1740,7 +1740,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-146",
+    "id": "GM-146",
     "title": "Return reasons report",
     "description": "Report return reasons by product. - include it in the mobile app too",
     "source": "Sales request",
@@ -1752,7 +1752,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-147",
+    "id": "GM-147",
     "title": "Bulk inventory upload",
     "description": "Let sellers upload inventory in bulk from a spreadsheet. - urgent, blocking daily work",
     "source": "Customer request",
@@ -1764,7 +1764,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-148",
+    "id": "GM-148",
     "title": "Related: Save cart for later",
     "description": "Let customers save a cart and return later. - same issue reported from another site",
     "source": "Internal request",
@@ -1776,7 +1776,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-149",
+    "id": "GM-149",
     "title": "Sort by relevance",
     "description": "Sort search results by relevance, not only price. - urgent, blocking daily work",
     "source": "Support ticket",
@@ -1788,7 +1788,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-150",
+    "id": "GM-150",
     "title": "Pre-order stock",
     "description": "Let customers pre-order out of stock items. - needs an export for audit",
     "source": "Support ticket",
@@ -1800,7 +1800,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-151",
+    "id": "GM-151",
     "title": "Order tracking page",
     "description": "Show order tracking in the account, not only by email. - add a setting so teams can turn this on or off",
     "source": "Support ticket",
@@ -1812,7 +1812,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-152",
+    "id": "GM-152",
     "title": "Exchange instead of refund",
     "description": "Offer an exchange instead of a refund at return. - include it in the mobile app too",
     "source": "Sales request",
@@ -1824,7 +1824,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-153",
+    "id": "GM-153",
     "title": "Payment failure retry",
     "description": "Retry a failed payment automatically and notify the customer. - needs an export for audit",
     "source": "Customer request",
@@ -1836,7 +1836,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-154",
+    "id": "GM-154",
     "title": "Related: Tax calculation at checkout",
     "description": "Calculate tax correctly by location at checkout. - same issue reported from another site",
     "source": "Support ticket",
@@ -1848,7 +1848,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-155",
+    "id": "GM-155",
     "title": "Related: Related products",
     "description": "Show related products on a product page. - same issue reported from another site",
     "source": "Partner request",
@@ -1860,7 +1860,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-156",
+    "id": "GM-156",
     "title": "Supplier alerts",
     "description": "Alert sellers when a supplier is out of stock. - include it in the mobile app too",
     "source": "Compliance",
@@ -1872,7 +1872,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-157",
+    "id": "GM-157",
     "title": "Delivery date estimate",
     "description": "Show an estimated delivery date before checkout. - urgent, blocking daily work",
     "source": "Partner request",
@@ -1884,7 +1884,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-158",
+    "id": "GM-158",
     "title": "Promotion tools",
     "description": "Let sellers create discounts and coupon codes. - urgent, blocking daily work",
     "source": "Compliance",
@@ -1896,7 +1896,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-159",
+    "id": "GM-159",
     "title": "Save cart for later",
     "description": "Let customers save a cart and return later. - reported by multiple users this week",
     "source": "Support ticket",
@@ -1908,7 +1908,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-160",
+    "id": "GM-160",
     "title": "Order tracking page",
     "description": "Show order tracking in the account, not only by email. - urgent, blocking daily work",
     "source": "Support ticket",
@@ -1920,7 +1920,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-161",
+    "id": "GM-161",
     "title": "Bulk listing editor",
     "description": "Let sellers edit many listings at once. - add a setting so teams can turn this on or off",
     "source": "Compliance",
@@ -1932,7 +1932,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-162",
+    "id": "GM-162",
     "title": "Saved searches",
     "description": "Let customers save a search and get alerts for new items. - include it in the mobile app too",
     "source": "Customer request",
@@ -1944,7 +1944,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-163",
+    "id": "GM-163",
     "title": "Related: Search filters",
     "description": "Add filters for price, brand, rating, and delivery time. - same issue reported from another site",
     "source": "Compliance",
@@ -1956,7 +1956,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-164",
+    "id": "GM-164",
     "title": "Image search",
     "description": "Let customers search by uploading a photo. - include it in the mobile app too",
     "source": "Internal request",
@@ -1968,7 +1968,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-165",
+    "id": "GM-165",
     "title": "Seller messaging",
     "description": "Let sellers message buyers about an order. - include it in the mobile app too",
     "source": "Internal request",
@@ -1980,7 +1980,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-166",
+    "id": "GM-166",
     "title": "One-page checkout",
     "description": "Reduce checkout to one page to cut drop-off. - urgent, blocking daily work",
     "source": "Partner request",
@@ -1992,7 +1992,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-167",
+    "id": "GM-167",
     "title": "Return reasons report",
     "description": "Report return reasons by product. - urgent, blocking daily work",
     "source": "Partner request",
@@ -2004,7 +2004,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-168",
+    "id": "GM-168",
     "title": "Bulk inventory upload",
     "description": "Let sellers upload inventory in bulk from a spreadsheet. - reported by multiple users this week",
     "source": "Internal request",
@@ -2016,7 +2016,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-169",
+    "id": "GM-169",
     "title": "Delivery date estimate",
     "description": "Show an estimated delivery date before checkout. - needs an export for audit",
     "source": "Internal request",
@@ -2028,7 +2028,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-170",
+    "id": "GM-170",
     "title": "Follow up: Seller dashboard",
     "description": "Give sellers a dashboard with sales, orders, and payouts. - customers are asking again, please prioritise",
     "source": "Customer request",
@@ -2040,7 +2040,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-171",
+    "id": "GM-171",
     "title": "Follow up: Warehouse location tracking",
     "description": "Track which warehouse an item ships from. - customers are asking again, please prioritise",
     "source": "Compliance",
@@ -2052,7 +2052,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-172",
+    "id": "GM-172",
     "title": "Follow up: Return window settings",
     "description": "Let sellers set their own return window. - customers are asking again, please prioritise",
     "source": "Internal request",
@@ -2064,7 +2064,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-173",
+    "id": "GM-173",
     "title": "Delivery date estimate",
     "description": "Show an estimated delivery date before checkout. - urgent, blocking daily work",
     "source": "Compliance",
@@ -2076,7 +2076,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-174",
+    "id": "GM-174",
     "title": "Request: Return label in the box",
     "description": "Include a return label option at checkout. - needed before next quarter",
     "source": "Compliance",
@@ -2088,7 +2088,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-175",
+    "id": "GM-175",
     "title": "Order confirmation page",
     "description": "Show a clear order confirmation with tracking link. - reported by multiple users this week",
     "source": "Support ticket",
@@ -2100,7 +2100,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-176",
+    "id": "GM-176",
     "title": "Instant refund for trusted buyers",
     "description": "Offer instant refunds for trusted buyers. - include it in the mobile app too",
     "source": "Compliance",
@@ -2112,7 +2112,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-177",
+    "id": "GM-177",
     "title": "Related: Recently viewed",
     "description": "Show recently viewed items on the home page. - same issue reported from another site",
     "source": "Compliance",
@@ -2124,7 +2124,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-178",
+    "id": "GM-178",
     "title": "One-page checkout",
     "description": "Reduce checkout to one page to cut drop-off. - include it in the mobile app too",
     "source": "Partner request",
@@ -2136,7 +2136,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-179",
+    "id": "GM-179",
     "title": "Saved payment methods",
     "description": "Let customers save payment methods securely. - reported by multiple users this week",
     "source": "Partner request",
@@ -2148,7 +2148,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-180",
+    "id": "GM-180",
     "title": "Related: Return pickup scheduling",
     "description": "Let customers schedule a return pickup. - same issue reported from another site",
     "source": "Customer request",
@@ -2160,7 +2160,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-181",
+    "id": "GM-181",
     "title": "Return window settings",
     "description": "Let sellers set their own return window. - include it in the mobile app too",
     "source": "Customer request",
@@ -2172,7 +2172,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-182",
+    "id": "GM-182",
     "title": "Related: Seller messaging",
     "description": "Let sellers message buyers about an order. - same issue reported from another site",
     "source": "Partner request",
@@ -2184,7 +2184,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-183",
+    "id": "GM-183",
     "title": "Search filters",
     "description": "Add filters for price, brand, rating, and delivery time. - include it in the mobile app too",
     "source": "Compliance",
@@ -2196,7 +2196,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-184",
+    "id": "GM-184",
     "title": "Bulk listing editor",
     "description": "Let sellers edit many listings at once. - include it in the mobile app too",
     "source": "Internal request",
@@ -2208,7 +2208,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-185",
+    "id": "GM-185",
     "title": "Return reasons report",
     "description": "Report return reasons by product. - include it in the mobile app too",
     "source": "Compliance",
@@ -2220,7 +2220,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-186",
+    "id": "GM-186",
     "title": "Request: Bulk listing editor",
     "description": "Let sellers edit many listings at once. - needed before next quarter",
     "source": "Partner request",
@@ -2232,7 +2232,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-187",
+    "id": "GM-187",
     "title": "Exchange instead of refund",
     "description": "Offer an exchange instead of a refund at return. - needs an export for audit",
     "source": "Sales request",
@@ -2244,7 +2244,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-188",
+    "id": "GM-188",
     "title": "Follow up: Gift cards",
     "description": "Add gift cards that can be used at checkout. - customers are asking again, please prioritise",
     "source": "Customer request",
@@ -2256,7 +2256,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-189",
+    "id": "GM-189",
     "title": "Low stock alerts",
     "description": "Alert sellers when stock is low. - urgent, blocking daily work",
     "source": "Support ticket",
@@ -2268,7 +2268,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-190",
+    "id": "GM-190",
     "title": "Follow up: Low stock alerts",
     "description": "Alert sellers when stock is low. - customers are asking again, please prioritise",
     "source": "Compliance",
@@ -2280,7 +2280,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-191",
+    "id": "GM-191",
     "title": "Follow up: Return window settings",
     "description": "Let sellers set their own return window. - customers are asking again, please prioritise",
     "source": "Support ticket",
@@ -2292,7 +2292,7 @@
     "evidence_strength": "Medium"
   },
   {
-    "id": "ML-192",
+    "id": "GM-192",
     "title": "Request: Save cart for later",
     "description": "Let customers save a cart and return later. - needed before next quarter",
     "source": "Compliance",
@@ -2304,7 +2304,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-193",
+    "id": "GM-193",
     "title": "Return pickup scheduling",
     "description": "Let customers schedule a return pickup. - reported by multiple users this week",
     "source": "Partner request",
@@ -2316,7 +2316,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-194",
+    "id": "GM-194",
     "title": "Related: Self-serve returns",
     "description": "Let customers start a return online without contacting support. - same issue reported from another site",
     "source": "Internal request",
@@ -2328,7 +2328,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-195",
+    "id": "GM-195",
     "title": "Supplier alerts",
     "description": "Alert sellers when a supplier is out of stock. - reported by multiple users this week",
     "source": "Compliance",
@@ -2340,7 +2340,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-196",
+    "id": "GM-196",
     "title": "Gift cards",
     "description": "Add gift cards that can be used at checkout. - add a setting so teams can turn this on or off",
     "source": "Internal request",
@@ -2352,7 +2352,7 @@
     "evidence_strength": "Low"
   },
   {
-    "id": "ML-197",
+    "id": "GM-197",
     "title": "Follow up: Order tracking page",
     "description": "Show order tracking in the account, not only by email. - customers are asking again, please prioritise",
     "source": "Customer request",
@@ -2364,7 +2364,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-198",
+    "id": "GM-198",
     "title": "Request: Order confirmation page",
     "description": "Show a clear order confirmation with tracking link. - needed before next quarter",
     "source": "Sales request",
@@ -2376,7 +2376,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-199",
+    "id": "GM-199",
     "title": "Request: Order tracking page",
     "description": "Show order tracking in the account, not only by email. - needed before next quarter",
     "source": "Support ticket",
@@ -2388,7 +2388,7 @@
     "evidence_strength": "High"
   },
   {
-    "id": "ML-200",
+    "id": "GM-200",
     "title": "Search autocomplete",
     "description": "Suggest products as the customer types. - needs an export for audit",
     "source": "Sales request",

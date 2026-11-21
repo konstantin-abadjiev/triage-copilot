@@ -10,18 +10,30 @@
 // instead, change CLOSE_STATUS below to "cancelled"; nothing else in
 // this file or in the front end needs to change.
 // This function NEVER deletes a task. It only updates status with PUT.
+// And it only closes tasks that belong to the intake list: every id is
+// fetched first and checked against CLICKUP_INTAKE_LIST_ID, so a stray
+// id from another list (for example the Triage Approved destination)
+// is refused and never closed.
 // No token is stored in this file or in the repo. Set CLICKUP_API_TOKEN
 // only in environment variables, in Netlify Site settings >
 // Environment variables, or in a local .env file that is never committed.
+// Every call must also send the X-Triage-Secret header matching
+// TRIAGE_SHARED_SECRET (see netlify/functions/lib/auth.mjs); without it
+// the function returns 401 and does nothing.
 // ClickUp API: PUT https://api.clickup.com/api/v2/task/{task_id}
 // Rate limit: 100 requests per minute.
+import { authorize } from './lib/auth.mjs';
+
 export async function handler(event) {
+  const denied = authorize(event);
+  if (denied) return denied;
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: JSON.stringify({ ok: false, error: 'Use POST' }) };
   }
   const token = process.env.CLICKUP_API_TOKEN;
-  if (!token) {
-    return { statusCode: 501, body: JSON.stringify({ ok: false, error: 'ClickUp intake close is not configured. Set CLICKUP_API_TOKEN in Netlify environment variables.' }) };
+  const intakeListId = process.env.CLICKUP_INTAKE_LIST_ID;
+  if (!token || !intakeListId) {
+    return { statusCode: 501, body: JSON.stringify({ ok: false, error: 'ClickUp intake close is not configured. Set CLICKUP_API_TOKEN and CLICKUP_INTAKE_LIST_ID in Netlify environment variables.' }) };
   }
   let body = {};
   try {
@@ -45,19 +57,67 @@ export async function handler(event) {
   const closed = [];
   const failed = [];
   for (const id of taskIds) {
+    // Fetch the task first and only close it when it belongs to the
+    // intake list. Without this check, any task id handed to this
+    // endpoint could be closed, including tasks from other lists.
+    let taskListId = '';
+    try {
+      const getRes = await fetch('https://api.clickup.com/api/v2/task/' + encodeURIComponent(id), {
+        headers: { Authorization: token, 'Content-Type': 'application/json' },
+        signal: AbortSignal.timeout(30000)
+      });
+      if (!getRes.ok) {
+        let detail = '';
+        try {
+          const eb = await getRes.json();
+          if (eb && typeof eb.err === 'string' && eb.err) detail = eb.err;
+          else if (eb && typeof eb.message === 'string' && eb.message) detail = eb.message;
+        } catch {}
+        failed.push({ id, error: clickUpErrorMessage(getRes.status) + (detail ? ' ClickUp said: ' + detail.slice(0, 200) : '') });
+        continue;
+      }
+      let task;
+      try {
+        task = await getRes.json();
+      } catch {
+        failed.push({ id, error: 'ClickUp returned an unreadable response for this task.' });
+        continue;
+      }
+      // ClickUp returns the task's list as task.list.id; list_id is
+      // checked as a fallback for API responses that flatten it.
+      if (task && task.list && task.list.id != null) taskListId = String(task.list.id);
+      else if (task && task.list_id != null) taskListId = String(task.list_id);
+    } catch (err) {
+      const timedOut = err && err.name === 'AbortError';
+      failed.push({ id, error: timedOut ? 'ClickUp request timed out after 30s' : 'Could not reach ClickUp: ' + String(err && err.message ? err.message : err).slice(0, 200) });
+      continue;
+    }
+    if (taskListId !== String(intakeListId)) {
+      failed.push({ id, error: 'Task is not in the intake list (' + intakeListId + '), so it was not closed. This function only closes tasks from the Needs Triage intake list.' });
+      continue;
+    }
     let res;
     try {
       res = await fetch('https://api.clickup.com/api/v2/task/' + encodeURIComponent(id), {
         method: 'PUT',
         headers: { Authorization: token, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status: CLOSE_STATUS })
+        body: JSON.stringify({ status: CLOSE_STATUS }),
+        signal: AbortSignal.timeout(30000)
       });
     } catch (err) {
-      failed.push({ id, error: 'Could not reach ClickUp: ' + String(err && err.message ? err.message : err).slice(0, 200) });
+      const timedOut = err && err.name === 'AbortError';
+      failed.push({ id, error: timedOut ? 'ClickUp request timed out after 30s' : 'Could not reach ClickUp: ' + String(err && err.message ? err.message : err).slice(0, 200) });
       continue;
     }
     if (!res.ok) {
-      failed.push({ id, error: clickUpErrorMessage(res.status) });
+      // Read the error body, so the real ClickUp message is reported.
+      let detail = '';
+      try {
+        const eb = await res.json();
+        if (eb && typeof eb.err === 'string' && eb.err) detail = eb.err;
+        else if (eb && typeof eb.message === 'string' && eb.message) detail = eb.message;
+      } catch {}
+      failed.push({ id, error: clickUpErrorMessage(res.status) + (detail ? ' ClickUp said: ' + detail.slice(0, 200) : '') });
       continue;
     }
     closed.push(id);

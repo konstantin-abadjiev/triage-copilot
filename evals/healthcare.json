@@ -84,34 +84,10 @@
     "expected_score_band": "Medium"
   },
   {
-    "id": "EVAL-HEA-15",
-    "title": "Data retention policy",
-    "ground_truth_theme": "Compliance",
-    "expected_score_band": "Medium"
-  },
-  {
-    "id": "EVAL-HEA-16",
-    "title": "Staff workload report",
-    "ground_truth_theme": "Reporting",
-    "expected_score_band": "Medium"
-  },
-  {
-    "id": "EVAL-HEA-17",
-    "title": "Referral completion rate",
-    "ground_truth_theme": "Reporting",
-    "expected_score_band": "High"
-  },
-  {
     "id": "EVAL-HEA-18",
     "title": "Related: Insurance card photo upload",
     "ground_truth_theme": "Intake",
     "expected_score_band": "High"
-  },
-  {
-    "id": "EVAL-HEA-19",
-    "title": "Referral completion rate",
-    "ground_truth_theme": "Reporting",
-    "expected_score_band": "Medium"
   },
   {
     "id": "EVAL-HEA-20",
@@ -123,12 +99,6 @@
     "id": "EVAL-HEA-21",
     "title": "Lab results integration",
     "ground_truth_theme": "Integrations",
-    "expected_score_band": "Medium"
-  },
-  {
-    "id": "EVAL-HEA-22",
-    "title": "Insurance card photo upload",
-    "ground_truth_theme": "Intake",
     "expected_score_band": "Medium"
   },
   {
@@ -145,12 +115,6 @@
   },
   {
     "id": "EVAL-HEA-25",
-    "title": "Copay collection at check-in",
-    "ground_truth_theme": "Billing",
-    "expected_score_band": "High"
-  },
-  {
-    "id": "EVAL-HEA-26",
     "title": "Copay collection at check-in",
     "ground_truth_theme": "Billing",
     "expected_score_band": "High"
@@ -194,12 +158,6 @@
   {
     "id": "EVAL-HEA-33",
     "title": "Patient satisfaction survey",
-    "ground_truth_theme": "Reporting",
-    "expected_score_band": "Medium"
-  },
-  {
-    "id": "EVAL-HEA-34",
-    "title": "Staff workload report",
     "ground_truth_theme": "Reporting",
     "expected_score_band": "Medium"
   },
@@ -276,27 +234,69 @@
     "expected_score_band": "Medium"
   },
   {
-    "id": "EVAL-HEA-47",
-    "title": "Voicemail to text (rephrased request)",
-    "ground_truth_theme": "Communications",
-    "expected_score_band": "Medium"
-  },
-  {
     "id": "EVAL-HEA-48",
     "title": "Check-in kiosk mode (rephrased request)",
     "ground_truth_theme": "Staff Workflows",
     "expected_score_band": "High"
   },
   {
-    "id": "EVAL-HEA-49",
-    "title": "Related: Voicemail to text (rephrased request)",
-    "ground_truth_theme": "Communications",
-    "expected_score_band": "Medium"
-  },
-  {
     "id": "EVAL-HEA-50",
     "title": "Payment plans at checkout (rephrased request)",
     "ground_truth_theme": "Billing",
     "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-HEA-51",
+    "title": "Related: Voicemail to text",
+    "ground_truth_theme": "Communications",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-HEA-52",
+    "title": "Related: Pharmacy e-prescribing",
+    "ground_truth_theme": "Integrations",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-HEA-53",
+    "title": "Waitlist when a slot opens",
+    "ground_truth_theme": "Scheduling",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-HEA-54",
+    "title": "Related: Recurring appointments",
+    "ground_truth_theme": "Scheduling",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-HEA-55",
+    "title": "Revenue by service",
+    "ground_truth_theme": "Reporting",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-HEA-56",
+    "title": "Billing system sync",
+    "ground_truth_theme": "Integrations",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-HEA-57",
+    "title": "Itemised bill in the portal",
+    "ground_truth_theme": "Billing",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-HEA-58",
+    "title": "Follow up: Room status board",
+    "ground_truth_theme": "Staff Workflows",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-HEA-59",
+    "title": "Follow up: Voicemail to text",
+    "ground_truth_theme": "Communications",
+    "expected_score_band": "Low"
   }
 ]

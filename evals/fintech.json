@@ -18,12 +18,6 @@
     "expected_score_band": "Medium"
   },
   {
-    "id": "EVAL-FIN-04",
-    "title": "Chargeback alerts",
-    "ground_truth_theme": "Fraud",
-    "expected_score_band": "Medium"
-  },
-  {
     "id": "EVAL-FIN-05",
     "title": "Revenue dashboard",
     "ground_truth_theme": "Reporting",
@@ -150,20 +144,8 @@
     "expected_score_band": "Medium"
   },
   {
-    "id": "EVAL-FIN-26",
-    "title": "Re-verification reminders",
-    "ground_truth_theme": "KYC",
-    "expected_score_band": "High"
-  },
-  {
     "id": "EVAL-FIN-27",
     "title": "Failed payout retry",
-    "ground_truth_theme": "Payouts",
-    "expected_score_band": "High"
-  },
-  {
-    "id": "EVAL-FIN-28",
-    "title": "Next-day payouts",
     "ground_truth_theme": "Payouts",
     "expected_score_band": "High"
   },
@@ -298,5 +280,23 @@
     "title": "Demo data in test mode (rephrased request)",
     "ground_truth_theme": "Onboarding",
     "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-FIN-51",
+    "title": "Payout to multiple accounts",
+    "ground_truth_theme": "Payouts",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-FIN-52",
+    "title": "Follow up: Payout to multiple accounts",
+    "ground_truth_theme": "Payouts",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-FIN-53",
+    "title": "Sanctions screening",
+    "ground_truth_theme": "KYC",
+    "expected_score_band": "Low"
   }
 ]

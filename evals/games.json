@@ -33,7 +33,7 @@
     "id": "EVAL-GAM-06",
     "title": "Daily quests",
     "ground_truth_theme": "Progression & Achievements",
-    "expected_score_band": "Medium"
+    "expected_score_band": "High"
   },
   {
     "id": "EVAL-GAM-07",
@@ -96,12 +96,6 @@
     "expected_score_band": "High"
   },
   {
-    "id": "EVAL-GAM-17",
-    "title": "Reporting and moderation",
-    "ground_truth_theme": "Safety/Accessibility & Controls",
-    "expected_score_band": "High"
-  },
-  {
     "id": "EVAL-GAM-18",
     "title": "Interactive onboarding tutorial",
     "ground_truth_theme": "Onboarding & Tutorials",
@@ -120,22 +114,10 @@
     "expected_score_band": "Medium"
   },
   {
-    "id": "EVAL-GAM-21",
-    "title": "Daily quests",
-    "ground_truth_theme": "Progression & Achievements",
-    "expected_score_band": "High"
-  },
-  {
     "id": "EVAL-GAM-22",
     "title": "Related: Holiday themed content",
     "ground_truth_theme": "Live Events & Seasonal Content",
     "expected_score_band": "Medium"
-  },
-  {
-    "id": "EVAL-GAM-23",
-    "title": "Achievement system",
-    "ground_truth_theme": "Progression & Achievements",
-    "expected_score_band": "High"
   },
   {
     "id": "EVAL-GAM-24",
@@ -156,12 +138,6 @@
     "expected_score_band": "High"
   },
   {
-    "id": "EVAL-GAM-27",
-    "title": "Request: Clan leaderboards",
-    "ground_truth_theme": "Social/Friends & Clans",
-    "expected_score_band": "Medium"
-  },
-  {
     "id": "EVAL-GAM-28",
     "title": "Free trial of battle pass",
     "ground_truth_theme": "Monetization & Battle Pass",
@@ -171,12 +147,6 @@
     "id": "EVAL-GAM-29",
     "title": "Unlockable cosmetics",
     "ground_truth_theme": "Progression & Achievements",
-    "expected_score_band": "Medium"
-  },
-  {
-    "id": "EVAL-GAM-30",
-    "title": "Purchase history",
-    "ground_truth_theme": "Monetization & Battle Pass",
     "expected_score_band": "Medium"
   },
   {
@@ -246,12 +216,6 @@
     "expected_score_band": "Medium"
   },
   {
-    "id": "EVAL-GAM-42",
-    "title": "Battle pass (rephrased request)",
-    "ground_truth_theme": "Monetization & Battle Pass",
-    "expected_score_band": "Medium"
-  },
-  {
     "id": "EVAL-GAM-43",
     "title": "Related: First time user flow (rephrased request)",
     "ground_truth_theme": "Onboarding & Tutorials",
@@ -298,5 +262,41 @@
     "title": "Follow up: Help centre in game (rephrased request)",
     "ground_truth_theme": "Onboarding & Tutorials",
     "expected_score_band": "Medium"
+  },
+  {
+    "id": "EVAL-GAM-51",
+    "title": "Gift items to friends",
+    "ground_truth_theme": "Monetization & Battle Pass",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-GAM-52",
+    "title": "Holiday themed content",
+    "ground_truth_theme": "Live Events & Seasonal Content",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-GAM-53",
+    "title": "Related: Starter quest line",
+    "ground_truth_theme": "Onboarding & Tutorials",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-GAM-54",
+    "title": "Follow up: Unlockable cosmetics",
+    "ground_truth_theme": "Progression & Achievements",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-GAM-55",
+    "title": "Request: Skill based matchmaking",
+    "ground_truth_theme": "Matchmaking & Ranked",
+    "expected_score_band": "Low"
+  },
+  {
+    "id": "EVAL-GAM-56",
+    "title": "Request: Queue time estimate",
+    "ground_truth_theme": "Matchmaking & Ranked",
+    "expected_score_band": "Low"
   }
 ]

@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "npx serve . -l 8080",
-    "test": "node --check index.html 2>/dev/null || true; node scripts/eval-check.mjs",
+    "test": "node --check netlify/functions/clickup.mjs && node --check netlify/functions/clickup-intake.mjs && node --check netlify/functions/clickup-intake-close.mjs && node --check netlify/functions/triage.mjs && node --check netlify/functions/lib/auth.mjs && node scripts/validate-data.mjs && node scripts/eval-check.mjs",
     "eval": "node scripts/eval-check.mjs",
     "validate": "node scripts/validate-data.mjs"
   },

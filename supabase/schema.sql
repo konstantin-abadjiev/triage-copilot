@@ -59,14 +59,29 @@ create table if not exists scores (
 create table if not exists decisions (
   id uuid primary key default gen_random_uuid(),
   item_id text not null references items(id) on delete cascade,
-  decision text not null check (decision in ('approved', 'edited', 'rejected')),
+  decision text not null check (decision in ('approved', 'rejected')),
   reason text,
   reviewer text,
   story_text text,
+  kpi text,
   clickup_task_id text,
   created_at timestamptz default now()
 );
 create index if not exists decisions_item_idx on decisions(item_id);
+
+-- Columns added after the first version: scores now carry the KPI the
+-- item was scored against (plus its reason and confidence), the drafted
+-- story, and its acceptance criteria, so a past score is fully
+-- reproducible; decisions carry the KPI too; items carry the ClickUp
+-- task created on Approve, so the link survives a reload.
+alter table if exists scores add column if not exists kpi text;
+alter table if exists scores add column if not exists kpi_reason text;
+alter table if exists scores add column if not exists kpi_confidence text;
+alter table if exists scores add column if not exists story text;
+alter table if exists scores add column if not exists acceptance_criteria text[];
+alter table if exists decisions add column if not exists kpi text;
+alter table if exists items add column if not exists clickup_task_id text;
+alter table if exists items add column if not exists clickup_task_url text;
 
 create table if not exists eval_runs (
   id uuid primary key default gen_random_uuid(),
@@ -103,8 +118,8 @@ create index if not exists decision_embeddings_idx
 
 -- Seed packs. Item data is loaded from data/*.json, not from this file.
 insert into packs (id, name, company, domain) values
-  ('healthcare', 'Healthcare', 'Meridian Ops', 'Multi-site healthcare clinics'),
-  ('fintech', 'Fintech', 'Northbeam Pay', 'Small-business payments and lending'),
-  ('games', 'Games', 'Project Larkspur', 'Generic game features'),
-  ('ecommerce', 'E-commerce', 'Marketlane', 'Marketplace')
+  ('healthcare', 'Healthcare', 'Grekon Health', 'Multi-site healthcare clinics'),
+  ('fintech', 'Fintech', 'Grekon Financial', 'Small-business payments and lending'),
+  ('games', 'Games', 'Grekon Games', 'Generic game features'),
+  ('ecommerce', 'E-commerce', 'Grekon Market', 'Marketplace')
 on conflict (id) do nothing;

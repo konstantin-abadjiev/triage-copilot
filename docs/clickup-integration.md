@@ -1,23 +1,25 @@
 # ClickUp integration
 
-Auto-create on Approve. When an item is approved in Review, Triage
+Auto-create on Approve. When an item is approved in the Backlog, Triage
 automatically creates one task in ClickUp. Edit and Reject never create a
 task. There is no separate Send to ClickUp button. The only manual ClickUp
 button is a retry that appears after a failed create.
 
 ## Flow
 
-1. User clicks Approve in Review and gives a reason.
-2. Triage saves the approval locally with the decision, and shows
-   "Creating ClickUp task...".
+1. User clicks Approve in the Backlog and gives a reason.
+2. Triage holds the typed reason and reviewer on the item and shows
+   "Creating ClickUp task...". No decision is recorded yet.
 3. The front end POSTs to `/.netlify/functions/clickup` with
-   `{item, pack, decision: "approved", reviewer}`.
+   `{item, pack, decision: "approved", reviewer, reason}`.
 4. The Netlify Function `netlify/functions/clickup.mjs` resolves the List ID
    for that pack, builds the task, and calls the ClickUp API.
 5. ClickUp returns a task id and URL. Triage stores them on the approved
    item and in the decision record, and shows an "Open task" link.
-6. If the call fails, Triage keeps the approval and shows the error, with a
-   "ClickUp failed, retry" button. It does not lose the decision.
+6. If the call fails, the item stays pending in the inbox with its
+   Approve, Edit, and Reject buttons still enabled and a
+   "ClickUp failed, retry" button. The typed reason is kept for the
+   retry, and no decision is recorded until the task is created.
 
 ## Idempotency
 
@@ -56,7 +58,8 @@ Request body:
   },
   "pack": "healthcare",
   "decision": "approved",
-  "reviewer": "konstantin-abadjiev"
+  "reviewer": "konstantin-abadjiev",
+  "reason": "Meets the bar, evidence is clear."
 }
 ```
 
@@ -92,7 +95,7 @@ Triage uses two different ClickUp lists. Mixing them up would send
 approved tasks straight back into the inbox as new items.
 
 - Intake list, the source: `CLICKUP_INTAKE_LIST_ID`. Bugs are filed here,
-  and new feature ideas are added here. The front end "Sync from ClickUp"
+  and new feature ideas are added here. The front end "ClickUp Import"
   button pulls tasks from this list only, through
   `GET /.netlify/functions/clickup-intake`, and appends them to the pack
   you are currently viewing. It never creates tasks here.
@@ -100,11 +103,11 @@ approved tasks straight back into the inbox as new items.
   in folder Backlog Triage Copilot, Product space. Set
   `CLICKUP_INTAKE_LIST_ID=1700370000001077` in Netlify environment variables.
 - Approved list, the destination: `CLICKUP_LIST_ID`, or a per-pack
-  `CLICKUP_LIST_ID_<PACK>`. Approving an item in Review creates
+  `CLICKUP_LIST_ID_<PACK>`. Approving an item in the Backlog creates
   one task here, through `POST /.netlify/functions/clickup`. Nothing is
   ever read back from this list as new input.
   Configured Nov 20, 2026: "Triage Approved", List ID 1700370000001073,
-  same folder. Set `CLICKUP_LIST_ID=1700370000001073`. The Review and
+  same folder. Set `CLICKUP_LIST_ID=1700370000001073`. The Backlog and
   Archived descriptions link to this list at
   https://app.clickup.com/9009062684/v/l/1700370000001073, so a user
   deciding on items can open where approved items export to.
@@ -117,12 +120,15 @@ nothing.
 ## Inbox and Archived flow
 
 New items arrive by CSV upload or by ClickUp sync, and are appended to the
-active inbox, never replacing it. They are deduped by item id, and by
-ClickUp task id when present, across the inbox, the scored queue, and the
-archive, so re-uploading or re-syncing the same items adds 0 new items.
+active inbox, never replacing it. They are deduped by item id, by
+ClickUp task id when present, and by title + description, across the
+inbox, the scored queue, the archive, and deleted-item tombstones, so
+re-uploading or re-syncing the same items adds 0 new items.
 
-Each item has a lifecycle: new, triaged, approved, rejected, edited.
-Backlog and Review show only active inbox items, new plus
+Each item has a lifecycle: new, then triaged once it has been scored. A
+scored item is pending until it is approved or rejected, and decided
+items move to Archived.
+Backlog shows only active inbox items, new plus
 triaged plus undecided. Run triage scores only items that have not been
 scored yet, so undecided items keep their score and place, and decided
 items are never re-scored. The status line shows "New since last triage".
@@ -130,14 +136,15 @@ items are never re-scored. The status line shows "New since last triage".
 - Approve: creates the ClickUp task first. Only on success does the item
   move to Archived, keeping its ClickUp task link. On failure it stays in
   the inbox with a retry button.
-- Edit: the edited story is saved, then the item moves to Archived.
+- Edit: updates the story in place. The item stays in the Backlog, still undecided, until it is approved or rejected. Edit never calls the API and never archives the item.
 - Reject: the item moves to Archived immediately, with its reason kept.
   No ClickUp call is made.
 
-The Archived view lists every approved, edited, and rejected item, with
+The Archived view lists every approved and rejected item, with
 its decision, reason, timestamp, RICE, theme, and ClickUp task link when
 present. The Decisions Logged stat counts archived items. A failed Approve
-attempt stays in the inbox with a retry button, and its decision is kept.
+attempt stays pending in the inbox with a retry button; no decision is
+recorded until the ClickUp task is created.
 
 ## Intake endpoint
 
@@ -195,8 +202,11 @@ in Needs Triage and being pulled in again on the next sync.
   `POST /.netlify/functions/clickup-intake-close` with only the task ids
   that were genuinely new in that sync. Items already seen or already
   archived are never closed by this call.
-- The close function (`netlify/functions/clickup-intake-close.mjs`) calls
-  `PUT https://api.clickup.com/api/v2/task/{task_id}` with
+- The close function (`netlify/functions/clickup-intake-close.mjs`) fetches
+  each task first and only closes it when it belongs to the intake list
+  (`CLICKUP_INTAKE_LIST_ID`). An id from another list is refused and
+  reported in `failed`; nothing from another list is ever closed. It then
+  calls `PUT https://api.clickup.com/api/v2/task/{task_id}` with
   `{status: "complete"}` for each id, and returns
   `{ok, closed: [...], failed: [{id, error}]}`. A task that fails to close
   is reported in `failed` and the rest still close; one failure does not
@@ -271,10 +281,10 @@ Never commit a real `.env` file.
    ID `<LIST_ID>`.
 3. Use one List per industry pack, or one List with a custom field for
    Industry. Recommended lists:
-   - Triage, Healthcare, Meridian Ops
-   - Triage, Fintech, Northbeam Pay
-   - Triage, Games, Project Larkspur
-   - Triage, E-commerce, Marketlane
+   - Triage, Healthcare, Grekon Health
+   - Triage, Fintech, Grekon Financial
+   - Triage, Games, Grekon Games
+   - Triage, E-commerce, Grekon Market
 
 ClickUp hierarchy is Workspace, then Space, then Folder, then List, then
 Task.
@@ -284,9 +294,9 @@ Task.
 | Triage field | ClickUp field |
 | --- | --- |
 | Title | Task name |
-| User story plus acceptance criteria, RICE, theme, source, requester, confidence, evidence, pack, Triage item id | Task description |
-| RICE score | Priority, mapped from RICE: 800 plus is Urgent (1), 500 to 799 is High (2), 200 to 499 is Normal (3), below 200 is Low (4) |
-| Theme and pack | Tags |
+| User story plus acceptance criteria, RICE, theme, source, requester, confidence, evidence, pack, Triage item id, approval reason, reviewer | Task description |
+| RICE score | Priority, mapped from RICE: 250 plus is Urgent (1), 150 to 249 is High (2), 100 to 149 is Normal (3), below 100 is Low (4) |
+| Theme and pack | Task description (themes and pack names are not ClickUp tags, so none are sent) |
 | Custom fields, only if the approved item carries them | Custom fields, passed through as given |
 | Pack | List, resolved from the per-pack List ID, or the shared List ID |
 | Triage item id | Included in the description, so the task links back to Triage |
@@ -296,7 +306,7 @@ Example task body sent to ClickUp:
 ```json
 {
   "name": "Online booking for follow-up visits",
-  "description": "As a clinic manager, I want patients to book follow-up visits online, so that front desk calls drop.\n\nAcceptance criteria:\n- Given a booked patient, when they open the portal, then they can pick a follow-up slot.\n\nRICE: 136, Theme: Scheduling, Source: Customer request, Confidence: 85, Evidence: High",
+  "description": "As a clinic manager, I want patients to book follow-up visits online, so that front desk calls drop.\n\nAcceptance criteria:\n- Given a booked patient, when they open the portal, then they can pick a follow-up slot.\n\nRICE: 136, Theme: Scheduling, Source: Customer request, Confidence: 85, Evidence: High\n\nApproved by: konstantin-abadjiev\nApproval reason: Meets the bar, evidence is clear.",
   "status": "to do",
   "priority": 3
 }

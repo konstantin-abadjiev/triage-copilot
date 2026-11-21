@@ -1,6 +1,6 @@
 # Drafting prompt
 
-Use this prompt only for the top 25 items after scoring. Do not draft stories for items that will be rejected.
+Use this prompt for every scored item after scoring.
 
 ## System prompt
 
@@ -12,6 +12,18 @@ As a [requester type], I want [the outcome from the description], so that [the b
 
 Acceptance criteria, 3 to 5 bullets, each testable:
 - Given [a starting state], when [an action happens], then [the expected result].
+
+## Demo derivation
+
+In Demo mode the model is not called, so the criteria are derived from the item's own data (`acceptanceFor` in index.html), 3 to 5 per item:
+
+- Core criterion: the item's requester, theme, and description, ending in the measurable outcome for its target KPI.
+- Measurement criterion: the target KPI measured over 4 weeks against its baseline, using the per-KPI outcome.
+- Release criterion: the item's source, Impact, Effort, and risk rating, ending in a release note and a rollback plan that matches the risk.
+- Discovery criterion, only when evidence is Low: discovery is complete and the success metric is agreed before build starts. A High-evidence item never carries it.
+- Audit/rollback criterion, only when risk is High.
+
+Because each criterion embeds fields from the item itself, no two items that differ in any field share the identical full set. Live mode does not use this derivation: the model writes the criteria.
 
 ## Rules
 

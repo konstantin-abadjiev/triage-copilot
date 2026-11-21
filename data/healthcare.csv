@@ -1,201 +1,201 @@
 id,title,description,source,requester_type,theme,impact,effort,risk,evidence_strength
-MER-001,Online booking for follow-up visits,Patients want to book follow-up visits online instead of calling the front desk.,Partner request,Clinic manager,Scheduling,8,4,Medium,High
-MER-002,Waitlist when a slot opens,Notify patients on a waitlist automatically when an earlier slot opens.,Customer request,Operations lead,Scheduling,7,5,Low,Medium
-MER-003,Double booking warning,Warn front desk staff when a provider is double booked.,Sales request,Patient,Scheduling,8,3,Low,High
-MER-004,Recurring appointments,Let patients book a recurring series of appointments in one flow.,Support ticket,Patient,Scheduling,7,5,Low,Medium
-MER-005,Provider calendar sync,Sync provider calendars so free slots are always accurate.,Partner request,Clinic manager,Scheduling,9,6,Medium,High
-MER-006,Digital intake forms before arrival,Send intake forms by text before the visit so patients complete them at home.,Partner request,Operations lead,Intake,9,4,Low,High
-MER-007,Insurance card photo upload,Let patients upload a photo of their insurance card at check-in.,Compliance,Clinic manager,Intake,7,3,Low,High
-MER-008,Pre-visit questionnaires,Send condition specific questionnaires before the first visit.,Compliance,Front desk,Intake,6,4,Low,Medium
-MER-009,Language preference on intake,Record patient language preference and show forms in that language.,Customer request,Clinic manager,Intake,7,4,Low,Medium
-MER-010,Consent forms in the portal,Collect consent forms in the patient portal with a signature.,Customer request,Patient,Intake,8,4,Medium,High
-MER-011,Itemised bill in the portal,Show patients an itemised bill in the portal with plain language explanations.,Support ticket,Physician,Billing,8,5,Low,High
-MER-012,Payment plans at checkout,Offer a payment plan at checkout for balances over a threshold.,Compliance,Clinic manager,Billing,8,6,Medium,Medium
-MER-013,Insurance eligibility check,Check insurance eligibility in real time before the visit.,Compliance,Patient,Billing,9,5,Medium,High
-MER-014,Automated payment reminders,Send automated payment reminders by text and email.,Partner request,Operations lead,Billing,7,3,Low,High
-MER-015,Refund workflow,Add a clear refund workflow with approval and audit trail.,Partner request,Physician,Billing,6,4,Medium,Medium
-MER-016,HIPAA audit log export,Export a HIPAA audit log for a date range in one click.,Internal request,Patient,Compliance,9,4,High,High
-MER-017,Consent expiry alerts,Alert staff when a patient consent form is about to expire.,Internal request,Physician,Compliance,8,3,Medium,High
-MER-018,Role based access for records,Restrict record access by role so only authorised staff see sensitive notes.,Sales request,Admin,Compliance,9,5,High,High
-MER-019,Data retention policy,Automatically archive records that pass the retention period.,Customer request,Admin,Compliance,7,5,High,Medium
-MER-020,Incident report form,Add a structured incident report form with required fields.,Support ticket,Operations lead,Compliance,7,4,Medium,Medium
-MER-021,Lab results integration,Pull lab results into the patient record automatically.,Internal request,Billing staff,Integrations,9,7,Medium,High
-MER-022,Pharmacy e-prescribing,Send prescriptions to the pharmacy electronically.,Sales request,Patient,Integrations,9,6,Medium,High
-MER-023,Referral to specialists,Send referrals to specialists with the patient record attached.,Support ticket,Admin,Integrations,8,5,Low,High
-MER-024,Calendar integration for staff,Sync staff shifts with the clinic calendar.,Sales request,Clinic manager,Integrations,6,4,Low,Medium
-MER-025,Billing system sync,Sync invoices with the accounting system nightly.,Customer request,Front desk,Integrations,8,6,Low,Medium
-MER-026,Appointment reminders by text,Send appointment reminders by text 24 hours before the visit.,Customer request,Billing staff,Communications,9,2,Low,High
-MER-027,Two-way messaging with patients,Let patients reply to messages from the clinic in the portal.,Sales request,Physician,Communications,8,5,Medium,High
-MER-028,Broadcast message to a clinic,"Send a broadcast message to all patients at one clinic, for example for closures.",Sales request,Admin,Communications,6,3,Low,Medium
-MER-029,After visit summary by email,Email patients an after visit summary automatically.,Customer request,Operations lead,Communications,7,3,Low,High
-MER-030,Voicemail to text,Transcribe voicemails and show them in the inbox.,Internal request,Physician,Communications,6,5,Low,Low
-MER-031,No-show rate by clinic,"Report no-show rate by clinic, provider, and week.",Customer request,Front desk,Reporting,7,3,Low,High
-MER-032,Revenue by service,Report revenue by service type and payer.,Customer request,Physician,Reporting,8,4,Low,High
-MER-033,Patient satisfaction survey,Send a short satisfaction survey after each visit and report results.,Sales request,Admin,Reporting,6,3,Low,Medium
-MER-034,Staff workload report,Report appointments per provider per day to balance workload.,Partner request,Physician,Reporting,7,4,Low,Medium
-MER-035,Wait time report,Report average wait time from check-in to being seen.,Sales request,Physician,Reporting,7,3,Low,Medium
-MER-036,Shift handover notes,Let staff leave handover notes for the next shift.,Support ticket,Operations lead,Staff Workflows,7,3,Low,Medium
-MER-037,Task assignments,Assign follow-up tasks to staff with due dates.,Customer request,Clinic manager,Staff Workflows,8,3,Low,High
-MER-038,Room status board,Show room status on a board so staff know which rooms are free.,Partner request,Patient,Staff Workflows,7,4,Low,Medium
-MER-039,Check-in kiosk mode,Add a kiosk mode for self check-in at the front desk.,Sales request,Clinic manager,Staff Workflows,8,5,Medium,Medium
-MER-040,Staff directory search,Search the staff directory by role and clinic.,Support ticket,Admin,Staff Workflows,5,2,Low,Low
-MER-041,SMS booking confirmation,Send an SMS confirmation immediately after a booking is made.,Customer request,Front desk,Scheduling,7,2,Low,High
-MER-042,Copay collection at check-in,Collect copay at check-in and show the amount due.,Sales request,Front desk,Billing,8,4,Low,High
-MER-043,Allergy list in intake,Capture allergy information in intake and flag it in the record.,Partner request,Admin,Intake,9,3,Medium,High
-MER-044,Access log for patient records,Log every access to a patient record with staff name and time.,Sales request,Patient,Compliance,9,4,High,High
-MER-045,Referral completion rate,Report how many referrals are completed within 30 days.,Sales request,Billing staff,Reporting,7,4,Low,Medium
-MER-046,Request: Automated payment reminders,Send automated payment reminders by text and email. - needed before next quarter,Support ticket,Patient,Billing,6,3,Low,High
-MER-047,Voicemail to text,Transcribe voicemails and show them in the inbox. - include it in the mobile app too,Customer request,Patient,Communications,6,5,Low,Low
-MER-048,Double booking warning,Warn front desk staff when a provider is double booked. - add a setting so teams can turn this on or off,Partner request,Billing staff,Scheduling,9,3,Low,High
-MER-049,Automated payment reminders,Send automated payment reminders by text and email. - needs an export for audit,Support ticket,Operations lead,Billing,8,4,Low,Low
-MER-050,Request: Shift handover notes,Let staff leave handover notes for the next shift. - needed before next quarter,Support ticket,Physician,Staff Workflows,8,4,Low,Medium
-MER-051,Related: Revenue by service,Report revenue by service type and payer. - same issue reported from another site,Partner request,Front desk,Reporting,7,3,Low,Low
-MER-052,Related: Check-in kiosk mode,Add a kiosk mode for self check-in at the front desk. - same issue reported from another site,Internal request,Physician,Staff Workflows,9,6,Medium,Medium
-MER-053,Follow up: Consent expiry alerts,"Alert staff when a patient consent form is about to expire. - customers are asking again, please prioritise",Sales request,Clinic manager,Compliance,7,3,Medium,High
-MER-054,Data retention policy,Automatically archive records that pass the retention period. - include it in the mobile app too,Partner request,Billing staff,Compliance,7,6,High,High
-MER-055,Patient satisfaction survey,"Send a short satisfaction survey after each visit and report results. - urgent, blocking daily work",Compliance,Physician,Reporting,5,3,Low,Medium
-MER-056,Insurance eligibility check,"Check insurance eligibility in real time before the visit. - urgent, blocking daily work",Compliance,Clinic manager,Billing,9,5,Medium,High
-MER-057,Check-in kiosk mode,Add a kiosk mode for self check-in at the front desk. - add a setting so teams can turn this on or off,Sales request,Patient,Staff Workflows,9,4,Medium,Medium
-MER-058,Recurring appointments,Let patients book a recurring series of appointments in one flow. - reported by multiple users this week,Customer request,Admin,Scheduling,6,4,Low,Medium
-MER-059,Wait time report,"Report average wait time from check-in to being seen. - urgent, blocking daily work",Support ticket,Billing staff,Reporting,7,4,Low,Medium
-MER-060,Staff workload report,Report appointments per provider per day to balance workload. - include it in the mobile app too,Internal request,Operations lead,Reporting,7,4,Low,Medium
-MER-061,Copay collection at check-in,Collect copay at check-in and show the amount due. - add a setting so teams can turn this on or off,Customer request,Billing staff,Billing,9,5,Low,Low
-MER-062,Waitlist when a slot opens,Notify patients on a waitlist automatically when an earlier slot opens. - reported by multiple users this week,Customer request,Patient,Scheduling,7,4,Low,High
-MER-063,Follow up: Provider calendar sync,"Sync provider calendars so free slots are always accurate. - customers are asking again, please prioritise",Sales request,Operations lead,Scheduling,9,5,Medium,High
-MER-064,Revenue by service,Report revenue by service type and payer. - reported by multiple users this week,Internal request,Patient,Reporting,8,5,Low,Medium
-MER-065,Related: Insurance card photo upload,Let patients upload a photo of their insurance card at check-in. - same issue reported from another site,Internal request,Admin,Intake,8,3,Low,High
-MER-066,Related: Recurring appointments,Let patients book a recurring series of appointments in one flow. - same issue reported from another site,Customer request,Patient,Scheduling,6,6,Low,Medium
-MER-067,Insurance eligibility check,Check insurance eligibility in real time before the visit. - reported by multiple users this week,Sales request,Front desk,Billing,10,5,Medium,High
-MER-068,Related: HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - same issue reported from another site,Customer request,Clinic manager,Compliance,10,3,High,High
-MER-069,HIPAA audit log export,"Export a HIPAA audit log for a date range in one click. - urgent, blocking daily work",Internal request,Clinic manager,Compliance,10,5,High,High
-MER-070,Itemised bill in the portal,Show patients an itemised bill in the portal with plain language explanations. - include it in the mobile app too,Sales request,Front desk,Billing,7,6,Low,Medium
-MER-071,Referral completion rate,Report how many referrals are completed within 30 days. - needs an export for audit,Compliance,Operations lead,Reporting,7,4,Low,Low
-MER-072,Follow up: Wait time report,"Report average wait time from check-in to being seen. - customers are asking again, please prioritise",Compliance,Admin,Reporting,7,2,Low,Medium
-MER-073,Staff workload report,"Report appointments per provider per day to balance workload. - urgent, blocking daily work",Customer request,Physician,Reporting,6,3,Low,Medium
-MER-074,Provider calendar sync,Sync provider calendars so free slots are always accurate. - reported by multiple users this week,Compliance,Patient,Scheduling,10,5,Medium,High
-MER-075,Follow up: Room status board,"Show room status on a board so staff know which rooms are free. - customers are asking again, please prioritise",Compliance,Physician,Staff Workflows,6,5,Low,Medium
-MER-076,Request: Lab results integration,Pull lab results into the patient record automatically. - needed before next quarter,Support ticket,Operations lead,Integrations,9,7,Medium,Medium
-MER-077,Request: Copay collection at check-in,Collect copay at check-in and show the amount due. - needed before next quarter,Customer request,Clinic manager,Billing,9,4,Low,High
-MER-078,Related: Voicemail to text,Transcribe voicemails and show them in the inbox. - same issue reported from another site,Support ticket,Billing staff,Communications,5,5,Low,Low
-MER-079,Provider calendar sync,Sync provider calendars so free slots are always accurate. - reported by multiple users this week,Partner request,Billing staff,Scheduling,9,6,Medium,High
-MER-080,Follow up: Staff directory search,"Search the staff directory by role and clinic. - customers are asking again, please prioritise",Support ticket,Billing staff,Staff Workflows,5,1,Low,Low
-MER-081,Related: Pre-visit questionnaires,Send condition specific questionnaires before the first visit. - same issue reported from another site,Partner request,Billing staff,Intake,6,4,Low,Low
-MER-082,Request: Automated payment reminders,Send automated payment reminders by text and email. - needed before next quarter,Customer request,Clinic manager,Billing,8,3,Low,High
-MER-083,SMS booking confirmation,Send an SMS confirmation immediately after a booking is made. - include it in the mobile app too,Partner request,Billing staff,Scheduling,7,1,Low,Low
-MER-084,Itemised bill in the portal,Show patients an itemised bill in the portal with plain language explanations. - needs an export for audit,Support ticket,Physician,Billing,9,4,Low,High
-MER-085,Double booking warning,Warn front desk staff when a provider is double booked. - add a setting so teams can turn this on or off,Sales request,Admin,Scheduling,8,4,Low,Medium
-MER-086,Double booking warning,Warn front desk staff when a provider is double booked. - add a setting so teams can turn this on or off,Sales request,Admin,Scheduling,8,3,Low,High
-MER-087,Shift handover notes,Let staff leave handover notes for the next shift. - include it in the mobile app too,Support ticket,Front desk,Staff Workflows,7,3,Low,Medium
-MER-088,Waitlist when a slot opens,"Notify patients on a waitlist automatically when an earlier slot opens. - urgent, blocking daily work",Partner request,Admin,Scheduling,7,6,Low,Medium
-MER-089,Request: HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - needed before next quarter,Customer request,Admin,Compliance,9,3,High,High
-MER-090,No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - reported by multiple users this week",Support ticket,Patient,Reporting,7,4,Low,High
-MER-091,Waitlist when a slot opens,Notify patients on a waitlist automatically when an earlier slot opens. - reported by multiple users this week,Sales request,Billing staff,Scheduling,8,5,Low,Low
-MER-092,Copay collection at check-in,Collect copay at check-in and show the amount due. - include it in the mobile app too,Support ticket,Physician,Billing,8,3,Low,Medium
-MER-093,Follow up: Consent expiry alerts,"Alert staff when a patient consent form is about to expire. - customers are asking again, please prioritise",Sales request,Front desk,Compliance,7,4,Medium,High
-MER-094,Related: Check-in kiosk mode,Add a kiosk mode for self check-in at the front desk. - same issue reported from another site,Internal request,Clinic manager,Staff Workflows,9,5,Medium,High
-MER-095,Staff workload report,Report appointments per provider per day to balance workload. - reported by multiple users this week,Sales request,Physician,Reporting,7,5,Low,High
-MER-096,Related: Lab results integration,Pull lab results into the patient record automatically. - same issue reported from another site,Sales request,Front desk,Integrations,9,7,Medium,High
-MER-097,Request: Referral completion rate,Report how many referrals are completed within 30 days. - needed before next quarter,Internal request,Operations lead,Reporting,7,4,Low,Medium
-MER-098,Request: Payment plans at checkout,Offer a payment plan at checkout for balances over a threshold. - needed before next quarter,Support ticket,Front desk,Billing,9,5,Medium,Medium
-MER-099,Room status board,Show room status on a board so staff know which rooms are free. - add a setting so teams can turn this on or off,Support ticket,Physician,Staff Workflows,8,5,Low,Medium
-MER-100,No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - urgent, blocking daily work",Partner request,Physician,Reporting,6,3,Low,High
-MER-101,Related: Pharmacy e-prescribing,Send prescriptions to the pharmacy electronically. - same issue reported from another site,Support ticket,Clinic manager,Integrations,9,6,Medium,Low
-MER-102,Double booking warning,Warn front desk staff when a provider is double booked. - reported by multiple users this week,Partner request,Physician,Scheduling,9,2,Low,High
-MER-103,Insurance eligibility check,Check insurance eligibility in real time before the visit. - include it in the mobile app too,Partner request,Clinic manager,Billing,10,6,Medium,High
-MER-104,Insurance card photo upload,Let patients upload a photo of their insurance card at check-in. - include it in the mobile app too,Partner request,Physician,Intake,7,3,Low,High
-MER-105,Follow up: Voicemail to text,"Transcribe voicemails and show them in the inbox. - customers are asking again, please prioritise",Internal request,Operations lead,Communications,6,4,Low,Low
-MER-106,Staff workload report,Report appointments per provider per day to balance workload. - add a setting so teams can turn this on or off,Compliance,Front desk,Reporting,8,5,Low,Medium
-MER-107,Itemised bill in the portal,Show patients an itemised bill in the portal with plain language explanations. - needs an export for audit,Partner request,Billing staff,Billing,9,5,Low,High
-MER-108,Staff workload report,Report appointments per provider per day to balance workload. - needs an export for audit,Partner request,Billing staff,Reporting,7,4,Low,Medium
-MER-109,Request: HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - needed before next quarter,Customer request,Patient,Compliance,9,4,High,High
-MER-110,Consent forms in the portal,Collect consent forms in the patient portal with a signature. - reported by multiple users this week,Customer request,Front desk,Intake,9,4,Medium,High
-MER-111,Two-way messaging with patients,Let patients reply to messages from the clinic in the portal. - add a setting so teams can turn this on or off,Internal request,Admin,Communications,9,6,Medium,Medium
-MER-112,Follow up: Room status board,"Show room status on a board so staff know which rooms are free. - customers are asking again, please prioritise",Sales request,Admin,Staff Workflows,8,5,Low,Medium
-MER-113,Billing system sync,Sync invoices with the accounting system nightly. - include it in the mobile app too,Internal request,Clinic manager,Integrations,8,7,Low,Medium
-MER-114,Billing system sync,Sync invoices with the accounting system nightly. - add a setting so teams can turn this on or off,Support ticket,Physician,Integrations,9,6,Low,Medium
-MER-115,Follow up: Wait time report,"Report average wait time from check-in to being seen. - customers are asking again, please prioritise",Support ticket,Admin,Reporting,8,2,Low,Medium
-MER-116,Voicemail to text,"Transcribe voicemails and show them in the inbox. - urgent, blocking daily work",Support ticket,Front desk,Communications,5,5,Low,Low
-MER-117,Lab results integration,Pull lab results into the patient record automatically. - add a setting so teams can turn this on or off,Internal request,Billing staff,Integrations,10,7,Medium,High
-MER-118,Digital intake forms before arrival,Send intake forms by text before the visit so patients complete them at home. - needs an export for audit,Sales request,Patient,Intake,8,3,Low,High
-MER-119,Related: Copay collection at check-in,Collect copay at check-in and show the amount due. - same issue reported from another site,Support ticket,Admin,Billing,7,3,Low,High
-MER-120,Waitlist when a slot opens,"Notify patients on a waitlist automatically when an earlier slot opens. - urgent, blocking daily work",Customer request,Physician,Scheduling,7,5,Low,Medium
-MER-121,Automated payment reminders,Send automated payment reminders by text and email. - needs an export for audit,Partner request,Operations lead,Billing,7,3,Low,High
-MER-122,Pre-visit questionnaires,"Send condition specific questionnaires before the first visit. - urgent, blocking daily work",Sales request,Physician,Intake,6,3,Low,Medium
-MER-123,Access log for patient records,Log every access to a patient record with staff name and time. - include it in the mobile app too,Partner request,Patient,Compliance,10,4,High,High
-MER-124,Request: Insurance card photo upload,Let patients upload a photo of their insurance card at check-in. - needed before next quarter,Internal request,Operations lead,Intake,6,2,Low,High
-MER-125,Related: Calendar integration for staff,Sync staff shifts with the clinic calendar. - same issue reported from another site,Internal request,Clinic manager,Integrations,6,3,Low,Medium
-MER-126,Broadcast message to a clinic,"Send a broadcast message to all patients at one clinic, for example for closures. - add a setting so teams can turn this on or off",Partner request,Physician,Communications,7,3,Low,Medium
-MER-127,Request: Copay collection at check-in,Collect copay at check-in and show the amount due. - needed before next quarter,Partner request,Physician,Billing,9,5,Low,High
-MER-128,Role based access for records,Restrict record access by role so only authorised staff see sensitive notes. - add a setting so teams can turn this on or off,Support ticket,Admin,Compliance,9,4,High,Medium
-MER-129,Voicemail to text,Transcribe voicemails and show them in the inbox. - include it in the mobile app too,Sales request,Patient,Communications,6,4,Low,Low
-MER-130,Revenue by service,Report revenue by service type and payer. - reported by multiple users this week,Compliance,Operations lead,Reporting,8,4,Low,High
-MER-131,Follow up: Role based access for records,"Restrict record access by role so only authorised staff see sensitive notes. - customers are asking again, please prioritise",Internal request,Physician,Compliance,9,4,High,Medium
-MER-132,HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - needs an export for audit,Customer request,Billing staff,Compliance,10,5,High,High
-MER-133,Refund workflow,Add a clear refund workflow with approval and audit trail. - include it in the mobile app too,Sales request,Front desk,Billing,6,4,Medium,Medium
-MER-134,Shift handover notes,Let staff leave handover notes for the next shift. - add a setting so teams can turn this on or off,Internal request,Billing staff,Staff Workflows,8,3,Low,Medium
-MER-135,Request: Incident report form,Add a structured incident report form with required fields. - needed before next quarter,Sales request,Clinic manager,Compliance,7,3,Medium,Medium
-MER-136,Wait time report,"Report average wait time from check-in to being seen. - urgent, blocking daily work",Sales request,Operations lead,Reporting,7,3,Low,Medium
-MER-137,Request: Room status board,Show room status on a board so staff know which rooms are free. - needed before next quarter,Support ticket,Billing staff,Staff Workflows,6,4,Low,Medium
-MER-138,Online booking for follow-up visits,"Patients want to book follow-up visits online instead of calling the front desk. - urgent, blocking daily work",Compliance,Billing staff,Scheduling,8,3,Medium,High
-MER-139,Referral completion rate,"Report how many referrals are completed within 30 days. - urgent, blocking daily work",Compliance,Billing staff,Reporting,8,3,Low,Medium
-MER-140,No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - needs an export for audit",Sales request,Admin,Reporting,8,3,Low,Low
-MER-141,Related: No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - same issue reported from another site",Compliance,Operations lead,Reporting,6,4,Low,High
-MER-142,Follow up: Access log for patient records,"Log every access to a patient record with staff name and time. - customers are asking again, please prioritise",Sales request,Clinic manager,Compliance,9,4,High,High
-MER-143,Related: HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - same issue reported from another site,Internal request,Front desk,Compliance,10,4,High,High
-MER-144,Request: After visit summary by email,Email patients an after visit summary automatically. - needed before next quarter,Customer request,Physician,Communications,8,3,Low,High
-MER-145,Insurance card photo upload,Let patients upload a photo of their insurance card at check-in. - reported by multiple users this week,Support ticket,Patient,Intake,7,3,Low,High
-MER-146,Related: Payment plans at checkout,Offer a payment plan at checkout for balances over a threshold. - same issue reported from another site,Partner request,Physician,Billing,8,5,Medium,Medium
-MER-147,Request: No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - needed before next quarter",Partner request,Admin,Reporting,6,3,Low,Medium
-MER-148,Related: Voicemail to text,Transcribe voicemails and show them in the inbox. - same issue reported from another site,Partner request,Physician,Communications,6,5,Low,Low
-MER-149,Allergy list in intake,Capture allergy information in intake and flag it in the record. - reported by multiple users this week,Partner request,Patient,Intake,10,2,Medium,High
-MER-150,Role based access for records,"Restrict record access by role so only authorised staff see sensitive notes. - urgent, blocking daily work",Compliance,Operations lead,Compliance,8,4,High,Medium
-MER-151,Request: Task assignments,Assign follow-up tasks to staff with due dates. - needed before next quarter,Sales request,Operations lead,Staff Workflows,9,2,Low,High
-MER-152,Request: Appointment reminders by text,Send appointment reminders by text 24 hours before the visit. - needed before next quarter,Internal request,Operations lead,Communications,10,3,Low,Low
-MER-153,Request: Lab results integration,Pull lab results into the patient record automatically. - needed before next quarter,Compliance,Physician,Integrations,8,6,Medium,High
-MER-154,Request: Waitlist when a slot opens,Notify patients on a waitlist automatically when an earlier slot opens. - needed before next quarter,Partner request,Front desk,Scheduling,6,5,Low,Medium
-MER-155,Role based access for records,"Restrict record access by role so only authorised staff see sensitive notes. - urgent, blocking daily work",Internal request,Billing staff,Compliance,10,6,High,High
-MER-156,Two-way messaging with patients,Let patients reply to messages from the clinic in the portal. - add a setting so teams can turn this on or off,Sales request,Front desk,Communications,8,4,Medium,High
-MER-157,Referral completion rate,Report how many referrals are completed within 30 days. - needs an export for audit,Compliance,Clinic manager,Reporting,7,5,Low,Medium
-MER-158,Related: Voicemail to text,Transcribe voicemails and show them in the inbox. - same issue reported from another site,Internal request,Admin,Communications,6,5,Low,Low
-MER-159,Follow up: Patient satisfaction survey,"Send a short satisfaction survey after each visit and report results. - customers are asking again, please prioritise",Sales request,Physician,Reporting,7,4,Low,High
-MER-160,Revenue by service,Report revenue by service type and payer. - needs an export for audit,Sales request,Front desk,Reporting,7,4,Low,Low
-MER-161,Referral completion rate,Report how many referrals are completed within 30 days. - needs an export for audit,Compliance,Admin,Reporting,6,3,Low,Medium
-MER-162,HIPAA audit log export,"Export a HIPAA audit log for a date range in one click. - urgent, blocking daily work",Customer request,Patient,Compliance,9,3,High,High
-MER-163,Pre-visit questionnaires,Send condition specific questionnaires before the first visit. - needs an export for audit,Partner request,Billing staff,Intake,5,4,Low,Medium
-MER-164,Request: Patient satisfaction survey,Send a short satisfaction survey after each visit and report results. - needed before next quarter,Support ticket,Front desk,Reporting,7,4,Low,Medium
-MER-165,Shift handover notes,"Let staff leave handover notes for the next shift. - urgent, blocking daily work",Compliance,Operations lead,Staff Workflows,8,3,Low,Medium
-MER-166,Related: Language preference on intake,Record patient language preference and show forms in that language. - same issue reported from another site,Compliance,Billing staff,Intake,7,5,Low,Medium
-MER-167,Request: Online booking for follow-up visits,Patients want to book follow-up visits online instead of calling the front desk. - needed before next quarter,Internal request,Physician,Scheduling,8,5,Medium,High
-MER-168,No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - add a setting so teams can turn this on or off",Sales request,Admin,Reporting,7,4,Low,High
-MER-169,Insurance eligibility check,Check insurance eligibility in real time before the visit. - reported by multiple users this week,Internal request,Clinic manager,Billing,10,5,Medium,High
-MER-170,Lab results integration,Pull lab results into the patient record automatically. - needs an export for audit,Partner request,Patient,Integrations,10,8,Medium,High
-MER-171,Follow up: Revenue by service,"Report revenue by service type and payer. - customers are asking again, please prioritise",Internal request,Clinic manager,Reporting,8,4,Low,High
-MER-172,Staff workload report,Report appointments per provider per day to balance workload. - needs an export for audit,Partner request,Patient,Reporting,6,4,Low,Medium
-MER-173,Provider calendar sync,Sync provider calendars so free slots are always accurate. - needs an export for audit,Internal request,Operations lead,Scheduling,9,6,Medium,High
-MER-174,Digital intake forms before arrival,Send intake forms by text before the visit so patients complete them at home. - add a setting so teams can turn this on or off,Internal request,Admin,Intake,10,4,Low,High
-MER-175,Follow up: Wait time report,"Report average wait time from check-in to being seen. - customers are asking again, please prioritise",Sales request,Patient,Reporting,6,3,Low,Medium
-MER-176,Digital intake forms before arrival,Send intake forms by text before the visit so patients complete them at home. - include it in the mobile app too,Partner request,Billing staff,Intake,8,3,Low,High
-MER-177,Follow up: Waitlist when a slot opens,"Notify patients on a waitlist automatically when an earlier slot opens. - customers are asking again, please prioritise",Internal request,Patient,Scheduling,7,4,Low,Medium
-MER-178,HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - include it in the mobile app too,Internal request,Physician,Compliance,9,4,High,High
-MER-179,Access log for patient records,Log every access to a patient record with staff name and time. - reported by multiple users this week,Sales request,Front desk,Compliance,10,4,High,High
-MER-180,Follow up: Consent expiry alerts,"Alert staff when a patient consent form is about to expire. - customers are asking again, please prioritise",Support ticket,Clinic manager,Compliance,9,3,Medium,High
-MER-181,After visit summary by email,Email patients an after visit summary automatically. - add a setting so teams can turn this on or off,Internal request,Admin,Communications,7,4,Low,High
-MER-182,Incident report form,Add a structured incident report form with required fields. - reported by multiple users this week,Compliance,Billing staff,Compliance,8,5,Medium,Medium
-MER-183,Request: Task assignments,Assign follow-up tasks to staff with due dates. - needed before next quarter,Partner request,Front desk,Staff Workflows,8,2,Low,High
-MER-184,Follow up: Role based access for records,"Restrict record access by role so only authorised staff see sensitive notes. - customers are asking again, please prioritise",Sales request,Admin,Compliance,8,6,High,High
-MER-185,Refund workflow,Add a clear refund workflow with approval and audit trail. - add a setting so teams can turn this on or off,Partner request,Admin,Billing,6,4,Medium,Medium
-MER-186,Allergy list in intake,"Capture allergy information in intake and flag it in the record. - urgent, blocking daily work",Internal request,Clinic manager,Intake,8,2,Medium,High
-MER-187,Room status board,Show room status on a board so staff know which rooms are free. - add a setting so teams can turn this on or off,Sales request,Operations lead,Staff Workflows,7,3,Low,Medium
-MER-188,Two-way messaging with patients,"Let patients reply to messages from the clinic in the portal. - urgent, blocking daily work",Sales request,Physician,Communications,8,5,Medium,High
-MER-189,Request: Patient satisfaction survey,Send a short satisfaction survey after each visit and report results. - needed before next quarter,Internal request,Admin,Reporting,6,3,Low,Medium
-MER-190,Data retention policy,Automatically archive records that pass the retention period. - add a setting so teams can turn this on or off,Support ticket,Admin,Compliance,6,6,High,Medium
-MER-191,Refund workflow,Add a clear refund workflow with approval and audit trail. - include it in the mobile app too,Customer request,Billing staff,Billing,6,3,Medium,Medium
-MER-192,Related: Wait time report,Report average wait time from check-in to being seen. - same issue reported from another site,Partner request,Billing staff,Reporting,8,3,Low,Medium
-MER-193,Room status board,Show room status on a board so staff know which rooms are free. - include it in the mobile app too,Internal request,Clinic manager,Staff Workflows,7,3,Low,Medium
-MER-194,Staff directory search,Search the staff directory by role and clinic. - add a setting so teams can turn this on or off,Internal request,Operations lead,Staff Workflows,5,1,Low,Low
-MER-195,Incident report form,Add a structured incident report form with required fields. - include it in the mobile app too,Sales request,Front desk,Compliance,6,4,Medium,Low
-MER-196,Related: Pre-visit questionnaires,Send condition specific questionnaires before the first visit. - same issue reported from another site,Sales request,Operations lead,Intake,6,4,Low,Medium
-MER-197,Referral completion rate,Report how many referrals are completed within 30 days. - include it in the mobile app too,Internal request,Physician,Reporting,7,5,Low,Medium
-MER-198,Request: Two-way messaging with patients,Let patients reply to messages from the clinic in the portal. - needed before next quarter,Support ticket,Admin,Communications,7,5,Medium,Medium
-MER-199,Related: Calendar integration for staff,Sync staff shifts with the clinic calendar. - same issue reported from another site,Support ticket,Clinic manager,Integrations,6,4,Low,Medium
-MER-200,Related: Voicemail to text,Transcribe voicemails and show them in the inbox. - same issue reported from another site,Support ticket,Patient,Communications,6,4,Low,Medium
+GH-001,Online booking for follow-up visits,Patients want to book follow-up visits online instead of calling the front desk.,Partner request,Clinic manager,Scheduling,8,4,Medium,High
+GH-002,Waitlist when a slot opens,Notify patients on a waitlist automatically when an earlier slot opens.,Customer request,Operations lead,Scheduling,7,5,Low,Medium
+GH-003,Double booking warning,Warn front desk staff when a provider is double booked.,Sales request,Patient,Scheduling,8,3,Low,High
+GH-004,Recurring appointments,Let patients book a recurring series of appointments in one flow.,Support ticket,Patient,Scheduling,7,5,Low,Medium
+GH-005,Provider calendar sync,Sync provider calendars so free slots are always accurate.,Partner request,Clinic manager,Scheduling,9,6,Medium,High
+GH-006,Digital intake forms before arrival,Send intake forms by text before the visit so patients complete them at home.,Partner request,Operations lead,Intake,9,4,Low,High
+GH-007,Insurance card photo upload,Let patients upload a photo of their insurance card at check-in.,Compliance,Clinic manager,Intake,7,3,Low,High
+GH-008,Pre-visit questionnaires,Send condition specific questionnaires before the first visit.,Compliance,Front desk,Intake,6,4,Low,Medium
+GH-009,Language preference on intake,Record patient language preference and show forms in that language.,Customer request,Clinic manager,Intake,7,4,Low,Medium
+GH-010,Consent forms in the portal,Collect consent forms in the patient portal with a signature.,Customer request,Patient,Intake,8,4,Medium,High
+GH-011,Itemised bill in the portal,Show patients an itemised bill in the portal with plain language explanations.,Support ticket,Physician,Billing,8,5,Low,High
+GH-012,Payment plans at checkout,Offer a payment plan at checkout for balances over a threshold.,Compliance,Clinic manager,Billing,8,6,Medium,Medium
+GH-013,Insurance eligibility check,Check insurance eligibility in real time before the visit.,Compliance,Patient,Billing,9,5,Medium,High
+GH-014,Automated payment reminders,Send automated payment reminders by text and email.,Partner request,Operations lead,Billing,7,3,Low,High
+GH-015,Refund workflow,Add a clear refund workflow with approval and audit trail.,Partner request,Physician,Billing,6,4,Medium,Medium
+GH-016,HIPAA audit log export,Export a HIPAA audit log for a date range in one click.,Internal request,Patient,Compliance,9,4,High,High
+GH-017,Consent expiry alerts,Alert staff when a patient consent form is about to expire.,Internal request,Physician,Compliance,8,3,Medium,High
+GH-018,Role based access for records,Restrict record access by role so only authorised staff see sensitive notes.,Sales request,Admin,Compliance,9,5,High,High
+GH-019,Data retention policy,Automatically archive records that pass the retention period.,Customer request,Admin,Compliance,7,5,High,Medium
+GH-020,Incident report form,Add a structured incident report form with required fields.,Support ticket,Operations lead,Compliance,7,4,Medium,Medium
+GH-021,Lab results integration,Pull lab results into the patient record automatically.,Internal request,Billing staff,Integrations,9,7,Medium,High
+GH-022,Pharmacy e-prescribing,Send prescriptions to the pharmacy electronically.,Sales request,Patient,Integrations,9,6,Medium,High
+GH-023,Referral to specialists,Send referrals to specialists with the patient record attached.,Support ticket,Admin,Integrations,8,5,Low,High
+GH-024,Calendar integration for staff,Sync staff shifts with the clinic calendar.,Sales request,Clinic manager,Integrations,6,4,Low,Medium
+GH-025,Billing system sync,Sync invoices with the accounting system nightly.,Customer request,Front desk,Integrations,8,6,Low,Medium
+GH-026,Appointment reminders by text,Send appointment reminders by text 24 hours before the visit.,Customer request,Billing staff,Communications,9,2,Low,High
+GH-027,Two-way messaging with patients,Let patients reply to messages from the clinic in the portal.,Sales request,Physician,Communications,8,5,Medium,High
+GH-028,Broadcast message to a clinic,"Send a broadcast message to all patients at one clinic, for example for closures.",Sales request,Admin,Communications,6,3,Low,Medium
+GH-029,After visit summary by email,Email patients an after visit summary automatically.,Customer request,Operations lead,Communications,7,3,Low,High
+GH-030,Voicemail to text,Transcribe voicemails and show them in the inbox.,Internal request,Physician,Communications,6,5,Low,Low
+GH-031,No-show rate by clinic,"Report no-show rate by clinic, provider, and week.",Customer request,Front desk,Reporting,7,3,Low,High
+GH-032,Revenue by service,Report revenue by service type and payer.,Customer request,Physician,Reporting,8,4,Low,High
+GH-033,Patient satisfaction survey,Send a short satisfaction survey after each visit and report results.,Sales request,Admin,Reporting,6,3,Low,Medium
+GH-034,Staff workload report,Report appointments per provider per day to balance workload.,Partner request,Physician,Reporting,7,4,Low,Medium
+GH-035,Wait time report,Report average wait time from check-in to being seen.,Sales request,Physician,Reporting,7,3,Low,Medium
+GH-036,Shift handover notes,Let staff leave handover notes for the next shift.,Support ticket,Operations lead,Staff Workflows,7,3,Low,Medium
+GH-037,Task assignments,Assign follow-up tasks to staff with due dates.,Customer request,Clinic manager,Staff Workflows,8,3,Low,High
+GH-038,Room status board,Show room status on a board so staff know which rooms are free.,Partner request,Patient,Staff Workflows,7,4,Low,Medium
+GH-039,Check-in kiosk mode,Add a kiosk mode for self check-in at the front desk.,Sales request,Clinic manager,Staff Workflows,8,5,Medium,Medium
+GH-040,Staff directory search,Search the staff directory by role and clinic.,Support ticket,Admin,Staff Workflows,5,2,Low,Low
+GH-041,SMS booking confirmation,Send an SMS confirmation immediately after a booking is made.,Customer request,Front desk,Scheduling,7,2,Low,High
+GH-042,Copay collection at check-in,Collect copay at check-in and show the amount due.,Sales request,Front desk,Billing,8,4,Low,High
+GH-043,Allergy list in intake,Capture allergy information in intake and flag it in the record.,Partner request,Admin,Intake,9,3,Medium,High
+GH-044,Access log for patient records,Log every access to a patient record with staff name and time.,Sales request,Patient,Compliance,9,4,High,High
+GH-045,Referral completion rate,Report how many referrals are completed within 30 days.,Sales request,Billing staff,Reporting,7,4,Low,Medium
+GH-046,Request: Automated payment reminders,Send automated payment reminders by text and email. - needed before next quarter,Support ticket,Patient,Billing,6,3,Low,High
+GH-047,Voicemail to text,Transcribe voicemails and show them in the inbox. - include it in the mobile app too,Customer request,Patient,Communications,6,5,Low,Low
+GH-048,Double booking warning,Warn front desk staff when a provider is double booked. - add a setting so teams can turn this on or off,Partner request,Billing staff,Scheduling,9,3,Low,High
+GH-049,Automated payment reminders,Send automated payment reminders by text and email. - needs an export for audit,Support ticket,Operations lead,Billing,8,4,Low,Low
+GH-050,Request: Shift handover notes,Let staff leave handover notes for the next shift. - needed before next quarter,Support ticket,Physician,Staff Workflows,8,4,Low,Medium
+GH-051,Related: Revenue by service,Report revenue by service type and payer. - same issue reported from another site,Partner request,Front desk,Reporting,7,3,Low,Low
+GH-052,Related: Check-in kiosk mode,Add a kiosk mode for self check-in at the front desk. - same issue reported from another site,Internal request,Physician,Staff Workflows,9,6,Medium,Medium
+GH-053,Follow up: Consent expiry alerts,"Alert staff when a patient consent form is about to expire. - customers are asking again, please prioritise",Sales request,Clinic manager,Compliance,7,3,Medium,High
+GH-054,Data retention policy,Automatically archive records that pass the retention period. - include it in the mobile app too,Partner request,Billing staff,Compliance,7,6,High,High
+GH-055,Patient satisfaction survey,"Send a short satisfaction survey after each visit and report results. - urgent, blocking daily work",Compliance,Physician,Reporting,5,3,Low,Medium
+GH-056,Insurance eligibility check,"Check insurance eligibility in real time before the visit. - urgent, blocking daily work",Compliance,Clinic manager,Billing,9,5,Medium,High
+GH-057,Check-in kiosk mode,Add a kiosk mode for self check-in at the front desk. - add a setting so teams can turn this on or off,Sales request,Patient,Staff Workflows,9,4,Medium,Medium
+GH-058,Recurring appointments,Let patients book a recurring series of appointments in one flow. - reported by multiple users this week,Customer request,Admin,Scheduling,6,4,Low,Medium
+GH-059,Wait time report,"Report average wait time from check-in to being seen. - urgent, blocking daily work",Support ticket,Billing staff,Reporting,7,4,Low,Medium
+GH-060,Staff workload report,Report appointments per provider per day to balance workload. - include it in the mobile app too,Internal request,Operations lead,Reporting,7,4,Low,Medium
+GH-061,Copay collection at check-in,Collect copay at check-in and show the amount due. - add a setting so teams can turn this on or off,Customer request,Billing staff,Billing,9,5,Low,Low
+GH-062,Waitlist when a slot opens,Notify patients on a waitlist automatically when an earlier slot opens. - reported by multiple users this week,Customer request,Patient,Scheduling,7,4,Low,High
+GH-063,Follow up: Provider calendar sync,"Sync provider calendars so free slots are always accurate. - customers are asking again, please prioritise",Sales request,Operations lead,Scheduling,9,5,Medium,High
+GH-064,Revenue by service,Report revenue by service type and payer. - reported by multiple users this week,Internal request,Patient,Reporting,8,5,Low,Medium
+GH-065,Related: Insurance card photo upload,Let patients upload a photo of their insurance card at check-in. - same issue reported from another site,Internal request,Admin,Intake,8,3,Low,High
+GH-066,Related: Recurring appointments,Let patients book a recurring series of appointments in one flow. - same issue reported from another site,Customer request,Patient,Scheduling,6,6,Low,Medium
+GH-067,Insurance eligibility check,Check insurance eligibility in real time before the visit. - reported by multiple users this week,Sales request,Front desk,Billing,10,5,Medium,High
+GH-068,Related: HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - same issue reported from another site,Customer request,Clinic manager,Compliance,10,3,High,High
+GH-069,HIPAA audit log export,"Export a HIPAA audit log for a date range in one click. - urgent, blocking daily work",Internal request,Clinic manager,Compliance,10,5,High,High
+GH-070,Itemised bill in the portal,Show patients an itemised bill in the portal with plain language explanations. - include it in the mobile app too,Sales request,Front desk,Billing,7,6,Low,Medium
+GH-071,Referral completion rate,Report how many referrals are completed within 30 days. - needs an export for audit,Compliance,Operations lead,Reporting,7,4,Low,Low
+GH-072,Follow up: Wait time report,"Report average wait time from check-in to being seen. - customers are asking again, please prioritise",Compliance,Admin,Reporting,7,2,Low,Medium
+GH-073,Staff workload report,"Report appointments per provider per day to balance workload. - urgent, blocking daily work",Customer request,Physician,Reporting,6,3,Low,Medium
+GH-074,Provider calendar sync,Sync provider calendars so free slots are always accurate. - reported by multiple users this week,Compliance,Patient,Scheduling,10,5,Medium,High
+GH-075,Follow up: Room status board,"Show room status on a board so staff know which rooms are free. - customers are asking again, please prioritise",Compliance,Physician,Staff Workflows,6,5,Low,Medium
+GH-076,Request: Lab results integration,Pull lab results into the patient record automatically. - needed before next quarter,Support ticket,Operations lead,Integrations,9,7,Medium,Medium
+GH-077,Request: Copay collection at check-in,Collect copay at check-in and show the amount due. - needed before next quarter,Customer request,Clinic manager,Billing,9,4,Low,High
+GH-078,Related: Voicemail to text,Transcribe voicemails and show them in the inbox. - same issue reported from another site,Support ticket,Billing staff,Communications,5,5,Low,Low
+GH-079,Provider calendar sync,Sync provider calendars so free slots are always accurate. - reported by multiple users this week,Partner request,Billing staff,Scheduling,9,6,Medium,High
+GH-080,Follow up: Staff directory search,"Search the staff directory by role and clinic. - customers are asking again, please prioritise",Support ticket,Billing staff,Staff Workflows,5,1,Low,Low
+GH-081,Related: Pre-visit questionnaires,Send condition specific questionnaires before the first visit. - same issue reported from another site,Partner request,Billing staff,Intake,6,4,Low,Low
+GH-082,Request: Automated payment reminders,Send automated payment reminders by text and email. - needed before next quarter,Customer request,Clinic manager,Billing,8,3,Low,High
+GH-083,SMS booking confirmation,Send an SMS confirmation immediately after a booking is made. - include it in the mobile app too,Partner request,Billing staff,Scheduling,7,1,Low,Low
+GH-084,Itemised bill in the portal,Show patients an itemised bill in the portal with plain language explanations. - needs an export for audit,Support ticket,Physician,Billing,9,4,Low,High
+GH-085,Double booking warning,Warn front desk staff when a provider is double booked. - add a setting so teams can turn this on or off,Sales request,Admin,Scheduling,8,4,Low,Medium
+GH-086,Double booking warning,Warn front desk staff when a provider is double booked. - add a setting so teams can turn this on or off,Sales request,Admin,Scheduling,8,3,Low,High
+GH-087,Shift handover notes,Let staff leave handover notes for the next shift. - include it in the mobile app too,Support ticket,Front desk,Staff Workflows,7,3,Low,Medium
+GH-088,Waitlist when a slot opens,"Notify patients on a waitlist automatically when an earlier slot opens. - urgent, blocking daily work",Partner request,Admin,Scheduling,7,6,Low,Medium
+GH-089,Request: HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - needed before next quarter,Customer request,Admin,Compliance,9,3,High,High
+GH-090,No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - reported by multiple users this week",Support ticket,Patient,Reporting,7,4,Low,High
+GH-091,Waitlist when a slot opens,Notify patients on a waitlist automatically when an earlier slot opens. - reported by multiple users this week,Sales request,Billing staff,Scheduling,8,5,Low,Low
+GH-092,Copay collection at check-in,Collect copay at check-in and show the amount due. - include it in the mobile app too,Support ticket,Physician,Billing,8,3,Low,Medium
+GH-093,Follow up: Consent expiry alerts,"Alert staff when a patient consent form is about to expire. - customers are asking again, please prioritise",Sales request,Front desk,Compliance,7,4,Medium,High
+GH-094,Related: Check-in kiosk mode,Add a kiosk mode for self check-in at the front desk. - same issue reported from another site,Internal request,Clinic manager,Staff Workflows,9,5,Medium,High
+GH-095,Staff workload report,Report appointments per provider per day to balance workload. - reported by multiple users this week,Sales request,Physician,Reporting,7,5,Low,High
+GH-096,Related: Lab results integration,Pull lab results into the patient record automatically. - same issue reported from another site,Sales request,Front desk,Integrations,9,7,Medium,High
+GH-097,Request: Referral completion rate,Report how many referrals are completed within 30 days. - needed before next quarter,Internal request,Operations lead,Reporting,7,4,Low,Medium
+GH-098,Request: Payment plans at checkout,Offer a payment plan at checkout for balances over a threshold. - needed before next quarter,Support ticket,Front desk,Billing,9,5,Medium,Medium
+GH-099,Room status board,Show room status on a board so staff know which rooms are free. - add a setting so teams can turn this on or off,Support ticket,Physician,Staff Workflows,8,5,Low,Medium
+GH-100,No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - urgent, blocking daily work",Partner request,Physician,Reporting,6,3,Low,High
+GH-101,Related: Pharmacy e-prescribing,Send prescriptions to the pharmacy electronically. - same issue reported from another site,Support ticket,Clinic manager,Integrations,9,6,Medium,Low
+GH-102,Double booking warning,Warn front desk staff when a provider is double booked. - reported by multiple users this week,Partner request,Physician,Scheduling,9,2,Low,High
+GH-103,Insurance eligibility check,Check insurance eligibility in real time before the visit. - include it in the mobile app too,Partner request,Clinic manager,Billing,10,6,Medium,High
+GH-104,Insurance card photo upload,Let patients upload a photo of their insurance card at check-in. - include it in the mobile app too,Partner request,Physician,Intake,7,3,Low,High
+GH-105,Follow up: Voicemail to text,"Transcribe voicemails and show them in the inbox. - customers are asking again, please prioritise",Internal request,Operations lead,Communications,6,4,Low,Low
+GH-106,Staff workload report,Report appointments per provider per day to balance workload. - add a setting so teams can turn this on or off,Compliance,Front desk,Reporting,8,5,Low,Medium
+GH-107,Itemised bill in the portal,Show patients an itemised bill in the portal with plain language explanations. - needs an export for audit,Partner request,Billing staff,Billing,9,5,Low,High
+GH-108,Staff workload report,Report appointments per provider per day to balance workload. - needs an export for audit,Partner request,Billing staff,Reporting,7,4,Low,Medium
+GH-109,Request: HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - needed before next quarter,Customer request,Patient,Compliance,9,4,High,High
+GH-110,Consent forms in the portal,Collect consent forms in the patient portal with a signature. - reported by multiple users this week,Customer request,Front desk,Intake,9,4,Medium,High
+GH-111,Two-way messaging with patients,Let patients reply to messages from the clinic in the portal. - add a setting so teams can turn this on or off,Internal request,Admin,Communications,9,6,Medium,Medium
+GH-112,Follow up: Room status board,"Show room status on a board so staff know which rooms are free. - customers are asking again, please prioritise",Sales request,Admin,Staff Workflows,8,5,Low,Medium
+GH-113,Billing system sync,Sync invoices with the accounting system nightly. - include it in the mobile app too,Internal request,Clinic manager,Integrations,8,7,Low,Medium
+GH-114,Billing system sync,Sync invoices with the accounting system nightly. - add a setting so teams can turn this on or off,Support ticket,Physician,Integrations,9,6,Low,Medium
+GH-115,Follow up: Wait time report,"Report average wait time from check-in to being seen. - customers are asking again, please prioritise",Support ticket,Admin,Reporting,8,2,Low,Medium
+GH-116,Voicemail to text,"Transcribe voicemails and show them in the inbox. - urgent, blocking daily work",Support ticket,Front desk,Communications,5,5,Low,Low
+GH-117,Lab results integration,Pull lab results into the patient record automatically. - add a setting so teams can turn this on or off,Internal request,Billing staff,Integrations,10,7,Medium,High
+GH-118,Digital intake forms before arrival,Send intake forms by text before the visit so patients complete them at home. - needs an export for audit,Sales request,Patient,Intake,8,3,Low,High
+GH-119,Related: Copay collection at check-in,Collect copay at check-in and show the amount due. - same issue reported from another site,Support ticket,Admin,Billing,7,3,Low,High
+GH-120,Waitlist when a slot opens,"Notify patients on a waitlist automatically when an earlier slot opens. - urgent, blocking daily work",Customer request,Physician,Scheduling,7,5,Low,Medium
+GH-121,Automated payment reminders,Send automated payment reminders by text and email. - needs an export for audit,Partner request,Operations lead,Billing,7,3,Low,High
+GH-122,Pre-visit questionnaires,"Send condition specific questionnaires before the first visit. - urgent, blocking daily work",Sales request,Physician,Intake,6,3,Low,Medium
+GH-123,Access log for patient records,Log every access to a patient record with staff name and time. - include it in the mobile app too,Partner request,Patient,Compliance,10,4,High,High
+GH-124,Request: Insurance card photo upload,Let patients upload a photo of their insurance card at check-in. - needed before next quarter,Internal request,Operations lead,Intake,6,2,Low,High
+GH-125,Related: Calendar integration for staff,Sync staff shifts with the clinic calendar. - same issue reported from another site,Internal request,Clinic manager,Integrations,6,3,Low,Medium
+GH-126,Broadcast message to a clinic,"Send a broadcast message to all patients at one clinic, for example for closures. - add a setting so teams can turn this on or off",Partner request,Physician,Communications,7,3,Low,Medium
+GH-127,Request: Copay collection at check-in,Collect copay at check-in and show the amount due. - needed before next quarter,Partner request,Physician,Billing,9,5,Low,High
+GH-128,Role based access for records,Restrict record access by role so only authorised staff see sensitive notes. - add a setting so teams can turn this on or off,Support ticket,Admin,Compliance,9,4,High,Medium
+GH-129,Voicemail to text,Transcribe voicemails and show them in the inbox. - include it in the mobile app too,Sales request,Patient,Communications,6,4,Low,Low
+GH-130,Revenue by service,Report revenue by service type and payer. - reported by multiple users this week,Compliance,Operations lead,Reporting,8,4,Low,High
+GH-131,Follow up: Role based access for records,"Restrict record access by role so only authorised staff see sensitive notes. - customers are asking again, please prioritise",Internal request,Physician,Compliance,9,4,High,Medium
+GH-132,HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - needs an export for audit,Customer request,Billing staff,Compliance,10,5,High,High
+GH-133,Refund workflow,Add a clear refund workflow with approval and audit trail. - include it in the mobile app too,Sales request,Front desk,Billing,6,4,Medium,Medium
+GH-134,Shift handover notes,Let staff leave handover notes for the next shift. - add a setting so teams can turn this on or off,Internal request,Billing staff,Staff Workflows,8,3,Low,Medium
+GH-135,Request: Incident report form,Add a structured incident report form with required fields. - needed before next quarter,Sales request,Clinic manager,Compliance,7,3,Medium,Medium
+GH-136,Wait time report,"Report average wait time from check-in to being seen. - urgent, blocking daily work",Sales request,Operations lead,Reporting,7,3,Low,Medium
+GH-137,Request: Room status board,Show room status on a board so staff know which rooms are free. - needed before next quarter,Support ticket,Billing staff,Staff Workflows,6,4,Low,Medium
+GH-138,Online booking for follow-up visits,"Patients want to book follow-up visits online instead of calling the front desk. - urgent, blocking daily work",Compliance,Billing staff,Scheduling,8,3,Medium,High
+GH-139,Referral completion rate,"Report how many referrals are completed within 30 days. - urgent, blocking daily work",Compliance,Billing staff,Reporting,8,3,Low,Medium
+GH-140,No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - needs an export for audit",Sales request,Admin,Reporting,8,3,Low,Low
+GH-141,Related: No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - same issue reported from another site",Compliance,Operations lead,Reporting,6,4,Low,High
+GH-142,Follow up: Access log for patient records,"Log every access to a patient record with staff name and time. - customers are asking again, please prioritise",Sales request,Clinic manager,Compliance,9,4,High,High
+GH-143,Related: HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - same issue reported from another site,Internal request,Front desk,Compliance,10,4,High,High
+GH-144,Request: After visit summary by email,Email patients an after visit summary automatically. - needed before next quarter,Customer request,Physician,Communications,8,3,Low,High
+GH-145,Insurance card photo upload,Let patients upload a photo of their insurance card at check-in. - reported by multiple users this week,Support ticket,Patient,Intake,7,3,Low,High
+GH-146,Related: Payment plans at checkout,Offer a payment plan at checkout for balances over a threshold. - same issue reported from another site,Partner request,Physician,Billing,8,5,Medium,Medium
+GH-147,Request: No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - needed before next quarter",Partner request,Admin,Reporting,6,3,Low,Medium
+GH-148,Related: Voicemail to text,Transcribe voicemails and show them in the inbox. - same issue reported from another site,Partner request,Physician,Communications,6,5,Low,Low
+GH-149,Allergy list in intake,Capture allergy information in intake and flag it in the record. - reported by multiple users this week,Partner request,Patient,Intake,10,2,Medium,High
+GH-150,Role based access for records,"Restrict record access by role so only authorised staff see sensitive notes. - urgent, blocking daily work",Compliance,Operations lead,Compliance,8,4,High,Medium
+GH-151,Request: Task assignments,Assign follow-up tasks to staff with due dates. - needed before next quarter,Sales request,Operations lead,Staff Workflows,9,2,Low,High
+GH-152,Request: Appointment reminders by text,Send appointment reminders by text 24 hours before the visit. - needed before next quarter,Internal request,Operations lead,Communications,10,3,Low,Low
+GH-153,Request: Lab results integration,Pull lab results into the patient record automatically. - needed before next quarter,Compliance,Physician,Integrations,8,6,Medium,High
+GH-154,Request: Waitlist when a slot opens,Notify patients on a waitlist automatically when an earlier slot opens. - needed before next quarter,Partner request,Front desk,Scheduling,6,5,Low,Medium
+GH-155,Role based access for records,"Restrict record access by role so only authorised staff see sensitive notes. - urgent, blocking daily work",Internal request,Billing staff,Compliance,10,6,High,High
+GH-156,Two-way messaging with patients,Let patients reply to messages from the clinic in the portal. - add a setting so teams can turn this on or off,Sales request,Front desk,Communications,8,4,Medium,High
+GH-157,Referral completion rate,Report how many referrals are completed within 30 days. - needs an export for audit,Compliance,Clinic manager,Reporting,7,5,Low,Medium
+GH-158,Related: Voicemail to text,Transcribe voicemails and show them in the inbox. - same issue reported from another site,Internal request,Admin,Communications,6,5,Low,Low
+GH-159,Follow up: Patient satisfaction survey,"Send a short satisfaction survey after each visit and report results. - customers are asking again, please prioritise",Sales request,Physician,Reporting,7,4,Low,High
+GH-160,Revenue by service,Report revenue by service type and payer. - needs an export for audit,Sales request,Front desk,Reporting,7,4,Low,Low
+GH-161,Referral completion rate,Report how many referrals are completed within 30 days. - needs an export for audit,Compliance,Admin,Reporting,6,3,Low,Medium
+GH-162,HIPAA audit log export,"Export a HIPAA audit log for a date range in one click. - urgent, blocking daily work",Customer request,Patient,Compliance,9,3,High,High
+GH-163,Pre-visit questionnaires,Send condition specific questionnaires before the first visit. - needs an export for audit,Partner request,Billing staff,Intake,5,4,Low,Medium
+GH-164,Request: Patient satisfaction survey,Send a short satisfaction survey after each visit and report results. - needed before next quarter,Support ticket,Front desk,Reporting,7,4,Low,Medium
+GH-165,Shift handover notes,"Let staff leave handover notes for the next shift. - urgent, blocking daily work",Compliance,Operations lead,Staff Workflows,8,3,Low,Medium
+GH-166,Related: Language preference on intake,Record patient language preference and show forms in that language. - same issue reported from another site,Compliance,Billing staff,Intake,7,5,Low,Medium
+GH-167,Request: Online booking for follow-up visits,Patients want to book follow-up visits online instead of calling the front desk. - needed before next quarter,Internal request,Physician,Scheduling,8,5,Medium,High
+GH-168,No-show rate by clinic,"Report no-show rate by clinic, provider, and week. - add a setting so teams can turn this on or off",Sales request,Admin,Reporting,7,4,Low,High
+GH-169,Insurance eligibility check,Check insurance eligibility in real time before the visit. - reported by multiple users this week,Internal request,Clinic manager,Billing,10,5,Medium,High
+GH-170,Lab results integration,Pull lab results into the patient record automatically. - needs an export for audit,Partner request,Patient,Integrations,10,8,Medium,High
+GH-171,Follow up: Revenue by service,"Report revenue by service type and payer. - customers are asking again, please prioritise",Internal request,Clinic manager,Reporting,8,4,Low,High
+GH-172,Staff workload report,Report appointments per provider per day to balance workload. - needs an export for audit,Partner request,Patient,Reporting,6,4,Low,Medium
+GH-173,Provider calendar sync,Sync provider calendars so free slots are always accurate. - needs an export for audit,Internal request,Operations lead,Scheduling,9,6,Medium,High
+GH-174,Digital intake forms before arrival,Send intake forms by text before the visit so patients complete them at home. - add a setting so teams can turn this on or off,Internal request,Admin,Intake,10,4,Low,High
+GH-175,Follow up: Wait time report,"Report average wait time from check-in to being seen. - customers are asking again, please prioritise",Sales request,Patient,Reporting,6,3,Low,Medium
+GH-176,Digital intake forms before arrival,Send intake forms by text before the visit so patients complete them at home. - include it in the mobile app too,Partner request,Billing staff,Intake,8,3,Low,High
+GH-177,Follow up: Waitlist when a slot opens,"Notify patients on a waitlist automatically when an earlier slot opens. - customers are asking again, please prioritise",Internal request,Patient,Scheduling,7,4,Low,Medium
+GH-178,HIPAA audit log export,Export a HIPAA audit log for a date range in one click. - include it in the mobile app too,Internal request,Physician,Compliance,9,4,High,High
+GH-179,Access log for patient records,Log every access to a patient record with staff name and time. - reported by multiple users this week,Sales request,Front desk,Compliance,10,4,High,High
+GH-180,Follow up: Consent expiry alerts,"Alert staff when a patient consent form is about to expire. - customers are asking again, please prioritise",Support ticket,Clinic manager,Compliance,9,3,Medium,High
+GH-181,After visit summary by email,Email patients an after visit summary automatically. - add a setting so teams can turn this on or off,Internal request,Admin,Communications,7,4,Low,High
+GH-182,Incident report form,Add a structured incident report form with required fields. - reported by multiple users this week,Compliance,Billing staff,Compliance,8,5,Medium,Medium
+GH-183,Request: Task assignments,Assign follow-up tasks to staff with due dates. - needed before next quarter,Partner request,Front desk,Staff Workflows,8,2,Low,High
+GH-184,Follow up: Role based access for records,"Restrict record access by role so only authorised staff see sensitive notes. - customers are asking again, please prioritise",Sales request,Admin,Compliance,8,6,High,High
+GH-185,Refund workflow,Add a clear refund workflow with approval and audit trail. - add a setting so teams can turn this on or off,Partner request,Admin,Billing,6,4,Medium,Medium
+GH-186,Allergy list in intake,"Capture allergy information in intake and flag it in the record. - urgent, blocking daily work",Internal request,Clinic manager,Intake,8,2,Medium,High
+GH-187,Room status board,Show room status on a board so staff know which rooms are free. - add a setting so teams can turn this on or off,Sales request,Operations lead,Staff Workflows,7,3,Low,Medium
+GH-188,Two-way messaging with patients,"Let patients reply to messages from the clinic in the portal. - urgent, blocking daily work",Sales request,Physician,Communications,8,5,Medium,High
+GH-189,Request: Patient satisfaction survey,Send a short satisfaction survey after each visit and report results. - needed before next quarter,Internal request,Admin,Reporting,6,3,Low,Medium
+GH-190,Data retention policy,Automatically archive records that pass the retention period. - add a setting so teams can turn this on or off,Support ticket,Admin,Compliance,6,6,High,Medium
+GH-191,Refund workflow,Add a clear refund workflow with approval and audit trail. - include it in the mobile app too,Customer request,Billing staff,Billing,6,3,Medium,Medium
+GH-192,Related: Wait time report,Report average wait time from check-in to being seen. - same issue reported from another site,Partner request,Billing staff,Reporting,8,3,Low,Medium
+GH-193,Room status board,Show room status on a board so staff know which rooms are free. - include it in the mobile app too,Internal request,Clinic manager,Staff Workflows,7,3,Low,Medium
+GH-194,Staff directory search,Search the staff directory by role and clinic. - add a setting so teams can turn this on or off,Internal request,Operations lead,Staff Workflows,5,1,Low,Low
+GH-195,Incident report form,Add a structured incident report form with required fields. - include it in the mobile app too,Sales request,Front desk,Compliance,6,4,Medium,Low
+GH-196,Related: Pre-visit questionnaires,Send condition specific questionnaires before the first visit. - same issue reported from another site,Sales request,Operations lead,Intake,6,4,Low,Medium
+GH-197,Referral completion rate,Report how many referrals are completed within 30 days. - include it in the mobile app too,Internal request,Physician,Reporting,7,5,Low,Medium
+GH-198,Request: Two-way messaging with patients,Let patients reply to messages from the clinic in the portal. - needed before next quarter,Support ticket,Admin,Communications,7,5,Medium,Medium
+GH-199,Related: Calendar integration for staff,Sync staff shifts with the clinic calendar. - same issue reported from another site,Support ticket,Clinic manager,Integrations,6,4,Low,Medium
+GH-200,Related: Voicemail to text,Transcribe voicemails and show them in the inbox. - same issue reported from another site,Support ticket,Patient,Communications,6,4,Low,Medium

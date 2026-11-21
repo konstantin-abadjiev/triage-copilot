@@ -5,60 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Triage - AI Product Management Copilot</title>
 <style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#f7f5f2;color:#222}
-header{background:#1f2937;color:#fff;padding:20px 24px}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#111827;color:#f3f4f6;color-scheme:dark}
+header{background:#1f2937;color:#f9fafb;padding:20px 24px;border-bottom:1px solid #374151}
 header h1{margin:0 0 8px;font-size:28px}
 header p{margin:4px 0;max-width:900px;line-height:1.5}
 header .showcase{color:#fbbf24;font-size:14px}
 .header-row{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
 .header-row details.about{flex:1 1 260px;min-width:0}
 .pack-select-label{flex:0 1 220px;color:#fbbf24;font-size:13px;font-weight:700;white-space:nowrap}
-.pack-select-label select{display:block;width:100%;max-width:220px;margin-top:4px;background:#fff;color:#222}
+.pack-select-label select{display:block;width:100%;max-width:220px;margin-top:4px;background:#111827;color:#f3f4f6;border:1px solid #4b5563}
 @media (max-width:520px){.pack-select-label{flex:0 1 170px}.pack-select-label select{max-width:170px}}
-nav{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;background:#fff;border-bottom:1px solid #ddd}
-button{cursor:pointer;border:1px solid #ccc;background:#fff;padding:8px 12px;border-radius:8px;font-size:14px}
-button.primary{background:#1f2937;color:#fff;border-color:#1f2937}
-button.active{background:#7c2d12;color:#fff;border-color:#7c2d12}
-button.btn-approve{background:#16a34a;color:#fff;border-color:#15803d;font-weight:600}
-button.btn-reject{background:#dc2626;color:#fff;border-color:#b91c1c;font-weight:600}
-button.btn-edit{background:#fff;color:#1f2937;border-color:#9ca3af}
-button.btn-approved{background:#15803d;color:#fff;border-color:#166534;font-weight:700}
-button.btn-rejected{background:#b91c1c;color:#fff;border-color:#991b1b;font-weight:700}
-button.btn-edited{background:#b45309;color:#fff;border-color:#92400e;font-weight:700}
+nav{display:flex;gap:8px;flex-wrap:wrap;padding:12px 24px;background:#1f2937;border-bottom:1px solid #374151}
+button{cursor:pointer;border:1px solid #4b5563;background:#374151;color:#f9fafb;padding:8px 12px;border-radius:8px;font-size:14px}
+button.primary{background:#fbbf24;color:#1f2937;border-color:#fbbf24;font-weight:700}
+button.primary:disabled{background:#374151;color:#d1d5db;border-color:#374151}
+button.active{background:#7c2d12;color:#f9fafb;border-color:#7c2d12}
+button.btn-approve{background:#15803d;color:#f9fafb;border-color:#166534;font-weight:600}
+button.btn-reject{background:#dc2626;color:#f9fafb;border-color:#b91c1c;font-weight:600}
+button.btn-edit{background:#374151;color:#f9fafb;border-color:#6b7280}
+button.btn-approved{background:#15803d;color:#f9fafb;border-color:#166534;font-weight:700}
+button.btn-rejected{background:#b91c1c;color:#f9fafb;border-color:#991b1b;font-weight:700}
 button:disabled{cursor:default;opacity:0.85}
 button.btn-approve:disabled,button.btn-reject:disabled,button.btn-edit:disabled{opacity:0.45}
 .status-pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;margin-left:8px}
-.status-pill.pending{background:#e5e7eb;color:#374151}
-.status-pill.approved{background:#dcfce7;color:#166534}
-.status-pill.rejected{background:#fee2e2;color:#991b1b}
-.status-pill.edited{background:#fef3c7;color:#92400e}
-tr.row-approved{background:#f0fdf4}
-tr.row-rejected{background:#fef2f2}
-tr.row-edited{background:#fffbeb}
+.status-pill.pending{background:#374151;color:#e5e7eb}
+.status-pill.approved{background:#14532d;color:#bbf7d0}
+.status-pill.rejected{background:#7f1d1d;color:#fecaca}
+.pagination{margin:12px 0}
+.pagination button{margin:0 2px}
+.pagination button.active{background:#15803d;color:#ffffff;border-color:#15803d;font-weight:700}
+.pagination .ellipsis{color:#9ca3af;margin:0 4px}
+.pagination strong.page-label{margin-left:8px;color:#f3f4f6}
 .tag{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;margin:2px 4px 2px 0;white-space:nowrap}
 .theme-tag{border:1px solid transparent}
-.source-tag{background:#fff;border:1px solid #94a3b8;color:#334155}
-.kpi-tag{background:#dbeafe;color:#1e40af;border:1px solid #93c5fd}
-.conf-high{background:#dcfce7;color:#166534}
-.conf-medium{background:#fef3c7;color:#92400e}
-.conf-low{background:#fee2e2;color:#991b1b}
+.source-tag{background:#374151;border:1px solid #6b7280;color:#e5e7eb}
+.kpi-tag{background:#1e3a8a;color:#bfdbfe;border:1px solid #3b82f6}
+.conf-high{background:#14532d;color:#bbf7d0}
+.conf-medium{background:#78350f;color:#fde68a}
+.conf-low{background:#7f1d1d;color:#fecaca}
 main{padding:20px 24px;max-width:1100px}
-.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0}
-.badge{display:inline-block;background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:999px;font-size:12px;margin-left:8px}
-.badge.ok{background:#dcfce7;color:#166534}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{text-align:left;padding:8px;border-bottom:1px solid #eee;vertical-align:top}
+.card{background:#232f42;border:1px solid #6b7280;border-top:3px solid #6b7280;border-radius:12px;padding:16px;margin:0 0 20px;box-shadow:0 4px 12px rgba(0,0,0,.35);color:#f3f4f6}
+a{color:#93c5fd}
+.badge{display:inline-block;background:#7f1d1d;color:#fecaca;padding:2px 8px;border-radius:999px;font-size:12px;margin-left:8px}
+.badge.ok{background:#14532d;color:#bbf7d0}
 .tab{display:none}
 .tab.show{display:block}
-input,select{padding:8px;border:1px solid #ccc;border-radius:8px;font-size:14px}
-.muted{color:#666;font-size:14px}
+input,select{padding:8px;border:1px solid #4b5563;border-radius:8px;font-size:14px;background:#111827;color:#f3f4f6}
+.muted{color:#9ca3af;font-size:14px}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:0 0 4px}
-.new-banner{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fef3c7;border:1px solid #f59e0b;color:#92400e;border-radius:12px;padding:14px 16px;margin:12px 0;font-weight:700;font-size:15px}
+.new-banner{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#451a03;border:1px solid #b45309;color:#fde68a;border-radius:12px;padding:14px 16px;margin:12px 0;font-weight:700;font-size:15px}
 .new-banner[hidden]{display:none}
 .counts-block{display:block;margin:12px 0 0}
-.actionbar{position:sticky;top:0;z-index:30;display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 24px;background:#fff;border-bottom:1px solid #ddd}
+.actionbar{position:sticky;top:0;z-index:30;display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:12px 24px;background:#1f2937;border-bottom:1px solid #374151}
 .actionbar button:disabled{opacity:0.45;cursor:default}
-.csv-label{display:inline-block;cursor:pointer;border:1px solid #ccc;background:#fff;padding:8px 12px;border-radius:8px;font-size:14px}
+.csv-label{display:inline-block;cursor:pointer;background:#2563eb;color:#fff;border-color:#2563eb;font-weight:700;padding:8px 12px;border-radius:8px;font-size:14px}
+#syncBtn{background:#2563eb;color:#fff;border-color:#2563eb;font-weight:700}
+#syncBtn:hover,.csv-label:hover{background:#1d4ed8;border-color:#1d4ed8}
+#templateBtn,#reloadBtn{background:transparent;color:#9ca3af;border:1px solid #374151;font-weight:400}
+#templateBtn:hover,#reloadBtn:hover{color:#d1d5db;border-color:#6b7280;background:rgba(255,255,255,0.04)}
 #csvFile{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 details.about{margin:4px 0}
 details.about summary{cursor:pointer;color:#fbbf24;font-weight:700}
@@ -66,16 +70,17 @@ details.about p{color:#fff}
 details.panel-about{margin:4px 0}
 details.panel-about summary{cursor:pointer;font-weight:700}
 .tab-badge{display:inline-block;background:#dc2626;color:#fff;border-radius:999px;font-size:11px;font-weight:700;padding:2px 8px;margin-left:6px;white-space:nowrap}
-.tab-badge.neutral{background:#e5e7eb;color:#374151}
+.tab-badge.neutral{background:#374151;color:#e5e7eb}
 .tab-badge[hidden]{display:none}
 .viewnav{display:flex;gap:8px;flex-wrap:wrap;width:100%;margin-top:4px}
-.viewnav button.active{background:#7c2d12;color:#fff;border-color:#7c2d12}
-.stat-card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px 18px}
-.stat-label{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#374151}
+.viewnav button.active{background:#15803d;color:#ffffff;border-color:#15803d;font-weight:700}
+.stat-card{background:#1f2937;border:1px solid #374151;border-radius:12px;padding:16px 18px}
+.stat-label{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#d1d5db}
 .stat-value{font-size:32px;font-weight:800;line-height:1.2;margin:6px 0}
-.stat-sub{font-size:13px;color:#666;line-height:1.4}
+.stat-sub{font-size:13px;color:#9ca3af;line-height:1.4}
 @media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.stats{grid-template-columns:1fr}}
+@media (max-width:480px){.tag{white-space:normal}.card{padding:14px}}
 </style>
 </head>
 <body>
@@ -84,18 +89,26 @@ details.panel-about summary{cursor:pointer;font-weight:700}
 <div class="header-row">
 <details class="about">
 <summary>About this demo</summary>
-<p>Triage is a working AI product management copilot, not a chatbot demo. It takes a messy, duplicate-filled backlog, clusters it, scores it with RICE and confidence, flags weak evidence, drafts stories for the top items, and leaves the final call to a human. Every item is scored and drafted in the open, so you can see not just what it shipped, but how it decided, and why.</p>
+<p>Triage is a working AI product management copilot, not a chatbot demo. It takes a messy, duplicate-filled backlog, clusters it, scores it with RICE and confidence, flags weak evidence, drafts a story for every scored item, and leaves the final call to a human. Every item is scored in the open, with its story written out, so you can see not just what it shipped, but how it decided, and why.</p>
 <p class="showcase">A showcase of AI-native product work: discovery, prioritization, tradeoffs, guardrails, and human-in-the-loop decisions, across Healthcare, Fintech, Games, and E-commerce.</p>
 <p id="packContext" class="muted"></p>
 </details>
 <label class="pack-select-label">Industry pack
 <select id="packSelect" aria-label="Industry pack"></select>
 </label>
+<label class="pack-select-label">Mode
+<select id="modeSelect" aria-label="Demo or Live mode">
+<option value="demo" selected>Demo</option>
+<option value="live">Live</option>
+</select>
+</label>
 </div>
+<p id="modeNote" class="muted" style="margin:8px 0 0"></p>
 </header>
 <main>
 <div class="actionbar" id="actionBar">
 <button id="runBtn" class="primary">Run triage</button>
+<span id="runHint" class="muted"></span>
 <button id="syncBtn">ClickUp Import</button>
 <label for="csvFile" class="csv-label">CSV Import</label>
 <input type="file" id="csvFile" accept=".csv">
@@ -103,54 +116,168 @@ details.panel-about summary{cursor:pointer;font-weight:700}
 <button id="reloadBtn">Reload Demo</button>
 <div class="viewnav" id="viewNav">
 <button data-tab="backlog" class="active">Backlog <span id="backlogNewBadge" class="tab-badge" hidden></span></button>
-<button data-tab="review">Review <span id="reviewCountBadge" class="tab-badge neutral" hidden></span></button>
 <button data-tab="archived">Archived <span id="archivedCountBadge" class="tab-badge neutral" hidden></span></button>
 </div>
 </div>
+<p class="muted">Session only: reloading this page wipes decisions, scores, the archive, edits, uploads, and deletes. Export anything you want to keep.</p>
 <p id="counts" class="muted counts-block"></p>
 <p id="newSince" class="muted"></p>
-<p id="csvError" class="muted" style="color:#991b1b"></p>
+<p id="csvError" class="muted" style="color:#fca5a5"></p>
 <div id="newBanner" class="new-banner" role="status" hidden><span id="newBannerText"></span></div>
 <div id="status" class="muted">Loading data. If you opened this file directly, serve the folder with <code>npm run dev</code> so data/*.json can load.</div>
 <section id="tab-backlog" class="tab show">
+<div class="card"><h2>Backlog</h2><details class="panel-about"><summary>About Backlog</summary><p class="muted">Run triage stack-ranks the backlog by RICE (Reach × Impact × Confidence ÷ Effort), highest first. Approve or reject any item, in order. You can edit a story first, it stays in the backlog until you approve or reject it. Approving creates a ClickUp task automatically. Decided items move to Archived. Approved items export to ClickUp in the <a id="approvedListLinkBacklog" href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
 <section id="statsBar" class="stats" aria-label="Overview">
 <div class="stat-card"><div class="stat-label">Backlog Items</div><div class="stat-value" id="statBacklogValue">-</div><div class="stat-sub" id="statBacklogSub">Demo dataset</div></div>
 <div class="stat-card"><div class="stat-label">Duplicate Clusters</div><div class="stat-value" id="statClustersValue">-</div><div class="stat-sub" id="statClustersSub">Found by triage run</div></div>
 <div class="stat-card"><div class="stat-label">Low-Evidence Flags</div><div class="stat-value" id="statFlagsValue">-</div><div class="stat-sub" id="statFlagsSub">Need proof before build</div></div>
-<div class="stat-card"><div class="stat-label">Decisions Logged</div><div class="stat-value" id="statDecisionsValue">0</div><div class="stat-sub" id="statDecisionsSub">Approved · edited · rejected</div></div>
-<div class="stat-card"><div class="stat-label">Est. Cost / Run</div><div class="stat-value" id="statCostValue">$3.84</div><div class="stat-sub" id="statCostSub">$0.0192 per item</div></div>
+<div class="stat-card"><div class="stat-label">Decisions Logged</div><div class="stat-value" id="statDecisionsValue">0</div><div class="stat-sub" id="statDecisionsSub">Approved · rejected</div></div>
+<div class="stat-card"><div class="stat-label" id="statCostLabel">Est. Cost / Run</div><div class="stat-value" id="statCostValue">-</div><div class="stat-sub" id="statCostSub">Run triage to estimate cost</div></div>
 </section>
-<div class="card"><label>KPI <select id="kpiFilter"><option value="">All KPIs</option></select></label><p class="muted">KPIs are assigned when an item is triaged. New unscored items always show, whatever KPI is selected.</p></div>
-<div class="card"><button id="exportBtn">Export Backlog CSV</button><p class="muted">Exports scored items in RICE order.</p></div>
+<div class="card"><label>Search <input id="backlogSearch" type="search" placeholder="Title, keyword..."></label> <label>Theme <select id="backlogThemeFilter"><option value="">All themes</option></select></label> <label>KPI <select id="kpiFilter"><option value="">All KPIs</option></select></label> <label>Source <select id="backlogSourceFilter"><option value="">All sources</option></select></label><p class="muted">KPIs are assigned when an item is triaged. New unscored items always show, whatever KPI is selected.</p></div>
+<div class="card"><button id="exportBtn">Export Backlog CSV</button> <span id="exportHint" class="muted">Run triage to enable export.</span><p class="muted">Exports the scored items in the current filtered Backlog, in RICE order, with their ClickUp status.</p><p id="exportStatus" class="muted" role="status"></p></div>
 <div id="backlogList"></div>
 </section>
-<section id="tab-review" class="tab">
-<div class="card"><h2>Review</h2><details class="panel-about"><summary>About Review</summary><p class="muted">Approve, edit, or reject each drafted story. Approving an item automatically creates a ClickUp task. Editing or rejecting never creates one. Every decision is recorded with its reason, and the item moves to Archived. Approved items export to ClickUp in the <a href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
-<div class="card"><label>Search <input id="reviewSearch" type="search" placeholder="Title, keyword..."></label> <label>Theme <select id="reviewThemeFilter"><option value="">All themes</option></select></label> <label>Target KPI <select id="reviewKpiFilter"><option value="">All KPIs</option></select></label> <label>Source <select id="reviewSourceFilter"><option value="">All sources</option></select></label><p class="muted">Search and filters apply to drafted items in Review. Clear them to show all 25.</p></div>
-<div id="reviewList"></div>
-</section>
 <section id="tab-archived" class="tab">
-<div class="card"><h2>Archived</h2><details class="panel-about"><summary>About Archived</summary><p class="muted">Approved, edited, and rejected items leave the active inbox once decided. Approved items keep their ClickUp task link. Rejected items keep their reason. Nothing here is re-triaged, and re-importing an archived item does not bring it back. Approved items export to ClickUp in the <a href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
-<div class="card"><button id="exportArchivedBtn">Export Archived CSV</button><p class="muted">Exports decided items with decision, reason, and ClickUp link.</p></div>
-<div id="archivedList"><p class="muted">Nothing archived yet. Approve, edit, or reject an item in Review.</p></div>
+<div class="card"><h2>Archived</h2><details class="panel-about"><summary>About Archived</summary><p class="muted">Approved and rejected items leave the active inbox once decided. Approved items keep their ClickUp task link. Rejected items keep their reason. Nothing here is re-triaged, and re-importing an archived item does not bring it back. Approved items export to ClickUp in the <a id="approvedListLinkArchived" href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
+<div class="card"><label>Decision <select id="archivedDecisionFilter"><option value="">All decisions</option><option value="approved">Approved</option><option value="rejected">Rejected</option></select></label> <button id="exportArchivedBtn">Export Archived CSV</button> <span id="archivedExportHint" class="muted">Nothing archived yet.</span><p class="muted">Exports the decided items in the current filtered Archived list, with decision, reason, and ClickUp link.</p><p id="archivedExportStatus" class="muted" role="status"></p></div>
+<div id="archivedList"><p class="muted">Nothing archived yet. Approve or reject an item in the backlog to archive it.</p></div>
 </section>
 </main>
 <script>
 var PACKS = {
-  games: {name:'Games', company:'Project Larkspur', desc:'Generic game features: onboarding, matchmaking, progression, social, live events, battle pass, saves, safety.', target:88},
-  healthcare: {name:'Healthcare', company:'Meridian Ops', desc:'Multi-site healthcare clinics: scheduling, intake, billing, compliance.', target:92},
-  fintech: {name:'Fintech', company:'Northbeam Pay', desc:'Small-business payments and lending: fraud, KYC, payouts, disputes, compliance.', target:90},
-  ecommerce: {name:'E-commerce', company:'Marketlane', desc:'Marketplace: checkout, inventory, returns, seller tools, search, payments.', target:94},
-  uploaded: {name:'Uploaded CSV', company:'Your upload', desc:'Items uploaded from your CSV file.', target:null}
+  games: {name:'Games', company:'Grekon Games', desc:'Generic game features: onboarding, matchmaking, progression, social, live events, battle pass, saves, safety.'},
+  healthcare: {name:'Healthcare', company:'Grekon Health', desc:'Multi-site healthcare clinics: scheduling, intake, billing, compliance.'},
+  fintech: {name:'Fintech', company:'Grekon Financial', desc:'Small-business payments and lending: fraud, KYC, payouts, disputes, compliance.'},
+  ecommerce: {name:'E-commerce', company:'Grekon Market', desc:'Marketplace: checkout, inventory, returns, seller tools, search, payments.'}
 };
+// Triage Approved list per pack, mirroring the mapping in
+// netlify/functions/clickup.mjs (per-pack CLICKUP_LIST_ID_<PACK> env
+// vars, falling back to the shared CLICKUP_LIST_ID). Today all four
+// packs approve into the one shared list, so all four entries are the
+// same id. If a per-pack list is ever configured in Netlify, update the
+// matching entry here too: the front end is static and cannot read
+// Netlify env vars, so this map is the single place the link comes from.
+var APPROVED_LISTS = {
+  games: '1700370000001073',
+  healthcare: '1700370000001073',
+  fintech: '1700370000001073',
+  ecommerce: '1700370000001073'
+};
+var CLICKUP_TEAM_ID = '9009062684';
+function updateApprovedLinks(){
+  var href = 'https://app.clickup.com/' + CLICKUP_TEAM_ID + '/v/l/' + (APPROVED_LISTS[currentPack] || APPROVED_LISTS.games);
+  ['approvedListLinkBacklog', 'approvedListLinkArchived'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.href = href;
+  });
+}
+// Demo / Live mode. Demo is the default: rule-based local scoring, a
+// modeled cost estimate, $0 real cost, no API key. Live calls the model
+// through /.netlify/functions/triage and costs real money; it asks for
+// confirmation before every run and needs OPENROUTER_API_KEY in Netlify.
+var currentMode = 'demo';
+var lastRunLive = false;
 var currentPack = 'games';
 var items = [], scored = [], decisions = [], clusters = [], archived = [];
-var reviewItems = [];
+var backlogItems = [];
+var backlogScoredItems = [];
+// The filtered Backlog in display order, all pages: the Backlog export
+// uses this, so it exports exactly what the filters show.
+var backlogOrdered = [];
+// The filtered Archived list in display order, all pages: the Archived
+// export uses this, so it exports exactly what the decision filter shows.
+var archivedShown = [];
+// Pagination: 10 items per page, Backlog and Archived. Pages reset to 1
+// on filter or pack change, and clamp after an action shrinks the list.
+var PAGE_SIZE = 10;
+var backlogPage = 1;
+var archivedPage = 1;
+// Busy while a triage run or a ClickUp call is in flight. Pack switching
+// and CSV import are blocked while it is set, so no state change can
+// race a run or a create.
+var busy = false;
+// Packs whose data/*.json failed to load. A failed load is never cached
+// as a pack state, so switching back retries the fetch.
+var failedPacks = {};
+// Reviewer name for decisions, asked once per session on the first
+// decision. There is no sign-in, so it is typed, never hardcoded.
+var sessionReviewer = '';
+var CLICKUP_TIMEOUT_MS = 30000;
+// Live triage is a long batch job (the function scores in batches of
+// 25), so its fetch timeout is longer than a single ClickUp call.
+var TRIAGE_TIMEOUT_MS = 120000;
+// Shared secret for the Netlify functions. The deploy build replaces
+// __TRIAGE_SHARED_SECRET__ with the real value from the
+// TRIAGE_SHARED_SECRET environment variable (see
+// scripts/build-deploy-zip.sh). The placeholder must never be replaced
+// in this file in the repo, and a real value must never be committed
+// here. Honest limitation: the secret is shipped in this page's
+// JavaScript, so anyone who reads the page source can copy it. It
+// stops casual scans and random bots from spending OpenRouter money or
+// writing to ClickUp; it is a gate, not real authentication.
+var TRIAGE_SHARED_SECRET = '__TRIAGE_SHARED_SECRET__';
+function triageSecretConfigured(){
+  return TRIAGE_SHARED_SECRET && TRIAGE_SHARED_SECRET !== '__TRIAGE_SHARED_SECRET__';
+}
+function functionHeaders(){
+  return { 'Content-Type': 'application/json', 'X-Triage-Secret': TRIAGE_SHARED_SECRET };
+}
+function secretMisconfiguredMessage(){
+  return 'This deploy is misconfigured: the shared secret was not injected, so no function was called. Rebuild the deploy ZIP with TRIAGE_SHARED_SECRET set.';
+}
+// Deleted item ids, per pack. A deleted item is gone completely: not
+// archived, not counted as a decision, and never resurrected by a
+// re-import or re-sync. Persisted in packStates, reset by Reload Demo.
+var deletedIds = [];
+// Normalized title + description keys of deleted items, per pack. A
+// deleted item is gone completely, so a re-import of the same story
+// under a new id must still be skipped, not resurrected.
+var deletedKeys = [];
 var packStates = {};
 var newSinceTriage = 0;
-var uploadedItems = [], uploadedScored = [], uploadedDecisions = [], uploadedClusters = [];
+// Cost model: $0.0192 per item actually triaged in a run. runTriage()
+// scores only fresh unscored items, so a run's cost is fresh.length x
+// COST_PER_ITEM, rounded to 4 decimals to keep totals exact to the cent
+// when displayed. lastRunCost is null until the pack has run once.
+var COST_PER_ITEM = 0.0192;
+var lastRunCost = null;
+var lastRunItems = 0;
+var totalCost = 0;
+var totalRuns = 0;
+var totalItemsTriaged = 0;
 var FALLBACK = [{id:'SAMPLE-001', title:'Online booking for follow-up visits', description:'Patients want to book online instead of calling.', source:'Customer request', requester_type:'Clinic manager', theme:'Scheduling', impact:8, effort:4, risk:'Medium', evidence_strength:'High'}];
 var CSV_COLUMNS = ['id','title','description','source','requester_type','theme','impact','effort','risk','evidence_strength'];
+// CSV Template example rows, per pack. The template must show the pack
+// being viewed, never another pack's example.
+var TEMPLATE_EXAMPLES = {
+  games: [
+    ['EX-001','Skip tutorial option','Let returning players skip the tutorial, with a "skip" button on first launch.','Support ticket','Producer','Onboarding & Tutorials',6,2,'Low','Medium'],
+    ['EX-002','Daily login rewards','Give players a small reward for logging in each day, to bring them back.','Customer request','Game designer','Live Events & Seasonal Content',7,3,'Low','High']
+  ],
+  healthcare: [
+    ['EX-001','Online booking for follow-up visits','Patients want to book online instead of calling, rather than phoning the clinic.','Customer request','Clinic manager','Scheduling',8,4,'Medium','High'],
+    ['EX-002','Waitlist for open slots','Let patients join a waitlist and get notified when a slot opens.','Support ticket','Front desk','Scheduling',7,3,'Low','Medium']
+  ],
+  fintech: [
+    ['EX-001','Faster merchant payouts','Pay merchants the next business day instead of holding funds for a week.','Customer request','Merchant','Payouts',9,5,'Medium','High'],
+    ['EX-002','Flag suspicious payments','Hold payments that look fraudulent for manual review before they settle.','Support ticket','Risk analyst','Fraud',9,6,'High','High']
+  ],
+  ecommerce: [
+    ['EX-001','One-page checkout','Let shoppers finish checkout on a single page instead of three steps.','Customer request','Shopper','Checkout',8,5,'Medium','High'],
+    ['EX-002','Save cart across devices','Keep the cart when a shopper switches from phone to laptop.','Support ticket','Seller','Checkout',6,3,'Low','Medium']
+  ]
+};
+// Fetch with a timeout, so a hung ClickUp function does not leave the
+// UI stuck on "Creating ClickUp task..." forever. AbortError is the
+// signal the timeout fired.
+function fetchWithTimeout(url, options, ms){
+  var controller = new AbortController();
+  var timer = setTimeout(function(){ controller.abort(); }, ms || CLICKUP_TIMEOUT_MS);
+  var opts = options || {};
+  opts.signal = controller.signal;
+  return fetch(url, opts).then(function(res){ clearTimeout(timer); return res; }, function(err){ clearTimeout(timer); throw err; });
+}
 function parseCSV(text){
   // Proper CSV parser, no external library. Handles double-quoted fields,
   // commas inside quotes, escaped double quotes (""), CRLF and LF endings,
@@ -180,20 +307,31 @@ function parseCSV(text){
   if (field !== '' || row.length){ row.push(field); rows.push(row); }
   return rows;
 }
-function parseUploadedCSV(text){
+function parseImportCSV(text){
   // Returns {items, skipped, warnings} or {error}. Header must match
   // CSV_COLUMNS exactly (case-insensitive, trimmed). Rows with the wrong
-  // field count or a missing id/title are skipped with a reason.
+  // field count or a missing id/title are skipped with a reason. Numbers
+  // are parsed as floats (parseInt would truncate 8.9 to 8) and clamped
+  // to their valid ranges, with a per-row warning: impact 0-10, effort
+  // 1-10, so effort 0 or negative can never produce an Infinity RICE.
+  // Rows are deduped within the file by id and by title + description.
+  // Line numbers are file lines, so blank lines do not shift them.
   var rows = parseCSV(text);
-  var nonEmpty = rows.filter(function(r){ return r.some(function(f){ return String(f).trim() !== ''; }); });
-  if (!nonEmpty.length) return {error: 'The CSV file is empty. Expected columns: ' + CSV_COLUMNS.join(', ') + '.'};
-  var header = nonEmpty[0].map(function(h){ return String(h).trim().toLowerCase(); });
+  var nonEmptyIdx = [];
+  rows.forEach(function(r, i){ if (r.some(function(f){ return String(f).trim() !== ''; })) nonEmptyIdx.push(i); });
+  if (!nonEmptyIdx.length) return {error: 'The CSV file is empty. Expected columns: ' + CSV_COLUMNS.join(', ') + '.'};
+  var headerRow = rows[nonEmptyIdx[0]];
+  var header = headerRow.map(function(h){ return String(h).trim().toLowerCase(); });
   if (header.length !== CSV_COLUMNS.length || header.some(function(h, j){ return h !== CSV_COLUMNS[j]; })){
-    return {error: 'Wrong CSV header. Expected exactly: ' + CSV_COLUMNS.join(', ') + '. Got: ' + nonEmpty[0].join(', ') + '.'};
+    return {error: 'Wrong CSV header. Expected exactly: ' + CSV_COLUMNS.join(', ') + '. Got: ' + headerRow.join(', ') + '.'};
   }
   var itemsOut = [], skipped = [], warnings = [];
-  nonEmpty.slice(1).forEach(function(r, idx){
-    var lineNo = idx + 2;
+  var seenIdsInFile = {}, seenStoriesInFile = {};
+  var dataIdx = nonEmptyIdx.slice(1);
+  if (!dataIdx.length) return {error: 'The CSV has a header but no data rows. Nothing was imported.'};
+  dataIdx.forEach(function(rowIdx){
+    var r = rows[rowIdx];
+    var lineNo = rowIdx + 1;
     if (r.length !== CSV_COLUMNS.length){
       skipped.push('Line ' + lineNo + ': expected 10 fields, got ' + r.length); return;
     }
@@ -202,15 +340,33 @@ function parseUploadedCSV(text){
     if (!o.id || !o.title){
       skipped.push('Line ' + lineNo + ': missing id or title'); return;
     }
-    var impact = parseInt(o.impact, 10), effort = parseInt(o.effort, 10);
+    if (seenIdsInFile[o.id]){
+      skipped.push('Line ' + lineNo + ': duplicate id "' + o.id + '" already in this file (line ' + seenIdsInFile[o.id] + ')'); return;
+    }
+    var storyKey = o.title.toLowerCase() + '\n' + o.description.toLowerCase();
+    if (seenStoriesInFile[storyKey]){
+      skipped.push('Line ' + lineNo + ': same title and description as line ' + seenStoriesInFile[storyKey] + ' in this file'); return;
+    }
+    seenIdsInFile[o.id] = lineNo;
+    seenStoriesInFile[storyKey] = lineNo;
+    var impact = parseFloat(o.impact), effort = parseFloat(o.effort);
     if (isNaN(impact)){ impact = 5; warnings.push('Line ' + lineNo + ': impact is not a number, used 5'); }
+    else if (impact < 0){ impact = 0; warnings.push('Line ' + lineNo + ': impact ' + o.impact + ' is negative, clamped to 0'); }
+    else if (impact > 10){ impact = 10; warnings.push('Line ' + lineNo + ': impact ' + o.impact + ' is above 10, clamped to 10'); }
     if (isNaN(effort)){ effort = 5; warnings.push('Line ' + lineNo + ': effort is not a number, used 5'); }
+    else if (effort <= 0){ effort = 1; warnings.push('Line ' + lineNo + ': effort ' + o.effort + ' is 0 or negative, clamped to 1'); }
+    else if (effort > 10){ effort = 10; warnings.push('Line ' + lineNo + ': effort ' + o.effort + ' is above 10, clamped to 10'); }
     o.impact = impact; o.effort = effort;
     if (['High','Medium','Low'].indexOf(o.evidence_strength) === -1){
       warnings.push('Line ' + lineNo + ': evidence_strength "' + o.evidence_strength + '" is not High, Medium, or Low, used Medium');
       o.evidence_strength = 'Medium';
     }
-    if (!o.risk) o.risk = 'Medium';
+    if (['High','Medium','Low'].indexOf(o.risk) === -1){
+      warnings.push('Line ' + lineNo + ': risk "' + o.risk + '" is not High, Medium, or Low, used Medium');
+      o.risk = 'Medium';
+    }
+    if (!o.theme){ o.theme = 'Intake'; warnings.push('Line ' + lineNo + ': theme is empty, used "Intake"'); }
+    if (!o.source){ o.source = 'ClickUp intake'; warnings.push('Line ' + lineNo + ': source is empty, used "ClickUp intake"'); }
     itemsOut.push(o);
   });
   return {items: itemsOut, skipped: skipped, warnings: warnings};
@@ -239,7 +395,6 @@ var KPIS = {
   healthcare: ['No-show rate','Appointment utilization','Time to schedule','Patient satisfaction','Billing error rate','Staff time per task'],
   fintech: ['Onboarding completion','Fraud loss rate','Payout time','Dispute rate','KYC approval time','Activation'],
   ecommerce: ['Conversion rate','Cart abandonment','Return rate','Search success','Seller onboarding time','Average order value'],
-  uploaded: ['Day 7 retention','Day 30 retention','Daily active users','Session length','Conversion to paying','ARPU','Churn','Matchmaking wait time']
 };
 // Theme to KPI mapping, per pack. A theme can mean a different KPI in
 // different packs, for example Compliance maps to Billing error rate in
@@ -279,12 +434,15 @@ var KPI_KEYWORDS = {
     {words:['first payment','activate'], kpi:'Activation'}
   ],
   ecommerce: [
+    // Average order value first: "Buy now pay later" and "Promotion
+    // tools" also contain the broader 'checkout' and 'seller' words
+    // below, so this rule must run before them or it never fires.
+    {words:['order value','average order','cart value','aov','basket','bundle','upsell','cross-sell','cross sell','promotion','discount','coupon','gift card','buy now pay later'], kpi:'Average order value'},
     {words:['cart','abandon'], kpi:'Cart abandonment'},
     {words:['return','refund'], kpi:'Return rate'},
     {words:['search'], kpi:'Search success'},
     {words:['seller','onboard'], kpi:'Seller onboarding time'},
-    {words:['checkout','payment'], kpi:'Conversion rate'},
-    {words:['bundle','upsell'], kpi:'Average order value'}
+    {words:['checkout','payment'], kpi:'Conversion rate'}
   ]
 };
 var KPI_REASONS = {
@@ -315,6 +473,32 @@ var KPI_REASONS = {
   'Seller onboarding time':'sellers who onboard faster start listing sooner',
   'Average order value':'bundles and upsells raise what each order is worth'
 };
+// Theme to Reach mapping, per pack, for Demo mode only. Reach is how
+// many users an item affects, 1 to 10: broad themes that touch nearly
+// every user score high, niche themes score low. The mapping is
+// documented in prompts/scoring.md, and the card labels Demo Reach as
+// estimated, because no per-item evidence backs it. Unknown themes
+// default to 5. Live mode does not use this table: the model estimates
+// Reach per item from the title, description, and theme.
+var THEME_REACH = {
+  games: {'Onboarding & Tutorials':9, 'Live Events & Seasonal Content':7, 'Matchmaking & Ranked':8, 'Monetization & Battle Pass':6, 'Platform/Saves & Performance':8, 'Progression & Achievements':7, 'Safety/Accessibility & Controls':5, 'Social/Friends & Clans':7},
+  healthcare: {'Scheduling':9, 'Intake':8, 'Billing':7, 'Communications':8, 'Compliance':5, 'Integrations':6, 'Reporting':4, 'Staff Workflows':6},
+  fintech: {'Onboarding':9, 'Payouts':8, 'Fraud':7, 'KYC':7, 'Disputes':5, 'Compliance':5, 'Reporting':4},
+  ecommerce: {'Checkout':9, 'Search':8, 'Payments':8, 'Inventory':5, 'Returns':6, 'Seller Tools':5}
+};
+function themeReach(theme){
+  var map = THEME_REACH[currentPack] || {};
+  return Object.prototype.hasOwnProperty.call(map, theme) ? map[theme] : 5;
+}
+// Keyword matches need a word boundary at the START of the keyword, so
+// 'shop' does not match inside 'workshop', but the keyword may still be
+// a prefix of a longer word, so 'onboard' matches 'onboarding' and
+// 'session' matches 'sessions'. Multi-word phrases match at their first
+// word's boundary.
+function keywordMatches(text, word){
+  var escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp('\\b' + escaped).test(text);
+}
 // Demo assignment is rule based, not live AI: keyword match first, then
 // theme map, then the first KPI of the pack list as fallback. The live
 // model replaces this with real inference, using the same fixed lists.
@@ -324,7 +508,7 @@ function assignKpi(it){
   var kw = KPI_KEYWORDS[currentPack] || KPI_KEYWORDS.games;
   for (var i = 0; i < kw.length; i++){
     for (var j = 0; j < kw[i].words.length; j++){
-      if (text.indexOf(kw[i].words[j]) !== -1){
+      if (keywordMatches(text, kw[i].words[j])){
         return {kpi: kw[i].kpi, kpi_confidence: 'High', kpi_reason: 'Targets ' + kw[i].kpi + ' because ' + KPI_REASONS[kw[i].kpi] + '.'};
       }
     }
@@ -332,15 +516,6 @@ function assignKpi(it){
   var byTheme = (THEME_KPI[currentPack] || {})[it.theme];
   if (byTheme && list.indexOf(byTheme) !== -1){
     return {kpi: byTheme, kpi_confidence: 'Medium', kpi_reason: 'Targets ' + byTheme + ' because ' + KPI_REASONS[byTheme] + '.'};
-  }
-  if (currentPack === 'uploaded'){
-    var packs = ['games','healthcare','fintech','ecommerce'];
-    for (var p = 0; p < packs.length; p++){
-      var mapped = (THEME_KPI[packs[p]] || {})[it.theme];
-      if (mapped && list.indexOf(mapped) !== -1){
-        return {kpi: mapped, kpi_confidence: 'Medium', kpi_reason: 'Targets ' + mapped + ' because ' + KPI_REASONS[mapped] + '.'};
-      }
-    }
   }
   var fallback = list[0];
   return {kpi: fallback, kpi_confidence: 'Medium', kpi_reason: 'Targets ' + fallback + ' because ' + KPI_REASONS[fallback] + '.'};
@@ -365,24 +540,87 @@ function evidencePill(ev){
   var cls = ev === 'High' ? 'conf-high' : ev === 'Medium' ? 'conf-medium' : 'conf-low';
   return '<span class="tag ' + cls + '">' + escapeHtml(ev) + ' evidence</span>';
 }
-function confidencePill(conf){
-  var cls = conf >= 85 ? 'conf-high' : conf >= 65 ? 'conf-medium' : 'conf-low';
-  return '<span class="tag ' + cls + '">Confidence ' + conf + '%</span>';
-}
-function scoreBandPill(band){
-  var cls = band === 'High' ? 'conf-high' : band === 'Medium' ? 'conf-medium' : 'conf-low';
-  return '<span class="tag ' + cls + '">' + escapeHtml(band) + '</span>';
+// Measurable outcome per KPI, used by the Demo acceptance criteria.
+// Each outcome names the direction and the baseline it is measured
+// against, so the criterion is testable, not a restatement of the story.
+var KPI_OUTCOMES = {
+  'Day 7 retention':'the share of new players who return within 7 days is higher than the pre-release baseline',
+  'Day 30 retention':'the share of players still active after 30 days is higher than the pre-release baseline',
+  'Daily active users':'daily active users rise versus the 4-week baseline',
+  'Session length':'average session length rises versus the 4-week baseline',
+  'Conversion to paying':'the share of players who make a purchase rises versus the pre-release baseline',
+  'ARPU':'average revenue per player rises versus the pre-release baseline',
+  'Churn':'the churn rate falls versus the pre-release baseline',
+  'Matchmaking wait time':'average matchmaking wait time falls below the agreed target',
+  'No-show rate':'the no-show rate falls versus the pre-release baseline',
+  'Appointment utilization':'the share of filled appointment slots rises versus the pre-release baseline',
+  'Time to schedule':'the median time to book an appointment falls versus the pre-release baseline',
+  'Patient satisfaction':'patient satisfaction scores rise versus the pre-release baseline',
+  'Billing error rate':'the billing error rate falls versus the pre-release baseline',
+  'Staff time per task':'staff time per task falls versus the pre-release baseline',
+  'Onboarding completion':'the share of merchants who finish onboarding rises versus the pre-release baseline',
+  'Fraud loss rate':'fraud losses fall versus the pre-release baseline',
+  'Payout time':'median payout time falls versus the pre-release baseline',
+  'Dispute rate':'the dispute rate falls versus the pre-release baseline',
+  'KYC approval time':'median KYC approval time falls versus the pre-release baseline',
+  'Activation':'the share of merchants who activate rises versus the pre-release baseline',
+  'Conversion rate':'the checkout conversion rate rises versus the pre-release baseline',
+  'Cart abandonment':'the cart abandonment rate falls versus the pre-release baseline',
+  'Return rate':'the return rate falls versus the pre-release baseline',
+  'Search success':'the share of searches that end in a purchase rises versus the pre-release baseline',
+  'Seller onboarding time':'median seller onboarding time falls versus the pre-release baseline',
+  'Average order value':'the average value per completed order rises versus the 4-week baseline'
+};
+// Demo acceptance criteria, derived from the item's own data, 3 to 5
+// per item (prompts/drafting.md). The set varies per item because each
+// criterion embeds something from the item itself: the requester and
+// description in the core criterion, the KPI and its measurable outcome
+// in the measurement criterion, and the source, Impact, Effort,
+// evidence, and risk in the release criterion. No two items that differ in any field
+// share the identical full set. The discovery criterion appears only
+// when evidence is Low, and the audit/rollback criterion only when
+// risk is High, so a High-evidence item never carries a low-evidence
+// claim. Live mode does not use this: the model writes the criteria.
+function acceptanceFor(it, k){
+  var desc = String(it.description || it.title || '').trim();
+  desc = desc.charAt(0).toLowerCase() + desc.slice(1).replace(/\.+$/, '');
+  var actor = String(it.requester_type || 'user').toLowerCase();
+  var outcome = KPI_OUTCOMES[k.kpi] || 'the target KPI moves in the expected direction';
+  var out = [];
+  out.push('Given a ' + actor + ' in the ' + it.theme + ' workflow, when ' + desc + ', then ' + outcome + '.');
+  out.push('Given the feature is live, when ' + k.kpi + ' is measured over 4 weeks, then ' + outcome + '.');
+  out.push('Given a ' + it.source + ' report for this ' + it.theme + ' item (Impact ' + it.impact + ', Effort ' + it.effort + ', ' + it.evidence_strength + ' evidence), when the feature ships, then the release note states the expected outcome and the rollback plan matches the ' + it.risk + ' risk rating.');
+  if (it.evidence_strength === 'Low') out.push('Given this item has Low evidence, when it reaches review, then discovery is complete and the success metric is agreed before build starts.');
+  if (it.risk === 'High') out.push('Given the feature is live, when an audit or rollback is triggered, then the change can be reviewed and reverted without data loss.');
+  return out;
 }
 function scoreItem(it){
   var conf = confFor(it.evidence_strength);
-  var rice = Math.round((it.impact * it.impact * conf / 100 / Math.max(1, it.effort)) * 10);
+  // Demo RICE: Reach x Impact x Confidence / Effort / 10, with
+  // Confidence as a percentage (85 / 65 / 40 by evidence). Reach comes
+  // from the theme table, never from Impact: Impact used to stand in
+  // for Reach (Impact squared), which hid the Reach estimate. With
+  // Reach estimated from the theme, a Scheduling item with Impact 8,
+  // High evidence, Effort 4 scores Reach 9 x 8 x 85 / 4 / 10 = 153.
+  var reach = themeReach(it.theme);
+  var rice = Math.round(reach * it.impact * conf / Math.max(1, it.effort) / 10);
   var k = assignKpi(it);
-  return {id:it.id, title:it.title, description:it.description, source:it.source, requester_type:it.requester_type, theme:it.theme, impact:it.impact, effort:it.effort, risk:it.risk, evidence_strength:it.evidence_strength, confidence:conf, rice:rice, kpi:k.kpi, kpi_reason:k.kpi_reason, kpi_confidence:k.kpi_confidence, low_evidence:it.evidence_strength==='Low', story:'As a ' + it.requester_type.toLowerCase() + ', I want ' + it.description.charAt(0).toLowerCase() + it.description.slice(1) + ' so that the team can measure the result.', acceptance:['Given a user in this workflow, when they use this feature, then the expected outcome happens.','Given a low-evidence item, when it reaches review, then discovery is complete before build starts.'], status:'pending'};
+  return {id:it.id, title:it.title, description:it.description, source:it.source, requester_type:it.requester_type, theme:it.theme, impact:it.impact, effort:it.effort, risk:it.risk, evidence_strength:it.evidence_strength, reach:reach, reach_estimated:true, reach_confidence:'', confidence:conf, rice:rice, kpi:k.kpi, kpi_reason:k.kpi_reason, kpi_confidence:k.kpi_confidence, low_evidence:it.evidence_strength==='Low', story:'As a ' + it.requester_type.toLowerCase() + ', I want ' + it.description.charAt(0).toLowerCase() + it.description.slice(1) + ' so that the team can measure the result.', acceptance:acceptanceFor(it, k), status:'pending'};
+}
+function clusterKey(it){
+  // Base key for clustering: theme plus the first three words of the
+  // normalized title. Normalizing strips a leading "Related:" and
+  // punctuation, so "Related: Battle pass" and "Battle pass" land in
+  // the same cluster instead of splitting a duplicate group. The key
+  // is derived from the item, never unique per item, so uploaded items
+  // cluster with existing ones on the next triage run.
+  var t = String(it.title || '').toLowerCase().replace(/^\s*related:\s*/, '').replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+  return it.theme + '|' + t.split(' ').slice(0,3).join(' ');
 }
 function clusterItems(list){
   var seen = {}, out = [];
   list.forEach(function(it){
-    var key = it.theme + '|' + it.title.toLowerCase().split(' ').slice(0,3).join(' ');
+    var key = clusterKey(it);
     if(seen[key]){ seen[key].size++; seen[key].ids.push(it.id); }
     else { var c={theme:it.theme, key:key, size:1, ids:[it.id], rep:it.id}; seen[key]=c; out.push(c); }
   });
@@ -393,13 +631,17 @@ function seenIds(){
   items.forEach(function(it){ seen[it.id] = true; if (it.clickup_task_id) seen['task:' + it.clickup_task_id] = true; });
   archived.forEach(function(it){ seen[it.id] = true; if (it.clickup_task_id) seen['task:' + it.clickup_task_id] = true; });
   scored.forEach(function(it){ seen[it.id] = true; if (it.clickup_task_id) seen['task:' + it.clickup_task_id] = true; });
+  // Deleted ids count as seen, so appendItems() never resurrects them.
+  deletedIds.forEach(function(id){ seen[id] = true; });
   return seen;
 }
 function normalizeItem(o){
   var it = {};
   CSV_COLUMNS.forEach(function(h){ it[h] = o[h] != null ? o[h] : ''; });
-  it.impact = parseInt(it.impact, 10); if (isNaN(it.impact)) it.impact = 5;
-  it.effort = parseInt(it.effort, 10); if (isNaN(it.effort)) it.effort = 5;
+  // parseFloat, not parseInt, so decimals survive; clamp to the same
+  // ranges the CSV import enforces, so effort 0 can never reach RICE.
+  it.impact = parseFloat(it.impact); if (isNaN(it.impact)) it.impact = 5; if (it.impact < 0) it.impact = 0; if (it.impact > 10) it.impact = 10;
+  it.effort = parseFloat(it.effort); if (isNaN(it.effort)) it.effort = 5; if (it.effort < 1) it.effort = 1; if (it.effort > 10) it.effort = 10;
   if (['High','Medium','Low'].indexOf(it.evidence_strength) === -1) it.evidence_strength = 'Medium';
   if (!it.risk) it.risk = 'Medium';
   if (!it.source) it.source = 'ClickUp intake';
@@ -407,29 +649,43 @@ function normalizeItem(o){
   it.lifecycle = 'new';
   return it;
 }
-// Append only. Dedup by id, and by ClickUp task id when present, across
-// the active inbox, the scored queue, and the archive, so a re-import or
-// a re-sync never resurrects a decided item.
+function storyKeyOf(it){
+  return String(it.title || '').trim().toLowerCase() + '\n' + String(it.description || '').trim().toLowerCase();
+}
+// Append only. Dedup by id, by ClickUp task id when present, and by
+// title + description, across the active inbox, the scored queue, the
+// archive, and deleted-item tombstones, so a re-import or a re-sync
+// never resurrects a decided or deleted item, even under a new id.
+// Items without an id are malformed, not "already seen". Clusters are
+// recomputed here, so the stats are fresh right after an import.
 function appendItems(newItems){
   var seen = seenIds();
-  var added = 0, skipped = 0, addedItems = [];
+  var seenStories = {};
+  items.forEach(function(it){ seenStories[storyKeyOf(it)] = true; });
+  scored.forEach(function(it){ seenStories[storyKeyOf(it)] = true; });
+  archived.forEach(function(it){ seenStories[storyKeyOf(it)] = true; });
+  deletedKeys.forEach(function(k){ seenStories[k] = true; });
+  var added = 0, skipped = 0, malformed = 0, addedItems = [];
   (newItems || []).forEach(function(raw){
-    if (!raw || !raw.id) { skipped++; return; }
+    if (!raw || !raw.id) { malformed++; return; }
     if (seen[raw.id] || (raw.clickup_task_id && seen['task:' + raw.clickup_task_id])) { skipped++; return; }
     var it = normalizeItem(raw);
+    if (seenStories[storyKeyOf(it)]) { skipped++; return; }
     if (raw.clickup_task_id) it.clickup_task_id = raw.clickup_task_id;
     if (raw.clickup_task_url) it.clickup_task_url = raw.clickup_task_url;
     items.push(it);
     seen[it.id] = true;
+    seenStories[storyKeyOf(it)] = true;
     added++; newSinceTriage++;
     addedItems.push(it);
   });
-  return {added: added, skipped: skipped, addedItems: addedItems};
+  clusters = clusterItems(items);
+  return {added: added, skipped: skipped, malformed: malformed, addedItems: addedItems};
 }
 function archiveScored(scoredObj, entry){
   if (!scoredObj) return;
   var rec = {};
-  ['id','title','description','source','requester_type','theme','impact','effort','risk','evidence_strength','confidence','rice','kpi','kpi_reason','kpi_confidence','story','acceptance'].forEach(function(k){ rec[k] = scoredObj[k]; });
+  ['id','title','description','source','requester_type','theme','impact','effort','risk','evidence_strength','reach','reach_estimated','reach_confidence','confidence','rice','kpi','kpi_reason','kpi_confidence','story','acceptance'].forEach(function(k){ rec[k] = scoredObj[k]; });
   rec.decision = entry ? entry.decision : scoredObj.status;
   rec.reason = entry ? entry.reason : '';
   rec.reviewer = entry ? entry.reviewer : '';
@@ -445,51 +701,105 @@ function archiveScored(scoredObj, entry){
   clusters = clusterItems(items);
 }
 function saveCurrentState(){
-  packStates[currentPack] = {items: items.slice(), scored: scored.slice(), decisions: decisions.slice(), clusters: clusters.slice(), archived: archived.slice(), newSinceTriage: newSinceTriage};
+  // A pack that failed to load has no real state: its one-item fallback
+  // must never be cached, or switching back would restore the sample
+  // instead of retrying the fetch.
+  if (failedPacks[currentPack]) return;
+  packStates[currentPack] = {items: items.slice(), scored: scored.slice(), decisions: decisions.slice(), clusters: clusters.slice(), archived: archived.slice(), newSinceTriage: newSinceTriage, deletedIds: deletedIds.slice(), deletedKeys: deletedKeys.slice(), lastRunCost: lastRunCost, lastRunItems: lastRunItems, lastRunLive: lastRunLive, totalCost: totalCost, totalRuns: totalRuns, totalItemsTriaged: totalItemsTriaged};
 }
 function restoreState(st){
   items = st.items.slice(); scored = st.scored.slice(); decisions = st.decisions.slice();
-  clusters = st.clusters.slice(); archived = st.archived.slice(); newSinceTriage = st.newSinceTriage || 0;
+  clusters = st.clusters.slice(); archived = st.archived.slice(); newSinceTriage = st.newSinceTriage || 0; deletedIds = (st.deletedIds || []).slice(); deletedKeys = (st.deletedKeys || []).slice();
+  lastRunCost = (st.lastRunCost == null ? null : st.lastRunCost); lastRunItems = st.lastRunItems || 0; lastRunLive = !!st.lastRunLive;
+  totalCost = st.totalCost || 0; totalRuns = st.totalRuns || 0; totalItemsTriaged = st.totalItemsTriaged || 0;
+}
+// The #counts line, recomputed from state, so a pack switch or a
+// Reload Demo never leaves a stale run summary on screen.
+function countsText(){
+  if (!totalRuns) return '';
+  return scored.length + ' scored · ' + scored.filter(function(s){return s.low_evidence;}).length + ' low-evidence flags · $' + lastRunCost.toFixed(2) + (lastRunLive ? ' real cost' : ' estimated') + ' last run.';
+}
+// Disable the controls that must not change state while a triage run or
+// a ClickUp call is in flight: pack switch, CSV import, sync, reload,
+// and Run triage itself. Restoring re-applies the normal disabled
+// rules through updateActionBar().
+function setBusy(b){
+  busy = b;
+  var sel = document.getElementById('packSelect');
+  if (sel) sel.disabled = b;
+  var modeSel = document.getElementById('modeSelect');
+  if (modeSel) modeSel.disabled = b;
+  var csv = document.getElementById('csvFile');
+  if (csv) csv.disabled = b;
+  var label = document.querySelector('.csv-label');
+  if (label) label.style.opacity = b ? '0.45' : '';
+  ['runBtn','syncBtn','templateBtn','reloadBtn'].forEach(function(id){ var el = document.getElementById(id); if (el) el.disabled = b; });
+  if (!b) updateActionBar();
+}
+// Reviewer for a decision, asked once per session. There is no sign-in,
+// so the name is typed, never a hardcoded author.
+function getReviewer(){
+  if (sessionReviewer) return sessionReviewer;
+  var name = prompt('Your name (reviewer, saved with each decision for this session):', '');
+  if (name === null || !String(name).trim()) return '';
+  sessionReviewer = String(name).trim();
+  return sessionReviewer;
+}
+// Mode toggle text, so the header always says what the current mode
+// does and what it costs. Demo is free and local; Live costs real money.
+function renderMode(){
+  var sel = document.getElementById('modeSelect');
+  if (sel) sel.value = currentMode;
+  var note = document.getElementById('modeNote');
+  if (note) note.textContent = currentMode === 'live'
+    ? 'Live mode: Run triage calls the model through /.netlify/functions/triage and costs real money. Requires OPENROUTER_API_KEY set in Netlify environment variables.'
+    : 'Demo mode: rule-based scoring runs in your browser. Cost is a modeled estimate of $0.0192 per item, $0 real cost, no API key needed.';
 }
 function renderPacks(){
   // Industry pack selector is a dropdown in the header, to the right of
   // About this demo. Order is Games first, then Healthcare, Fintech,
-  // E-commerce, and Uploaded CSV. Selecting a pack switches packs exactly
+  // E-commerce. Selecting a pack switches packs exactly
   // as the old pill buttons did: per-pack state is preserved.
   var sel = document.getElementById('packSelect');
   if (sel){
-    var order = ['games', 'healthcare', 'fintech', 'ecommerce', 'uploaded'];
+    var order = ['games', 'healthcare', 'fintech', 'ecommerce'];
     sel.innerHTML = order.map(function(k){
       return '<option value="' + k + '"' + (k === currentPack ? ' selected' : '') + '>' + escapeHtml(PACKS[k].name) + '</option>';
     }).join('');
     sel.value = currentPack;
     sel.title = PACKS[currentPack].company + ': ' + PACKS[currentPack].desc;
-    sel.onchange = function(){ saveCurrentState(); currentPack = sel.value; loadPack(); };
+    sel.onchange = function(){
+      // Pack switching is blocked while a run or a ClickUp call is in
+      // flight, so the switch cannot land mid-run on the wrong pack.
+      if (busy){
+        document.getElementById('status').textContent = 'A triage run or ClickUp call is in progress. Wait for it to finish before switching packs.';
+        sel.value = currentPack;
+        return;
+      }
+      saveCurrentState(); currentPack = sel.value; backlogPage = 1; archivedPage = 1; loadPack();
+    };
   }
   document.getElementById('packContext').textContent = PACKS[currentPack].company + ': ' + PACKS[currentPack].desc;
-}
-function saveUploadedState(){ saveCurrentState(); }
-function syncUploadedVars(){
-  if (currentPack !== 'uploaded') return;
-  uploadedItems = items.slice(); uploadedScored = scored.slice();
-  uploadedDecisions = decisions.slice(); uploadedClusters = clusters.slice();
+  // The search placeholder names the pack being viewed, never another
+  // pack's example text.
+  var q = document.getElementById('backlogSearch');
+  if (q) q.placeholder = 'Search ' + PACKS[currentPack].name + ' titles, keywords...';
 }
 async function loadPack(){
+  backlogPage = 1; archivedPage = 1;
   renderPacks();
+  updateApprovedLinks();
   var errEl = document.getElementById('csvError'); if (errEl) errEl.textContent = '';
+  document.getElementById('counts').textContent = '';
   if (packStates[currentPack]){
     restoreState(packStates[currentPack]);
+    document.getElementById('counts').textContent = countsText();
     document.getElementById('status').textContent = PACKS[currentPack].name + ': ' + items.length + ' active items, ' + archived.length + ' archived. ' + (newSinceTriage ? newSinceTriage + ' new since last triage.' : 'Nothing new since last triage.');
-    renderStats(); renderBacklog(); renderReview(); renderArchived();
-    return;
-  }
-  if (currentPack === 'uploaded'){
-    items = []; scored = []; decisions = []; clusters = []; archived = []; newSinceTriage = 0;
-    document.getElementById('status').textContent = 'No CSV uploaded yet. Use the sticky action bar above, or the template first. Or use ClickUp Import to pull new items from the intake list.';
-    renderStats(); renderBacklog(); renderReview(); renderArchived();
+    renderStats(); renderBacklog(); renderArchived();
     return;
   }
   document.getElementById('status').textContent = 'Loading ' + PACKS[currentPack].name + '...';
+  var loadFailed = false;
   try {
     var res = await fetch('data/' + currentPack + '.json');
     if(!res.ok) throw new Error('fetch failed');
@@ -497,17 +807,28 @@ async function loadPack(){
     // fetched data itself, or a later reload would keep the additions.
     items = (await res.json()).slice();
   } catch(e) {
+    loadFailed = true;
     items = FALLBACK.slice();
-    document.getElementById('status').textContent = 'Could not load data/' + currentPack + '.json. Serve the folder with npm run dev. Showing one sample item.';
   }
-  scored = []; decisions = []; clusters = []; archived = [];
+  scored = []; decisions = []; clusters = []; archived = []; deletedIds = []; deletedKeys = [];
+  lastRunCost = null; lastRunItems = 0; lastRunLive = false; totalCost = 0; totalRuns = 0; totalItemsTriaged = 0;
   items.forEach(function(it){ it.lifecycle = 'new'; });
   newSinceTriage = items.length;
-  saveCurrentState(); syncUploadedVars();
+  if (loadFailed){
+    // A failed load shows the failure and is NOT cached: the one-item
+    // fallback is not the pack, and switching back must retry the fetch
+    // instead of showing the cached sample forever.
+    failedPacks[currentPack] = true;
+    document.getElementById('status').textContent = 'Could not load data/' + currentPack + '.json. Serve the folder with npm run dev. Showing one sample item.';
+    renderStats();
+    renderBacklog(); renderArchived();
+    return;
+  }
+  delete failedPacks[currentPack];
+  saveCurrentState();
   document.getElementById('status').textContent = PACKS[currentPack].name + ': ' + items.length + ' items loaded. Click Run triage.';
   renderStats();
-  renderBacklog();
-  renderReview(); renderArchived();
+  renderBacklog(); renderArchived();
 }
 function setTabBadge(id, n){
   var el = document.getElementById(id);
@@ -519,10 +840,8 @@ function renderTabCounts(){
   // Counts logic, one place so every render agrees:
   // Backlog new: newSinceTriage, red, hidden at 0 (handled in
   // renderNewIndicator, kept as is).
-  // Review: items in review, the top 25 of scored,
-  // which is scored.length capped at 25.
-  // Archived: archived.length. All neutral badges hide at 0.
-  setTabBadge('reviewCountBadge', Math.min(25, scored.length));
+  // Archived: archived.length. The neutral badge hides at 0.
+  // Backlog tab badge shows only the new-items count.
   setTabBadge('archivedCountBadge', archived.length);
 }
 function renderNewIndicator(){
@@ -544,11 +863,22 @@ function renderNewIndicator(){
 }
 function updateActionBar(){
   var runBtn = document.getElementById('runBtn');
-  if (runBtn) runBtn.disabled = !(newSinceTriage > 0);
+  // Busy wins: while a run or a ClickUp call is in flight, Run triage
+  // stays disabled even when new items exist, so updateActionBar calls
+  // from renderStats cannot re-enable it mid-flight.
+  if (runBtn) runBtn.disabled = busy || !(newSinceTriage > 0);
+  // A disabled Run triage always says why: nothing new since the last
+  // run, so there is nothing to score.
+  var runHint = document.getElementById('runHint');
+  if (runHint) runHint.textContent = newSinceTriage > 0 ? '' : 'Run triage is disabled: nothing new since the last triage. Import a CSV or sync from ClickUp to add items.';
   var exportBtn = document.getElementById('exportBtn');
   if (exportBtn) exportBtn.disabled = !(scored.length > 0);
+  var exportHint = document.getElementById('exportHint');
+  if (exportHint) exportHint.textContent = scored.length ? '' : 'Run triage to enable export.';
   var exportArchivedBtn = document.getElementById('exportArchivedBtn');
   if (exportArchivedBtn) exportArchivedBtn.disabled = !(archived.length > 0);
+  var archivedExportHint = document.getElementById('archivedExportHint');
+  if (archivedExportHint) archivedExportHint.textContent = archived.length ? '' : 'Nothing archived yet.';
 }
 var lastKpiPack = '';
 function renderKpiFilter(){
@@ -573,40 +903,200 @@ function renderStats(){
   // came from its own demo run.
   var hasRun = scored.length > 0;
   var lowCount = hasRun ? scored.filter(function(s){ return s.low_evidence; }).length : 0;
+  // Duplicate Clusters counts only real multi-item groups. Singletons
+  // are not duplicates, so they never inflate the number.
+  var multiCount = hasRun ? clusters.filter(function(c){ return c.size > 1; }).length : 0;
   backlogEl.textContent = items.length ? items.length : '-';
-  document.getElementById('statBacklogSub').textContent = (currentPack === 'uploaded' ? 'Uploaded CSV · ' : 'Demo dataset · ') + PACKS[currentPack].company + ' · ' + (newSinceTriage ? newSinceTriage + ' new since last triage' : 'Nothing new since last triage');
-  document.getElementById('statClustersValue').textContent = hasRun ? clusters.length : '-';
+  document.getElementById('statBacklogSub').textContent = 'Demo dataset · ' + PACKS[currentPack].company + ' · ' + (newSinceTriage ? newSinceTriage + ' new since last triage' : 'Nothing new since last triage');
+  document.getElementById('statClustersValue').textContent = hasRun ? multiCount : '-';
   document.getElementById('statClustersSub').textContent = 'Found by triage run';
   document.getElementById('statFlagsValue').textContent = hasRun ? lowCount : '-';
   document.getElementById('statFlagsSub').textContent = 'Need proof before build';
   document.getElementById('statDecisionsValue').textContent = archived.length;
-  document.getElementById('statDecisionsSub').textContent = 'Archived · approved, edited, rejected';
-  document.getElementById('statCostValue').textContent = '$3.84';
-  document.getElementById('statCostSub').textContent = '$0.0192 per item · ' + items.length + ' items';
+  document.getElementById('statDecisionsSub').textContent = 'Archived · approved, rejected';
+  // Est. Cost / Run: the last run's cost only, never a hardcoded
+  // 200-item figure. A Demo run costs the modeled estimate (fresh items
+  // x $0.0192). A Live run costs whatever the model actually charged,
+  // returned by the function, and the subline says so.
+  var costVal = document.getElementById('statCostValue');
+  var costSub = document.getElementById('statCostSub');
+  var costLabel = document.getElementById('statCostLabel');
+  if (totalRuns === 0){
+    costVal.textContent = '-';
+    costSub.textContent = 'Run triage to estimate cost';
+    if (costLabel) costLabel.textContent = 'Est. Cost / Run';
+  } else {
+    costVal.textContent = '$' + lastRunCost.toFixed(2);
+    if (costLabel) costLabel.textContent = lastRunLive ? 'Cost / Run' : 'Est. Cost / Run';
+    costSub.textContent = (lastRunLive ? 'Real cost from the model' : 'Estimated $0.0192 per item') + ' · ' + lastRunItems + (lastRunItems === 1 ? ' item' : ' items') + ' triaged last run · Total $' + totalCost.toFixed(2) + ' · ' + totalRuns + (totalRuns === 1 ? ' run' : ' runs') + ' · ' + totalItemsTriaged + ' items triaged';
+  }
 }
+function renderBacklogFilters(){
+  // Backlog Theme and Source options come from the items in the current
+  // pack, sorted. A selected value is kept when it still exists,
+  // otherwise it resets, so pack switches preserve valid selections.
+  var th = document.getElementById('backlogThemeFilter');
+  if (th){
+    var themes = [];
+    items.forEach(function(it){ if (themes.indexOf(it.theme) === -1) themes.push(it.theme); });
+    themes.sort();
+    var curTh = th.value;
+    th.innerHTML = '<option value="">All themes</option>' + themes.map(function(t){ return '<option value="' + escapeHtml(t) + '"' + (t === curTh ? ' selected' : '') + '>' + escapeHtml(t) + '</option>'; }).join('');
+    th.value = themes.indexOf(curTh) !== -1 ? curTh : '';
+  }
+  var so = document.getElementById('backlogSourceFilter');
+  if (so){
+    var sources = [];
+    items.forEach(function(it){ if (sources.indexOf(it.source) === -1) sources.push(it.source); });
+    sources.sort();
+    var curSo = so.value;
+    so.innerHTML = '<option value="">All sources</option>' + sources.map(function(t){ return '<option value="' + escapeHtml(t) + '"' + (t === curSo ? ' selected' : '') + '>' + escapeHtml(t) + '</option>'; }).join('');
+    so.value = sources.indexOf(curSo) !== -1 ? curSo : '';
+  }
+}
+// Condensed pagination: first page, last page, current page ±1, and
+// ellipses for gaps (e.g. "1 … 4 5 6 … 20"), never all page numbers.
+// The current page is a filled button with aria-current="page", plus a
+// "Page X of Y" label next to the controls. pos is 'top' or 'bottom':
+// both pagers on one list are rendered from the same page state in a
+// single render pass, so they always agree. All buttons disable while
+// a triage run or ClickUp call is in flight, like the pack switcher.
+function paginationHtml(page, totalPages, gotoFn, pos){
+  if (totalPages <= 1) return '';
+  var h = '<p class="pagination pagination-' + pos + '">';
+  h += '<button onclick="' + gotoFn + '(' + (page - 1) + ')"' + ((page <= 1 || busy) ? ' disabled' : '') + '>Previous</button> ';
+  var pages = [];
+  var i;
+  for (i = 1; i <= totalPages; i++){
+    if (i === 1 || i === totalPages || Math.abs(i - page) <= 1) pages.push(i);
+  }
+  var last = 0;
+  pages.forEach(function(n){
+    if (n - last > 1) h += '<span class="ellipsis" aria-hidden="true">…</span> ';
+    h += '<button onclick="' + gotoFn + '(' + n + ')"' + (busy ? ' disabled' : '') + (n === page ? ' class="active" aria-current="page"' : '') + '>' + n + '</button> ';
+    last = n;
+  });
+  h += '<button onclick="' + gotoFn + '(' + (page + 1) + ')"' + ((page >= totalPages || busy) ? ' disabled' : '') + '>Next</button>';
+  h += ' <strong class="page-label">Page ' + page + ' of ' + totalPages + '</strong></p>';
+  return h;
+}
+window.gotoBacklogPage = function(p){ if (busy) return; backlogPage = p; renderBacklog(); };
+window.gotoArchivedPage = function(p){ if (busy) return; archivedPage = p; renderArchived(); };
 function renderBacklog(){
+  renderBacklogFilters();
   var el = document.getElementById('backlogList');
   var scoredById = {};
   scored.forEach(function(s){ scoredById[s.id] = s; });
-  // New unscored items first, in the order they arrived, then triaged
-  // items sorted by RICE descending. Before any triage run every item
-  // is unscored, so the Backlog shows the original order with New badges.
+  // Order: new unscored items first, in arrival order, then every
+  // scored item in RICE descending order. Before any triage run every
+  // item is unscored, so the Backlog shows the original order with
+  // New badges.
   var fresh = items.filter(function(it){ return !scoredById[it.id]; });
-  var triaged = items.filter(function(it){ return scoredById[it.id]; }).sort(function(a, b){ return scoredById[b.id].rice - scoredById[a.id].rice; });
-  var ordered = fresh.concat(triaged);
-  // KPI filter: new unscored items always show, since they have no KPI
-  // yet. Scored items show only when their KPI matches the selection.
+  var ranked = items.filter(function(it){ return scoredById[it.id]; }).sort(function(a, b){ return scoredById[b.id].rice - scoredById[a.id].rice; });
+  var ordered = fresh.concat(ranked);
+  // Search, Theme, and Source apply to every item, new and scored.
+  // KPI filter: new unscored items always show, since they have
+  // no KPI yet. Scored items show only when their KPI matches.
+  var qEl = document.getElementById('backlogSearch');
+  var q = qEl ? qEl.value.trim().toLowerCase() : '';
+  var thEl = document.getElementById('backlogThemeFilter');
+  var themeVal = thEl ? thEl.value : '';
+  var soEl = document.getElementById('backlogSourceFilter');
+  var sourceVal = soEl ? soEl.value : '';
   var kf = document.getElementById('kpiFilter');
   var kpiFilterVal = kf ? kf.value : '';
-  if (kpiFilterVal){
-    ordered = ordered.filter(function(it){ var s = scoredById[it.id]; return !s || s.kpi === kpiFilterVal; });
+  ordered = ordered.filter(function(it){
+    if (q && ((it.title || '') + ' ' + (it.description || '')).toLowerCase().indexOf(q) === -1) return false;
+    if (themeVal && it.theme !== themeVal) return false;
+    if (sourceVal && it.source !== sourceVal) return false;
+    if (kpiFilterVal){ var sc2 = scoredById[it.id]; if (sc2 && sc2.kpi !== kpiFilterVal) return false; }
+    return true;
+  });
+  if (!ordered.length){
+    backlogItems = [];
+    backlogScoredItems = [];
+    backlogOrdered = [];
+    el.innerHTML = '<p class="muted">No items match the current search and filters.</p><p class="muted">Showing 0 of ' + items.length + ' active items. ' + archived.length + ' archived.</p>';
+    var ns0 = document.getElementById('newSince');
+    if (ns0) ns0.textContent = newSinceTriage ? 'New since last triage: ' + newSinceTriage + ' items.' : 'Nothing new since last triage.';
+    renderTabCounts();
+    return;
   }
-  el.innerHTML = ordered.slice(0,50).map(function(it){ var s = scoredById[it.id]; var isNew = !s; return '<div class="card"><strong>'+escapeHtml(it.title)+'</strong>' + (isNew ? '<span class="badge">New</span>' : '<span class="badge ok">Triaged</span>') + '<br>' + themeTag(it.theme) + sourceTag(it.source) + (isNew ? '' : kpiTag(s.kpi)) + '<p>'+escapeHtml(it.description)+'</p><p class="muted">Impact '+it.impact+' - Effort '+it.effort+' - Risk '+it.risk + (isNew ? '' : ' - RICE '+s.rice) + '</p><p>' + evidencePill(it.evidence_strength) + '</p></div>'; }).join('') + '<p class="muted">Showing ' + Math.min(50, ordered.length) + ' of '+ordered.length+' active items. ' + archived.length + ' archived.</p>';
+  // backlogItems is the displayed page, so the per-card Delete button
+  // acts on the item actually shown, at the same position.
+  // backlogScoredItems is the scored slice of the displayed page, in
+  // display order, so Approve / Edit / Retry act on the scored item
+  // actually shown.
+  backlogOrdered = ordered;
+  var totalPages = Math.max(1, Math.ceil(ordered.length / PAGE_SIZE));
+  if (backlogPage > totalPages) backlogPage = totalPages;
+  if (backlogPage < 1) backlogPage = 1;
+  var start = (backlogPage - 1) * PAGE_SIZE;
+  backlogItems = ordered.slice(start, start + PAGE_SIZE);
+  backlogScoredItems = [];
+  var scoreIndex = {};
+  backlogItems.forEach(function(it){ var sc = scoredById[it.id]; if (sc){ scoreIndex[it.id] = backlogScoredItems.length; backlogScoredItems.push(sc); } });
+  el.innerHTML = paginationHtml(backlogPage, totalPages, 'gotoBacklogPage', 'top') + backlogItems.map(function(it, i){ var s = scoredById[it.id]; var isNew = !s;
+    if (!isNew){
+      var di = scoreIndex[it.id];
+      var clickup = '';
+      if (s.clickup_status === 'creating') { clickup = '<p>Creating ClickUp task...</p>'; }
+      else if (s.clickup_status === 'created' && s.clickup_task_url) { clickup = '<p>ClickUp task: <a href="' + escapeHtml(s.clickup_task_url) + '" target="_blank" rel="noopener">Open task</a></p>'; }
+      else if (s.clickup_status === 'created') { clickup = '<p>ClickUp task created: ' + escapeHtml(s.clickup_task_id || '') + '</p>'; }
+      else if (s.clickup_status === 'failed') { clickup = '<p>ClickUp failed: ' + escapeHtml(s.clickup_error || 'Unknown error') + ' <button onclick="retryClickUp(' + di + ')">ClickUp failed, retry</button></p>'; }
+      // A scored item in the Backlog is always pending: approved and
+      // rejected items archive immediately. While a ClickUp create is
+      // in flight the buttons disable; on a failed create they stay
+      // enabled, so the item is never trapped as decided with no task.
+      var creating = s.approving || s.clickup_status === 'creating';
+      var statusPill = '<span class="status-pill pending">Pending</span>' + (s.edited ? ' <span class="badge ok">Edited</span>' : '');
+      var approveBtn = '<button class="btn-approve" onclick="decide(' + di + ',\'approved\')"' + (creating ? ' disabled' : '') + '>Approve</button>';
+      var rejectBtn = '<button class="btn-reject" onclick="decide(' + di + ',\'rejected\')"' + (creating ? ' disabled' : '') + '>Reject</button>';
+      var editBtn = '<button class="btn-edit" onclick="editItem(' + di + ')"' + (creating ? ' disabled' : '') + '>Edit</button>';
+      var reachLabel = s.reach != null ? 'Reach ' + s.reach + (s.reach_estimated ? ' (estimated)' : (s.reach_confidence === 'Low' ? ' (low-confidence estimate)' : '')) : '';
+      return '<div class="card"><strong>'+escapeHtml(it.title)+'</strong>' + statusPill + '<br>' + themeTag(it.theme) + kpiTag(s.kpi) + sourceTag(it.source) + evidencePill(s.evidence_strength) + '<p class="muted">RICE '+s.rice+' · '+reachLabel+' · Impact '+s.impact+' · Effort '+s.effort+' · Confidence '+s.confidence+'%</p>' + '<p>'+escapeHtml(s.story)+'</p>' + (s.kpi ? '<p class="muted">Target KPI · ' + escapeHtml(s.kpi_confidence || '') + ' confidence: ' + escapeHtml(s.kpi_reason || '') + '</p>' : '') + '<p class="muted">'+s.acceptance.map(escapeHtml).join('<br>')+'</p>' + clickup + '<p>' + approveBtn + ' ' + editBtn + ' ' + rejectBtn + ' <button class="btn-reject" onclick="deleteBacklogItem(' + i + ')">Delete</button></p></div>';
+    }
+    // Unscored new items keep the plain Backlog card: they have no
+    // story yet, so they get no decision buttons, only Delete.
+    return '<div class="card"><strong>'+escapeHtml(it.title)+'</strong><span class="badge">New</span><br>' + themeTag(it.theme) + sourceTag(it.source) + evidencePill(it.evidence_strength) + '<p>'+escapeHtml(it.description)+'</p><p class="muted">Impact '+it.impact+' - Effort '+it.effort+' - Risk '+it.risk + '</p><p><button class="btn-reject" onclick="deleteBacklogItem(' + i + ')">Delete</button></p></div>'; }).join('') + '<p class="muted">Showing ' + (start + 1) + '-' + (start + backlogItems.length) + ' of ' + ordered.length + ' active items. ' + archived.length + ' archived.</p>' + paginationHtml(backlogPage, totalPages, 'gotoBacklogPage', 'bottom');
   var ns = document.getElementById('newSince');
   if (ns) ns.textContent = newSinceTriage ? 'New since last triage: ' + newSinceTriage + ' items.' : 'Nothing new since last triage.';
   renderTabCounts();
 }
-function runTriage(){
+// Delete a Backlog item completely. It is not archived, not counted as
+// a decision, and its id is recorded in deletedIds so a re-import or
+// re-sync never brings it back.
+window.deleteBacklogItem = function(i){
+  var it = backlogItems[i]; if (!it) return;
+  var sc = null;
+  scored.forEach(function(s){ if (s.id === it.id) sc = s; });
+  if (sc && (sc.approving || sc.clickup_status === 'creating')){
+    document.getElementById('status').textContent = 'A ClickUp task is being created for this item. Wait for it to finish before deleting.';
+    return;
+  }
+  if (!confirm('Delete this item from the backlog? This removes it completely, it is not archived or counted as a decision.')) return;
+  var wasScored = scored.some(function(s){ return s.id === it.id; });
+  items = items.filter(function(x){ return x.id !== it.id; });
+  scored = scored.filter(function(x){ return x.id !== it.id; });
+  if (deletedIds.indexOf(it.id) === -1) deletedIds.push(it.id);
+  var dk = storyKeyOf(it);
+  if (deletedKeys.indexOf(dk) === -1) deletedKeys.push(dk);
+  if (!wasScored && newSinceTriage > 0) newSinceTriage--;
+  clusters = clusterItems(items);
+  saveCurrentState();
+  renderStats(); renderBacklog(); renderArchived();
+};
+async function runTriage(){
+  if (busy) return;
+  // Live mode calls the model and costs real money; Demo scores locally
+  // for free. The two paths share clustering, archiving, and cost
+  // bookkeeping, but never share scoring.
+  if (currentMode === 'live'){ await runLiveTriage(); return; }
+  runDemoTriage();
+}
+function runDemoTriage(){
+  setBusy(true);
+  try {
   // Incremental triage: score only items that have not been scored yet.
   // Undecided items keep their score, story, and place in the queue, and
   // decided items are already archived, so they are never re-scored.
@@ -616,186 +1106,248 @@ function runTriage(){
   fresh.forEach(function(s){ s.lifecycle = 'triaged'; });
   scored = scored.concat(fresh).sort(function(a,b){ return b.rice - a.rice; });
   items.forEach(function(it){ if (already[it.id] || fresh.some(function(f){ return f.id === it.id; })) it.lifecycle = 'triaged'; });
+  // Recompute clusters over the whole inbox, so new items join existing
+  // clusters instead of splitting a duplicate group.
   clusters = clusterItems(items);
-  var newCount = newSinceTriage;
-  newSinceTriage = 0;
-  saveCurrentState(); syncUploadedVars();
-  document.getElementById('counts').textContent = ' ' + clusters.length + ' clusters, ' + scored.filter(function(s){return s.low_evidence;}).length + ' low-evidence flags, top 25 drafted. ' + newCount + ' new since last triage.';
+  // Cost of this run only: fresh items actually triaged x $0.0192.
+  // A run with no new items costs $0.00 but still counts as a run.
+  // This is a modeled estimate, $0 real cost: Demo never calls the API.
+  var runCost = Math.round(fresh.length * COST_PER_ITEM * 10000) / 10000;
+  lastRunCost = runCost; lastRunItems = fresh.length; lastRunLive = false;
+  totalCost = Math.round((totalCost + runCost) * 10000) / 10000;
+  totalRuns += 1; totalItemsTriaged += fresh.length;
+  recountNewSinceTriage();
+  saveCurrentState();
+  document.getElementById('counts').textContent = scored.length + ' scored · ' + scored.filter(function(s){return s.low_evidence;}).length + ' low-evidence flags · $' + runCost.toFixed(2) + ' estimated this run.';
   // No triage-complete banner here: the stat cards and the #counts line
   // are the only summary. Clear the load-time status so it does not sit
   // stale ("Click Run triage") after a run.
   document.getElementById('status').textContent = '';
+  backlogPage = 1;
   renderStats();
-  renderBacklog(); renderReview();
-}
-function renderReviewFilters(){
-  // Review filter options update when the pack changes, same as the
-  // Backlog KPI filter. Theme and Source options come from the scored
-  // items in the current pack, KPI options from the pack's fixed list.
-  // A selected value is kept when it still exists, otherwise it resets.
-  var th = document.getElementById('reviewThemeFilter');
-  if (th){
-    var themes = [];
-    scored.forEach(function(s){ if (themes.indexOf(s.theme) === -1) themes.push(s.theme); });
-    themes.sort();
-    var curTh = th.value;
-    th.innerHTML = '<option value="">All themes</option>' + themes.map(function(t){ return '<option value="' + escapeHtml(t) + '"' + (t === curTh ? ' selected' : '') + '>' + escapeHtml(t) + '</option>'; }).join('');
-    th.value = themes.indexOf(curTh) !== -1 ? curTh : '';
-  }
-  var kp = document.getElementById('reviewKpiFilter');
-  if (kp){
-    var list = KPIS[currentPack] || KPIS.games;
-    var curKp = kp.value;
-    kp.innerHTML = '<option value="">All KPIs</option>' + list.map(function(k){ return '<option value="' + escapeHtml(k) + '"' + (k === curKp ? ' selected' : '') + '>' + escapeHtml(k) + '</option>'; }).join('');
-    kp.value = list.indexOf(curKp) !== -1 ? curKp : '';
-  }
-  var so = document.getElementById('reviewSourceFilter');
-  if (so){
-    var sources = [];
-    scored.forEach(function(s){ if (sources.indexOf(s.source) === -1) sources.push(s.source); });
-    sources.sort();
-    var curSo = so.value;
-    so.innerHTML = '<option value="">All sources</option>' + sources.map(function(t){ return '<option value="' + escapeHtml(t) + '"' + (t === curSo ? ' selected' : '') + '>' + escapeHtml(t) + '</option>'; }).join('');
-    so.value = sources.indexOf(curSo) !== -1 ? curSo : '';
+  renderBacklog();
+  } finally {
+    setBusy(false);
   }
 }
-function renderReview(){
-  renderTabCounts();
-  renderReviewFilters();
-  var el = document.getElementById('reviewList');
-  var top = scored.slice(0,25);
-  // Search and filters apply to the drafted items, on top of the
-  // pending-only rule. A drafted item must match every selected filter
-  // to show. Empty search shows all. There is no separate Show select
-  // in this front end: decisions archive immediately, so every drafted
-  // item here is still pending.
-  var qEl = document.getElementById('reviewSearch');
-  var q = qEl ? qEl.value.trim().toLowerCase() : '';
-  var thEl = document.getElementById('reviewThemeFilter');
-  var themeVal = thEl ? thEl.value : '';
-  var kpEl = document.getElementById('reviewKpiFilter');
-  var kpiVal = kpEl ? kpEl.value : '';
-  var soEl = document.getElementById('reviewSourceFilter');
-  var sourceVal = soEl ? soEl.value : '';
-  var filtered = top.filter(function(s){
-    if (q && ((s.title || '') + ' ' + (s.description || '')).toLowerCase().indexOf(q) === -1) return false;
-    if (themeVal && s.theme !== themeVal) return false;
-    if (kpiVal && s.kpi !== kpiVal) return false;
-    if (sourceVal && s.source !== sourceVal) return false;
-    return true;
-  });
-  // Keep the filtered list so Approve, Edit, and Retry act on the item
-  // shown in the card, not on a different item at the same position in
-  // the unfiltered top 25.
-  reviewItems = filtered;
-  if(!filtered.length){
-    el.innerHTML = top.length ? '<p class="muted">No drafted items match the current search and filters. Clear them to show all 25.</p>' : '<p class="muted">Run triage first.</p>';
+// New since last triage is the count of unscored items still in the
+// inbox. A full run clears it; a partial Live run leaves the items the
+// model did not score.
+function recountNewSinceTriage(){
+  var scoredIds = {};
+  scored.forEach(function(s){ scoredIds[s.id] = true; });
+  newSinceTriage = items.filter(function(it){ return !scoredIds[it.id]; }).length;
+}
+// A Live score is usable only when it carries the full contract shape:
+// an id that matches an unscored item, numeric reach, impact,
+// confidence, and effort, a finite rice, a KPI name, and a story. The
+// front end never re-scores a Live item: the model's values are used
+// exactly as returned.
+function validLiveScore(s){
+  if (!s || typeof s.id !== 'string' || !s.id) return false;
+  if (typeof s.reach !== 'number' || !(s.reach >= 1 && s.reach <= 10)) return false;
+  if (typeof s.impact !== 'number' || !(s.impact >= 0 && s.impact <= 10)) return false;
+  if (typeof s.confidence !== 'number' || !(s.confidence >= 0 && s.confidence <= 100)) return false;
+  if (typeof s.effort !== 'number' || !(s.effort > 0 && s.effort <= 10)) return false;
+  if (typeof s.rice !== 'number' || !isFinite(s.rice) || s.rice < 0) return false;
+  if (typeof s.kpi !== 'string' || !s.kpi) return false;
+  if (typeof s.story !== 'string' || !s.story) return false;
+  return true;
+}
+function liveScoreItem(it, s){
+  return {id:it.id, title:it.title, description:it.description, source:it.source, requester_type:it.requester_type, theme:(typeof s.theme === 'string' && s.theme) ? s.theme : it.theme, impact:s.impact, effort:s.effort, risk:it.risk, evidence_strength:it.evidence_strength, reach:s.reach, reach_estimated:false, reach_confidence:(typeof s.reach_confidence === 'string' ? s.reach_confidence : ''), confidence:s.confidence, rice:s.rice, kpi:s.kpi, kpi_reason:(typeof s.kpi_reason === 'string' ? s.kpi_reason : ''), kpi_confidence:(typeof s.kpi_confidence === 'string' ? s.kpi_confidence : 'Medium'), low_evidence:!!s.low_evidence, story:s.story, acceptance:Array.isArray(s.acceptance) && s.acceptance.length ? s.acceptance : ['Given a user in this workflow, when they use this feature, then the expected outcome happens.'], status:'pending'};
+}
+async function runLiveTriage(){
+  // Live runs cost real money, so they always ask first. A cancelled
+  // run scores nothing and changes nothing.
+  if (!triageSecretConfigured()){
+    document.getElementById('status').textContent = secretMisconfiguredMessage();
     return;
   }
-  el.innerHTML = filtered.map(function(s, i){
-    var clickup = '';
-    if (s.clickup_status === 'creating') { clickup = '<p>Creating ClickUp task...</p>'; }
-    else if (s.clickup_status === 'created' && s.clickup_task_url) { clickup = '<p>ClickUp task: <a href="' + escapeHtml(s.clickup_task_url) + '" target="_blank" rel="noopener">Open task</a></p>'; }
-    else if (s.clickup_status === 'created') { clickup = '<p>ClickUp task created: ' + escapeHtml(s.clickup_task_id || '') + '</p>'; }
-    else if (s.clickup_status === 'failed') { clickup = '<p>ClickUp failed: ' + escapeHtml(s.clickup_error || 'Unknown error') + ' <button onclick="retryClickUp(' + i + ')">ClickUp failed, retry</button></p>'; }
-    var decided = s.status !== 'pending';
-    var statusLabel = s.status === 'approved' ? 'Approved' : s.status === 'rejected' ? 'Rejected' : s.status === 'edited' ? 'Edited' : 'Pending';
-    var statusPill = '<span class="status-pill ' + s.status + '">' + statusLabel + '</span>';
-    var approveBtn = s.status === 'approved'
-      ? '<button class="btn-approved" disabled>Approved \u2713</button>'
-      : '<button class="btn-approve" onclick="decide(' + i + ',\'approved\')"' + (decided ? ' disabled' : '') + '>Approve</button>';
-    var rejectBtn = s.status === 'rejected'
-      ? '<button class="btn-rejected" disabled>Rejected</button>'
-      : '<button class="btn-reject" onclick="decide(' + i + ',\'rejected\')"' + (decided ? ' disabled' : '') + '>Reject</button>';
-    var editBtn = s.status === 'edited'
-      ? '<button class="btn-edited" disabled>Edited</button>'
-      : '<button class="btn-edit" onclick="editItem(' + i + ')"' + (decided ? ' disabled' : '') + '>Edit</button>';
-    return '<div class="card"><strong>'+escapeHtml(s.title)+'</strong>' + statusPill + '<br>' + themeTag(s.theme) + sourceTag(s.source) + kpiTag(s.kpi) + confidencePill(s.confidence) + ' <span class="muted">RICE '+s.rice+'</span>' + (s.low_evidence?'<span class="badge">Low evidence</span>':'<span class="badge ok">Evidence ok</span>') + '<p>'+escapeHtml(s.story)+'</p>' + (s.kpi ? '<p class="muted">KPI: ' + escapeHtml(s.kpi) + ' (' + escapeHtml(s.kpi_confidence || '') + '): ' + escapeHtml(s.kpi_reason || '') + '</p>' : '') + '<p class="muted">'+s.acceptance.map(escapeHtml).join('<br>')+'</p>' + clickup + approveBtn + ' ' + editBtn + ' ' + rejectBtn + '</div>';
-  }).join('');
+  if (!confirm('This run will call the model and cost real money. Continue?')) return;
+  var already = {};
+  scored.forEach(function(s){ already[s.id] = true; });
+  var fresh = items.filter(function(it){ return !already[it.id]; });
+  if (!fresh.length){
+    document.getElementById('status').textContent = 'Nothing new to triage.';
+    return;
+  }
+  setBusy(true);
+  try {
+    var res = await fetchWithTimeout('/.netlify/functions/triage', {
+      method: 'POST',
+      headers: functionHeaders(),
+      body: JSON.stringify({ items: fresh, pack: currentPack })
+    }, TRIAGE_TIMEOUT_MS);
+    var data = {};
+    try { data = await res.json(); } catch(e) { data = {}; }
+    if (!res.ok || !data.ok){
+      // A missing key is the expected first-run state, not a silent
+      // failure: say exactly what is missing and score nothing.
+      var errMsg = (data && data.error) ? data.error : ('Live triage failed with status ' + res.status);
+      if (res.status === 401) errMsg = 'The functions rejected the shared secret. Check TRIAGE_SHARED_SECRET in Netlify environment variables.';
+      if (/not configured/i.test(errMsg)) errMsg = 'Live mode needs OPENROUTER_API_KEY set in Netlify. ' + errMsg;
+      document.getElementById('status').textContent = errMsg;
+      return;
+    }
+    var byId = {};
+    fresh.forEach(function(it){ byId[it.id] = it; });
+    var applied = 0, invalid = 0;
+    (Array.isArray(data.scores) ? data.scores : []).forEach(function(s){
+      var it = byId[s.id];
+      if (!it || !validLiveScore(s)){ invalid++; return; }
+      var scoredItem = liveScoreItem(it, s);
+      scoredItem.lifecycle = 'triaged';
+      scored.push(scoredItem);
+      applied++;
+    });
+    scored.sort(function(a,b){ return b.rice - a.rice; });
+    items.forEach(function(it){ if (byId[it.id] && scored.some(function(s){ return s.id === it.id; })) it.lifecycle = 'triaged'; });
+    clusters = clusterItems(items);
+    // Real cost comes from the function, per token, never the modeled
+    // $0.0192 estimate. A missing usage object means $0.00, not a guess.
+    var usage = (data && data.usage) || {};
+    var runCost = typeof usage.costUsd === 'number' && isFinite(usage.costUsd) ? Math.round(usage.costUsd * 10000) / 10000 : 0;
+    lastRunCost = runCost; lastRunItems = applied; lastRunLive = true;
+    totalCost = Math.round((totalCost + runCost) * 10000) / 10000;
+    totalRuns += 1; totalItemsTriaged += applied;
+    recountNewSinceTriage();
+    saveCurrentState();
+    document.getElementById('counts').textContent = scored.length + ' scored · ' + scored.filter(function(s){return s.low_evidence;}).length + ' low-evidence flags · $' + runCost.toFixed(2) + ' real cost this run.' + (invalid ? ' ' + invalid + ' item' + (invalid === 1 ? '' : 's') + ' returned an invalid score and ' + (invalid === 1 ? 'was' : 'were') + ' left unscored.' : '');
+    document.getElementById('status').textContent = applied ? '' : 'Live run returned no usable scores. Nothing was scored.';
+    backlogPage = 1;
+    renderStats();
+    renderBacklog();
+  } catch(e){
+    document.getElementById('status').textContent = 'Live triage failed: ' + ((e && e.name === 'AbortError') ? 'the request timed out after ' + (TRIAGE_TIMEOUT_MS / 1000) + 's.' : (e && e.message ? e.message : 'could not reach the triage function.'));
+  } finally {
+    setBusy(false);
+  }
 }
 window.decide = async function(i, d){
-  var s = (reviewItems.length ? reviewItems : scored.slice(0,25))[i]; if(!s) return;
-  var reason = prompt('Reason for ' + d + ' (saved with the decision):', d==='approved'?'Meets the bar, evidence is clear.':'Needs more evidence.');
-  if(reason===null) return;
-  s.status = d;
-  var entry = {item:s.title, item_id:s.id, decision:d, reason:reason, reviewer:'konstantin-abadjiev', time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, clickup_status: d==='approved' ? 'creating' : 'none'};
-  decisions.push(entry);
-  // Reject archives immediately, no ClickUp call. Approve archives only
-  // after the ClickUp task is created, so a failed create stays in the
-  // inbox with a retry button.
-  if (d === 'rejected'){
-    archiveScored(s, entry);
-    saveCurrentState(); syncUploadedVars();
-    renderStats(); renderBacklog(); renderReview(); renderArchived();
+  var s = backlogScoredItems[i]; if(!s) return;
+  if (s.approving || s.clickup_status === 'creating') return;
+  // The reviewer is typed once per session, never a hardcoded author.
+  var reviewer = getReviewer();
+  if (!reviewer){
+    document.getElementById('status').textContent = 'A reviewer name is needed to record the decision; nothing was decided.';
     return;
   }
-  renderStats();
-  renderReview();
-  // Auto-create on Approve only. Edit and Reject never reach the API.
-  if (d !== 'approved') return;
-  await createClickUpTask(s, entry);
-  renderStats();
-  renderBacklog(); renderReview(); renderArchived();
-};
-window.editItem = function(i){
-  var s = (reviewItems.length ? reviewItems : scored.slice(0,25))[i]; if(!s) return;
-  var next = prompt('Edit the story:', s.story);
-  if(next===null) return;
-  s.story = next; s.status = 'edited';
-  var entry = {item:s.title, item_id:s.id, decision:'edited', reason:'Story edited in review.', reviewer:'konstantin-abadjiev', time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, clickup_status:'none'};
-  decisions.push(entry);
-  archiveScored(s, entry);
-  saveCurrentState(); syncUploadedVars();
-  renderStats();
-  renderBacklog(); renderReview(); renderArchived();
-};
-async function createClickUpTask(s, entry){
+  // The reason is typed, never a prefilled default, and an empty reason
+  // decides nothing: the item stays pending.
+  var reason = prompt('Reason for ' + d + ' (saved with the decision):', '');
+  if (reason === null || !String(reason).trim()){
+    document.getElementById('status').textContent = 'A reason is required; nothing was decided.';
+    return;
+  }
+  reason = String(reason).trim();
+  if (d === 'rejected'){
+    var entry = {item:s.title, item_id:s.id, decision:d, reason:reason, reviewer:reviewer, time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, clickup_status:'none'};
+    decisions.push(entry);
+    // Reject archives immediately, no ClickUp call.
+    archiveScored(s, entry);
+    saveCurrentState();
+    renderStats(); renderBacklog(); renderArchived();
+    return;
+  }
+  // Approve: the decision is held, not recorded, until the ClickUp task
+  // exists. The item stays pending with Approve, Edit, and Reject
+  // enabled while the create is in flight or has failed, so a failure
+  // never traps it as Approved with no task and no way out.
+  s.pendingApprovalReason = reason;
+  s.pendingApprovalReviewer = reviewer;
+  s.approving = true;
   s.clickup_status = 'creating';
-  if (entry) { entry.clickup_status = 'creating'; }
-  renderReview();
+  setBusy(true);
+  renderStats();
+  renderBacklog();
+  await createClickUpTask(s);
+  setBusy(false);
+  renderStats();
+  renderBacklog(); renderArchived();
+};
+// Edit a story in place. It is NOT a decision: the item stays in the
+// Backlog, still pending, with Approve / Edit / Reject available, and
+// the edited story is the one used if it is later approved or rejected.
+// An empty edit is rejected and the previous story is kept.
+window.editItem = function(i){
+  var s = backlogScoredItems[i]; if(!s) return;
+  var next = prompt('Edit the story:', s.story);
+  if (next === null) return;
+  if (!String(next).trim()){
+    document.getElementById('status').textContent = 'Empty story not saved; kept the previous story.';
+    return;
+  }
+  s.story = String(next).trim(); s.edited = true;
+  saveCurrentState();
+  renderStats();
+  renderBacklog(); renderArchived();
+};
+async function createClickUpTask(s){
+  if (!triageSecretConfigured()){
+    document.getElementById('status').textContent = secretMisconfiguredMessage();
+    return;
+  }
+  s.clickup_status = 'creating';
+  s.approving = true;
+  renderBacklog();
+  var reason = s.pendingApprovalReason || '';
+  var reviewer = s.pendingApprovalReviewer || '';
   try {
-    var res = await fetch('/.netlify/functions/clickup', {
+    var res = await fetchWithTimeout('/.netlify/functions/clickup', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ item: s, pack: currentPack, decision: 'approved', reviewer: 'konstantin-abadjiev' })
+      headers: functionHeaders(),
+      body: JSON.stringify({ item: s, pack: currentPack, decision: 'approved', reviewer: reviewer, reason: reason })
     });
     var data = {};
     try { data = await res.json(); } catch(e) { data = {}; }
-    if (!res.ok || !data.ok) {
-      throw new Error(data.error || ('ClickUp request failed with status ' + res.status));
-    }
+    // A success with no task id is a failure: accepting {ok:true} with
+    // no task would archive an approval that created nothing.
+    var msg = '';
+    if (!res.ok) msg = res.status === 401 ? 'The functions rejected the shared secret. Check TRIAGE_SHARED_SECRET in Netlify environment variables.' : ((data && data.error) ? data.error : ('ClickUp request failed with status ' + res.status));
+    else if (!data.ok) msg = (data && data.error) ? data.error : 'ClickUp request failed';
+    else if (!data.task_id) msg = 'ClickUp reported success but returned no task id';
+    if (msg) throw new Error(msg);
     // Success is never retried. A second POST would create a duplicate task.
     s.clickup_status = 'created';
     s.clickup_task_id = data.task_id;
-    s.clickup_task_url = data.task_url;
+    s.clickup_task_url = data.task_url || '';
     s.clickup_error = '';
-    if (entry) { entry.clickup_status = 'created'; entry.clickup_task_id = data.task_id; entry.clickup_task_url = data.task_url; }
-    // Approved items archive out of the active inbox, keeping the link.
+    s.approving = false;
+    // The decision is recorded only now, with the typed reason and
+    // reviewer, and the item archives out of the active inbox.
+    var entry = {item:s.title, item_id:s.id, decision:'approved', reason:reason, reviewer:reviewer, time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, clickup_status:'created', clickup_task_id:data.task_id, clickup_task_url:data.task_url || ''};
+    decisions.push(entry);
+    s.pendingApprovalReason = '';
+    s.pendingApprovalReviewer = '';
     archiveScored(s, entry);
-    saveCurrentState(); syncUploadedVars();
+    saveCurrentState();
   } catch(e) {
-    // Keep the approval locally. Only the ClickUp create failed.
+    // Keep the approval attempt on the item only: no decision entry is
+    // recorded, the item stays pending, Edit and Reject stay enabled,
+    // and the stored reason is reused by the retry button.
     s.clickup_status = 'failed';
-    s.clickup_error = e && e.message ? e.message : 'Unknown error';
-    if (entry) { entry.clickup_status = 'failed'; entry.clickup_error = s.clickup_error; }
+    s.approving = false;
+    s.clickup_error = (e && e.name === 'AbortError') ? 'ClickUp request timed out after ' + (CLICKUP_TIMEOUT_MS / 1000) + 's' : (e && e.message ? e.message : 'Unknown error');
+    saveCurrentState();
   }
 }
 window.retryClickUp = async function(i){
-  var s = (reviewItems.length ? reviewItems : scored.slice(0,25))[i]; if(!s) return;
+  var s = backlogScoredItems[i]; if(!s) return;
   // Retry is only for a failed create after an approval. It never runs
-  // after a success, and never runs for edited or rejected items.
-  if (s.status !== 'approved' || s.clickup_status !== 'failed') return;
-  var entry = null;
-  for (var k = decisions.length - 1; k >= 0; k--) {
-    // Match by item id, not by title. Titles repeat across items by
-    // design (near duplicates for clustering), so a title match could
-    // pick the wrong decision entry. Fall back to title only for entries
-    // created before item_id was recorded.
-    if (decisions[k].decision === 'approved' && (decisions[k].item_id ? decisions[k].item_id === s.id : decisions[k].item === s.title)) { entry = decisions[k]; break; }
+  // after a success, and never runs for rejected items. The stored
+  // reason from the original approval is reused, so no decision entry
+  // is written twice.
+  if (s.status !== 'pending' || s.clickup_status !== 'failed') return;
+  if (!s.pendingApprovalReason){
+    document.getElementById('status').textContent = 'The original approval reason was lost. Approve the item again to retry.';
+    return;
   }
-  await createClickUpTask(s, entry);
+  setBusy(true);
+  await createClickUpTask(s);
+  setBusy(false);
   renderStats();
-  renderBacklog(); renderReview(); renderArchived();
+  renderBacklog(); renderArchived();
 };
 function renderArchived(){
   renderTabCounts();
@@ -803,13 +1355,27 @@ function renderArchived(){
   if (exportArchivedBtn) exportArchivedBtn.disabled = !(archived.length > 0);
   var el = document.getElementById('archivedList');
   if (!el) return;
-  if (!archived.length){ el.innerHTML = '<p class="muted">Nothing archived yet. Approve, edit, or reject an item in Review.</p>'; return; }
-  el.innerHTML = archived.map(function(a){
-    var label = a.decision === 'approved' ? 'Approved' : a.decision === 'rejected' ? 'Rejected' : a.decision === 'edited' ? 'Edited' : a.decision;
-    var pillClass = a.decision === 'approved' ? 'approved' : a.decision === 'rejected' ? 'rejected' : 'edited';
+  if (!archived.length){ archivedShown = []; el.innerHTML = '<p class="muted">Nothing archived yet. Approve or reject an item in the backlog to archive it.</p>'; return; }
+  var decEl = document.getElementById('archivedDecisionFilter');
+  var decVal = decEl ? decEl.value : '';
+  var shown = decVal ? archived.filter(function(a){ return a.decision === decVal; }) : archived.slice();
+  if (!shown.length){
+    archivedShown = [];
+    el.innerHTML = '<p class="muted">No archived items with that decision.</p><p class="muted">Showing 0 of ' + archived.length + ' archived items.</p>';
+    return;
+  }
+  archivedShown = shown;
+  var totalPages = Math.max(1, Math.ceil(shown.length / PAGE_SIZE));
+  if (archivedPage > totalPages) archivedPage = totalPages;
+  if (archivedPage < 1) archivedPage = 1;
+  var start = (archivedPage - 1) * PAGE_SIZE;
+  var pageItems = shown.slice(start, start + PAGE_SIZE);
+  el.innerHTML = paginationHtml(archivedPage, totalPages, 'gotoArchivedPage', 'top') + pageItems.map(function(a){
+    var label = a.decision === 'approved' ? 'Approved' : a.decision === 'rejected' ? 'Rejected' : a.decision;
+    var pillClass = a.decision === 'approved' ? 'approved' : a.decision === 'rejected' ? 'rejected' : '';
     var link = a.clickup_task_url ? '<p>ClickUp task: <a href="' + escapeHtml(a.clickup_task_url) + '" target="_blank" rel="noopener">Open task</a></p>' : '';
-    return '<div class="card"><strong>' + escapeHtml(a.title) + '</strong><span class="status-pill ' + pillClass + '">' + label + '</span><br>' + themeTag(a.theme || 'Intake') + sourceTag(a.source || '') + kpiTag(a.kpi || '') + ' <span class="muted">RICE ' + (a.rice != null ? a.rice : '-') + '</span>' + (a.story ? '<p>' + escapeHtml(a.story) + '</p>' : '') + (a.kpi ? '<p class="muted">KPI: ' + escapeHtml(a.kpi) + ' (' + escapeHtml(a.kpi_confidence || '') + '): ' + escapeHtml(a.kpi_reason || '') + '</p>' : '') + '<p class="muted">' + escapeHtml(a.reason || '') + ' - ' + escapeHtml(a.reviewer || '') + ' - ' + escapeHtml(a.time || '') + '</p>' + link + '</div>';
-  }).join('');
+    return '<div class="card"><strong>' + escapeHtml(a.title) + '</strong><span class="status-pill ' + pillClass + '">' + label + '</span><br>' + themeTag(a.theme || 'Intake') + kpiTag(a.kpi || '') + sourceTag(a.source || '') + (a.evidence_strength ? evidencePill(a.evidence_strength) : '') + '<p class="muted">RICE ' + (a.rice != null ? a.rice : '-') + (a.confidence != null ? ' · Confidence ' + a.confidence + '%' : '') + '</p>' + (a.story ? '<p>' + escapeHtml(a.story) + '</p>' : '') + (a.kpi ? '<p class="muted">Target KPI · ' + escapeHtml(a.kpi_confidence || '') + ' confidence: ' + escapeHtml(a.kpi_reason || '') + '</p>' : '') + '<p class="muted">' + escapeHtml(a.reason || '') + ' - ' + escapeHtml(a.reviewer || '') + ' - ' + escapeHtml(a.time || '') + '</p>' + link + '</div>';
+  }).join('') + '<p class="muted">Showing ' + (start + 1) + '-' + (start + pageItems.length) + ' of ' + shown.length + ' archived items.</p>' + paginationHtml(archivedPage, totalPages, 'gotoArchivedPage', 'bottom');
 }
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
 document.querySelectorAll('#viewNav button').forEach(function(b){
@@ -821,77 +1387,136 @@ document.querySelectorAll('#viewNav button').forEach(function(b){
   };
 });
 document.getElementById('runBtn').onclick = runTriage;
-document.getElementById('kpiFilter').onchange = renderBacklog;
-var _reviewSearch = document.getElementById('reviewSearch');
-if (_reviewSearch) _reviewSearch.oninput = renderReview;
-['reviewThemeFilter','reviewKpiFilter','reviewSourceFilter'].forEach(function(id){
+var _modeSelect = document.getElementById('modeSelect');
+if (_modeSelect) _modeSelect.onchange = function(){
+  if (busy){ _modeSelect.value = currentMode; return; }
+  currentMode = _modeSelect.value;
+  renderMode();
+  renderStats();
+};
+document.getElementById('kpiFilter').onchange = function(){ backlogPage = 1; renderBacklog(); };
+var _backlogSearch = document.getElementById('backlogSearch');
+if (_backlogSearch) _backlogSearch.oninput = function(){ backlogPage = 1; renderBacklog(); };
+['backlogThemeFilter','backlogSourceFilter'].forEach(function(id){
   var e = document.getElementById(id);
-  if (e) e.onchange = renderReview;
+  if (e) e.onchange = function(){ backlogPage = 1; renderBacklog(); };
 });
+var _archivedDecisionFilter = document.getElementById('archivedDecisionFilter');
+if (_archivedDecisionFilter) _archivedDecisionFilter.onchange = function(){ archivedPage = 1; renderArchived(); };
 document.getElementById('reloadBtn').onclick = async function(){
+  if (busy) return;
+  if (!confirm('Reload the demo for ' + PACKS[currentPack].name + '? This wipes this pack\'s triage run, edits, decisions, archive, deleted items, and cost totals.')) return;
   delete packStates[currentPack];
   await loadPack();
 };
+// Client-side CSV download. The anchor must be appended to the document
+// before click(): a detached anchor click fails silently in some browsers
+// and sandboxed previews (including the CSV Template download).
+function download(filename, text){
+  var url = URL.createObjectURL(new Blob([text], {type:'text/csv'}));
+  var a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
+}
+function downloadNote(elId, filename){
+  var el = document.getElementById(elId);
+  if (el) el.textContent = 'Downloading ' + filename + '…';
+  setTimeout(function(){ var e2 = document.getElementById(elId); if (e2) e2.textContent = ''; }, 4000);
+}
+// The CSV Template button lives in the shared action bar, above both
+// tabs, so its "Downloading..." note must go to the status line of the
+// tab the user is actually looking at, not always the Backlog one.
+function visibleExportStatusId(){
+  var archivedTab = document.getElementById('tab-archived');
+  if (archivedTab && archivedTab.classList.contains('show')) return 'archivedExportStatus';
+  return 'exportStatus';
+}
 document.getElementById('exportBtn').onclick = function(){
-  if(!scored.length){ alert('Run triage first.'); return; }
-  var csv = 'id,title,theme,kpi,rice,confidence,status\n' + scored.map(function(s){ return [s.id, '"'+s.title.replace(/"/g,'""')+'"', s.theme, s.kpi || '', s.rice, s.confidence, s.status].join(','); }).join('\n');
-  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'})); a.download = currentPack + '-backlog.csv'; a.click();
+  // Exports the filtered Backlog, not the whole pack: the scored items
+  // the filters currently show, in RICE order. Every field is escaped,
+  // so commas in a theme, KPI, or title cannot break columns. The
+  // ClickUp columns show the real status: a failed approve exports as
+  // pending with clickup_status failed, never as approved with no task.
+  var byId = {};
+  scored.forEach(function(s){ byId[s.id] = s; });
+  var list = (backlogOrdered || []).filter(function(it){ return byId[it.id]; }).map(function(it){ return byId[it.id]; });
+  if(!list.length){ var s1 = document.getElementById('exportStatus'); if (s1) s1.textContent = 'Nothing to export: run triage first, or clear the filters.'; return; }
+  var csv = 'id,title,theme,kpi,rice,reach,confidence,status,clickup_status,clickup_task_id,clickup_task_url\n' + list.map(function(s){ return [s.id, s.title, s.theme, s.kpi || '', s.rice, s.reach != null ? s.reach : '', s.confidence, s.status, s.clickup_status || '', s.clickup_task_id || '', s.clickup_task_url || ''].map(csvEscape).join(','); }).join('\n');
+  var filename = currentPack + '-backlog.csv';
+  download(filename, csv); downloadNote('exportStatus', filename);
 };
 document.getElementById('exportArchivedBtn').onclick = function(){
-  if(!archived.length){ alert('Nothing archived yet.'); return; }
-  var header = 'id,title,theme,kpi,rice,confidence,decision,reason,reviewer,clickup_task_id,clickup_task_url';
-  var rows = archived.map(function(a){ return [a.id, a.title, a.theme, a.kpi || '', a.rice != null ? a.rice : '', a.confidence != null ? a.confidence : '', a.decision, a.reason || '', a.reviewer || '', a.clickup_task_id || '', a.clickup_task_url || ''].map(csvEscape).join(','); });
+  if(!archived.length){ var s2 = document.getElementById('archivedExportStatus'); if (s2) s2.textContent = 'Nothing archived yet to export.'; return; }
+  // Exports the filtered Archived list: the decision filter applies.
+  // When the filter matches nothing, the export is header-only.
+  var list = archivedShown;
+  var header = 'id,title,theme,kpi,rice,reach,confidence,decision,reason,reviewer,clickup_task_id,clickup_task_url,edited_story';
+  var rows = list.map(function(a){ return [a.id, a.title, a.theme, a.kpi || '', a.rice != null ? a.rice : '', a.reach != null ? a.reach : '', a.confidence != null ? a.confidence : '', a.decision, a.reason || '', a.reviewer || '', a.clickup_task_id || '', a.clickup_task_url || '', a.story || ''].map(csvEscape).join(','); });
   var csv = header + '\n' + rows.join('\n') + '\n';
-  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'})); a.download = currentPack + '-archived.csv'; a.click();
+  var filename = currentPack + '-archived.csv';
+  download(filename, csv); downloadNote('archivedExportStatus', filename);
 };
 document.getElementById('templateBtn').onclick = function(){
   var header = CSV_COLUMNS.join(',');
-  var rows = [
-    ['EX-001','Online booking for follow-up visits','Patients want to book online instead of calling, rather than phoning the clinic.','Customer request','Clinic manager','Scheduling',8,4,'Medium','High'],
-    ['EX-002','Skip tutorial option','Let returning players skip the tutorial, with a "skip" button on first launch.','Support ticket','Producer','Onboarding & Tutorials',6,2,'Low','Medium']
-  ];
+  var rows = TEMPLATE_EXAMPLES[currentPack] || TEMPLATE_EXAMPLES.games;
   var csv = header + '\n' + rows.map(function(r){ return r.map(csvEscape).join(','); }).join('\n') + '\n';
-  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'})); a.download = 'triage-template.csv'; a.click();
+  var filename = 'triage-template-' + currentPack + '.csv';
+  download(filename, csv); downloadNote(visibleExportStatusId(), filename);
 };
 document.getElementById('csvFile').addEventListener('change', function(ev){
   var f = ev.target.files[0]; if(!f) return;
+  if (busy){
+    document.getElementById('status').textContent = 'A triage run or ClickUp call is in progress. Wait for it to finish before importing a CSV.';
+    ev.target.value = '';
+    return;
+  }
   var errEl = document.getElementById('csvError');
   var r = new FileReader();
   r.onload = function(){
     var result;
-    try { result = parseUploadedCSV(String(r.result)); }
+    try { result = parseImportCSV(String(r.result)); }
     catch(e){ result = {error: 'Could not parse this CSV file: ' + e.message}; }
     if (result.error){
       if (errEl) errEl.textContent = result.error;
       document.getElementById('status').textContent = result.error;
-      document.getElementById('backlogList').innerHTML = '<div class="card"><strong>CSV upload failed</strong><p>' + escapeHtml(result.error) + '</p><p class="muted">Expected columns: ' + escapeHtml(CSV_COLUMNS.join(', ')) + '</p></div>';
+      // A bad file never wipes the visible backlog: re-render as-is.
+      renderStats(); renderBacklog(); renderArchived();
       ev.target.value = '';
       return;
     }
     if (errEl) errEl.textContent = '';
     // Append to the pack currently being viewed, never replace it and
-    // never switch packs. Dedup by id across the inbox, the scored queue,
-    // and the archive, so re-uploading the same file adds 0 new items and
-    // never resurrects a decided one.
+    // never switch packs. Dedup by id and by title + description across
+    // the inbox, the scored queue, the archive, and deleted-item
+    // tombstones, so re-uploading the same file adds 0 new items and
+    // never resurrects a decided or deleted one.
     var added = appendItems(result.items);
-    saveCurrentState(); syncUploadedVars();
-    var msg = 'Uploaded ' + added.added + ' new items, ' + added.skipped + ' already seen' + (result.skipped.length ? ', ' + result.skipped.length + ' rows skipped: ' + result.skipped.join('; ') : ', 0 rows skipped') + '. Click Run triage.';
+    saveCurrentState();
+    var msg = 'Uploaded ' + added.added + ' new items, ' + added.skipped + ' already seen' + (added.malformed ? ', ' + added.malformed + ' malformed (missing id) and ignored' : '') + (result.skipped.length ? ', ' + result.skipped.length + ' rows skipped: ' + result.skipped.join('; ') : ', 0 rows skipped') + '. Click Run triage.';
     if (result.warnings.length) msg += ' Warnings: ' + result.warnings.join('; ');
     document.getElementById('status').textContent = msg;
-    renderPacks(); renderStats(); renderBacklog(); renderReview(); renderArchived();
+    renderPacks(); renderStats(); renderBacklog(); renderArchived();
     ev.target.value = '';
   };
   r.readAsText(f);
 });
 document.getElementById('syncBtn').onclick = async function(){
+  if (busy) return;
+  setBusy(true);
   var statusEl = document.getElementById('status');
+  if (!triageSecretConfigured()){
+    statusEl.textContent = secretMisconfiguredMessage();
+    setBusy(false);
+    return;
+  }
   statusEl.textContent = 'Syncing from ClickUp intake list...';
   try {
-    var res = await fetch('/.netlify/functions/clickup-intake');
+    var res = await fetchWithTimeout('/.netlify/functions/clickup-intake', { headers: functionHeaders() });
     var data = {};
     try { data = await res.json(); } catch(e) { data = {}; }
     if (!res.ok || !data.ok){
-      statusEl.textContent = 'ClickUp sync failed: ' + (data.error || ('HTTP ' + res.status));
+      statusEl.textContent = 'ClickUp sync failed: ' + (res.status === 401 ? 'The functions rejected the shared secret. Check TRIAGE_SHARED_SECRET in Netlify environment variables.' : (data.error || ('HTTP ' + res.status)));
       if (document.getElementById('csvError')) document.getElementById('csvError').textContent = data.error || '';
       return;
     }
@@ -899,7 +1524,7 @@ document.getElementById('syncBtn').onclick = async function(){
     // never switch packs. A sync with 0 new items changes nothing in
     // the current pack.
     var added = appendItems(data.items || []);
-    saveCurrentState(); syncUploadedVars();
+    saveCurrentState();
     // Close-on-intake: once Triage has taken an item, close its ClickUp
     // task (status "complete"), never delete it. Only close the ids that
     // were genuinely new in this sync, never items already seen or already
@@ -917,9 +1542,9 @@ document.getElementById('syncBtn').onclick = async function(){
       for (var ci = 0; ci < newTaskIds.length; ci += 50){
         var batchIds = newTaskIds.slice(ci, ci + 50);
         try {
-          var closeRes = await fetch('/.netlify/functions/clickup-intake-close', {
+          var closeRes = await fetchWithTimeout('/.netlify/functions/clickup-intake-close', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: functionHeaders(),
             body: JSON.stringify({ task_ids: batchIds })
           });
           var closeData = {};
@@ -933,17 +1558,20 @@ document.getElementById('syncBtn').onclick = async function(){
         }
       }
       if (!closeFailed && failedTotal === 0){
-        closeNote = ' Synced ' + added.added + ' new items, closed ' + closedTotal + ' in ClickUp.';
+        closeNote = ' Closed ' + closedTotal + ' in ClickUp.';
       } else {
-        closeNote = ' Synced ' + added.added + ' new items, could not close ' + failedTotal + ' in ClickUp, they will be skipped as duplicates next time.';
+        closeNote = ' Could not close ' + failedTotal + ' in ClickUp, they will be skipped as duplicates next time.';
       }
     }
-    statusEl.textContent = 'Synced ' + added.added + ' new items, ' + added.skipped + ' already seen from ClickUp intake.' + closeNote + ' Click Run triage.';
-    renderPacks(); renderStats(); renderBacklog(); renderReview(); renderArchived();
+    statusEl.textContent = 'Synced ' + added.added + ' new items, ' + added.skipped + ' already seen' + (added.malformed ? ', ' + added.malformed + ' malformed (missing id) and ignored' : '') + ' from ClickUp intake.' + closeNote + ' Click Run triage.';
+    renderPacks(); renderStats(); renderBacklog(); renderArchived();
   } catch(e){
-    statusEl.textContent = 'ClickUp sync failed: could not reach the intake function. ' + (e && e.message ? e.message : '');
+    statusEl.textContent = 'ClickUp sync failed: ' + ((e && e.name === 'AbortError') ? 'the request timed out after ' + (CLICKUP_TIMEOUT_MS / 1000) + 's.' : 'could not reach the intake function. ' + (e && e.message ? e.message : ''));
+  } finally {
+    setBusy(false);
   }
 };
+renderMode();
 loadPack();
 </script>
 </body>

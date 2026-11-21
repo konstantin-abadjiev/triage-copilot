@@ -8,9 +8,16 @@
 // No token or List ID is stored in this file or in the repo. Set them
 // only in environment variables, in Netlify Site settings >
 // Environment variables, or in a local .env file that is never committed.
+// Every call must also send the X-Triage-Secret header matching
+// TRIAGE_SHARED_SECRET (see netlify/functions/lib/auth.mjs); without it
+// the function returns 401 and does nothing.
 // ClickUp API: GET https://api.clickup.com/api/v2/list/{list_id}/task
 // Rate limit: 100 requests per minute.
+import { authorize } from './lib/auth.mjs';
+
 export async function handler(event) {
+  const denied = authorize(event);
+  if (denied) return denied;
   if (event.httpMethod !== 'GET') {
     return { statusCode: 405, body: JSON.stringify({ ok: false, error: 'Use GET' }) };
   }
@@ -27,13 +34,22 @@ export async function handler(event) {
     let res;
     try {
       res = await fetch('https://api.clickup.com/api/v2/list/' + encodeURIComponent(listId) + '/task?archived=false&page=' + page, {
-        headers: { Authorization: token, 'Content-Type': 'application/json' }
+        headers: { Authorization: token, 'Content-Type': 'application/json' },
+        signal: AbortSignal.timeout(30000)
       });
     } catch (err) {
-      return { statusCode: 502, body: JSON.stringify({ ok: false, error: 'Could not reach ClickUp', detail: String(err && err.message ? err.message : err).slice(0, 200) }) };
+      const timedOut = err && err.name === 'AbortError';
+      return { statusCode: 502, body: JSON.stringify({ ok: false, error: timedOut ? 'ClickUp request timed out after 30s' : 'Could not reach ClickUp', detail: String(err && err.message ? err.message : err).slice(0, 200) }) };
     }
     if (!res.ok) {
-      return { statusCode: res.status === 429 ? 429 : 502, body: JSON.stringify({ ok: false, error: clickUpErrorMessage(res.status), clickup_status: res.status }) };
+      // Read the error body, so the real ClickUp message reaches the user.
+      let detail = '';
+      try {
+        const eb = await res.json();
+        if (eb && typeof eb.err === 'string' && eb.err) detail = eb.err;
+        else if (eb && typeof eb.message === 'string' && eb.message) detail = eb.message;
+      } catch {}
+      return { statusCode: res.status === 429 ? 429 : 502, body: JSON.stringify({ ok: false, error: clickUpErrorMessage(res.status) + (detail ? ' ClickUp said: ' + detail.slice(0, 200) : ''), clickup_status: res.status }) };
     }
     let data;
     try {
