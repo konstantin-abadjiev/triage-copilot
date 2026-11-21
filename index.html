@@ -60,6 +60,12 @@ header{background:var(--header-bg);color:var(--on-brand);padding:20px 24px;borde
 .shell{max-width:1200px;margin:0 auto}
 .tagline{color:var(--on-brand-muted);margin:4px 0 0;font-size:15px}
 header h1{margin:0 0 8px;font-size:28px}
+/* Contextual header: the "T" mark beside the pack · view title. The
+   header band is deep green in both themes, so the mark is a
+   translucent white square with white type. */
+.brand-row{display:flex;align-items:center;gap:12px;margin:0 0 8px}
+.brand-row h1{margin:0}
+.brand-mark{flex:0 0 auto;width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#ffffff;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center}
 header p{margin:4px 0;max-width:900px;line-height:1.5}
 header .showcase{color:var(--on-brand);font-size:14px}
 .header-row{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
@@ -124,12 +130,43 @@ details.panel-about summary{cursor:pointer;font-weight:700}
 .tab-badge{display:inline-block;background:#dc2626;color:#fff;border-radius:999px;font-size:11px;font-weight:700;padding:2px 8px;margin-left:6px;white-space:nowrap}
 .tab-badge.neutral{background:var(--neutral-bg);color:var(--neutral-text)}
 .tab-badge[hidden]{display:none}
-.viewnav{display:flex;gap:8px;flex-wrap:wrap;width:100%;margin-top:4px}
-.viewnav button.active{background:#15803d;color:#ffffff;border-color:#15803d;font-weight:700}
+/* Tab row: the preview's VIEW section. The action buttons above are
+   rectangular; the tabs are fully rounded pills, separated from the
+   actions by a divider, so the two groups do not read as one button
+   cluster. The active tab is a muted deep green, not the bright green
+   of the old active state, which competed with the gold Run button. */
+.actionbar-label{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);flex:0 0 auto}
+.actionbar-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;width:100%}
+.actionbar-divider{flex:0 0 100%;border-top:1px solid var(--border);margin:10px 0 12px}
+.viewnav{display:flex;gap:8px;flex-wrap:wrap;flex:1 1 auto;min-width:0}
+.viewnav button{border-radius:999px}
+.viewnav button.active{background:#0f4c3a;color:#ffffff;border-color:#0f4c3a;font-weight:700}
+html[data-theme="dark"] .viewnav button.active{background:#1d4a38;color:#d7e8de;border-color:#1d4a38}
+/* Count pill on the active tab: the same dark pill as the preview
+   (#17201c, white bold count) in both active and inactive states and
+   both themes, legible on the muted deep-green active tab. */
+.viewnav button.active .tab-badge.neutral{background:#17201c;color:#ffffff}
+/* "Go to Backlog" in the empty Archived state: the same filled brand
+   button as ClickUp Import / CSV Import, centered under the text. */
+.btn-mint{background:var(--brand);color:var(--on-brand-btn);border-color:var(--brand);font-weight:700}
+.empty-state{text-align:center}
+/* Decision history entries: plain blocks inside the history card,
+   separated by hairlines, not separate cards. */
+.history-entry{padding:12px 0;border-top:1px solid var(--border)}
+.history-entry:first-child{border-top:0;padding-top:0}
 .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
 .stat-label{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
 .stat-value{font-size:32px;font-weight:800;line-height:1.2;margin:6px 0}
 .stat-sub{font-size:13px;color:var(--muted);line-height:1.4}
+/* Cost tracker panel: the preview's panel, in the stats/Overview area.
+   The highlighted next-run box reuses the amber tint of the
+   "new items need triage" banner. */
+.cost-tracker h3{margin:0 0 8px}
+.cost-tracker p{margin:8px 0}
+.cost-total-head{margin:12px 0 4px}
+.cost-sep{margin-left:16px}
+.cost-note{color:var(--danger-text)}
+.cost-next{background:var(--amber-bg);border:1px solid var(--amber-border);color:var(--amber-text);border-radius:12px;padding:14px 16px;margin:12px 0;font-weight:700;font-size:15px}
 @media (max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.stats{grid-template-columns:1fr}}
 @media (max-width:480px){.tag{white-space:normal}.card{padding:14px}}
@@ -146,15 +183,20 @@ footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid var(--border);col
 #backlogSearch{flex:1 1 280px;min-width:240px}
 .dialog-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;z-index:100}
 .dialog-overlay[hidden]{display:none}
-.dialog{background:var(--surface);border:1px solid var(--border-strong);border-radius:12px;padding:20px;width:100%;max-width:640px;box-shadow:var(--dialog-shadow)}
+.dialog{background:var(--surface);border:1px solid var(--border-strong);border-radius:12px;padding:20px;width:100%;max-width:640px;box-shadow:var(--dialog-shadow);max-height:92vh;overflow-y:auto}
 .dialog h3{margin:0 0 12px}
 .dialog textarea,.dialog input[type="text"]{width:100%;box-sizing:border-box;padding:10px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;background:var(--input-bg);color:var(--text);font-family:inherit}
 .dialog textarea{resize:vertical}
+/* Edit dialog story field: large, matching the preview (rows 16,
+   min-height 360px, 52vh desktop / 48vh mobile). The dialog scrolls
+   (max-height 92vh) so the story field and the criteria field both
+   fit. The criteria field (rows 8) is untouched. */
+#editStoryField{min-height:360px;height:52vh}
 .dialog-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
 .dialog label{display:block;margin:10px 0 4px;font-weight:600}
 .skeleton-card{background:var(--surface);border:1px dashed var(--border-strong);border-radius:12px;padding:16px;margin:0 0 20px;color:var(--muted)}
 .csv-label:focus-visible{outline:2px solid var(--link);outline-offset:2px}
-@media (max-width:520px){#backlogSearch{flex-basis:100%;min-width:0}.filters-card label{flex-basis:100%}.dialog{padding:16px}.dialog-overlay{padding:16px 8px}
+@media (max-width:520px){#backlogSearch{flex-basis:100%;min-width:0}.filters-card label{flex-basis:100%}.dialog{padding:16px}.dialog-overlay{padding:16px 8px}#editStoryField{min-height:360px;height:48vh}
   /* Mobile pager: one non-wrapping flex row. Icon-only prev/next and
      first/last plus current ±1 numbers (rendered by paginationHtml),
      so the row fits 390px with no wrap and no horizontal scroll. The
@@ -185,7 +227,7 @@ footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid var(--border);col
 <body>
 <header>
 <div class="shell">
-<h1>Backlog Triage Copilot</h1>
+<div class="brand-row"><div class="brand-mark" aria-hidden="true">T</div><h1><span id="headerPack">Grekon Games</span> · <span id="headerView">Backlog</span></h1></div>
 <p class="tagline">AI-native backlog triage: a messy, duplicate-filled backlog, scored with RICE and confidence, decided by a human.</p>
 <div class="header-row">
 <details class="about">
@@ -217,6 +259,8 @@ footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid var(--border);col
 </header>
 <main>
 <div class="actionbar" id="actionBar">
+<div class="actionbar-row">
+<span class="actionbar-label">Actions</span>
 <button id="runBtn" class="primary">Run triage · Demo</button>
 <span id="runHint" class="muted"></span>
 <button id="syncBtn">ClickUp Import</button>
@@ -224,9 +268,14 @@ footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid var(--border);col
 <input type="file" id="csvFile" accept=".csv">
 <button id="templateBtn">CSV Template</button>
 <button id="reloadBtn">Reload Demo</button>
+</div>
+<div class="actionbar-divider" aria-hidden="true"></div>
+<div class="actionbar-row">
+<span class="actionbar-label">View</span>
 <div class="viewnav" id="viewNav">
-<button data-tab="backlog" class="active">Backlog <span id="backlogNewBadge" class="tab-badge" hidden></span></button>
-<button data-tab="archived">Archived <span id="archivedCountBadge" class="tab-badge neutral" hidden></span></button>
+<button data-tab="backlog" class="active">Backlog <span id="backlogNewBadge" class="tab-badge" hidden></span><span id="backlogCountBadge" class="tab-badge neutral"></span></button>
+<button data-tab="archived">Archived <span id="archivedCountBadge" class="tab-badge neutral"></span></button>
+</div>
 </div>
 </div>
 <p class="muted">Session only: reloading this page wipes decisions, scores, the archive, edits, uploads, and deletes. Export anything you want to keep.</p>
@@ -236,43 +285,62 @@ footer{margin:32px 0 8px;padding-top:16px;border-top:1px solid var(--border);col
 <div id="newBanner" class="new-banner" role="status" hidden><span id="newBannerText"></span></div>
 <div id="status" class="muted">Loading data. If you opened this file directly, serve the folder with <code>npm run dev</code> so data/*.json can load.</div>
 <section id="tab-backlog" class="tab show">
-<div class="card"><h2>Backlog <span id="backlogCount" class="muted"></span></h2><details class="panel-about"><summary>About Backlog</summary><p class="muted">Run triage stack-ranks the backlog by RICE (Reach × Impact × Confidence ÷ Effort ÷ 10, with Confidence as a percentage), highest first. Approve or reject any item, in order. You can edit a story first, it stays in the backlog until you approve or reject it. Approving creates a ClickUp task automatically. Decided items move to Archived. Approved items export to ClickUp in the <a id="approvedListLinkBacklog" href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
+<div class="card"><h2>Backlog <span id="backlogCount" class="muted"></span></h2><details class="panel-about"><summary>About Backlog</summary><p class="muted">Run triage stack-ranks the backlog by RICE (Reach × Impact × Confidence ÷ Effort ÷ 10, with Confidence as a percentage), highest first. Approve or reject any item, in order. You can edit a story first, it stays in the backlog until you approve or reject it. Approving creates a ClickUp task automatically. Decided items move to Archived. Approved items export to ClickUp in the <a id="approvedListLinkBacklog" href="https://app.clickup.com/9009062684/v/li/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
 <section id="statsBar" class="stats" aria-label="Overview">
 <div class="stat-card"><div class="stat-label">Backlog Items</div><div class="stat-value" id="statBacklogValue">-</div><div class="stat-sub" id="statBacklogSub">Demo dataset</div></div>
 <div class="stat-card"><div class="stat-label">Duplicate Clusters</div><div class="stat-value" id="statClustersValue">-</div><div class="stat-sub" id="statClustersSub">Found by triage run</div></div>
 <div class="stat-card"><div class="stat-label">Low-Evidence Flags</div><div class="stat-value" id="statFlagsValue">-</div><div class="stat-sub" id="statFlagsSub">Need proof before build</div></div>
 <div class="stat-card"><div class="stat-label">Decisions Logged</div><div class="stat-value" id="statDecisionsValue">0</div><div class="stat-sub" id="statDecisionsSub">Approved · rejected</div></div>
-<div class="stat-card"><div class="stat-label" id="statCostLabel">Est. Cost / Run</div><div class="stat-value" id="statCostValue">-</div><div class="stat-sub" id="statCostSub">Run triage to estimate cost</div></div>
-<div class="stat-card"><div class="stat-label" id="statNextLabel">Next Run Cost</div><div class="stat-value" id="statNextValue">$0.00</div><div class="stat-sub" id="statNextSub">Nothing new to triage</div></div>
+</section>
+<section id="costTracker" class="card cost-tracker" aria-label="Cost tracker">
+<h3 id="costTrackerTitle">Cost tracker — Demo mode</h3>
+<p id="costLastRun">Last run <strong>$0.00</strong> · no runs yet</p>
+<p><span id="costCharged">Estimated — <strong>$0.00</strong> charged</span><span class="cost-sep" id="costPerItem">Per item <strong>$0.0192</strong></span></p>
+<p id="costTokens">Tokens / item <strong>~1,240 in · ~310 out</strong></p>
+<p class="cost-total-head" id="costTotalHead"><strong>Total — all Demo runs (this pack, estimated)</strong></p>
+<p id="costTotal">Total cost <strong>$0.00</strong><span class="cost-sep">Runs <strong>0</strong></span><span class="cost-sep">Items triaged <strong>0</strong></span></p>
+<p id="costOtherTotal">Live total (real, charged): $0.00 · 0 runs</p>
+<p id="costLiveNote" class="cost-note" hidden></p>
+<div class="cost-next" id="costNextBox">Next run estimate <strong id="costNextValue">$0.00</strong> estimated · <span id="costNextItems">0</span> items waiting to be triaged</div>
+<p class="muted" id="costExplainer">Demo mode never calls a model: every cost here is an estimate of what a Live run would cost, and $0.00 is charged. Totals are kept per pack and per mode and reset only on Reload Demo. The next-run estimate above updates whenever items are added, so it always reflects only the unscored items waiting.</p>
 </section>
 <div class="card filters-card"><label>Search <input id="backlogSearch" type="search" placeholder="Title, keyword..."></label> <label>Theme <select id="backlogThemeFilter"><option value="">All themes</option></select></label> <label>KPI <select id="kpiFilter"><option value="">All KPIs</option></select></label> <label>Source <select id="backlogSourceFilter"><option value="">All sources</option></select></label><p class="muted">KPIs are assigned when an item is triaged. New unscored items always show, whatever KPI is selected.</p></div>
 <div class="card"><button id="exportBtn">Export Backlog CSV</button> <span id="exportHint" class="muted">Run triage to enable export.</span><p class="muted">Exports the scored items in the current filtered Backlog, in RICE order, with their ClickUp status.</p><p id="exportStatus" class="muted" role="status"></p></div>
 <div id="backlogList"></div>
 </section>
 <section id="tab-archived" class="tab">
-<div class="card"><h2>Archived <span id="archivedCount" class="muted"></span></h2><details class="panel-about"><summary>About Archived</summary><p class="muted">Approved and rejected items both move to Archived once decided. Approved items keep their ClickUp task link. Rejected items keep their reason. Nothing here is re-triaged, and re-importing an archived item does not bring it back. Approved items export to ClickUp in the <a id="approvedListLinkArchived" href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
+<div class="card"><h2>Archived <span id="archivedCount" class="muted"></span></h2><details class="panel-about"><summary>About Archived</summary><p class="muted">Approved and rejected items both move to Archived once decided. Approved items keep their ClickUp task link. Rejected items keep their reason. Nothing here is re-triaged, and re-importing an archived item does not bring it back. Approved items export to ClickUp in the <a id="approvedListLinkArchived" href="https://app.clickup.com/9009062684/v/li/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a>.</p></details></div>
 <div class="card"><label>Decision <select id="archivedDecisionFilter"><option value="">All decisions</option><option value="approved">Approved</option><option value="rejected">Rejected</option></select></label> <button id="exportArchivedBtn">Export Archived CSV</button> <span id="archivedExportHint" class="muted">Nothing archived yet.</span><p class="muted">Exports the decided items in the current filtered Archived list, with decision, reason, and ClickUp link.</p><p id="archivedExportStatus" class="muted" role="status"></p></div>
 <div id="archivedList"><p class="muted">Nothing archived yet. Approve or reject an item in the backlog to archive it.</p></div>
+<div class="card" id="decisionHistoryCard">
+<h3>Decision history</h3>
+<p class="muted">What was approved or rejected, by whom, and why. Edits are not decisions — they stay in the Backlog. This is the record the team reviews in the weekly triage meeting.</p>
+<button id="exportHistoryBtn">Export decision history CSV</button>
+<p id="historyExportStatus" class="muted" role="status"></p>
+<div id="decisionHistoryList"><p class="muted">No decisions yet</p></div>
+</div>
 </section>
 <footer>
 <p>Backlog Triage Copilot — a showcase of AI-native product work: discovery, prioritization, tradeoffs, guardrails, and human-in-the-loop decisions, across Games, Healthcare, Fintech, and E-commerce.</p>
-<p><a href="#" data-tab-link="backlog">Backlog</a> · <a href="#" data-tab-link="archived">Archived</a> · <a href="https://github.com/konstantin-abadjiev/triage-copilot" target="_blank" rel="noopener">GitHub</a> · <a href="https://app.clickup.com/9009062684/v/l/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a></p>
+<p><a href="#" data-tab-link="backlog">Backlog</a> · <a href="#" data-tab-link="archived">Archived</a> · <a href="https://github.com/konstantin-abadjiev/triage-copilot" target="_blank" rel="noopener">GitHub</a> · <a href="https://app.clickup.com/9009062684/v/li/1700370000001073" target="_blank" rel="noopener">Triage Approved list</a></p>
 <p>Demo mode scores locally in your browser and costs nothing real. Live mode calls the model and costs real money. State is session-only: reloading wipes decisions, scores, the archive, edits, uploads, and deletes.</p>
 </footer>
 </main>
 <div id="editDialog" class="dialog-overlay" hidden>
 <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="editDialogTitle">
-<h3 id="editDialogTitle">Edit story</h3>
+<h3 id="editDialogTitle">Edit story and acceptance criteria</h3>
 <label for="editStoryField">Story</label>
-<textarea id="editStoryField" rows="10"></textarea>
-<p class="muted">Editing keeps the item in the backlog until you approve or reject it.</p>
-<div class="dialog-actions"><button id="editCancelBtn" type="button">Cancel</button><button id="editSaveBtn" type="button" class="primary">Save edit</button></div>
+<textarea id="editStoryField" rows="16"></textarea>
+<label for="editCriteriaField">Acceptance criteria (one per line)</label>
+<textarea id="editCriteriaField" rows="8"></textarea>
+<p class="muted">Leave the criteria empty to use the generated criteria. Editing keeps the item in the backlog until you approve or reject it.</p>
+<div class="dialog-actions"><button id="editResetBtn" type="button">Reset to generated</button><button id="editCancelBtn" type="button">Cancel</button><button id="editSaveBtn" type="button" class="primary">Save edit</button></div>
 </div>
 </div>
 <div id="decisionDialog" class="dialog-overlay" hidden>
 <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="decisionDialogTitle">
 <h3 id="decisionDialogTitle">Decision</h3>
-<div id="decisionReviewerRow"><label for="decisionReviewerField">Your name (reviewer, saved with each decision for this session)</label><input id="decisionReviewerField" type="text"></div>
+<div id="decisionReviewerRow"><label for="decisionReviewerField">Your name (reviewer, required; saved with each decision for this session)</label><input id="decisionReviewerField" type="text"></div>
 <label for="decisionReasonField">Reason <span id="decisionReasonFor"></span>(saved with the decision)</label>
 <textarea id="decisionReasonField" rows="4"></textarea>
 <p id="decisionError" class="muted" style="color:var(--danger-text)"></p>
@@ -308,11 +376,23 @@ var APPROVED_LISTS = {
 };
 var CLICKUP_TEAM_ID = '9009062684';
 function updateApprovedLinks(){
-  var href = 'https://app.clickup.com/' + CLICKUP_TEAM_ID + '/v/l/' + (APPROVED_LISTS[currentPack] || APPROVED_LISTS.games);
+  var href = 'https://app.clickup.com/' + CLICKUP_TEAM_ID + '/v/li/' + (APPROVED_LISTS[currentPack] || APPROVED_LISTS.games);
   ['approvedListLinkBacklog', 'approvedListLinkArchived'].forEach(function(id){
     var el = document.getElementById(id);
     if (el) el.href = href;
   });
+}
+// Contextual header: the page header names where you are, not the
+// product (the app chrome / browser tab already carry the product
+// name). "Grekon Games · Backlog" on load; the pack part follows the
+// industry pack, the view part follows the active Backlog / Archived
+// tab. Called from showTab; loadPack routes through showTab('backlog'),
+// so it stays right on every switch.
+function updateContextHeader(){
+  var packEl = document.getElementById('headerPack');
+  var viewEl = document.getElementById('headerView');
+  if (packEl) packEl.textContent = PACKS[currentPack].company;
+  if (viewEl) viewEl.textContent = currentTab === 'archived' ? 'Archived' : 'Backlog';
 }
 // Demo / Live mode. Demo is the default: rule-based local scoring, a
 // modeled cost estimate, $0 real cost, no API key. Live calls the model
@@ -321,6 +401,7 @@ function updateApprovedLinks(){
 var currentMode = 'demo';
 var lastRunLive = false;
 var currentPack = 'games';
+var currentTab = 'backlog';
 var items = [], scored = [], decisions = [], clusters = [], archived = [];
 var backlogItems = [];
 var backlogScoredItems = [];
@@ -374,6 +455,21 @@ var lastRunItems = 0;
 var totalCost = 0;
 var totalRuns = 0;
 var totalItemsTriaged = 0;
+// Cost totals are kept per pack AND per mode: the Cost tracker panel
+// shows the current mode's running total as its headline Total and
+// the other mode's total as a line. Demo totals are modeled estimates
+// ($0.0192/item, $0 real cost); Live totals are real charges from the
+// function, with token totals for the per-item token line. All reset
+// only on Reload Demo (fresh pack load). The overall lastRun*/total*
+// vars above stay for the #counts line, which covers both modes.
+var demoCost = 0, demoRuns = 0, demoItems = 0, demoLastCost = null, demoLastItems = 0;
+var liveCost = 0, liveRuns = 0, liveItems = 0, liveLastCost = null, liveLastItems = 0;
+var liveTokensIn = 0, liveTokensOut = 0;
+// Live configuration is deployment-level, not per-pack: the front end
+// cannot read Netlify env vars, so Live is unconfirmed (null) until
+// a Live run proves otherwise — a 501 sets false, a successful Live
+// run sets true. The panel says so in Live mode either way.
+var liveConfigured = null;
 var FALLBACK = [{id:'SAMPLE-001', title:'Online booking for follow-up visits', description:'Patients want to book online instead of calling.', source:'Customer request', requester_type:'Clinic manager', theme:'Scheduling', impact:8, effort:4, risk:'Medium', evidence_strength:'High'}];
 var CSV_COLUMNS = ['id','title','description','source','requester_type','theme','impact','effort','risk','evidence_strength'];
 // CSV Template example rows, per pack. The template must show the pack
@@ -759,6 +855,25 @@ function acceptanceFor(it, k){
   if (it.risk === 'High') out.push('Given the feature is live, when an audit or rollback is triggered, then the change can be reviewed and reverted without data loss.');
   return out;
 }
+// The criteria actually shown and used: a per-item override when the
+// user edited them in the Edit dialog, otherwise the generated
+// criteria stored on the scored item (Demo-derived or model-written).
+// The override is never regenerated: editing the story, switching
+// packs, or approving/rejecting leaves it exactly as the user left it.
+function effectiveAcceptance(s){
+  if (s && Array.isArray(s.criteriaOverride) && s.criteriaOverride.length) return s.criteriaOverride;
+  if (s && Array.isArray(s.acceptance)) return s.acceptance;
+  return [];
+}
+// One criterion per line; blank lines are dropped.
+function criteriaLines(text){
+  return String(text || '').split(/\r?\n/).map(function(l){ return l.trim(); }).filter(function(l){ return l.length; });
+}
+function sameCriteria(a, b){
+  if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) return false;
+  for (var i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+  return true;
+}
 function scoreItem(it){
   var conf = confFor(it.evidence_strength);
   // Demo RICE: Reach x Impact x Confidence / Effort / 10, with
@@ -856,7 +971,7 @@ function appendItems(newItems){
 function archiveScored(scoredObj, entry){
   if (!scoredObj) return;
   var rec = {};
-  ['id','title','description','source','requester_type','theme','impact','effort','risk','evidence_strength','reach','reach_estimated','reach_confidence','confidence','rice','kpi','kpi_reason','kpi_confidence','story','acceptance'].forEach(function(k){ rec[k] = scoredObj[k]; });
+  ['id','title','description','source','requester_type','theme','impact','effort','risk','evidence_strength','reach','reach_estimated','reach_confidence','confidence','rice','kpi','kpi_reason','kpi_confidence','story','acceptance','criteriaOverride'].forEach(function(k){ rec[k] = scoredObj[k]; });
   rec.decision = entry ? entry.decision : scoredObj.status;
   rec.reason = entry ? entry.reason : '';
   rec.reviewer = entry ? entry.reviewer : '';
@@ -876,13 +991,18 @@ function saveCurrentState(){
   // must never be cached, or switching back would restore the sample
   // instead of retrying the fetch.
   if (failedPacks[currentPack]) return;
-  packStates[currentPack] = {items: items.slice(), scored: scored.slice(), decisions: decisions.slice(), clusters: clusters.slice(), archived: archived.slice(), newSinceTriage: newSinceTriage, deletedIds: deletedIds.slice(), deletedKeys: deletedKeys.slice(), lastRunCost: lastRunCost, lastRunItems: lastRunItems, lastRunLive: lastRunLive, totalCost: totalCost, totalRuns: totalRuns, totalItemsTriaged: totalItemsTriaged};
+  packStates[currentPack] = {items: items.slice(), scored: scored.slice(), decisions: decisions.slice(), clusters: clusters.slice(), archived: archived.slice(), newSinceTriage: newSinceTriage, deletedIds: deletedIds.slice(), deletedKeys: deletedKeys.slice(), lastRunCost: lastRunCost, lastRunItems: lastRunItems, lastRunLive: lastRunLive, totalCost: totalCost, totalRuns: totalRuns, totalItemsTriaged: totalItemsTriaged, demoCost: demoCost, demoRuns: demoRuns, demoItems: demoItems, demoLastCost: demoLastCost, demoLastItems: demoLastItems, liveCost: liveCost, liveRuns: liveRuns, liveItems: liveItems, liveLastCost: liveLastCost, liveLastItems: liveLastItems, liveTokensIn: liveTokensIn, liveTokensOut: liveTokensOut};
 }
 function restoreState(st){
   items = st.items.slice(); scored = st.scored.slice(); decisions = st.decisions.slice();
   clusters = st.clusters.slice(); archived = st.archived.slice(); newSinceTriage = st.newSinceTriage || 0; deletedIds = (st.deletedIds || []).slice(); deletedKeys = (st.deletedKeys || []).slice();
   lastRunCost = (st.lastRunCost == null ? null : st.lastRunCost); lastRunItems = st.lastRunItems || 0; lastRunLive = !!st.lastRunLive;
   totalCost = st.totalCost || 0; totalRuns = st.totalRuns || 0; totalItemsTriaged = st.totalItemsTriaged || 0;
+  demoCost = st.demoCost || 0; demoRuns = st.demoRuns || 0; demoItems = st.demoItems || 0;
+  demoLastCost = (st.demoLastCost == null ? null : st.demoLastCost); demoLastItems = st.demoLastItems || 0;
+  liveCost = st.liveCost || 0; liveRuns = st.liveRuns || 0; liveItems = st.liveItems || 0;
+  liveLastCost = (st.liveLastCost == null ? null : st.liveLastCost); liveLastItems = st.liveLastItems || 0;
+  liveTokensIn = st.liveTokensIn || 0; liveTokensOut = st.liveTokensOut || 0;
 }
 // The #counts line, recomputed from state, so a pack switch or a
 // Reload Demo never leaves a stale run summary on screen.
@@ -916,11 +1036,15 @@ function setBusy(b){
 // and cannot be styled. Each dialog returns a Promise: the value on
 // Save/Confirm, null on Cancel/Escape/overlay click.
 var editResolve = null;
-function openEditDialog(story){
+var editDerivedCriteria = [];
+function openEditDialog(story, criteriaText, derivedCriteria){
   return new Promise(function(resolve){
     editResolve = resolve;
+    editDerivedCriteria = Array.isArray(derivedCriteria) ? derivedCriteria.slice() : [];
     var field = document.getElementById('editStoryField');
     if (field) field.value = story || '';
+    var critField = document.getElementById('editCriteriaField');
+    if (critField) critField.value = criteriaText || '';
     var ov = document.getElementById('editDialog');
     if (ov) ov.hidden = false;
     if (field) field.focus();
@@ -932,7 +1056,18 @@ function closeEditDialog(value){
   if (editResolve){ var r = editResolve; editResolve = null; r(value); }
 }
 var decisionResolve = null;
-function openDecisionDialog(decision){
+// The reason field opens prefilled with a sensible default built from
+// the item's own RICE score and target KPI, which the user can keep or
+// change. Clearing it entirely still decides nothing: an empty reason
+// is rejected by the Save handler and by decide().
+function defaultDecisionReason(decision, item){
+  if (!item) return '';
+  var rice = (item.rice != null ? item.rice : '');
+  var kpi = item.kpi || '';
+  if (decision === 'approved') return 'Approved: RICE ' + rice + ', targeting ' + kpi + '.';
+  return 'Rejected: RICE ' + rice + ' is below the bar for ' + kpi + '.';
+}
+function openDecisionDialog(decision, item){
   return new Promise(function(resolve){
     decisionResolve = resolve;
     var title = document.getElementById('decisionDialogTitle');
@@ -944,7 +1079,7 @@ function openDecisionDialog(decision){
     if (row) row.style.display = sessionReviewer ? 'none' : '';
     if (revField) revField.value = sessionReviewer || '';
     var reasonField = document.getElementById('decisionReasonField');
-    if (reasonField) reasonField.value = '';
+    if (reasonField) reasonField.value = defaultDecisionReason(decision, item);
     var errEl = document.getElementById('decisionError');
     if (errEl) errEl.textContent = '';
     var ov = document.getElementById('decisionDialog');
@@ -1021,6 +1156,10 @@ async function loadPack(){
   backlogPage = 1; archivedPage = 1;
   renderPacks();
   updateApprovedLinks();
+  // Switching packs returns to the Backlog tab (the preview's behavior):
+  // showTab sets currentTab, toggles the buttons and panels, and
+  // refreshes the contextual header, so all three update together.
+  showTab('backlog');
   // Clear the old pack's content immediately, so a switch never shows
   // the previous pack's scored cards and stats for seconds. A skeleton
   // stands in until the new pack renders.
@@ -1051,6 +1190,8 @@ async function loadPack(){
   }
   scored = []; decisions = []; clusters = []; archived = []; deletedIds = []; deletedKeys = [];
   lastRunCost = null; lastRunItems = 0; lastRunLive = false; totalCost = 0; totalRuns = 0; totalItemsTriaged = 0;
+  demoCost = 0; demoRuns = 0; demoItems = 0; demoLastCost = null; demoLastItems = 0;
+  liveCost = 0; liveRuns = 0; liveItems = 0; liveLastCost = null; liveLastItems = 0; liveTokensIn = 0; liveTokensOut = 0;
   items.forEach(function(it){ it.lifecycle = 'new'; });
   newSinceTriage = items.length;
   if (loadFailed){
@@ -1070,17 +1211,25 @@ async function loadPack(){
   renderBacklog(); renderArchived();
 }
 function setTabBadge(id, n){
+  // Count pills on the tabs are always shown, even at 0: an Archived
+  // tab with no pill looks like a missing count, while a "0" pill
+  // states the empty state plainly. (The red "new" badge on the
+  // Backlog tab is separate and still hides at 0.)
   var el = document.getElementById(id);
   if (!el) return;
-  el.hidden = !(n > 0);
+  el.hidden = false;
   el.textContent = String(n);
 }
 function renderTabCounts(){
   // Counts logic, one place so every render agrees:
   // Backlog new: newSinceTriage, red, hidden at 0 (handled in
   // renderNewIndicator, kept as is).
-  // Archived: archived.length. The neutral badge hides at 0.
-  // Backlog tab badge shows only the new-items count.
+  // Backlog count: items.length, the same neutral pill treatment as
+  // the Archived tab (and legible on the green active tab in both
+  // themes), always shown even at 0. It matches the Backlog section
+  // heading count, so the tab always shows the live backlog size.
+  // Archived: archived.length, always shown even at 0.
+  setTabBadge('backlogCountBadge', items.length);
   setTabBadge('archivedCountBadge', archived.length);
 }
 function renderNewIndicator(){
@@ -1138,6 +1287,81 @@ function renderKpiFilter(){
   if (cur && list.indexOf(cur) === -1) cur = '';
   sel.innerHTML = '<option value="">All KPIs</option>' + list.map(function(k){ return '<option value="' + escapeHtml(k) + '"' + (k === cur ? ' selected' : '') + '>' + escapeHtml(k) + '</option>'; }).join('');
 }
+// Cost tracker panel: renders the preview's panel for the current mode.
+// Headline Total is the current mode's running total (this pack); the
+// other mode's total is a line below it. Demo costs are modeled estimates
+// ($0.0192/item, $0 charged, ~1,240 in / ~310 out tokens per item). Live
+// costs are real charges from the function, with per-item cost and tokens
+// averaged from the returned usage. The next-run estimate is always the
+// unscored items waiting x $0.0192, recomputed on every render, so an
+// import or a sync updates it immediately. Called from renderStats, so
+// mode switches, runs, imports, syncs, and pack switches all refresh it.
+function fmtCostMoney(n){ return '$' + n.toFixed(2); }
+function fmtCostInt(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+function renderCostTracker(){
+  var isLive = currentMode === 'live';
+  var modeWord = isLive ? 'Live' : 'Demo';
+  var title = document.getElementById('costTrackerTitle');
+  if (title) title.textContent = 'Cost tracker — ' + modeWord + ' mode';
+  var runs = isLive ? liveRuns : demoRuns;
+  var lastCost = isLive ? liveLastCost : demoLastCost;
+  var total = isLive ? liveCost : demoCost;
+  var totalItems = isLive ? liveItems : demoItems;
+  var lastEl = document.getElementById('costLastRun');
+  if (lastEl){
+    if (runs === 0) lastEl.innerHTML = 'Last run <strong>$0.00</strong> · no runs yet';
+    else lastEl.innerHTML = 'Last run <strong>' + fmtCostMoney(lastCost || 0) + '</strong> · ' + runs + (runs === 1 ? ' run' : ' runs');
+  }
+  var chargedEl = document.getElementById('costCharged');
+  var perEl = document.getElementById('costPerItem');
+  if (isLive){
+    if (chargedEl) chargedEl.innerHTML = 'Real — <strong>' + fmtCostMoney(liveCost) + '</strong> charged';
+    if (perEl) perEl.innerHTML = 'Per item <strong>' + (liveItems > 0 ? '$' + (liveCost / liveItems).toFixed(4) : '$0.00') + '</strong>';
+  } else {
+    if (chargedEl) chargedEl.innerHTML = 'Estimated — <strong>$0.00</strong> charged';
+    if (perEl) perEl.innerHTML = 'Per item <strong>$' + COST_PER_ITEM.toFixed(4) + '</strong>';
+  }
+  var tokEl = document.getElementById('costTokens');
+  if (tokEl){
+    if (isLive){
+      tokEl.innerHTML = liveItems > 0
+        ? 'Tokens / item <strong>~' + fmtCostInt(Math.round(liveTokensIn / liveItems)) + ' in · ~' + fmtCostInt(Math.round(liveTokensOut / liveItems)) + ' out</strong>'
+        : 'Tokens / item — no Live runs yet';
+    } else {
+      tokEl.innerHTML = 'Tokens / item <strong>~1,240 in · ~310 out</strong>';
+    }
+  }
+  var headEl = document.getElementById('costTotalHead');
+  if (headEl) headEl.innerHTML = '<strong>Total — all ' + modeWord + ' runs (this pack, ' + (isLive ? 'real' : 'estimated') + ')</strong>';
+  var totEl = document.getElementById('costTotal');
+  if (totEl) totEl.innerHTML = 'Total cost <strong>' + fmtCostMoney(total) + '</strong><span class="cost-sep">Runs <strong>' + runs + '</strong></span><span class="cost-sep">Items triaged <strong>' + fmtCostInt(totalItems) + '</strong></span>';
+  var otherEl = document.getElementById('costOtherTotal');
+  if (otherEl){
+    otherEl.textContent = isLive
+      ? 'Demo total (estimated): ' + fmtCostMoney(demoCost) + ' · ' + demoRuns + (demoRuns === 1 ? ' run' : ' runs')
+      : 'Live total (real, charged): ' + fmtCostMoney(liveCost) + ' · ' + liveRuns + (liveRuns === 1 ? ' run' : ' runs');
+  }
+  var noteEl = document.getElementById('costLiveNote');
+  if (noteEl){
+    if (!isLive){ noteEl.hidden = true; noteEl.textContent = ''; }
+    else if (liveConfigured === false){
+      noteEl.hidden = false;
+      noteEl.textContent = 'Live mode is not configured: set OPENROUTER_API_KEY in Netlify environment variables. Live runs score nothing.';
+    } else if (liveConfigured === null){
+      noteEl.hidden = false;
+      noteEl.textContent = 'Live scoring needs OPENROUTER_API_KEY set in Netlify. No successful Live run yet, so the key has not been confirmed.';
+    } else { noteEl.hidden = true; noteEl.textContent = ''; }
+  }
+  var nextCost = Math.round(newSinceTriage * COST_PER_ITEM * 10000) / 10000;
+  var nextVal = document.getElementById('costNextValue');
+  if (nextVal) nextVal.textContent = fmtCostMoney(nextCost);
+  var nextItems = document.getElementById('costNextItems');
+  if (nextItems) nextItems.textContent = String(newSinceTriage);
+  var expEl = document.getElementById('costExplainer');
+  if (expEl) expEl.textContent = isLive
+    ? 'Live mode calls the model: every cost here is the real amount charged by the model, per token. Totals are kept per pack and per mode and reset only on Reload Demo. The next-run estimate above is a modeled estimate of what the next run will cost, and updates whenever items are added, so it always reflects only the unscored items waiting.'
+    : 'Demo mode never calls a model: every cost here is an estimate of what a Live run would cost, and $0.00 is charged. Totals are kept per pack and per mode and reset only on Reload Demo. The next-run estimate above updates whenever items are added, so it always reflects only the unscored items waiting.';
+}
 function renderStats(){
   var backlogEl = document.getElementById('statBacklogValue');
   if(!backlogEl) return;
@@ -1161,36 +1385,10 @@ function renderStats(){
   document.getElementById('statFlagsSub').textContent = hasRun ? 'Need proof before build' : 'Run triage to flag weak evidence';
   document.getElementById('statDecisionsValue').textContent = archived.length;
   document.getElementById('statDecisionsSub').textContent = 'Archived · approved, rejected';
-  // Est. Cost / Run: the last run's cost only, never a hardcoded
-  // 200-item figure. A Demo run costs the modeled estimate (fresh items
-  // x $0.0192). A Live run costs whatever the model actually charged,
-  // returned by the function, and the subline says so.
-  var costVal = document.getElementById('statCostValue');
-  var costSub = document.getElementById('statCostSub');
-  var costLabel = document.getElementById('statCostLabel');
-  if (totalRuns === 0){
-    costVal.textContent = '$0.00';
-    costSub.textContent = 'No runs yet · Run triage to estimate cost';
-    if (costLabel) costLabel.textContent = 'Est. Cost / Run';
-  } else {
-    costVal.textContent = '$' + lastRunCost.toFixed(2);
-    if (costLabel) costLabel.textContent = lastRunLive ? 'Cost / Run' : 'Est. Cost / Run';
-    costSub.textContent = (lastRunLive ? 'Real cost from the model' : 'Estimated $0.0192 per item') + ' · ' + lastRunItems + (lastRunItems === 1 ? ' item' : ' items') + ' last run · Total $' + totalCost.toFixed(2) + ' · ' + totalRuns + (totalRuns === 1 ? ' run' : ' runs');
-  }
-  // Next-run cost tracker: what the next run will cost, from what is
-  // actually waiting to be triaged. Recomputed on every render, so an
-  // import or a sync updates it immediately. Demo: new items x
-  // $0.0192, an estimate, $0 real cost. Live: the same modeled
-  // estimate, labeled as an estimate, because the model cost varies.
-  var nextVal = document.getElementById('statNextValue');
-  var nextSub = document.getElementById('statNextSub');
-  var nextLabel = document.getElementById('statNextLabel');
-  if (nextVal){
-    var nextCost = Math.round(newSinceTriage * COST_PER_ITEM * 10000) / 10000;
-    nextVal.textContent = '$' + nextCost.toFixed(2);
-    if (nextLabel) nextLabel.textContent = currentMode === 'live' ? 'Next Run Cost (est.)' : 'Next Run Cost';
-    if (nextSub) nextSub.textContent = newSinceTriage ? newSinceTriage + (newSinceTriage === 1 ? ' new item' : ' new items') + ' waiting × $0.0192' + (currentMode === 'live' ? ' · model cost varies' : ' · estimate, $0 real cost') : 'Nothing new to triage';
-  }
+  // The Cost tracker panel replaces the two old per-run cost stat
+  // cards: one panel, per-pack and per-mode totals, with the next-run
+  // estimate from the items waiting.
+  renderCostTracker();
   // Section headings carry the item counts, so the Backlog and
   // Archived sections always say how many items they hold.
   var bc = document.getElementById('backlogCount');
@@ -1241,7 +1439,7 @@ function paginationHtml(page, totalPages, gotoFn, pos){
   if (totalPages <= 1) return '';
   var mobile = isMobilePager();
   var h = '<p class="pagination pagination-' + pos + '"><span class="pager-row">';
-  h += '<button onclick="' + gotoFn + '(' + (page - 1) + ')"' + ((page <= 1 || busy) ? ' disabled' : '') + (mobile ? ' aria-label="Previous page" title="Previous page"' : '') + '>' + (mobile ? '←' : 'Previous') + '</button>';
+  h += '<button onclick="' + gotoFn + '(' + (page - 1) + ', \'' + pos + '\')"' + ((page <= 1 || busy) ? ' disabled' : '') + (mobile ? ' aria-label="Previous page" title="Previous page"' : '') + '>' + (mobile ? '←' : 'Previous') + '</button>';
   var pages = [];
   var i;
   for (i = 1; i <= totalPages; i++){
@@ -1250,19 +1448,56 @@ function paginationHtml(page, totalPages, gotoFn, pos){
   var last = 0;
   pages.forEach(function(n){
     if (n - last > 1) h += '<span class="ellipsis" aria-hidden="true">…</span>';
-    h += '<button onclick="' + gotoFn + '(' + n + ')"' + (busy ? ' disabled' : '') + (n === page ? ' class="active" aria-current="page"' : '') + '>' + n + '</button>';
+    h += '<button onclick="' + gotoFn + '(' + n + ', \'' + pos + '\')"' + (busy ? ' disabled' : '') + (n === page ? ' class="active" aria-current="page"' : '') + '>' + n + '</button>';
     last = n;
   });
-  h += '<button onclick="' + gotoFn + '(' + (page + 1) + ')"' + ((page >= totalPages || busy) ? ' disabled' : '') + (mobile ? ' aria-label="Next page" title="Next page"' : '') + '>' + (mobile ? '→' : 'Next') + '</button>';
+  h += '<button onclick="' + gotoFn + '(' + (page + 1) + ', \'' + pos + '\')"' + ((page >= totalPages || busy) ? ' disabled' : '') + (mobile ? ' aria-label="Next page" title="Next page"' : '') + '>' + (mobile ? '→' : 'Next') + '</button>';
   h += '</span> <strong class="page-label">Page ' + page + ' of ' + totalPages + '</strong></p>';
   return h;
 }
-// Page changes never scroll the page: the scroll position is saved
-// before the re-render and restored after it, so paging from the
-// bottom pager keeps the user where they are instead of jumping to
-// the top of the list.
-window.gotoBacklogPage = function(p){ if (busy) return; var y = window.scrollY || 0; backlogPage = p; renderBacklog(); window.scrollTo(0, y); };
-window.gotoArchivedPage = function(p){ if (busy) return; var y = window.scrollY || 0; archivedPage = p; renderArchived(); window.scrollTo(0, y); };
+// Page changes never scroll the page: from the top pager the scroll
+// position is saved before the re-render and restored after it, so
+// paging never jumps to the top of the list. That is not enough from
+// the bottom pager: it sits below the cards, and pages have different
+// total heights, so restoring the absolute scrollY still moves the
+// pager on screen — and when the new page is shorter the restore
+// clamps to the new maximum scroll and the view jumps. From the
+// bottom pager the scroll is anchored to the pager instead: its
+// distance from the viewport bottom is measured before the render
+// and restored after it, so the pager stays where the user tapped
+// it. When the new page is shorter than the viewport can show at
+// that position, the browser clamps the scroll to the maximum.
+function anchorBottomPager(listId){
+  var el = document.querySelector('#' + listId + ' .pagination-bottom');
+  if (!el || typeof el.getBoundingClientRect !== 'function') return null;
+  var bottom = el.getBoundingClientRect().bottom;
+  return function(){
+    var el2 = document.querySelector('#' + listId + ' .pagination-bottom');
+    if (!el2 || typeof el2.getBoundingClientRect !== 'function') return;
+    var dy = el2.getBoundingClientRect().bottom - bottom;
+    if (dy) window.scrollTo(0, (window.scrollY || 0) + dy);
+  };
+}
+window.gotoBacklogPage = function(p, pos){
+  if (busy) return;
+  if (pos === 'bottom'){
+    var restore = anchorBottomPager('backlogList');
+    backlogPage = p; renderBacklog();
+    if (restore) restore();
+    return;
+  }
+  var y = window.scrollY || 0; backlogPage = p; renderBacklog(); window.scrollTo(0, y);
+};
+window.gotoArchivedPage = function(p, pos){
+  if (busy) return;
+  if (pos === 'bottom'){
+    var restore = anchorBottomPager('archivedList');
+    archivedPage = p; renderArchived();
+    if (restore) restore();
+    return;
+  }
+  var y = window.scrollY || 0; archivedPage = p; renderArchived(); window.scrollTo(0, y);
+};
 function renderBacklog(){
   renderBacklogFilters();
   var el = document.getElementById('backlogList');
@@ -1335,7 +1570,7 @@ function renderBacklog(){
       var rejectBtn = '<button class="btn-reject" onclick="decide(' + di + ',\'rejected\')"' + (creating ? ' disabled' : '') + '>Reject</button>';
       var editBtn = '<button class="btn-edit" onclick="editItem(' + di + ')"' + (creating ? ' disabled' : '') + '>Edit</button>';
       var reachLabel = s.reach != null ? 'Reach ' + s.reach + (s.reach_estimated ? ' (estimated)' : (s.reach_confidence === 'Low' ? ' (low-confidence estimate)' : '')) : '';
-      return '<div class="card"><strong>'+escapeHtml(it.title)+'</strong>' + statusPill + '<br>' + themeTag(it.theme) + kpiTag(s.kpi) + sourceTag(it.source) + evidencePill(s.evidence_strength) + '<p class="muted">RICE '+s.rice+' · '+reachLabel+' · Impact '+s.impact+' · Effort '+s.effort+' · Confidence '+s.confidence+'%</p>' + '<p>'+escapeHtml(s.story)+'</p>' + (s.kpi ? '<p class="muted">Target KPI · ' + escapeHtml(s.kpi_confidence || '') + ' confidence: ' + escapeHtml(s.kpi_reason || '') + '</p>' : '') + '<p class="muted">'+s.acceptance.map(escapeHtml).join('<br>')+'</p>' + clickup + '<p>' + approveBtn + ' ' + editBtn + ' ' + rejectBtn + ' <button class="btn-reject" onclick="deleteBacklogItem(' + i + ')">Delete</button></p></div>';
+      return '<div class="card"><strong>'+escapeHtml(it.title)+'</strong>' + statusPill + '<br>' + themeTag(it.theme) + kpiTag(s.kpi) + sourceTag(it.source) + evidencePill(s.evidence_strength) + '<p class="muted">RICE '+s.rice+' · '+reachLabel+' · Impact '+s.impact+' · Effort '+s.effort+' · Confidence '+s.confidence+'%</p>' + '<p>'+escapeHtml(s.story)+'</p>' + (s.kpi ? '<p class="muted">Target KPI · ' + escapeHtml(s.kpi_confidence || '') + ' confidence: ' + escapeHtml(s.kpi_reason || '') + '</p>' : '') + '<p class="muted">'+effectiveAcceptance(s).map(escapeHtml).join('<br>')+'</p>' + clickup + '<p>' + approveBtn + ' ' + editBtn + ' ' + rejectBtn + ' <button class="btn-reject" onclick="deleteBacklogItem(' + i + ')">Delete</button></p></div>';
     }
     // Unscored new items keep a compact Backlog card: they have no
     // story yet, so they get no decision buttons, only Delete, plus a
@@ -1399,6 +1634,9 @@ function runDemoTriage(){
   lastRunCost = runCost; lastRunItems = fresh.length; lastRunLive = false;
   totalCost = Math.round((totalCost + runCost) * 10000) / 10000;
   totalRuns += 1; totalItemsTriaged += fresh.length;
+  demoLastCost = runCost; demoLastItems = fresh.length;
+  demoCost = Math.round((demoCost + runCost) * 10000) / 10000;
+  demoRuns += 1; demoItems += fresh.length;
   recountNewSinceTriage();
   saveCurrentState();
   document.getElementById('counts').textContent = scored.length + ' scored · ' + scored.filter(function(s){return s.low_evidence;}).length + ' low-evidence flags · $' + runCost.toFixed(2) + ' estimated this run.';
@@ -1470,8 +1708,12 @@ async function runLiveTriage(){
       // A missing key is the expected first-run state, not a silent
       // failure: say exactly what is missing and score nothing.
       var errMsg = (data && data.error) ? data.error : ('Live triage failed with status ' + res.status);
-      if (/not configured/i.test(errMsg)) errMsg = 'Live mode needs OPENROUTER_API_KEY set in Netlify. ' + errMsg;
+      if (/not configured/i.test(errMsg)){
+        errMsg = 'Live mode needs OPENROUTER_API_KEY set in Netlify. ' + errMsg;
+        liveConfigured = false;
+      }
       document.getElementById('status').textContent = errMsg;
+      renderStats();
       return;
     }
     var byId = {};
@@ -1495,6 +1737,12 @@ async function runLiveTriage(){
     lastRunCost = runCost; lastRunItems = applied; lastRunLive = true;
     totalCost = Math.round((totalCost + runCost) * 10000) / 10000;
     totalRuns += 1; totalItemsTriaged += applied;
+    liveLastCost = runCost; liveLastItems = applied;
+    liveCost = Math.round((liveCost + runCost) * 10000) / 10000;
+    liveRuns += 1; liveItems += applied;
+    if (typeof usage.inputTokens === 'number' && isFinite(usage.inputTokens)) liveTokensIn += usage.inputTokens;
+    if (typeof usage.outputTokens === 'number' && isFinite(usage.outputTokens)) liveTokensOut += usage.outputTokens;
+    liveConfigured = true;
     recountNewSinceTriage();
     saveCurrentState();
     document.getElementById('counts').textContent = scored.length + ' scored · ' + scored.filter(function(s){return s.low_evidence;}).length + ' low-evidence flags · $' + runCost.toFixed(2) + ' real cost this run.' + (invalid ? ' ' + invalid + ' item' + (invalid === 1 ? '' : 's') + ' returned an invalid score and ' + (invalid === 1 ? 'was' : 'were') + ' left unscored.' : '');
@@ -1511,11 +1759,12 @@ async function runLiveTriage(){
 window.decide = async function(i, d){
   var s = backlogScoredItems[i]; if(!s) return;
   if (s.approving || s.clickup_status === 'creating') return;
-  // The reviewer (once per session) and the reason are typed in the
-  // in-page decision dialog, never a hardcoded author and never a
-  // prefilled default. An empty reason decides nothing: the item
-  // stays pending.
-  var dlg = await openDecisionDialog(d);
+  // The reviewer (once per session) and the reason are entered in the
+  // in-page decision dialog, never a hardcoded author. The reason
+  // opens prefilled with a default built from the item's RICE and KPI,
+  // which the user can keep or change. An empty reason decides
+  // nothing: the item stays pending.
+  var dlg = await openDecisionDialog(d, s);
   if (!dlg){
     document.getElementById('status').textContent = 'No decision made; the item stays pending.';
     return;
@@ -1531,12 +1780,26 @@ window.decide = async function(i, d){
     return;
   }
   if (d === 'rejected'){
-    var entry = {item:s.title, item_id:s.id, decision:d, reason:reason, reviewer:reviewer, time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, clickup_status:'none'};
+    var entry = {item:s.title, item_id:s.id, decision:d, reason:reason, reviewer:reviewer, time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, confidence:s.confidence, clickup_status:'none'};
     decisions.push(entry);
     // Reject archives immediately, no ClickUp call.
     archiveScored(s, entry);
     saveCurrentState();
     renderStats(); renderBacklog(); renderArchived();
+    document.getElementById('status').textContent = 'Rejected ' + s.title + '; moved to Archived.';
+    return;
+  }
+  // Re-approving a returned item that already has a ClickUp task
+  // reuses that task: creating a second task for the same item would
+  // duplicate it in ClickUp. The decision is recorded against the
+  // existing task id and link, and the item archives again.
+  if (d === 'approved' && s.clickup_status === 'created'){
+    var existingEntry = {item:s.title, item_id:s.id, decision:'approved', reason:reason, reviewer:reviewer, time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, confidence:s.confidence, clickup_status:'created', clickup_task_id:s.clickup_task_id, clickup_task_url:s.clickup_task_url || ''};
+    decisions.push(existingEntry);
+    archiveScored(s, existingEntry);
+    saveCurrentState();
+    renderStats(); renderBacklog(); renderArchived();
+    document.getElementById('status').textContent = 'Approved ' + s.title + '; moved to Archived (ClickUp task already exists).';
     return;
   }
   // Approve: the decision is held, not recorded, until the ClickUp task
@@ -1562,15 +1825,28 @@ window.decide = async function(i, d){
 window.editItem = async function(i){
   var s = backlogScoredItems[i]; if(!s) return;
   // Edit opens the large in-page dialog (full-width multiline
-  // textarea), never a native prompt: the story is long text, and a
-  // single-line prompt makes editing it nearly impossible on mobile.
-  var next = await openEditDialog(s.story);
+  // textareas), never a native prompt: the story and criteria are long
+  // text, and a single-line prompt makes editing them nearly impossible
+  // on mobile. The criteria field is prefilled with the criteria
+  // actually shown (the override when one exists, else the generated
+  // criteria); the generated criteria are remembered for Reset.
+  var derived = Array.isArray(s.acceptance) ? s.acceptance.slice() : [];
+  var next = await openEditDialog(s.story, effectiveAcceptance(s).join('\n'), derived);
   if (next === null) return;
-  if (!String(next).trim()){
+  if (!String(next.story).trim()){
     document.getElementById('status').textContent = 'Empty story not saved; kept the previous story.';
     return;
   }
-  s.story = String(next).trim(); s.edited = true;
+  s.story = String(next.story).trim();
+  // Criteria: an empty field clears the override and falls back to the
+  // generated criteria; lines identical to the generated criteria also
+  // clear it (no need to store a redundant copy); anything else is
+  // stored as the per-item override. Editing the story never touches
+  // the override on its own.
+  var lines = criteriaLines(next.criteria);
+  if (!lines.length || sameCriteria(lines, derived)) delete s.criteriaOverride;
+  else s.criteriaOverride = lines;
+  s.edited = true;
   saveCurrentState();
   renderStats();
   renderBacklog(); renderArchived();
@@ -1585,7 +1861,7 @@ async function createClickUpTask(s){
     var res = await fetchWithTimeout('/.netlify/functions/clickup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ item: s, pack: currentPack, decision: 'approved', reviewer: reviewer, reason: reason })
+      body: JSON.stringify({ item: Object.assign({}, s, {acceptance: effectiveAcceptance(s)}), pack: currentPack, decision: 'approved', reviewer: reviewer, reason: reason })
     });
     var data = {};
     try { data = await res.json(); } catch(e) { data = {}; }
@@ -1604,11 +1880,15 @@ async function createClickUpTask(s){
     s.approving = false;
     // The decision is recorded only now, with the typed reason and
     // reviewer, and the item archives out of the active inbox.
-    var entry = {item:s.title, item_id:s.id, decision:'approved', reason:reason, reviewer:reviewer, time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, clickup_status:'created', clickup_task_id:data.task_id, clickup_task_url:data.task_url || ''};
+    var entry = {item:s.title, item_id:s.id, decision:'approved', reason:reason, reviewer:reviewer, time:new Date().toISOString(), pack:currentPack, kpi:s.kpi, kpi_reason:s.kpi_reason, kpi_confidence:s.kpi_confidence, confidence:s.confidence, clickup_status:'created', clickup_task_id:data.task_id, clickup_task_url:data.task_url || ''};
     decisions.push(entry);
     s.pendingApprovalReason = '';
     s.pendingApprovalReviewer = '';
     archiveScored(s, entry);
+    // A success replaces any stale status line (e.g. a "No decision
+    // made" message from a cancelled dialog earlier), so the line
+    // always reflects the latest outcome.
+    document.getElementById('status').textContent = 'Approved ' + s.title + '; ClickUp task created and item moved to Archived.';
     saveCurrentState();
   } catch(e) {
     // Keep the approval attempt on the item only: no decision entry is
@@ -1617,6 +1897,11 @@ async function createClickUpTask(s){
     s.clickup_status = 'failed';
     s.approving = false;
     s.clickup_error = (e && e.name === 'AbortError') ? 'ClickUp request timed out after ' + (CLICKUP_TIMEOUT_MS / 1000) + 's' : (e && e.message ? e.message : 'Unknown error');
+    // The failure is visible in the status line too, not only on the
+    // card: without this the line keeps showing whatever it showed
+    // before (e.g. an old intake-sync message) while the card says the
+    // create failed.
+    document.getElementById('status').textContent = 'ClickUp task creation failed: ' + s.clickup_error + ' The item stays pending; use the retry button to try again.';
     saveCurrentState();
   }
 }
@@ -1639,11 +1924,12 @@ window.retryClickUp = async function(i){
 };
 function renderArchived(){
   renderTabCounts();
+  renderDecisionHistory();
   var exportArchivedBtn = document.getElementById('exportArchivedBtn');
   if (exportArchivedBtn) exportArchivedBtn.disabled = !(archived.length > 0);
   var el = document.getElementById('archivedList');
   if (!el) return;
-  if (!archived.length){ archivedShown = []; el.innerHTML = '<p class="muted">Nothing archived yet. Approve or reject an item in the backlog to archive it.</p><p class="muted">Showing 0 of 0 archived items.</p>'; return; }
+  if (!archived.length){ archivedShown = []; el.innerHTML = '<div class="empty-state"><p class="muted">Nothing archived yet. Approve or reject an item in the backlog to archive it.</p><p><button class="btn-mint" onclick="showTab(\'backlog\')">Go to Backlog</button></p><p class="muted">Showing 0 of 0 archived items.</p></div>'; return; }
   var decEl = document.getElementById('archivedDecisionFilter');
   var decVal = decEl ? decEl.value : '';
   var shown = decVal ? archived.filter(function(a){ return a.decision === decVal; }) : archived.slice();
@@ -1659,17 +1945,72 @@ function renderArchived(){
   var start = (archivedPage - 1) * PAGE_SIZE;
   var pageItems = shown.slice(start, start + PAGE_SIZE);
   el.innerHTML = paginationHtml(archivedPage, totalPages, 'gotoArchivedPage', 'top') + pageItems.map(function(a){
+    var ai = archived.indexOf(a);
     var label = a.decision === 'approved' ? 'Approved' : a.decision === 'rejected' ? 'Rejected' : a.decision;
     var pillClass = a.decision === 'approved' ? 'approved' : a.decision === 'rejected' ? 'rejected' : '';
     var link = a.clickup_task_url ? '<p>ClickUp task: <a href="' + escapeHtml(a.clickup_task_url) + '" target="_blank" rel="noopener">Open task</a></p>' : '';
-    return '<div class="card"><strong>' + escapeHtml(a.title) + '</strong><span class="status-pill ' + pillClass + '">' + label + '</span><br>' + themeTag(a.theme || 'Intake') + kpiTag(a.kpi || '') + sourceTag(a.source || '') + (a.evidence_strength ? evidencePill(a.evidence_strength) : '') + '<p class="muted">RICE ' + (a.rice != null ? a.rice : '-') + (a.confidence != null ? ' · Confidence ' + a.confidence + '%' : '') + '</p>' + (a.story ? '<p>' + escapeHtml(a.story) + '</p>' : '') + (a.kpi ? '<p class="muted">Target KPI · ' + escapeHtml(a.kpi_confidence || '') + ' confidence: ' + escapeHtml(a.kpi_reason || '') + '</p>' : '') + '<p class="muted">' + escapeHtml(a.reason || '') + ' - ' + escapeHtml(a.reviewer || '') + ' - ' + escapeHtml(a.time || '') + '</p>' + link + '</div>';
+    return '<div class="card"><strong>' + escapeHtml(a.title) + '</strong><span class="status-pill ' + pillClass + '">' + label + '</span><br>' + themeTag(a.theme || 'Intake') + kpiTag(a.kpi || '') + sourceTag(a.source || '') + (a.evidence_strength ? evidencePill(a.evidence_strength) : '') + '<p class="muted">RICE ' + (a.rice != null ? a.rice : '-') + (a.confidence != null ? ' · Confidence ' + a.confidence + '%' : '') + '</p>' + (a.story ? '<p>' + escapeHtml(a.story) + '</p>' : '') + (a.kpi ? '<p class="muted">Target KPI · ' + escapeHtml(a.kpi_confidence || '') + ' confidence: ' + escapeHtml(a.kpi_reason || '') + '</p>' : '') + '<p class="muted">' + escapeHtml(a.reason || '') + ' - ' + escapeHtml(a.reviewer || '') + ' - ' + escapeHtml(a.time || '') + '</p>' + link + '<p><button onclick="returnToInbox(' + ai + ')">Return to inbox</button></p></div>';
   }).join('') + '<p class="muted showing-line">Showing ' + (start + 1) + '-' + (start + pageItems.length) + ' of ' + shown.length + ' archived items.</p>' + paginationHtml(archivedPage, totalPages, 'gotoArchivedPage', 'bottom');
 }
+// Decision history: the record the team reviews in the weekly triage
+// meeting. One entry per decision, newest first, rendered from the
+// decisions log (decision, reason, reviewer, timestamp, KPI and KPI
+// confidence, ClickUp link). It is not filtered by the Archived
+// decision filter: it is the full log. It renders even when the
+// Archived list is empty, showing "No decisions yet".
+function renderDecisionHistory(){
+  var el = document.getElementById('decisionHistoryList');
+  if (!el) return;
+  if (!decisions.length){
+    el.innerHTML = '<p class="muted">No decisions yet</p>';
+    return;
+  }
+  el.innerHTML = decisions.slice().reverse().map(function(e){
+    var label = e.decision === 'approved' ? 'Approved' : e.decision === 'rejected' ? 'Rejected' : e.decision;
+    var when = '';
+    try { when = new Date(e.time).toLocaleString('en-US'); } catch (err) { when = e.time || ''; }
+    // Decision history shows the numeric KPI confidence, matching the
+    // preview (e.g. "(96% confidence)"), taken from the item's
+    // confidence number. Entries recorded before this change carry no
+    // numeric confidence and fall back to the label.
+    var kpiLine = e.kpi ? '<p class="muted">Target KPI: ' + escapeHtml(e.kpi) + (typeof e.confidence === 'number' ? ' (' + e.confidence + '% confidence)' : (e.kpi_confidence ? ' (' + escapeHtml(e.kpi_confidence) + ' confidence)' : '')) + '</p>' : '';
+    var link = e.clickup_task_url ? '<p>ClickUp task: <a href="' + escapeHtml(e.clickup_task_url) + '" target="_blank" rel="noopener">Open task</a></p>' : '';
+    return '<div class="history-entry"><p><strong>' + escapeHtml(label) + ' · ' + escapeHtml(e.item_id || '') + '</strong></p><p>' + escapeHtml(e.item || '') + '</p>' + kpiLine + '<p class="muted">' + escapeHtml(when) + ' · ' + escapeHtml(e.reviewer || '') + ' · ' + escapeHtml(e.reason || '') + '</p>' + link + '</div>';
+  }).join('');
+}
+// Return an archived item to the Backlog as pending, with its score
+// kept: it re-enters the RICE-ordered backlog, leaves Archived, and
+// its decision-history entry is removed because the decision no longer
+// stands. A ClickUp task already created for an approved item stays
+// created; the item keeps its ClickUp link on the Backlog card.
+window.returnToInbox = function(idx){
+  var a = archived[idx]; if (!a) return;
+  var it = {id:a.id, title:a.title, description:a.description, source:a.source, requester_type:a.requester_type, theme:a.theme, impact:a.impact, effort:a.effort, risk:a.risk, evidence_strength:a.evidence_strength, lifecycle:'triaged'};
+  var s = {};
+  ['id','title','description','source','requester_type','theme','impact','effort','risk','evidence_strength','reach','reach_estimated','reach_confidence','confidence','rice','kpi','kpi_reason','kpi_confidence','story','acceptance','criteriaOverride'].forEach(function(k){ s[k] = a[k]; });
+  s.status = 'pending';
+  s.lifecycle = 'triaged';
+  s.low_evidence = a.evidence_strength === 'Low';
+  s.clickup_status = a.clickup_status || 'none';
+  s.clickup_task_id = a.clickup_task_id || '';
+  s.clickup_task_url = a.clickup_task_url || '';
+  s.clickup_error = a.clickup_error || '';
+  s.approving = false;
+  items.push(it);
+  scored.push(s);
+  archived.splice(idx, 1);
+  decisions = decisions.filter(function(e){ return e.item_id !== a.id; });
+  clusters = clusterItems(items);
+  saveCurrentState();
+  renderStats(); renderBacklog(); renderArchived();
+};
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
 window.showTab = function(tab){
+  currentTab = tab;
   document.querySelectorAll('#viewNav button').forEach(function(x){ x.classList.remove('active'); if (x.dataset.tab === tab) x.classList.add('active'); });
   document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('show'); });
   document.getElementById('tab-' + tab).classList.add('show');
+  updateContextHeader();
 };
 document.querySelectorAll('#viewNav button').forEach(function(b){
   b.onclick = function(){ showTab(b.dataset.tab); };
@@ -1777,7 +2118,7 @@ document.getElementById('exportBtn').onclick = function(){
   scored.forEach(function(s){ byId[s.id] = s; });
   var list = (backlogOrdered || []).filter(function(it){ return byId[it.id]; }).map(function(it){ return byId[it.id]; });
   if(!list.length){ var s1 = document.getElementById('exportStatus'); if (s1) s1.textContent = 'Nothing to export: run triage first, or clear the filters.'; return; }
-  var csv = 'id,title,theme,kpi,rice,reach,confidence,status,clickup_status,clickup_task_id,clickup_task_url\n' + list.map(function(s){ return [s.id, s.title, s.theme, s.kpi || '', s.rice, s.reach != null ? s.reach : '', s.confidence, s.status, s.clickup_status || '', s.clickup_task_id || '', s.clickup_task_url || ''].map(csvEscape).join(','); }).join('\n');
+  var csv = 'id,title,theme,kpi,rice,reach,confidence,status,clickup_status,clickup_task_id,clickup_task_url,acceptance\n' + list.map(function(s){ return [s.id, s.title, s.theme, s.kpi || '', s.rice, s.reach != null ? s.reach : '', s.confidence, s.status, s.clickup_status || '', s.clickup_task_id || '', s.clickup_task_url || '', effectiveAcceptance(s).join(' | ')].map(csvEscape).join(','); }).join('\n');
   var filename = currentPack + '-backlog.csv';
   download(filename, csv); downloadNote('exportStatus', filename);
 };
@@ -1786,11 +2127,20 @@ document.getElementById('exportArchivedBtn').onclick = function(){
   // Exports the filtered Archived list: the decision filter applies.
   // When the filter matches nothing, the export is header-only.
   var list = archivedShown;
-  var header = 'id,title,theme,kpi,rice,reach,confidence,decision,reason,reviewer,clickup_task_id,clickup_task_url,edited_story';
-  var rows = list.map(function(a){ return [a.id, a.title, a.theme, a.kpi || '', a.rice != null ? a.rice : '', a.reach != null ? a.reach : '', a.confidence != null ? a.confidence : '', a.decision, a.reason || '', a.reviewer || '', a.clickup_task_id || '', a.clickup_task_url || '', a.story || ''].map(csvEscape).join(','); });
+  var header = 'id,title,theme,kpi,rice,reach,confidence,decision,reason,reviewer,clickup_task_id,clickup_task_url,edited_story,acceptance';
+  var rows = list.map(function(a){ return [a.id, a.title, a.theme, a.kpi || '', a.rice != null ? a.rice : '', a.reach != null ? a.reach : '', a.confidence != null ? a.confidence : '', a.decision, a.reason || '', a.reviewer || '', a.clickup_task_id || '', a.clickup_task_url || '', a.story || '', effectiveAcceptance(a).join(' | ')].map(csvEscape).join(','); });
   var csv = header + '\n' + rows.join('\n') + '\n';
   var filename = currentPack + '-archived.csv';
   download(filename, csv); downloadNote('archivedExportStatus', filename);
+};
+document.getElementById('exportHistoryBtn').onclick = function(){
+  if(!decisions.length){ var s3 = document.getElementById('historyExportStatus'); if (s3) s3.textContent = 'No decisions yet to export.'; return; }
+  // One row per decision, newest first, matching the on-screen log.
+  var header = 'decision,item_id,title,kpi,confidence,time,reviewer,reason,clickup_task_url';
+  var rows = decisions.slice().reverse().map(function(e){ return [e.decision, e.item_id || '', e.item || '', e.kpi || '', typeof e.confidence === 'number' ? e.confidence + '%' : (e.kpi_confidence || ''), e.time || '', e.reviewer || '', e.reason || '', e.clickup_task_url || ''].map(csvEscape).join(','); });
+  var csv = header + '\n' + rows.join('\n') + '\n';
+  var filename = currentPack + '-decision-history.csv';
+  download(filename, csv); downloadNote('historyExportStatus', filename);
 };
 document.getElementById('templateBtn').onclick = function(){
   var header = CSV_COLUMNS.join(',');
@@ -1923,7 +2273,15 @@ document.getElementById('syncBtn').onclick = async function(){
 // Escape to cancel the topmost open dialog.
 document.getElementById('editSaveBtn').onclick = function(){
   var field = document.getElementById('editStoryField');
-  closeEditDialog(field ? field.value : '');
+  var critField = document.getElementById('editCriteriaField');
+  closeEditDialog({story: field ? field.value : '', criteria: critField ? critField.value : ''});
+};
+document.getElementById('editResetBtn').onclick = function(){
+  // Refills the criteria field with the generated criteria; the
+  // override is only cleared when the edit is saved, so Cancel still
+  // leaves the item untouched.
+  var critField = document.getElementById('editCriteriaField');
+  if (critField){ critField.value = editDerivedCriteria.join('\n'); critField.focus(); }
 };
 document.getElementById('editCancelBtn').onclick = function(){ closeEditDialog(null); };
 document.getElementById('editDialog').addEventListener('click', function(ev){ if (ev.target === this) closeEditDialog(null); });
