@@ -8,9 +8,10 @@
 // No token or List ID is stored in this file or in the repo. Set them
 // only in environment variables, in Netlify Site settings >
 // Environment variables, or in a local .env file that is never committed.
-// Every call must also send the X-Triage-Secret header matching
-// TRIAGE_SHARED_SECRET (see netlify/functions/lib/auth.mjs); without it
-// the function returns 401 and does nothing.
+// Every call is gated by a site-origin check (see
+// netlify/functions/lib/auth.mjs): the function accepts only requests
+// from triage-copilot.netlify.app, its deploy previews, or localhost.
+// Anything else returns 403 and the function does nothing.
 // ClickUp API: GET https://api.clickup.com/api/v2/list/{list_id}/task
 // Rate limit: 100 requests per minute.
 import { authorize } from './lib/auth.mjs';

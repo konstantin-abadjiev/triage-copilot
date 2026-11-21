@@ -207,25 +207,11 @@ var CLICKUP_TIMEOUT_MS = 30000;
 // Live triage is a long batch job (the function scores in batches of
 // 25), so its fetch timeout is longer than a single ClickUp call.
 var TRIAGE_TIMEOUT_MS = 120000;
-// Shared secret for the Netlify functions. The deploy build replaces
-// __TRIAGE_SHARED_SECRET__ with the real value from the
-// TRIAGE_SHARED_SECRET environment variable (see
-// scripts/build-deploy-zip.sh). The placeholder must never be replaced
-// in this file in the repo, and a real value must never be committed
-// here. Honest limitation: the secret is shipped in this page's
-// JavaScript, so anyone who reads the page source can copy it. It
-// stops casual scans and random bots from spending OpenRouter money or
-// writing to ClickUp; it is a gate, not real authentication.
-var TRIAGE_SHARED_SECRET = '__TRIAGE_SHARED_SECRET__';
-function triageSecretConfigured(){
-  return TRIAGE_SHARED_SECRET && TRIAGE_SHARED_SECRET !== '__TRIAGE_SHARED_SECRET__';
-}
-function functionHeaders(){
-  return { 'Content-Type': 'application/json', 'X-Triage-Secret': TRIAGE_SHARED_SECRET };
-}
-function secretMisconfiguredMessage(){
-  return 'This deploy is misconfigured: the shared secret was not injected, so no function was called. Rebuild the deploy ZIP with TRIAGE_SHARED_SECRET set.';
-}
+// The functions are gated by a site-origin check (see
+// netlify/functions/lib/auth.mjs): the browser sends its Origin header
+// automatically, and the functions accept only requests from this site
+// (or a deploy preview, or localhost for development). The front end
+// sends no secret at all.
 // Deleted item ids, per pack. A deleted item is gone completely: not
 // archived, not counted as a decision, and never resurrected by a
 // re-import or re-sync. Persisted in packStates, reset by Reload Demo.
@@ -1160,10 +1146,6 @@ function liveScoreItem(it, s){
 async function runLiveTriage(){
   // Live runs cost real money, so they always ask first. A cancelled
   // run scores nothing and changes nothing.
-  if (!triageSecretConfigured()){
-    document.getElementById('status').textContent = secretMisconfiguredMessage();
-    return;
-  }
   if (!confirm('This run will call the model and cost real money. Continue?')) return;
   var already = {};
   scored.forEach(function(s){ already[s.id] = true; });
@@ -1176,7 +1158,7 @@ async function runLiveTriage(){
   try {
     var res = await fetchWithTimeout('/.netlify/functions/triage', {
       method: 'POST',
-      headers: functionHeaders(),
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ items: fresh, pack: currentPack })
     }, TRIAGE_TIMEOUT_MS);
     var data = {};
@@ -1185,7 +1167,6 @@ async function runLiveTriage(){
       // A missing key is the expected first-run state, not a silent
       // failure: say exactly what is missing and score nothing.
       var errMsg = (data && data.error) ? data.error : ('Live triage failed with status ' + res.status);
-      if (res.status === 401) errMsg = 'The functions rejected the shared secret. Check TRIAGE_SHARED_SECRET in Netlify environment variables.';
       if (/not configured/i.test(errMsg)) errMsg = 'Live mode needs OPENROUTER_API_KEY set in Netlify. ' + errMsg;
       document.getElementById('status').textContent = errMsg;
       return;
@@ -1284,10 +1265,6 @@ window.editItem = function(i){
   renderBacklog(); renderArchived();
 };
 async function createClickUpTask(s){
-  if (!triageSecretConfigured()){
-    document.getElementById('status').textContent = secretMisconfiguredMessage();
-    return;
-  }
   s.clickup_status = 'creating';
   s.approving = true;
   renderBacklog();
@@ -1296,7 +1273,7 @@ async function createClickUpTask(s){
   try {
     var res = await fetchWithTimeout('/.netlify/functions/clickup', {
       method: 'POST',
-      headers: functionHeaders(),
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ item: s, pack: currentPack, decision: 'approved', reviewer: reviewer, reason: reason })
     });
     var data = {};
@@ -1304,7 +1281,7 @@ async function createClickUpTask(s){
     // A success with no task id is a failure: accepting {ok:true} with
     // no task would archive an approval that created nothing.
     var msg = '';
-    if (!res.ok) msg = res.status === 401 ? 'The functions rejected the shared secret. Check TRIAGE_SHARED_SECRET in Netlify environment variables.' : ((data && data.error) ? data.error : ('ClickUp request failed with status ' + res.status));
+    if (!res.ok) msg = (data && data.error) ? data.error : ('ClickUp request failed with status ' + res.status);
     else if (!data.ok) msg = (data && data.error) ? data.error : 'ClickUp request failed';
     else if (!data.task_id) msg = 'ClickUp reported success but returned no task id';
     if (msg) throw new Error(msg);
@@ -1505,18 +1482,13 @@ document.getElementById('syncBtn').onclick = async function(){
   if (busy) return;
   setBusy(true);
   var statusEl = document.getElementById('status');
-  if (!triageSecretConfigured()){
-    statusEl.textContent = secretMisconfiguredMessage();
-    setBusy(false);
-    return;
-  }
   statusEl.textContent = 'Syncing from ClickUp intake list...';
   try {
-    var res = await fetchWithTimeout('/.netlify/functions/clickup-intake', { headers: functionHeaders() });
+    var res = await fetchWithTimeout('/.netlify/functions/clickup-intake', {});
     var data = {};
     try { data = await res.json(); } catch(e) { data = {}; }
     if (!res.ok || !data.ok){
-      statusEl.textContent = 'ClickUp sync failed: ' + (res.status === 401 ? 'The functions rejected the shared secret. Check TRIAGE_SHARED_SECRET in Netlify environment variables.' : (data.error || ('HTTP ' + res.status)));
+      statusEl.textContent = 'ClickUp sync failed: ' + (data.error || ('HTTP ' + res.status));
       if (document.getElementById('csvError')) document.getElementById('csvError').textContent = data.error || '';
       return;
     }
@@ -1544,7 +1516,7 @@ document.getElementById('syncBtn').onclick = async function(){
         try {
           var closeRes = await fetchWithTimeout('/.netlify/functions/clickup-intake-close', {
             method: 'POST',
-            headers: functionHeaders(),
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ task_ids: batchIds })
           });
           var closeData = {};

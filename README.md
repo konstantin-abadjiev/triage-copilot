@@ -75,39 +75,37 @@ Supabase persistence (saving items, scores, and decisions to a
 database) is a separate later step and is NOT part of this setup. State
 is still session-only: reloading the page wipes it.
 
-## Shared secret (function gate)
+## Site-origin check (function gate)
 
 All four Netlify functions (`clickup.mjs`, `clickup-intake.mjs`,
-`clickup-intake-close.mjs`, `triage.mjs`) require an `X-Triage-Secret`
-header matching the `TRIAGE_SHARED_SECRET` environment variable. A
-missing or wrong secret returns HTTP 401 with `{ok:false,
-error:"Unauthorized"}` and the function does nothing: no ClickUp call,
-no OpenRouter call, no task close. If `TRIAGE_SHARED_SECRET` is not
-set, the function returns 501 and does nothing; a request is never
-accepted when the secret is unset. The comparison is constant-time.
-The secret value is never logged and never appears in an error
-message.
+`clickup-intake-close.mjs`, `triage.mjs`) accept only requests from
+the deployed site: the Origin header (falling back to Referer when
+Origin is absent) must be `https://triage-copilot.netlify.app`, a
+deploy preview (`https://<anything>--triage-copilot.netlify.app`), or
+`http://localhost` / `http://127.0.0.1` for local development. Anything
+else — a wrong origin, or no origin and no referer at all — returns
+HTTP 403 with `{ok:false, error:"Forbidden"}` and the function does
+nothing: no ClickUp call, no OpenRouter call, no task close. The front
+end sends no secret at all; the browser sends its Origin header
+automatically.
 
-The front end sends the header on every function call. In
-`index.html` the secret is only the placeholder string
-`__TRIAGE_SHARED_SECRET__`, replaced with the real value at deploy
-time. If the placeholder is still present at runtime, the front end
-shows "This deploy is misconfigured" and calls no function.
+Deploy the site with the plain build script, no secret involved:
 
-Deploy-time injection (never edit the secret into the starter files):
+```
+./scripts/build-deploy-zip.sh
+```
 
-1. Set `TRIAGE_SHARED_SECRET` in Netlify Site settings >
-   Environment variables, with a long random value.
-2. Build the deploy ZIP with the secret in the environment:
-   `TRIAGE_SHARED_SECRET=<value> ./scripts/build-deploy-zip.sh`
-   The script copies the starter to a throwaway directory, replaces
-   the placeholder in that copy only, and zips it. The starter itself
-   is never modified and no real secret is ever written to the repo.
+The script copies the starter to a throwaway directory and zips it.
+The starter itself is never modified.
 
-Honest limitation: the secret is shipped in client-side JavaScript,
-so anyone who reads the page source can copy it. This gate stops
-casual scans and random bots from spending OpenRouter money or writing
-to ClickUp. It is not real authentication; a login is future work.
+Honest limitation: Origin and Referer headers can be spoofed by a
+determined caller, so this gate stops casual scans and random bots
+from spending OpenRouter money or writing to ClickUp. It is not real
+authentication; a login is future work. The earlier shared-secret
+gate was removed because it baked the secret into index.html at
+deploy time, and Netlify's secrets scan rightly failed that deploy.
+The `TRIAGE_SHARED_SECRET` environment variable is now unused and
+can be deleted from Netlify Site settings > Environment variables.
 
 ## How to run locally
 

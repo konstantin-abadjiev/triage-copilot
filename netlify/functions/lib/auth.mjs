@@ -1,47 +1,54 @@
-// Shared-secret gate for the Triage Netlify functions.
+// Site-origin gate for the Triage Netlify functions.
 // Every function imports authorize() and calls it first, before doing
 // anything else: no ClickUp call, no OpenRouter call, no task close
 // happens on an unauthorized request.
 //
-// The secret is the TRIAGE_SHARED_SECRET Netlify environment variable.
-// The front end sends it as the X-Triage-Secret header; the deploy
-// build injects the real value into index.html at ZIP time (see
-// scripts/build-deploy-zip.sh). The value is never committed, never
-// logged, and never appears in an error message.
+// The gate checks where the request came from, not a secret: it accepts
+// only requests whose Origin header (falling back to Referer when Origin
+// is absent) is the deployed site, triage-copilot.netlify.app, or one of
+// its deploy previews (https://<anything>--triage-copilot.netlify.app).
+// http://localhost and http://127.0.0.1 are also accepted, for local
+// development only. Anything else — a wrong origin, or no origin and no
+// referer at all — is refused with 403 and the function does nothing.
 //
-// Honest limitation: the secret is shipped in client-side JavaScript,
-// so anyone who reads the page source can copy it. This gate stops
-// casual scans and random bots from spending OpenRouter money or
-// writing to ClickUp. It is not real authentication; a login is
-// future work.
-import { createHash, timingSafeEqual } from 'node:crypto';
-
-export const TRIAGE_SECRET_HEADER = 'x-triage-secret';
-
-// Returns null when the request is authorized. Otherwise returns the
-// response object the handler should return verbatim.
+// This replaces the earlier shared-secret gate. That design baked the
+// secret into index.html at deploy time, and Netlify's secrets scan
+// rightly failed the deploy for it: a value shipped in client-side
+// JavaScript is exposed by definition. No secret is used here at all,
+// and no environment variable is read.
+//
+// Honest limitation: Origin and Referer headers can be spoofed by a
+// determined caller, so this gate stops casual scans and random bots
+// from spending OpenRouter money or writing to ClickUp, but it is a
+// gate, not real authentication. A login is future work.
 export function authorize(event) {
-  const expected = process.env.TRIAGE_SHARED_SECRET;
-  if (!expected) {
-    // Never accept a request when no secret is configured: an unset
-    // secret must fail closed, not open.
-    return { statusCode: 501, body: JSON.stringify({ ok: false, error: 'Shared secret is not configured. Set TRIAGE_SHARED_SECRET in Netlify environment variables.' }) };
-  }
   const headers = (event && event.headers) || {};
-  let provided = '';
+  let raw = '';
   for (const key of Object.keys(headers)) {
-    if (key.toLowerCase() === TRIAGE_SECRET_HEADER) {
-      provided = String(headers[key] || '');
-      break;
+    const lower = key.toLowerCase();
+    if (lower === 'origin' || lower === 'referer') {
+      const value = String(headers[key] || '').trim();
+      if (value) { raw = value; break; }
     }
   }
-  // Compare SHA-256 digests with timingSafeEqual, so the comparison
-  // runs in constant time regardless of the secret's length, and a
-  // length difference does not leak through timing.
-  const expectedHash = createHash('sha256').update(expected).digest();
-  const providedHash = createHash('sha256').update(provided).digest();
-  if (!timingSafeEqual(expectedHash, providedHash)) {
-    return { statusCode: 401, body: JSON.stringify({ ok: false, error: 'Unauthorized' }) };
+  if (!raw) {
+    return { statusCode: 403, body: JSON.stringify({ ok: false, error: 'Forbidden' }) };
+  }
+  let url;
+  try {
+    url = new URL(raw);
+  } catch {
+    return { statusCode: 403, body: JSON.stringify({ ok: false, error: 'Forbidden' }) };
+  }
+  const host = url.hostname.toLowerCase();
+  const isSite =
+    url.protocol === 'https:' &&
+    (host === 'triage-copilot.netlify.app' || host.endsWith('--triage-copilot.netlify.app'));
+  const isLocal =
+    (url.protocol === 'http:' || url.protocol === 'https:') &&
+    (host === 'localhost' || host === '127.0.0.1');
+  if (!isSite && !isLocal) {
+    return { statusCode: 403, body: JSON.stringify({ ok: false, error: 'Forbidden' }) };
   }
   return null;
 }

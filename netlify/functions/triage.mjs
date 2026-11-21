@@ -3,9 +3,10 @@
 // token usage, and returns the model's scores plus the real per-token
 // cost. Set OPENROUTER_API_KEY in Netlify environment variables, never
 // in code. No real API key is included in this repo.
-// Every call must also send the X-Triage-Secret header matching
-// TRIAGE_SHARED_SECRET (see netlify/functions/lib/auth.mjs); without it
-// the function returns 401 and does nothing.
+// Every call is gated by a site-origin check (see
+// netlify/functions/lib/auth.mjs): the function accepts only requests
+// from triage-copilot.netlify.app, its deploy previews, or localhost.
+// Anything else returns 403 and the function does nothing.
 //
 // The rule-based Demo scoring lives ONLY in the front end
 // (index.html, scoreItem). It is never a Live response: when the key is

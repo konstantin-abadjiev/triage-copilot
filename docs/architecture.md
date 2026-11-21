@@ -48,19 +48,22 @@ README.md for the steps. Supabase persistence is a separate later step.
 
 ## Back end
 
-- All four functions require an `X-Triage-Secret` header matching
-  `TRIAGE_SHARED_SECRET` (see `netlify/functions/lib/auth.mjs`).
-  Missing or wrong secret: 401, and the function does nothing. Secret
-  unset in the environment: 501, never accepted. The front end sends
-  the header on every call; in `index.html` it is only the placeholder
-  `__TRIAGE_SHARED_SECRET__`, replaced at deploy time by
-  `scripts/build-deploy-zip.sh`. Honest limitation: the secret ships in
-  client-side JavaScript, so anyone reading page source can copy it. It
+- All four functions are gated by a site-origin check (see
+  `netlify/functions/lib/auth.mjs`): the Origin header (falling back
+  to Referer) must be `https://triage-copilot.netlify.app`, a deploy
+  preview (`https://<anything>--triage-copilot.netlify.app`), or
+  localhost for local development. Wrong or missing origin: 403, and
+  the function does nothing. The front end sends no secret. Honest
+  limitation: Origin and Referer headers can be spoofed, so this gate
   stops casual scans and random bots, it is not real authentication.
+  The earlier shared-secret gate was removed because it baked the
+  secret into index.html at deploy time, and Netlify's secrets scan
+  rightly failed that deploy. The `TRIAGE_SHARED_SECRET` environment
+  variable is now unused and can be deleted from Netlify.
 - `netlify/functions/triage.mjs`: Live mode only. Receives unscored items, calls OpenRouter (Claude Sonnet 4), validates the JSON output, and returns structured scores plus real token usage and cost. No API key means `{ok:false}` and no scores, never a rule-based fallback. Runs on Netlify Free: $0, 300 credits a month, enough for a demo.
 - `netlify/functions/clickup.mjs`: receives an approved item, calls the ClickUp API, and returns the ClickUp task id.
 - Alternative host: Railway, from the Lenny Product Pass, for the same functions if you prefer a long-running server.
-- Keys live only in back end environment variables: `TRIAGE_SHARED_SECRET`, `OPENROUTER_API_KEY`, `CLICKUP_API_TOKEN`, `CLICKUP_LIST_ID`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`. Never put a key in the browser, in chat, or in the repo.
+- Keys live only in back end environment variables: `OPENROUTER_API_KEY`, `CLICKUP_API_TOKEN`, `CLICKUP_LIST_ID`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`. Never put a key in the browser, in chat, or in the repo.
 
 ## AI layer
 
